@@ -10,7 +10,7 @@ import NMapsMap
 
 extension HomeViewController {
     // MARK: - 지도 설정
-    private func setNaverMap() {
+    func setNaverMap() {
         viewModel.locationManager.delegate = self
         mapView.addCameraDelegate(delegate: self)
         
