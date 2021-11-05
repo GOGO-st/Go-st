@@ -45,6 +45,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         addContentView()
         setAutoLayout()
         setNaverMap()
+        
         retrieveButton.isHidden = true
         retrieveButton.addTarget(self, action: #selector(retrieveButtonTapped), for: .touchUpInside)
     }
@@ -99,47 +100,13 @@ extension HomeViewController {
         }
     }
     
-    // MARK: - 지도 설정
-    private func setNaverMap() {
-        viewModel.locationManager.delegate = self
-        mapView.addCameraDelegate(delegate: self)
-        viewModel.setCurrentLocation()
-//        let locationOverlay = mapView.locationOverlay
-//        locationOverlay.icon =
-//        locationOverlay.subIcon =
-//        locationOverlay.circleRadius = 0 // 기본 원그림자 없애기
-        
-        move(at: viewModel.currentLocationCoordinate())
-    }
-    // MARK: - 현위치로 이동
-    private func move(at coor: CLLocationCoordinate2D?) {
-        if let coor = coor {
-            let camera = NMFCameraUpdate(scrollTo: NMGLatLng(lat: coor.latitude, lng: coor.longitude))
-            mapView.moveCamera(camera)
-        }
-        
-    }
     
-    private func retrieveButtonIsHidden(_ value: Bool) {
+    // 가게 재검색 뷰 숨기기
+    func retrieveButtonIsHidden(_ value: Bool) {
         retrieveButton.isHidden = value
     }
     
     @objc func retrieveButtonTapped(_ sender: UIButton) {
         retrieveButton.isHidden = true
     }
-}
-extension HomeViewController: NMFMapViewCameraDelegate {
-    
-    func mapViewCameraIdle(_ mapView: NMFMapView) {
-        retrieveButtonIsHidden(false)
-        print("카페 재검색")
-    }
-    
-//    func mapView(_ mapView: NMFMapView, cameraDidChangeByReason reason: Int, animated: Bool) {
-//        retrieveButtonIsHidden(false)
-//    }
-//
-//    func mapView(_ mapView: NMFMapView, cameraIsChangingByReason reason: Int) {
-//        retrieveButtonIsHidden(false)
-//    }
 }
