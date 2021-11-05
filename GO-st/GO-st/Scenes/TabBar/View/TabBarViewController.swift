@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TabBarViewController: UITabBarController {
+final class TabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,3 +43,4 @@ class TabBarViewController: UITabBarController {
         self.setViewControllers(tabs, animated: false)
     }
 }
+

@@ -46,8 +46,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         setAutoLayout()
         setNaverMap()
         
+        goButton.addTarget(self, action: #selector(goButtonDidTap), for: .touchUpInside)
         retrieveButton.isHidden = true
-        retrieveButton.addTarget(self, action: #selector(retrieveButtonTapped), for: .touchUpInside)
+        retrieveButton.addTarget(self, action: #selector(retrieveButtonDidTap), for: .touchUpInside)
     }
     
     
@@ -106,7 +107,14 @@ extension HomeViewController {
         retrieveButton.isHidden = value
     }
     
-    @objc func retrieveButtonTapped(_ sender: UIButton) {
+    @objc func retrieveButtonDidTap(_ sender: UIButton) {
         retrieveButton.isHidden = true
+    }
+    
+    @objc func goButtonDidTap(_ sender: UIButton) {
+        let categoryVC = CategoryViewController()
+        categoryVC.modalPresentationStyle = .overFullScreen
+        categoryVC.modalTransitionStyle = .crossDissolve
+        present(categoryVC, animated: true, completion: nil)
     }
 }
