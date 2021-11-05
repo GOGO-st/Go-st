@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>사용자의 위치를 기반으로 정보를 제공하고 있습니다.</string>
 	<key>NMFClientId</key>
 	<string>z1fyd3bgr6</string>
 	<key>UIApplicationSceneManifest</key>
