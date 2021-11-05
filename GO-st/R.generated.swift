@@ -89,7 +89,7 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 5 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 4 storyboards.
   struct storyboard {
     /// Storyboard `Home`.
     static let home = _R.storyboard.home()
@@ -99,8 +99,6 @@ struct R: Rswift.Validatable {
     static let myPage = _R.storyboard.myPage()
     /// Storyboard `Report`.
     static let report = _R.storyboard.report()
-    /// Storyboard `TabBar`.
-    static let tabBar = _R.storyboard.tabBar()
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "Home", bundle: ...)`
@@ -130,13 +128,6 @@ struct R: Rswift.Validatable {
     }
     #endif
 
-    #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "TabBar", bundle: ...)`
-    static func tabBar(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.tabBar)
-    }
-    #endif
-
     fileprivate init() {}
   }
   #endif
@@ -162,37 +153,6 @@ struct R: Rswift.Validatable {
       return UIKit.UIColor(named: R.color.accentColor.name)
     }
     #endif
-
-    fileprivate init() {}
-  }
-
-  /// This `R.info` struct is generated, and contains static references to 1 properties.
-  struct info {
-    struct uiApplicationSceneManifest {
-      static let _key = "UIApplicationSceneManifest"
-      static let uiApplicationSupportsMultipleScenes = false
-
-      struct uiSceneConfigurations {
-        static let _key = "UISceneConfigurations"
-
-        struct uiWindowSceneSessionRoleApplication {
-          struct defaultConfiguration {
-            static let _key = "Default Configuration"
-            static let uiSceneConfigurationName = infoPlistString(path: ["UIApplicationSceneManifest", "UISceneConfigurations", "UIWindowSceneSessionRoleApplication", "Default Configuration"], key: "UISceneConfigurationName") ?? "Default Configuration"
-            static let uiSceneDelegateClassName = infoPlistString(path: ["UIApplicationSceneManifest", "UISceneConfigurations", "UIWindowSceneSessionRoleApplication", "Default Configuration"], key: "UISceneDelegateClassName") ?? "$(PRODUCT_MODULE_NAME).SceneDelegate"
-            static let uiSceneStoryboardFile = infoPlistString(path: ["UIApplicationSceneManifest", "UISceneConfigurations", "UIWindowSceneSessionRoleApplication", "Default Configuration"], key: "UISceneStoryboardFile") ?? "TabBar"
-
-            fileprivate init() {}
-          }
-
-          fileprivate init() {}
-        }
-
-        fileprivate init() {}
-      }
-
-      fileprivate init() {}
-    }
 
     fileprivate init() {}
   }
@@ -231,9 +191,6 @@ struct _R: Rswift.Validatable {
       #endif
       #if os(iOS) || os(tvOS)
       try report.validate()
-      #endif
-      #if os(iOS) || os(tvOS)
-      try tabBar.validate()
       #endif
     }
 
@@ -313,28 +270,6 @@ struct _R: Rswift.Validatable {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.report().reportViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'reportViewController' could not be loaded from storyboard 'Report' as 'ReportViewController'.") }
-      }
-
-      fileprivate init() {}
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    struct tabBar: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = TabBarController
-
-      let bundle = R.hostingBundle
-      let name = "TabBar"
-      let tabBarController = StoryboardViewControllerResource<TabBarController>(identifier: "TabBarController")
-
-      func tabBarController(_: Void = ()) -> TabBarController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: tabBarController)
-      }
-
-      static func validate() throws {
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
-        if _R.storyboard.tabBar().tabBarController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tabBarController' could not be loaded from storyboard 'TabBar' as 'TabBarController'.") }
       }
 
       fileprivate init() {}
