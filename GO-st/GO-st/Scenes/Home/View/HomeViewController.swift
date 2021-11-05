@@ -19,19 +19,25 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     let mapView = NMFMapView()
     
     // 가보자고
-    let goView = UIView().then {
+    private let goView = UIView().then {
         $0.backgroundColor = .systemIndigo
     }
     
-    let goLabel = UILabel().then {
+    private let goLabel = UILabel().then {
         $0.text = "어디 한 번 가보자고"
     }
     
-    let goButton = UIButton().then {
+    private let goButton = UIButton().then {
         $0.backgroundColor = .clear
     }
     
-    
+    // 가게 재검색
+    private let retrieveButton = UIButton().then {
+        $0.backgroundColor = .darkGray
+        $0.setTitle("현재 지도에서 가게 재검색", for: .normal)
+        $0.setTitleColor(.white, for: .normal)
+        $0.isHidden = true
+    }
     
     
     override func viewDidLoad() {
@@ -39,6 +45,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         addContentView()
         setAutoLayout()
         setNaverMap()
+        retrieveButton.isHidden = true
+        retrieveButton.addTarget(self, action: #selector(retrieveButtonTapped), for: .touchUpInside)
     }
     
     
@@ -55,6 +63,9 @@ extension HomeViewController {
         view.addSubview(goView)
         goView.addSubview(goLabel)
         goView.addSubview(goButton)
+        
+        // 가게 재검색
+        view.addSubview(retrieveButton)
     }
     
     private func setAutoLayout() {
@@ -79,11 +90,19 @@ extension HomeViewController {
         goButton.snp.makeConstraints {
             $0.top.left.right.bottom.equalTo(goView)
         }
+        
+        // 가게 재검색
+        retrieveButton.snp.makeConstraints {
+            $0.top.equalTo(goView.snp.bottom).offset(10)
+            $0.centerX.equalTo(safeArea)
+            $0.width.equalTo(100)
+        }
     }
     
     // MARK: - 지도 설정
     private func setNaverMap() {
         viewModel.locationManager.delegate = self
+        mapView.addCameraDelegate(delegate: self)
         viewModel.setCurrentLocation()
 //        let locationOverlay = mapView.locationOverlay
 //        locationOverlay.icon =
@@ -100,4 +119,27 @@ extension HomeViewController {
         }
         
     }
+    
+    private func retrieveButtonIsHidden(_ value: Bool) {
+        retrieveButton.isHidden = value
+    }
+    
+    @objc func retrieveButtonTapped(_ sender: UIButton) {
+        retrieveButton.isHidden = true
+    }
+}
+extension HomeViewController: NMFMapViewCameraDelegate {
+    
+    func mapViewCameraIdle(_ mapView: NMFMapView) {
+        retrieveButtonIsHidden(false)
+        print("카페 재검색")
+    }
+    
+//    func mapView(_ mapView: NMFMapView, cameraDidChangeByReason reason: Int, animated: Bool) {
+//        retrieveButtonIsHidden(false)
+//    }
+//
+//    func mapView(_ mapView: NMFMapView, cameraIsChangingByReason reason: Int) {
+//        retrieveButtonIsHidden(false)
+//    }
 }
