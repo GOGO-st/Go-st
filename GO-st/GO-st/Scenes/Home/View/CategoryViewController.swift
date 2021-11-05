@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class CategoryViewController: UIViewController {
     
@@ -13,5 +14,17 @@ class CategoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.addSubview(categoryView)
+        
+        categoryView.snp.makeConstraints {
+            $0.top.left.right.bottom.equalToSuperview()
+        }
+        
+        self.categoryView.backButton.addTarget(self, action: #selector(backButtonDidTap), for: .touchUpInside)
+    }
+    
+    @objc private func backButtonDidTap(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

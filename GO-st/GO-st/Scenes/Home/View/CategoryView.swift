@@ -9,10 +9,15 @@ import UIKit
 import Then
 import SnapKit
 
-class CategoryView: UIView {
+final class CategoryView: UIView {
     
-    let goLabel = UILabel().then {
+    private let goLabel = UILabel().then {
         $0.text = "어디 한 번 가보자고"
+    }
+    
+    let backButton = UIButton().then {
+        $0.setTitle("엑스", for: .normal)
+        $0.setTitleColor(.black, for: .normal)
     }
     
     private let WIDTH: CGFloat = UIScreen.main.bounds.width
@@ -25,10 +30,13 @@ class CategoryView: UIView {
         self.backgroundColor = .white
         self.addContentView()
         self.setAutoLayout()
+        
+        
     }
     
     private func addContentView() {
         self.addSubview(goLabel)
+        self.addSubview(backButton)
     }
     
     private func setAutoLayout() {
@@ -37,8 +45,15 @@ class CategoryView: UIView {
             $0.height.equalTo(self.HEIGHT)
         }
         goLabel.snp.makeConstraints {
-            $0.top.equalTo(self.snp.top).offset(30)
+            $0.top.equalTo(self.snp.top).offset(80)
             $0.centerX.equalTo(self)
         }
+        
+        backButton.snp.makeConstraints {
+            $0.top.equalTo(self.snp.top).offset(80)
+            $0.left.equalToSuperview().offset(20)
+        }
     }
+    
+    
 }
