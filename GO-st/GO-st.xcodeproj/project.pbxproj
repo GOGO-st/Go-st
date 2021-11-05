@@ -63,15 +63,95 @@
 		6B3ECC242734E18200177F9F /* GO-st */ = {
 			isa = PBXGroup;
 			children = (
-				6B3ECC252734E18200177F9F /* AppDelegate.swift */,
-				6B3ECC272734E18200177F9F /* SceneDelegate.swift */,
+				6B3ECC392734E60F00177F9F /* Global */,
+				6B3ECC3A2734E61900177F9F /* Scenes */,
 				6B3ECC292734E18200177F9F /* ViewController.swift */,
 				6B3ECC2B2734E18200177F9F /* Main.storyboard */,
-				6B3ECC2E2734E18900177F9F /* Assets.xcassets */,
-				6B3ECC302734E18900177F9F /* LaunchScreen.storyboard */,
-				6B3ECC332734E18900177F9F /* Info.plist */,
 			);
 			path = "GO-st";
+			sourceTree = "<group>";
+		};
+		6B3ECC392734E60F00177F9F /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				6B3ECC3D2734E66A00177F9F /* Delegates */,
+				6B3ECC3C2734E64C00177F9F /* Resources */,
+				6B3ECC3B2734E63300177F9F /* Supporting Files */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		6B3ECC3A2734E61900177F9F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				6B3ECC3F2734E69200177F9F /* Home */,
+				6B3ECC3E2734E67F00177F9F /* TabBar */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		6B3ECC3B2734E63300177F9F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6B3ECC332734E18900177F9F /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6B3ECC3C2734E64C00177F9F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6B3ECC2E2734E18900177F9F /* Assets.xcassets */,
+				6B3ECC302734E18900177F9F /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6B3ECC3D2734E66A00177F9F /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				6B3ECC252734E18200177F9F /* AppDelegate.swift */,
+				6B3ECC272734E18200177F9F /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		6B3ECC3E2734E67F00177F9F /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		6B3ECC3F2734E69200177F9F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				6B3ECC402734E6DE00177F9F /* Model */,
+				6B3ECC422734E6EC00177F9F /* ViewModel */,
+				6B3ECC412734E6E400177F9F /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		6B3ECC402734E6DE00177F9F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6B3ECC412734E6E400177F9F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6B3ECC422734E6EC00177F9F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		6E904F09D2EC5D3F30B3CF9B /* Frameworks */ = {
@@ -88,7 +168,6 @@
 				3B063F9DBE4F71D4E4848ABE /* Pods-GO-st.debug.xcconfig */,
 				5ACCFD20F63FE7B2CAF57F44 /* Pods-GO-st.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
