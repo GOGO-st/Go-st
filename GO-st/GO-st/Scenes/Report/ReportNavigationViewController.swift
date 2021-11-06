@@ -15,6 +15,6 @@ class ReportNavigationViewController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.pushViewController(ReportViewController(), animated: true)
+        self.pushViewController(ReportStartViewController(), animated: true)
     }
 }
