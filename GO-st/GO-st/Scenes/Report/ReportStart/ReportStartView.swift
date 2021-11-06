@@ -11,9 +11,16 @@ import SnapKit
 
 final class ReportStartView: UIView {
     
-    let testLabel = UILabel().then {
-        $0.text = "ReportViewController"
+    private let fixLabel = UILabel().then {
+        $0.text = "내가 갔던 장소는 바로 여기!"
     }
+    
+    // 나중에 검색뷰 다른 곳에도 생기면 분리하기
+    private let searchTextField = UITextField().then {
+        $0.placeholder = "장소를 입력해주세요"
+    }
+    
+    
     
     let testButton = UIButton().then {
         $0.backgroundColor = .blue
@@ -35,9 +42,9 @@ final class ReportStartView: UIView {
     }
     
     private func addContentView() {
-        self.addSubview(testLabel)
+        self.addSubview(fixLabel)
         self.addSubview(testButton)
-        
+        self.addSubview(searchTextField)
     }
     
     private func setAutoLayout() {
@@ -46,12 +53,24 @@ final class ReportStartView: UIView {
             $0.width.equalTo(self.WIDTH)
             $0.height.equalTo(self.HEIGHT)
         }
-        testLabel.snp.makeConstraints {
-            $0.center.equalToSuperview()
+        // 내가 갔던
+        fixLabel.snp.makeConstraints {
+            $0.top.left.equalTo(self).offset(20)
         }
+        // 검색창
+        searchTextField.snp.makeConstraints {
+            $0.top.equalTo(fixLabel.snp.bottom).offset(10)
+            $0.left.equalTo(self).offset(20)
+            $0.right.equalTo(self).offset(-20)
+        }
+        
+        
+        
+        
         testButton.snp.makeConstraints {
-            $0.top.equalTo(testLabel.snp.bottom).offset(20)
+            $0.top.equalTo(fixLabel.snp.bottom).offset(90)
             $0.centerX.equalToSuperview()
         }
+        
     }
 }
