@@ -89,14 +89,12 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 2 storyboards.
   struct storyboard {
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `MyPage`.
     static let myPage = _R.storyboard.myPage()
-    /// Storyboard `Report`.
-    static let report = _R.storyboard.report()
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
@@ -109,13 +107,6 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "MyPage", bundle: ...)`
     static func myPage(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.myPage)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "Report", bundle: ...)`
-    static func report(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.report)
     }
     #endif
 
@@ -177,9 +168,6 @@ struct _R: Rswift.Validatable {
       #if os(iOS) || os(tvOS)
       try myPage.validate()
       #endif
-      #if os(iOS) || os(tvOS)
-      try report.validate()
-      #endif
     }
 
     #if os(iOS) || os(tvOS)
@@ -214,28 +202,6 @@ struct _R: Rswift.Validatable {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.myPage().myPageViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'myPageViewController' could not be loaded from storyboard 'MyPage' as 'MyPageViewController'.") }
-      }
-
-      fileprivate init() {}
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    struct report: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = ReportViewController
-
-      let bundle = R.hostingBundle
-      let name = "Report"
-      let reportViewController = StoryboardViewControllerResource<ReportViewController>(identifier: "ReportViewController")
-
-      func reportViewController(_: Void = ()) -> ReportViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: reportViewController)
-      }
-
-      static func validate() throws {
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
-        if _R.storyboard.report().reportViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'reportViewController' could not be loaded from storyboard 'Report' as 'ReportViewController'.") }
       }
 
       fileprivate init() {}
