@@ -28,6 +28,7 @@ final class ReportStartViewController: UIViewController, UITextFieldDelegate {
         
         self.reportStartView.searchTextField.delegate = self
         self.reportStartView.testButton.addTarget(self, action: #selector(testButtonDidTap), for: .touchUpInside)
+        self.goToMapView.goToTheMapButton.addTarget(self, action: #selector(goToTheMapButtonDidTap), for: .touchUpInside)
         
         self.tabBarHeight = self.tabBarController?.tabBar.frame.size.height ?? 0
         
@@ -62,6 +63,11 @@ final class ReportStartViewController: UIViewController, UITextFieldDelegate {
     }
     @objc func testButtonDidTap() {
         self.navigationController?.pushViewController(ReportResultViewController(), animated: true)
+    }
+    
+    // 지도에서 찾을래요
+    @objc func goToTheMapButtonDidTap() {
+        self.navigationController?.pushViewController(SearchOnTheMapViewController(), animated: true)
     }
     
     // keyboard 올라오면 goToMapView y 위치 바꾸기
