@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import Then
-import SnapKit
 
 class ReportNavigationViewController: UINavigationController {
 
@@ -15,6 +13,7 @@ class ReportNavigationViewController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.pushViewController(ReportStartViewController(), animated: true)
     }
 }

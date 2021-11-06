@@ -27,6 +27,7 @@ final class ReportStartView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.addContentView()
+        self.setAutoLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -36,6 +37,10 @@ final class ReportStartView: UIView {
     private func addContentView() {
         self.addSubview(testLabel)
         self.addSubview(testButton)
+        
+    }
+    
+    private func setAutoLayout() {
         
         self.snp.makeConstraints {
             $0.width.equalTo(self.WIDTH)

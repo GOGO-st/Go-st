@@ -27,6 +27,7 @@
 		6B3ECC7D27366DEC00177F9F /* ReportNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC7C27366DEC00177F9F /* ReportNavigationViewController.swift */; };
 		6B3ECC7F273675CE00177F9F /* ReportStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC7E273675CE00177F9F /* ReportStartView.swift */; };
 		6B3ECC812736778700177F9F /* ReportResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC802736778700177F9F /* ReportResultViewController.swift */; };
+		6B3ECC8627368C0000177F9F /* NavigationTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC8527368C0000177F9F /* NavigationTitleView.swift */; };
 		BC8BECCFB8985C1C46CC67AC /* Pods_GO_st.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22193B3D1D75D0B95E6F059 /* Pods_GO_st.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		6B3ECC7C27366DEC00177F9F /* ReportNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportNavigationViewController.swift; sourceTree = "<group>"; };
 		6B3ECC7E273675CE00177F9F /* ReportStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportStartView.swift; sourceTree = "<group>"; };
 		6B3ECC802736778700177F9F /* ReportResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportResultViewController.swift; sourceTree = "<group>"; };
+		6B3ECC8527368C0000177F9F /* NavigationTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTitleView.swift; sourceTree = "<group>"; };
 		D22193B3D1D75D0B95E6F059 /* Pods_GO_st.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GO_st.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -200,10 +202,9 @@
 		6B3ECC5127350B4200177F9F /* Report */ = {
 			isa = PBXGroup;
 			children = (
-				6B3ECC7E273675CE00177F9F /* ReportStartView.swift */,
-				6B3ECC5927350BA000177F9F /* ReportStartViewController.swift */,
-				6B3ECC7C27366DEC00177F9F /* ReportNavigationViewController.swift */,
-				6B3ECC802736778700177F9F /* ReportResultViewController.swift */,
+				6B3ECC8227368A8800177F9F /* ReportStart */,
+				6B3ECC8427368BE100177F9F /* ReportNavigation */,
+				6B3ECC8327368B0800177F9F /* ReportResult */,
 			);
 			path = Report;
 			sourceTree = "<group>";
@@ -322,6 +323,32 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		6B3ECC8227368A8800177F9F /* ReportStart */ = {
+			isa = PBXGroup;
+			children = (
+				6B3ECC7E273675CE00177F9F /* ReportStartView.swift */,
+				6B3ECC5927350BA000177F9F /* ReportStartViewController.swift */,
+			);
+			path = ReportStart;
+			sourceTree = "<group>";
+		};
+		6B3ECC8327368B0800177F9F /* ReportResult */ = {
+			isa = PBXGroup;
+			children = (
+				6B3ECC802736778700177F9F /* ReportResultViewController.swift */,
+			);
+			path = ReportResult;
+			sourceTree = "<group>";
+		};
+		6B3ECC8427368BE100177F9F /* ReportNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				6B3ECC7C27366DEC00177F9F /* ReportNavigationViewController.swift */,
+				6B3ECC8527368C0000177F9F /* NavigationTitleView.swift */,
+			);
+			path = ReportNavigation;
 			sourceTree = "<group>";
 		};
 		6E904F09D2EC5D3F30B3CF9B /* Frameworks */ = {
@@ -491,6 +518,7 @@
 				6B3ECC662735436500177F9F /* HomeViewController+NaverMap.swift in Sources */,
 				6B3ECC282734E18200177F9F /* SceneDelegate.swift in Sources */,
 				6B3ECC502735084100177F9F /* TabBarViewController.swift in Sources */,
+				6B3ECC8627368C0000177F9F /* NavigationTitleView.swift in Sources */,
 				6B3ECC472734E8D400177F9F /* R.generated.swift in Sources */,
 				6B3ECC5A27350BA000177F9F /* ReportStartViewController.swift in Sources */,
 			);
