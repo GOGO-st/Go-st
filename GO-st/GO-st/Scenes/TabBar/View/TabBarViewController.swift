@@ -21,10 +21,12 @@ final class TabBarViewController: UITabBarController {
         let firstTab = HomeViewController()
         
         // Report
-        let report = UIStoryboard.init(name: "Report", bundle:nil)
-        guard let secondTab = report.instantiateViewController(identifier: ReportViewController.identifier) as? ReportViewController else {
-            return
-        }
+//        let report = UIStoryboard.init(name: "Report", bundle:nil)
+//        guard let secondTab = report.instantiateViewController(identifier: ReportNavigationViewController.identifier) as? ReportNavigationViewController else {
+//            return
+//        }
+        
+        let secondTab = ReportNavigationViewController()
         // MyPage
         let myPage = UIStoryboard.init(name: "MyPage", bundle: nil)
         guard let thirdTab = myPage.instantiateViewController(identifier: MyPageViewController.identifier) as? MyPageViewController else {
