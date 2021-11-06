@@ -45,6 +45,10 @@ final class HomeViewController: UIViewController, CLLocationManagerDelegate {
         $0.setTitle("마커임", for: .normal)
     }
     
+    // 가게 정보 뷰
+    private let storeInfoView = StoreInfoCardViewController().then {
+        $0.storeInfoView.isHidden = true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +82,9 @@ extension HomeViewController {
         
         // 마커 테스트 버튼
         view.addSubview(testButton)
+        
+        // 가게 정보
+        view.addSubview(storeInfoView.storeInfoView)
     }
     
     private func setAutoLayout() {
@@ -112,9 +119,17 @@ extension HomeViewController {
         
         // 마커 테스트 버튼
         testButton.snp.makeConstraints {
-            $0.right.bottom.equalTo(safeArea).offset(-100)
+            $0.right.bottom.equalTo(safeArea).offset(-140)
             $0.width.equalTo(50)
         }
+        
+        // 가게 정보 뷰
+        storeInfoView.storeInfoView.snp.makeConstraints {
+            $0.bottom.equalTo(safeArea).offset(-10)
+            $0.centerX.equalTo(safeArea)
+            $0.width.equalTo(300) // 그냥 해놓은겨
+        }
+        
     }
     
     
@@ -127,6 +142,7 @@ extension HomeViewController {
         retrieveButton.isHidden = true
     }
     
+    // 카테고리 뷰 버튼
     @objc func goButtonDidTap(_ sender: UIButton) {
         let categoryVC = CategoryViewController()
         categoryVC.modalPresentationStyle = .overFullScreen
@@ -134,7 +150,8 @@ extension HomeViewController {
         present(categoryVC, animated: true, completion: nil)
     }
     
+    // 마커 테스트 버튼
     @objc func testButtonDidTap(_ sender: UIButton) {
-        
+        self.storeInfoView.storeInfoView.isHidden = false
     }
 }
