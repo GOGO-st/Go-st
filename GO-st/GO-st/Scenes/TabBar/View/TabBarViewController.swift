@@ -18,10 +18,8 @@ final class TabBarViewController: UITabBarController {
         self.tabBar.tintColor = UIColor.black
         
         // Home
-        let home = UIStoryboard.init(name: "Home", bundle: nil)
-        guard let firstTab = home.instantiateViewController(identifier: HomeViewController.identifier) as? HomeViewController else {
-            return
-        }
+        let firstTab = HomeViewController()
+        
         // Report
         let report = UIStoryboard.init(name: "Report", bundle:nil)
         guard let secondTab = report.instantiateViewController(identifier: ReportViewController.identifier) as? ReportViewController else {
