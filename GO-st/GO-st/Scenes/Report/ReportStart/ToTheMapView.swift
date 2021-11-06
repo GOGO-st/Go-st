@@ -54,4 +54,8 @@ final class ToTheMapView: UIView {
             $0.right.equalTo(self).offset(-10)
         }
     }
+    
+    func setFrame(_ y: CGFloat) {
+        self.frame.origin.y = y
+    }
 }

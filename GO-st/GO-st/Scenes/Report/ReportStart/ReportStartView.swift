@@ -16,7 +16,7 @@ final class ReportStartView: UIView {
     }
     
     // 나중에 검색뷰 다른 곳에도 생기면 분리하기
-    private let searchTextField = UITextField().then {
+    let searchTextField = UITextField().then {
         $0.placeholder = "장소를 입력해주세요"
     }
     
