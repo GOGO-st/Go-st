@@ -15,7 +15,7 @@ final class ReportStartViewController: UIViewController {
     
     private let reportStartView = ReportStartView()
     private let titleView = NavigationTitleView()
-    
+    private let goToMapView = ToTheMapView()
     
     
     override func viewDidLoad() {
@@ -31,7 +31,7 @@ final class ReportStartViewController: UIViewController {
     private func addContentView() {
         view.addSubview(titleView)
         view.addSubview(reportStartView)
-        
+        view.addSubview(goToMapView)
     }
     
     private func setAutoLayout() {
@@ -43,6 +43,10 @@ final class ReportStartViewController: UIViewController {
         // 전체 뷰
         reportStartView.snp.makeConstraints {
             $0.top.equalTo(titleView.snp.bottom)
+            $0.left.right.bottom.equalTo(safeArea)
+        }
+        // 찾는 장소가 안보여요
+        goToMapView.snp.makeConstraints {
             $0.left.right.bottom.equalTo(safeArea)
         }
     }
