@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class CategoryViewController: UIViewController {
+final class CategoryViewController: UIViewController {
     
     let categoryView = CategoryView()
     

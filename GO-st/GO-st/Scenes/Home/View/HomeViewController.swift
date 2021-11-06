@@ -10,7 +10,7 @@ import NMapsMap
 import Then
 import SnapKit
 
-class HomeViewController: UIViewController, CLLocationManagerDelegate {
+final class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     static let identifier = "HomeViewController"
     let viewModel = HomeViewModel()
@@ -39,6 +39,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         $0.isHidden = true
     }
     
+    // 마커 테스트 버튼
+    private let testButton = UIButton().then {
+        $0.backgroundColor = .red
+        $0.setTitle("마커임", for: .normal)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +55,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         goButton.addTarget(self, action: #selector(goButtonDidTap), for: .touchUpInside)
         retrieveButton.isHidden = true
         retrieveButton.addTarget(self, action: #selector(retrieveButtonDidTap), for: .touchUpInside)
+        testButton.addTarget(self, action: #selector(testButtonDidTap), for: .touchUpInside)
     }
     
     
@@ -68,6 +75,9 @@ extension HomeViewController {
         
         // 가게 재검색
         view.addSubview(retrieveButton)
+        
+        // 마커 테스트 버튼
+        view.addSubview(testButton)
     }
     
     private func setAutoLayout() {
@@ -99,6 +109,12 @@ extension HomeViewController {
             $0.centerX.equalTo(safeArea)
             $0.width.equalTo(100)
         }
+        
+        // 마커 테스트 버튼
+        testButton.snp.makeConstraints {
+            $0.right.bottom.equalTo(safeArea).offset(-100)
+            $0.width.equalTo(50)
+        }
     }
     
     
@@ -116,5 +132,9 @@ extension HomeViewController {
         categoryVC.modalPresentationStyle = .overFullScreen
         categoryVC.modalTransitionStyle = .crossDissolve
         present(categoryVC, animated: true, completion: nil)
+    }
+    
+    @objc func testButtonDidTap(_ sender: UIButton) {
+        
     }
 }
