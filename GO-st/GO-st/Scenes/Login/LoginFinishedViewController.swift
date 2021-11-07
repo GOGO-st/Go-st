@@ -1,5 +1,5 @@
 //
-//  LoginNumberViewController.swift
+//  LoginFinishedViewController.swift
 //  GO-st
 //
 //  Created by ✨EUGENE✨ on 2021/11/07.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class LoginNumberViewController: UIViewController {
+final class LoginFinishedViewController: UIViewController {
     
-    static let identifier = "LoginNumberViewController"
+    static let identifier = "LoginFinishedViewController"
     
     let titleView = NavigationTitleView()
     let loginNumberView = LoginNumberView()

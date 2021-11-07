@@ -11,26 +11,18 @@ import SnapKit
 
 final class LoginNumberView: UIView {
     
-    private let helloLabel = UILabel().then {
-        $0.text = "👀\n\n환영합니다"
-        $0.textAlignment = .center
-        $0.textColor = .white
-        $0.font = .boldSystemFont(ofSize: 16)
-        $0.numberOfLines = 3
+    
+    private let stepBar = UIView().then {
+        $0.backgroundColor = .orange
     }
     
+    // 나중에 NSAttribute로 이메일만 굵기 변경
     private let descriptionLabel = UILabel().then {
-        $0.text = "입력한 이메일은 인증 과정에서만 사용해요"
+        $0.text = "(이메일)로\n발송된 번호를 입력해주세요"
         $0.textAlignment = .center
         $0.textColor = .white
         $0.font = .systemFont(ofSize: 12)
-    }
-    
-    // 이메일 적으면 이미지 갈아끼우기
-//    let backgroundImage
-    
-    let emailTextField = UITextField().then {
-        $0.placeholder = "학교 이메일을 적어주세요"
+        $0.numberOfLines = 2
     }
     
     let finishedButton = UIButton().then {
@@ -56,9 +48,8 @@ final class LoginNumberView: UIView {
     }
     
     private func addContentView() {
-        self.addSubview(helloLabel)
+        self.addSubview(stepBar)
         self.addSubview(descriptionLabel)
-        self.addSubview(emailTextField)
         self.addSubview(finishedButton)
     }
     
@@ -68,16 +59,14 @@ final class LoginNumberView: UIView {
             $0.width.equalTo(self.WIDTH)
             $0.height.equalTo(self.HEIGHT)
         }
-        helloLabel.snp.makeConstraints {
-            $0.top.equalTo(self).offset(70)
-            $0.centerX.equalToSuperview()
+        stepBar.snp.makeConstraints {
+            $0.top.left.equalTo(self)
+            $0.width.equalTo(self.WIDTH / 3 * 2)
+            $0.height.equalTo(3)
         }
+        
         descriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(helloLabel.snp.bottom).offset(8)
-            $0.centerX.equalToSuperview()
-        }
-        emailTextField.snp.makeConstraints {
-            $0.top.equalTo(descriptionLabel.snp.bottom).offset(20)
+            $0.top.equalTo(self).offset(100)
             $0.centerX.equalToSuperview()
         }
         finishedButton.snp.makeConstraints {

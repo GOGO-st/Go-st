@@ -9,6 +9,7 @@ import UIKit
 import Then
 import SnapKit
 
+// 나중에 로그인 뷰 상위 클래스 만들어서 상속하기
 final class LoginEmailView: UIView {
     
     private let stepBar = UIView().then {
@@ -77,7 +78,7 @@ final class LoginEmailView: UIView {
         stepBar.snp.makeConstraints {
             $0.top.left.equalTo(self)
             $0.width.equalTo(self.WIDTH / 3)
-            $0.height.equalTo(5)
+            $0.height.equalTo(3)
         }
         helloLabel.snp.makeConstraints {
             $0.top.equalTo(self).offset(70)
