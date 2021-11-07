@@ -1,5 +1,5 @@
 //
-//  LoginNumberViewController.swift
+//  SignUpOTPViewController.swift
 //  GO-st
 //
 //  Created by ✨EUGENE✨ on 2021/11/07.
@@ -7,12 +7,12 @@
 
 import UIKit
 
-final class LoginNumberViewController: UIViewController {
+final class SignUpOTPViewController: UIViewController {
     
-    static let identifier = "LoginNumberViewController"
+    static let identifier = "SignUpOTPViewController"
     
     let titleView = NavigationTitleView()
-    let loginNumberView = LoginNumberView()
+    let loginNumberView = SignUpOTPView()
     
     
     
@@ -48,6 +48,6 @@ final class LoginNumberViewController: UIViewController {
     }
     
     @objc private func finishedButtonDidTap() {
-        self.navigationController?.pushViewController(LoginFinishedViewController(), animated: false)
+        self.navigationController?.pushViewController(SignUpFinishedViewController(), animated: false)
     }
 }

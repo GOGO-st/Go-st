@@ -1,5 +1,5 @@
 //
-//  LoginView.swift
+//  SignInUpView.swift
 //  GO-st
 //
 //  Created by ✨EUGENE✨ on 2021/11/07.
@@ -9,8 +9,8 @@ import UIKit
 import Then
 import SnapKit
 
-// 나중에 로그인 뷰 상위 클래스 만들어서 상속하기
-class LoginView: UIView {
+// 로그인 / 회원가입 뷰 상위 클래스
+class SignInUpView: UIView {
 
     // 회색 바
     private let baseBar = UIView().then {

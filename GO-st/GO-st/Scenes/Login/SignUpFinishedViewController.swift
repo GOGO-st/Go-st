@@ -1,20 +1,18 @@
 //
-//  LoginEmailViewController.swift
+//  SignUpFinishedViewController.swift
 //  GO-st
 //
 //  Created by ✨EUGENE✨ on 2021/11/07.
 //
 
 import UIKit
-import Then
-import SnapKit
 
-class LoginEmailViewController: UIViewController {
-
-    static let identifier = "LoginEmailViewController"
+final class SignUpFinishedViewController: UIViewController {
+    
+    static let identifier = "SignUpFinishedViewController"
     
     let titleView = NavigationTitleView()
-    let emailView = LoginEmailView()
+    let loginFinishedView = SignUpFinishedView()
     
     
     
@@ -23,12 +21,12 @@ class LoginEmailViewController: UIViewController {
         self.addContentView()
         self.setAutoLayout()
         self.setNavigationTitleView()
-        emailView.nextButton.addTarget(self, action: #selector(finishedButtonDidTap), for: .touchUpInside)
+//        loginNumberView.nextButton.addTarget(self, action: #selector(finishedButtonDidTap), for: .touchUpInside)
     }
     
     private func addContentView() {
         view.addSubview(titleView)
-        view.addSubview(emailView)
+        view.addSubview(loginFinishedView)
     }
     
     private func setAutoLayout() {
@@ -38,7 +36,7 @@ class LoginEmailViewController: UIViewController {
         titleView.snp.makeConstraints {
             $0.top.left.right.equalTo(safeArea)
         }
-        emailView.snp.makeConstraints {
+        loginFinishedView.snp.makeConstraints {
             $0.top.equalTo(titleView.snp.bottom)
             $0.left.right.bottom.equalToSuperview()//(safeArea) // 일단 일케
         }
@@ -50,6 +48,6 @@ class LoginEmailViewController: UIViewController {
     }
     
     @objc private func finishedButtonDidTap() {
-        self.navigationController?.pushViewController(LoginNumberViewController(), animated: false)
+//        self.navigationController?.pushViewController(LoginFinishedViewController(), animated: false)
     }
 }
