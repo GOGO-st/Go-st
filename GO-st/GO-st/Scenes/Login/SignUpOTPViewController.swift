@@ -12,7 +12,7 @@ final class SignUpOTPViewController: UIViewController {
     static let identifier = "SignUpOTPViewController"
     
     let titleView = NavigationTitleView()
-    let loginNumberView = SignUpOTPView()
+    let signUpOTPView = SignUpOTPView()
     
     
     
@@ -21,12 +21,12 @@ final class SignUpOTPViewController: UIViewController {
         self.addContentView()
         self.setAutoLayout()
         self.setNavigationTitleView()
-        loginNumberView.nextButton.addTarget(self, action: #selector(finishedButtonDidTap), for: .touchUpInside)
+        signUpOTPView.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
     }
     
     private func addContentView() {
         view.addSubview(titleView)
-        view.addSubview(loginNumberView)
+        view.addSubview(signUpOTPView)
     }
     
     private func setAutoLayout() {
@@ -36,7 +36,7 @@ final class SignUpOTPViewController: UIViewController {
         titleView.snp.makeConstraints {
             $0.top.left.right.equalTo(safeArea)
         }
-        loginNumberView.snp.makeConstraints {
+        signUpOTPView.snp.makeConstraints {
             $0.top.equalTo(titleView.snp.bottom)
             $0.left.right.bottom.equalToSuperview()//(safeArea) // 일단 일케
         }
@@ -47,7 +47,7 @@ final class SignUpOTPViewController: UIViewController {
         titleView.setBackgroundColor(.black)
     }
     
-    @objc private func finishedButtonDidTap() {
-        self.navigationController?.pushViewController(SignUpFinishedViewController(), animated: false)
+    @objc private func nextButtonDidTap() {
+        self.navigationController?.pushViewController(SignUpPasswordViewController(), animated: false)
     }
 }

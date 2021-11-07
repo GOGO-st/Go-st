@@ -6,48 +6,55 @@
 //
 
 import UIKit
+import Then
+import SnapKit
 
 final class SignUpFinishedViewController: UIViewController {
     
     static let identifier = "SignUpFinishedViewController"
     
-    let titleView = NavigationTitleView()
-    let loginFinishedView = SignUpFinishedView()
+    private let descriptionLabel = UILabel().then {
+        $0.text = "회원가입 완료!"
+        $0.textColor = .white
+        $0.font = .boldSystemFont(ofSize: 20)
+    }
     
-    
+    private let nextButton = UIButton().then {
+        $0.backgroundColor = .orange
+        $0.setTitle("만나러가기", for: .normal)
+        $0.tintColor = .black
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .black
+        
         self.addContentView()
         self.setAutoLayout()
-        self.setNavigationTitleView()
-//        loginNumberView.nextButton.addTarget(self, action: #selector(finishedButtonDidTap), for: .touchUpInside)
+        self.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
     }
     
     private func addContentView() {
-        view.addSubview(titleView)
-        view.addSubview(loginFinishedView)
+        view.addSubview(descriptionLabel)
+        view.addSubview(nextButton)
     }
     
     private func setAutoLayout() {
         
         let safeArea = view.safeAreaLayoutGuide
         
-        titleView.snp.makeConstraints {
-            $0.top.left.right.equalTo(safeArea)
+        descriptionLabel.snp.makeConstraints {
+            $0.center.equalTo(safeArea)
         }
-        loginFinishedView.snp.makeConstraints {
-            $0.top.equalTo(titleView.snp.bottom)
-            $0.left.right.bottom.equalToSuperview()//(safeArea) // 일단 일케
+        nextButton.snp.makeConstraints {
+            $0.left.equalTo(safeArea).offset(20)
+            $0.right.equalTo(safeArea).offset(-20)
+            $0.bottom.equalTo(safeArea).offset(-50)
         }
     }
     
-    private func setNavigationTitleView() {
-        titleView.setTitle("회원가입")
-        titleView.setBackgroundColor(.black)
-    }
-    
-    @objc private func finishedButtonDidTap() {
-//        self.navigationController?.pushViewController(LoginFinishedViewController(), animated: false)
+    @objc private func nextButtonDidTap() {
+        self.navigationController?.pushViewController(TabBarViewController(), animated: false)
     }
 }

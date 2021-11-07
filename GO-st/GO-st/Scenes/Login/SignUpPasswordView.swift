@@ -1,5 +1,5 @@
 //
-//  SignUpFinishedView.swift
+//  SignUpPasswordView.swift
 //  GO-st
 //
 //  Created by ✨EUGENE✨ on 2021/11/07.
@@ -9,7 +9,7 @@ import UIKit
 import Then
 import SnapKit
 
-final class SignUpFinishedView: SignInUpView {
+final class SignUpPasswordView: SignInUpView {
     
     private let emailLabel = UILabel().then {
         $0.text = "이메일"
