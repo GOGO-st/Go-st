@@ -12,7 +12,7 @@ final class LoginFinishedViewController: UIViewController {
     static let identifier = "LoginFinishedViewController"
     
     let titleView = NavigationTitleView()
-    let loginNumberView = LoginNumberView()
+    let loginFinishedView = LoginFinishedView()
     
     
     
@@ -26,7 +26,7 @@ final class LoginFinishedViewController: UIViewController {
     
     private func addContentView() {
         view.addSubview(titleView)
-        view.addSubview(loginNumberView)
+        view.addSubview(loginFinishedView)
     }
     
     private func setAutoLayout() {
@@ -36,7 +36,7 @@ final class LoginFinishedViewController: UIViewController {
         titleView.snp.makeConstraints {
             $0.top.left.right.equalTo(safeArea)
         }
-        loginNumberView.snp.makeConstraints {
+        loginFinishedView.snp.makeConstraints {
             $0.top.equalTo(titleView.snp.bottom)
             $0.left.right.bottom.equalToSuperview()//(safeArea) // 일단 일케
         }
@@ -48,6 +48,6 @@ final class LoginFinishedViewController: UIViewController {
     }
     
     @objc private func finishedButtonDidTap() {
-        self.navigationController?.pushViewController(LoginFinishedViewController(), animated: false)
+//        self.navigationController?.pushViewController(LoginFinishedViewController(), animated: false)
     }
 }
