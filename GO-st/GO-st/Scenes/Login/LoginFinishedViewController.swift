@@ -21,7 +21,7 @@ final class LoginFinishedViewController: UIViewController {
         self.addContentView()
         self.setAutoLayout()
         self.setNavigationTitleView()
-//        loginNumberView.finishedButton.addTarget(self, action: #selector(finishedButtonDidTap), for: .touchUpInside)
+//        loginNumberView.nextButton.addTarget(self, action: #selector(finishedButtonDidTap), for: .touchUpInside)
     }
     
     private func addContentView() {
