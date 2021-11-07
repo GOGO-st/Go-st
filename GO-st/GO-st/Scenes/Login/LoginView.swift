@@ -63,8 +63,7 @@ class LoginView: UIView {
             $0.height.equalTo(self.HEIGHT)
         }
         baseBar.snp.makeConstraints {
-            $0.top.left.equalTo(self)
-            $0.width.equalTo(self.WIDTH / 3)
+            $0.top.left.right.equalTo(self)
             $0.height.equalTo(3)
         }
         stepBar.snp.makeConstraints {
