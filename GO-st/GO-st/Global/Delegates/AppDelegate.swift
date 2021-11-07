@@ -17,8 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow()
         self.window?.backgroundColor = .white
         self.window?.makeKeyAndVisible()
-        self.window?.rootViewController = TabBarViewController()
-//        self.window?.rootViewController = LoginNavigationViewController()
+//        self.window?.rootViewController = TabBarViewController()
+        self.window?.rootViewController = LoginNavigationViewController()
         
         return true
     }

@@ -11,6 +11,10 @@ import SnapKit
 
 final class LoginEmailView: UIView {
     
+    private let stepBar = UIView().then {
+        $0.backgroundColor = .orange
+    }
+    
     private let helloLabel = UILabel().then {
         $0.text = "👀\n\n환영합니다"
         $0.textAlignment = .center
@@ -31,6 +35,7 @@ final class LoginEmailView: UIView {
     
     let emailTextField = UITextField().then {
         $0.placeholder = "학교 이메일을 적어주세요"
+        $0.backgroundColor = .white
     }
     
     let finishedButton = UIButton().then {
@@ -56,6 +61,7 @@ final class LoginEmailView: UIView {
     }
     
     private func addContentView() {
+        self.addSubview(stepBar)
         self.addSubview(helloLabel)
         self.addSubview(descriptionLabel)
         self.addSubview(emailTextField)
@@ -67,6 +73,11 @@ final class LoginEmailView: UIView {
         self.snp.makeConstraints {
             $0.width.equalTo(self.WIDTH)
             $0.height.equalTo(self.HEIGHT)
+        }
+        stepBar.snp.makeConstraints {
+            $0.top.left.equalTo(self)
+            $0.width.equalTo(self.WIDTH / 3)
+            $0.height.equalTo(5)
         }
         helloLabel.snp.makeConstraints {
             $0.top.equalTo(self).offset(70)
