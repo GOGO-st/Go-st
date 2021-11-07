@@ -1,5 +1,5 @@
 //
-//  LoginFinishedView.swift
+//  SignInUpView.swift
 //  GO-st
 //
 //  Created by ✨EUGENE✨ on 2021/11/07.
@@ -9,24 +9,27 @@ import UIKit
 import Then
 import SnapKit
 
-final class LoginFinishedView: UIView {
+// 로그인 / 회원가입 뷰 상위 클래스
+class SignInUpView: UIView {
+
+    // 회색 바
+    private let baseBar = UIView().then {
+        $0.backgroundColor = .darkGray
+    }
     
-    private let stepBar = UIView().then {
+    // 단계 바
+    let stepBar = UIView().then {
         $0.backgroundColor = .orange
     }
     
-    private let emailLabel = UILabel().then {
-        $0.text = "이메일"
-        $0.textColor = .white
-    }
-    
-    let finishedButton = UIButton().then {
+    // 다음 버튼
+    let nextButton = UIButton().then {
         $0.backgroundColor = .orange
         $0.setTitle("다음", for: .normal)
         $0.tintColor = .black
     }
     
-    private let WIDTH: CGFloat = UIScreen.main.bounds.width
+    let WIDTH: CGFloat = UIScreen.main.bounds.width
     private let HEIGHT: CGFloat = UIScreen.main.bounds.height
     
     override init(frame: CGRect) {
@@ -40,12 +43,17 @@ final class LoginFinishedView: UIView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        
+        self.backgroundColor = .black
+        
+        self.addContentView()
+        self.setAutoLayout()
     }
     
     private func addContentView() {
-        self.addSubview(stepBar)
-        self.addSubview(emailLabel)
-        self.addSubview(finishedButton)
+        self.addSubview(baseBar)
+        baseBar.addSubview(stepBar)
+        self.addSubview(nextButton)
     }
     
     private func setAutoLayout() {
@@ -54,18 +62,15 @@ final class LoginFinishedView: UIView {
             $0.width.equalTo(self.WIDTH)
             $0.height.equalTo(self.HEIGHT)
         }
-        stepBar.snp.makeConstraints {
-            $0.top.left.equalTo(self)
-            $0.width.equalTo(self.WIDTH)
+        baseBar.snp.makeConstraints {
+            $0.top.left.right.equalTo(self)
             $0.height.equalTo(3)
         }
-        
-        emailLabel.snp.makeConstraints {
-            $0.top.equalTo(self).offset(100)
-            $0.centerX.equalToSuperview()
+        stepBar.snp.makeConstraints {
+            $0.top.left.bottom.equalTo(baseBar)
+//            $0.width.equalTo(self.WIDTH / 3)
         }
-        
-        finishedButton.snp.makeConstraints {
+        nextButton.snp.makeConstraints {
             $0.left.equalTo(self).offset(20)
             $0.right.bottom.equalTo(self).offset(-20)
         }

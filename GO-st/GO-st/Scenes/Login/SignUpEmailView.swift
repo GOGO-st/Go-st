@@ -1,5 +1,5 @@
 //
-//  LoginEmailView.swift
+//  SignUpEmailView.swift
 //  GO-st
 //
 //  Created by ✨EUGENE✨ on 2021/11/07.
@@ -9,13 +9,8 @@ import UIKit
 import Then
 import SnapKit
 
-// 나중에 로그인 뷰 상위 클래스 만들어서 상속하기
-final class LoginEmailView: UIView {
-    
-    private let stepBar = UIView().then {
-        $0.backgroundColor = .orange
-    }
-    
+final class SignUpEmailView: SignInUpView {
+
     private let helloLabel = UILabel().then {
         $0.text = "👀\n\n환영합니다"
         $0.textAlignment = .center
@@ -39,15 +34,6 @@ final class LoginEmailView: UIView {
         $0.backgroundColor = .white
     }
     
-    let finishedButton = UIButton().then {
-        $0.backgroundColor = .orange
-        $0.setTitle("다음", for: .normal)
-        $0.tintColor = .black
-    }
-    
-    private let WIDTH: CGFloat = UIScreen.main.bounds.width
-    private let HEIGHT: CGFloat = UIScreen.main.bounds.height
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -62,23 +48,14 @@ final class LoginEmailView: UIView {
     }
     
     private func addContentView() {
-        self.addSubview(stepBar)
         self.addSubview(helloLabel)
         self.addSubview(descriptionLabel)
         self.addSubview(emailTextField)
-        self.addSubview(finishedButton)
     }
     
     private func setAutoLayout() {
-        
-        self.snp.makeConstraints {
-            $0.width.equalTo(self.WIDTH)
-            $0.height.equalTo(self.HEIGHT)
-        }
-        stepBar.snp.makeConstraints {
-            $0.top.left.equalTo(self)
-            $0.width.equalTo(self.WIDTH / 3)
-            $0.height.equalTo(3)
+        super.stepBar.snp.makeConstraints {
+            $0.width.equalTo(super.WIDTH / 3)
         }
         helloLabel.snp.makeConstraints {
             $0.top.equalTo(self).offset(70)
@@ -91,10 +68,6 @@ final class LoginEmailView: UIView {
         emailTextField.snp.makeConstraints {
             $0.top.equalTo(descriptionLabel.snp.bottom).offset(20)
             $0.centerX.equalToSuperview()
-        }
-        finishedButton.snp.makeConstraints {
-            $0.left.equalTo(self).offset(20)
-            $0.right.bottom.equalTo(self).offset(-20)
         }
     }
 }

@@ -14,6 +14,6 @@ class LoginNavigationViewController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.isNavigationBarHidden = true
-        self.pushViewController(LoginEmailViewController(), animated: false)
+        self.pushViewController(SignUpEmailViewController(), animated: false)
     }
 }
