@@ -31,6 +31,10 @@ final class SearchOnTheMapView: UIView {
     }
     let mapView = NMFMapView()
     
+    let marker = UIImageView().then {
+        $0.image = R.image.map.marker() // 임시임
+    }
+    
     private let WIDTH: CGFloat = UIScreen.main.bounds.width
     private let HEIGHT: CGFloat = UIScreen.main.bounds.height
     
@@ -47,6 +51,7 @@ final class SearchOnTheMapView: UIView {
     private func addContentView() {
         self.addSubview(fixLabel)
         self.addSubview(mapView)
+        self.addSubview(marker)
         self.addSubview(backgroundView)
         backgroundView.addSubview(addressLabel)
         self.addSubview(finishedButton)
@@ -65,11 +70,18 @@ final class SearchOnTheMapView: UIView {
             $0.top.equalTo(fixLabel.snp.bottom).offset(20)
             $0.left.right.equalTo(self)
         }
+        // 지도 마커
+        marker.snp.makeConstraints {
+            $0.top.left.equalTo(mapView).offset(200)
+            $0.width.equalTo(61)
+            $0.height.equalTo(66)
+        }
         // 주소 배경
         backgroundView.snp.makeConstraints {
             $0.top.equalTo(mapView.snp.bottom).offset(10)
-            $0.height.equalTo(30)
-            $0.centerX.equalTo(self)
+            $0.left.equalTo(self).offset(20)
+            $0.right.equalTo(self).offset(-20)
+            $0.height.equalTo(40)
         }
         // 주소
         addressLabel.snp.makeConstraints {
