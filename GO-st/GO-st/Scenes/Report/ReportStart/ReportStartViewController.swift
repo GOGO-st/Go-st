@@ -61,6 +61,7 @@ final class ReportStartViewController: UIViewController, UITextFieldDelegate {
             $0.bottom.equalTo(safeArea)
         }
     }
+    
     @objc func testButtonDidTap() {
         self.navigationController?.pushViewController(ReportResultViewController(), animated: true)
     }

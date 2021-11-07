@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		6B2F392D27378BA3002F8D19 /* ReportResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2F392C27378BA2002F8D19 /* ReportResultView.swift */; };
+		6B2F39302737AA0D002F8D19 /* LoginEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2F392F2737AA0D002F8D19 /* LoginEmailView.swift */; };
+		6B2F39322737AA9B002F8D19 /* LoginNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2F39312737AA9A002F8D19 /* LoginNumberView.swift */; };
+		6B2F39342737AAB2002F8D19 /* LoginFinishedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2F39332737AAB2002F8D19 /* LoginFinishedView.swift */; };
+		6B2F39362737AB0C002F8D19 /* LoginNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2F39352737AB0C002F8D19 /* LoginNavigationViewController.swift */; };
+		6B2F39382737AB2C002F8D19 /* LoginEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2F39372737AB2C002F8D19 /* LoginEmailViewController.swift */; };
+		6B2F393A2737B200002F8D19 /* LoginNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2F39392737B200002F8D19 /* LoginNumberViewController.swift */; };
+		6B2F39802737F91B002F8D19 /* LoginFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2F397F2737F91B002F8D19 /* LoginFinishedViewController.swift */; };
 		6B3ECC262734E18200177F9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC252734E18200177F9F /* AppDelegate.swift */; };
 		6B3ECC282734E18200177F9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC272734E18200177F9F /* SceneDelegate.swift */; };
 		6B3ECC2F2734E18900177F9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B3ECC2E2734E18900177F9F /* Assets.xcassets */; };
@@ -39,6 +46,13 @@
 		3B063F9DBE4F71D4E4848ABE /* Pods-GO-st.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GO-st.debug.xcconfig"; path = "Target Support Files/Pods-GO-st/Pods-GO-st.debug.xcconfig"; sourceTree = "<group>"; };
 		5ACCFD20F63FE7B2CAF57F44 /* Pods-GO-st.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GO-st.release.xcconfig"; path = "Target Support Files/Pods-GO-st/Pods-GO-st.release.xcconfig"; sourceTree = "<group>"; };
 		6B2F392C27378BA2002F8D19 /* ReportResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportResultView.swift; sourceTree = "<group>"; };
+		6B2F392F2737AA0D002F8D19 /* LoginEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailView.swift; sourceTree = "<group>"; };
+		6B2F39312737AA9A002F8D19 /* LoginNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNumberView.swift; sourceTree = "<group>"; };
+		6B2F39332737AAB2002F8D19 /* LoginFinishedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFinishedView.swift; sourceTree = "<group>"; };
+		6B2F39352737AB0C002F8D19 /* LoginNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigationViewController.swift; sourceTree = "<group>"; };
+		6B2F39372737AB2C002F8D19 /* LoginEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailViewController.swift; sourceTree = "<group>"; };
+		6B2F39392737B200002F8D19 /* LoginNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNumberViewController.swift; sourceTree = "<group>"; };
+		6B2F397F2737F91B002F8D19 /* LoginFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFinishedViewController.swift; sourceTree = "<group>"; };
 		6B3ECC222734E18200177F9F /* GO-st.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GO-st.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B3ECC252734E18200177F9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B3ECC272734E18200177F9F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +94,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B2F392E2737A98F002F8D19 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				6B2F392F2737AA0D002F8D19 /* LoginEmailView.swift */,
+				6B2F39372737AB2C002F8D19 /* LoginEmailViewController.swift */,
+				6B2F39312737AA9A002F8D19 /* LoginNumberView.swift */,
+				6B2F39392737B200002F8D19 /* LoginNumberViewController.swift */,
+				6B2F39332737AAB2002F8D19 /* LoginFinishedView.swift */,
+				6B2F397F2737F91B002F8D19 /* LoginFinishedViewController.swift */,
+				6B2F39352737AB0C002F8D19 /* LoginNavigationViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		6B3ECC192734E18200177F9F = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +150,7 @@
 		6B3ECC3A2734E61900177F9F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				6B2F392E2737A98F002F8D19 /* Login */,
 				6B3ECC3E2734E67F00177F9F /* TabBar */,
 				6B3ECC3F2734E69200177F9F /* Home */,
 				6B3ECC5127350B4200177F9F /* Report */,
@@ -525,12 +554,16 @@
 			files = (
 				6B3ECC5827350B9500177F9F /* MyPageViewController.swift in Sources */,
 				6B2F392D27378BA3002F8D19 /* ReportResultView.swift in Sources */,
+				6B2F39302737AA0D002F8D19 /* LoginEmailView.swift in Sources */,
 				6B3ECC262734E18200177F9F /* AppDelegate.swift in Sources */,
+				6B2F39802737F91B002F8D19 /* LoginFinishedViewController.swift in Sources */,
 				6B3ECC6E2736486500177F9F /* StoreInfoCardViewController.swift in Sources */,
+				6B2F39322737AA9B002F8D19 /* LoginNumberView.swift in Sources */,
 				6B3ECC88273695D800177F9F /* SearchOnTheMapView.swift in Sources */,
 				6B3ECC812736778700177F9F /* ReportResultViewController.swift in Sources */,
 				6B3ECC642735188700177F9F /* HomeModel.swift in Sources */,
 				6B3ECC8B2736964A00177F9F /* ToTheMapView.swift in Sources */,
+				6B2F39362737AB0C002F8D19 /* LoginNavigationViewController.swift in Sources */,
 				6B3ECC5C27350BB200177F9F /* HomeViewController.swift in Sources */,
 				6B3ECC7F273675CE00177F9F /* ReportStartView.swift in Sources */,
 				6B3ECC6A27354F0000177F9F /* CategoryViewController.swift in Sources */,
@@ -538,11 +571,14 @@
 				6B3ECC8D2736AF8C00177F9F /* SearchOnTheMapViewController.swift in Sources */,
 				6B3ECC6C2735564C00177F9F /* StoreInfoCardView.swift in Sources */,
 				6B3ECC7D27366DEC00177F9F /* ReportNavigationViewController.swift in Sources */,
+				6B2F39342737AAB2002F8D19 /* LoginFinishedView.swift in Sources */,
 				6B3ECC6827354CF900177F9F /* CategoryView.swift in Sources */,
 				6B3ECC662735436500177F9F /* HomeViewController+NaverMap.swift in Sources */,
 				6B3ECC282734E18200177F9F /* SceneDelegate.swift in Sources */,
 				6B3ECC502735084100177F9F /* TabBarViewController.swift in Sources */,
+				6B2F393A2737B200002F8D19 /* LoginNumberViewController.swift in Sources */,
 				6B3ECC8627368C0000177F9F /* NavigationTitleView.swift in Sources */,
+				6B2F39382737AB2C002F8D19 /* LoginEmailViewController.swift in Sources */,
 				6B3ECC472734E8D400177F9F /* R.generated.swift in Sources */,
 				6B3ECC5A27350BA000177F9F /* ReportStartViewController.swift in Sources */,
 			);

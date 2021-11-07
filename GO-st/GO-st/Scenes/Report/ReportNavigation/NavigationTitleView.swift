@@ -13,6 +13,7 @@ final class NavigationTitleView: UIView {
     
     private let titleLabel = UILabel().then {
         $0.text = "경험 제보"
+        $0.textColor = .white
     }
     
     let leftButton = UIButton().then {
@@ -60,5 +61,9 @@ final class NavigationTitleView: UIView {
     
     func setButtonImage(_ image: String) {
         self.leftButton.setImage(UIImage(named: image), for: .normal)
+    }
+    
+    func setBackgroundColor(_ color: UIColor) {
+        self.backgroundColor = color
     }
 }
