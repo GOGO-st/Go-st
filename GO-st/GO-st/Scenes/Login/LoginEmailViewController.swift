@@ -23,8 +23,7 @@ class LoginEmailViewController: UIViewController {
         self.addContentView()
         self.setAutoLayout()
         self.setNavigationTitleView()
-//        emailView.finishedButton.addTarget(self, action: #selector(finishedButtonDidTap), for: .touchUpInside)
-        emailView.nextButtonAddTarget(#selector(finishedButtonDidTap))
+        emailView.nextButton.addTarget(self, action: #selector(finishedButtonDidTap), for: .touchUpInside)
     }
     
     private func addContentView() {

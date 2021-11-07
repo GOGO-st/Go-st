@@ -35,8 +35,8 @@ final class LoginEmailView: LoginView {
         $0.backgroundColor = .white
     }
     
-    private let WIDTH: CGFloat = UIScreen.main.bounds.width
-    private let HEIGHT: CGFloat = UIScreen.main.bounds.height
+//    private let WIDTH: CGFloat = UIScreen.main.bounds.width
+//    private let HEIGHT: CGFloat = UIScreen.main.bounds.height
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -59,15 +59,18 @@ final class LoginEmailView: LoginView {
     
     private func setAutoLayout() {
         
-        self.snp.makeConstraints {
-            $0.width.equalTo(self.WIDTH)
-            $0.height.equalTo(self.HEIGHT)
-        }
+//        self.snp.makeConstraints {
+//            $0.width.equalTo(self.WIDTH)
+//            $0.height.equalTo(self.HEIGHT)
+//        }
 //        stepBar.snp.makeConstraints {
 //            $0.top.left.equalTo(self)
 //            $0.width.equalTo(self.WIDTH / 3)
 //            $0.height.equalTo(3)
 //        }
+        super.stepBar.snp.makeConstraints {
+            $0.width.equalTo(super.WIDTH / 3)
+        }
         helloLabel.snp.makeConstraints {
             $0.top.equalTo(self).offset(70)
             $0.centerX.equalToSuperview()

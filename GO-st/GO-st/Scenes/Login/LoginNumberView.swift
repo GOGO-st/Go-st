@@ -9,12 +9,12 @@ import UIKit
 import Then
 import SnapKit
 
-final class LoginNumberView: UIView {
+final class LoginNumberView: LoginView {
     
     
-    private let stepBar = UIView().then {
-        $0.backgroundColor = .orange
-    }
+//    private let stepBar = UIView().then {
+//        $0.backgroundColor = .orange
+//    }
     
     // 나중에 NSAttribute로 이메일만 굵기 변경
     private let descriptionLabel = UILabel().then {
@@ -25,14 +25,14 @@ final class LoginNumberView: UIView {
         $0.numberOfLines = 2
     }
     
-    let finishedButton = UIButton().then {
-        $0.backgroundColor = .orange
-        $0.setTitle("다음", for: .normal)
-        $0.tintColor = .black
-    }
+//    let finishedButton = UIButton().then {
+//        $0.backgroundColor = .orange
+//        $0.setTitle("다음", for: .normal)
+//        $0.tintColor = .black
+//    }
     
-    private let WIDTH: CGFloat = UIScreen.main.bounds.width
-    private let HEIGHT: CGFloat = UIScreen.main.bounds.height
+//    private let WIDTH: CGFloat = UIScreen.main.bounds.width
+//    private let HEIGHT: CGFloat = UIScreen.main.bounds.height
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -48,30 +48,32 @@ final class LoginNumberView: UIView {
     }
     
     private func addContentView() {
-        self.addSubview(stepBar)
+//        self.addSubview(stepBar)
         self.addSubview(descriptionLabel)
-        self.addSubview(finishedButton)
+//        self.addSubview(finishedButton)
     }
     
     private func setAutoLayout() {
         
-        self.snp.makeConstraints {
-            $0.width.equalTo(self.WIDTH)
-            $0.height.equalTo(self.HEIGHT)
+//        self.snp.makeConstraints {
+//            $0.width.equalTo(self.WIDTH)
+//            $0.height.equalTo(self.HEIGHT)
+//        }
+//        stepBar.snp.makeConstraints {
+//            $0.top.left.equalTo(self)
+//            $0.width.equalTo(self.WIDTH / 3 * 2)
+//            $0.height.equalTo(3)
+//        }
+        super.stepBar.snp.makeConstraints {
+            $0.width.equalTo(super.WIDTH / 3 * 2)
         }
-        stepBar.snp.makeConstraints {
-            $0.top.left.equalTo(self)
-            $0.width.equalTo(self.WIDTH / 3 * 2)
-            $0.height.equalTo(3)
-        }
-        
         descriptionLabel.snp.makeConstraints {
             $0.top.equalTo(self).offset(100)
             $0.centerX.equalToSuperview()
         }
-        finishedButton.snp.makeConstraints {
-            $0.left.equalTo(self).offset(20)
-            $0.right.bottom.equalTo(self).offset(-20)
-        }
+//        finishedButton.snp.makeConstraints {
+//            $0.left.equalTo(self).offset(20)
+//            $0.right.bottom.equalTo(self).offset(-20)
+//        }
     }
 }
