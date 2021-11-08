@@ -20,6 +20,14 @@ final class StoreInfoCardView: UIView {
         $0.text = "하이염"
     }
     
+    let addressLabel = UILabel().then {
+        $0.text = "서울시 종로구 ㅓ어쩌고"
+    }
+    
+    let countLabel = UILabel().then {
+        $0.text = "+ 11"
+    }
+    
     private let HEIGHT: CGFloat = 100
     
     required init?(coder: NSCoder) { super.init(coder: coder) }
