@@ -24,9 +24,10 @@ class SignInUpView: UIView {
     
     // 다음 버튼
     let nextButton = UIButton().then {
-        $0.backgroundColor = .orange
+        $0.backgroundColor = .lightGray
         $0.setTitle("다음", for: .normal)
-        $0.tintColor = .black
+        $0.setTitleColor(.black, for: .normal)
+        $0.isEnabled = false
     }
     
     let WIDTH: CGFloat = UIScreen.main.bounds.width
@@ -73,6 +74,18 @@ class SignInUpView: UIView {
         nextButton.snp.makeConstraints {
             $0.left.equalTo(self).offset(20)
             $0.right.bottom.equalTo(self).offset(-20)
+        }
+    }
+    
+    func canIUseNextButton(_ answer: Bool) {
+        if answer == true {
+            self.nextButton.backgroundColor = .orange
+            self.nextButton.setTitleColor(.white, for: .normal)
+            self.nextButton.isEnabled = true
+        } else {
+            self.nextButton.backgroundColor = .lightGray
+            self.nextButton.setTitleColor(.black, for: .normal)
+            self.nextButton.isEnabled = false
         }
     }
 }
