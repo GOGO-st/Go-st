@@ -20,6 +20,10 @@ final class SignUpOTPView: SignInUpView {
         $0.numberOfLines = 2
     }
     
+    let otpTextField = OTPTextField().then {
+        $0.configure()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -35,6 +39,7 @@ final class SignUpOTPView: SignInUpView {
     
     private func addContentView() {
         self.addSubview(descriptionLabel)
+        self.addSubview(otpTextField)
     }
     
     private func setAutoLayout() {
@@ -44,6 +49,12 @@ final class SignUpOTPView: SignInUpView {
         descriptionLabel.snp.makeConstraints {
             $0.top.equalTo(self).offset(100)
             $0.centerX.equalToSuperview()
+        }
+        otpTextField.snp.makeConstraints {
+            $0.top.equalTo(descriptionLabel.snp.bottom).offset(50)
+            $0.left.equalTo(self).offset(20)
+            $0.right.equalTo(self).offset(-20)
+            $0.height.equalTo(61)
         }
     }
     
