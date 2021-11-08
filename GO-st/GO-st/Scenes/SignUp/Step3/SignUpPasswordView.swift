@@ -39,6 +39,7 @@ final class SignUpPasswordView: SignInUpView {
     private let passwordTextField = UITextField().then {
         $0.textColor = .white
         $0.placeholder = "비밀번호 입력"
+        $0.keyboardType = .emailAddress
     }
     
     // MARK: - 비번 확인
@@ -54,6 +55,7 @@ final class SignUpPasswordView: SignInUpView {
     private let passwordConfirmTextField = UITextField().then {
         $0.textColor = .white
         $0.placeholder = "비밀번호 확인"
+        $0.keyboardType = .emailAddress
     }
     
     private let sideSpacing: CGFloat = 33
@@ -68,6 +70,8 @@ final class SignUpPasswordView: SignInUpView {
         
         self.passwordTextField.delegate = self
         self.passwordConfirmTextField.delegate = self
+        
+        passwordConfirmTextField.addTarget(self, action: #selector(checkValidity), for: .editingChanged)
     }
     
     required init?(coder: NSCoder) {
@@ -150,6 +154,18 @@ final class SignUpPasswordView: SignInUpView {
     
     func setEmailLabel(_ email: String) {
         self.emailLabel.text = email
+    }
+    
+    @objc
+    private func checkValidity(_ textField: UITextField) {
+        // 일단 2 이상으로
+        
+        let confirmText = textField.text
+        if confirmText?.count ?? 0 > 1 && passwordTextField.text == confirmText {
+            super.canIUseNextButton(true)
+        } else {
+            super.canIUseNextButton(false)
+        }
     }
 }
 extension SignUpPasswordView: UITextFieldDelegate {
