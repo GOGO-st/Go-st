@@ -27,7 +27,7 @@ final class NavigationTitleView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .lightGray
+        self.backgroundColor = R.color.background()
         self.addContentView()
         self.setAutoLayout()
     }

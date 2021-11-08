@@ -41,6 +41,8 @@
 		6B3ECC88273695D800177F9F /* SearchOnTheMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC87273695D800177F9F /* SearchOnTheMapView.swift */; };
 		6B3ECC8B2736964A00177F9F /* ToTheMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC8A2736964A00177F9F /* ToTheMapView.swift */; };
 		6B3ECC8D2736AF8C00177F9F /* SearchOnTheMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC8C2736AF8C00177F9F /* SearchOnTheMapViewController.swift */; };
+		6B8B79CC2738F6A200DB26F4 /* NSString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B79CB2738F6A200DB26F4 /* NSString+Extension.swift */; };
+		6B8B79D22738F97400DB26F4 /* OTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B79D12738F97400DB26F4 /* OTPTextField.swift */; };
 		BC8BECCFB8985C1C46CC67AC /* Pods_GO_st.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22193B3D1D75D0B95E6F059 /* Pods_GO_st.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +85,8 @@
 		6B3ECC87273695D800177F9F /* SearchOnTheMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOnTheMapView.swift; sourceTree = "<group>"; };
 		6B3ECC8A2736964A00177F9F /* ToTheMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToTheMapView.swift; sourceTree = "<group>"; };
 		6B3ECC8C2736AF8C00177F9F /* SearchOnTheMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOnTheMapViewController.swift; sourceTree = "<group>"; };
+		6B8B79CB2738F6A200DB26F4 /* NSString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSString+Extension.swift"; sourceTree = "<group>"; };
+		6B8B79D12738F97400DB26F4 /* OTPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPTextField.swift; sourceTree = "<group>"; };
 		D22193B3D1D75D0B95E6F059 /* Pods_GO_st.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GO_st.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -98,20 +102,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6B2F392E2737A98F002F8D19 /* Login */ = {
+		6B2F392E2737A98F002F8D19 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				6B2F392F2737AA0D002F8D19 /* SignUpEmailView.swift */,
-				6B2F39372737AB2C002F8D19 /* SignUpEmailViewController.swift */,
-				6B2F39312737AA9A002F8D19 /* SignUpOTPView.swift */,
-				6B2F39392737B200002F8D19 /* SignUpOTPViewController.swift */,
-				6B2F39332737AAB2002F8D19 /* SignUpPasswordView.swift */,
-				6B2F397F2737F91B002F8D19 /* SignUpPasswordViewController.swift */,
-				6B2F39352737AB0C002F8D19 /* LoginNavigationViewController.swift */,
+				6B8B79CD2738F8EB00DB26F4 /* Step1 */,
+				6B8B79CF2738F92700DB26F4 /* Step2 */,
+				6B8B79D02738F93300DB26F4 /* Step3 */,
 				6B2F3983273803C2002F8D19 /* SignUpFinishedViewController.swift */,
-				6B2F39812737FC90002F8D19 /* SignInUpView.swift */,
 			);
-			path = Login;
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		6B3ECC192734E18200177F9F = {
@@ -146,6 +145,7 @@
 		6B3ECC392734E60F00177F9F /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				6B8B79CA2738F66600DB26F4 /* Extensions */,
 				6B3ECC3D2734E66A00177F9F /* Delegates */,
 				6B3ECC3C2734E64C00177F9F /* Resources */,
 				6B3ECC3B2734E63300177F9F /* Supporting Files */,
@@ -156,7 +156,10 @@
 		6B3ECC3A2734E61900177F9F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				6B2F392E2737A98F002F8D19 /* Login */,
+				6B2F39352737AB0C002F8D19 /* LoginNavigationViewController.swift */,
+				6B2F39812737FC90002F8D19 /* SignInUpView.swift */,
+				6B8B79CE2738F91D00DB26F4 /* SignIn */,
+				6B2F392E2737A98F002F8D19 /* SignUp */,
 				6B3ECC3E2734E67F00177F9F /* TabBar */,
 				6B3ECC3F2734E69200177F9F /* Home */,
 				6B3ECC5127350B4200177F9F /* Report */,
@@ -406,6 +409,49 @@
 			path = SearchOnTheMap;
 			sourceTree = "<group>";
 		};
+		6B8B79CA2738F66600DB26F4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6B8B79CB2738F6A200DB26F4 /* NSString+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6B8B79CD2738F8EB00DB26F4 /* Step1 */ = {
+			isa = PBXGroup;
+			children = (
+				6B2F392F2737AA0D002F8D19 /* SignUpEmailView.swift */,
+				6B2F39372737AB2C002F8D19 /* SignUpEmailViewController.swift */,
+			);
+			path = Step1;
+			sourceTree = "<group>";
+		};
+		6B8B79CE2738F91D00DB26F4 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		6B8B79CF2738F92700DB26F4 /* Step2 */ = {
+			isa = PBXGroup;
+			children = (
+				6B2F39312737AA9A002F8D19 /* SignUpOTPView.swift */,
+				6B2F39392737B200002F8D19 /* SignUpOTPViewController.swift */,
+				6B8B79D12738F97400DB26F4 /* OTPTextField.swift */,
+			);
+			path = Step2;
+			sourceTree = "<group>";
+		};
+		6B8B79D02738F93300DB26F4 /* Step3 */ = {
+			isa = PBXGroup;
+			children = (
+				6B2F39332737AAB2002F8D19 /* SignUpPasswordView.swift */,
+				6B2F397F2737F91B002F8D19 /* SignUpPasswordViewController.swift */,
+			);
+			path = Step3;
+			sourceTree = "<group>";
+		};
 		6E904F09D2EC5D3F30B3CF9B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -577,6 +623,7 @@
 				6B3ECC602735120500177F9F /* HomeViewModel.swift in Sources */,
 				6B3ECC8D2736AF8C00177F9F /* SearchOnTheMapViewController.swift in Sources */,
 				6B3ECC6C2735564C00177F9F /* StoreInfoCardView.swift in Sources */,
+				6B8B79CC2738F6A200DB26F4 /* NSString+Extension.swift in Sources */,
 				6B2F39822737FC90002F8D19 /* SignInUpView.swift in Sources */,
 				6B3ECC7D27366DEC00177F9F /* ReportNavigationViewController.swift in Sources */,
 				6B2F39342737AAB2002F8D19 /* SignUpPasswordView.swift in Sources */,
@@ -586,6 +633,7 @@
 				6B3ECC502735084100177F9F /* TabBarViewController.swift in Sources */,
 				6B2F393A2737B200002F8D19 /* SignUpOTPViewController.swift in Sources */,
 				6B3ECC8627368C0000177F9F /* NavigationTitleView.swift in Sources */,
+				6B8B79D22738F97400DB26F4 /* OTPTextField.swift in Sources */,
 				6B2F39382737AB2C002F8D19 /* SignUpEmailViewController.swift in Sources */,
 				6B3ECC472734E8D400177F9F /* R.generated.swift in Sources */,
 				6B3ECC5A27350BA000177F9F /* ReportStartViewController.swift in Sources */,

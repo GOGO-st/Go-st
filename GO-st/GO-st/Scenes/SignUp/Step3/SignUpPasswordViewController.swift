@@ -1,5 +1,5 @@
 //
-//  SignUpOTPViewController.swift
+//  SignUpPasswordViewController.swift
 //  GO-st
 //
 //  Created by ✨EUGENE✨ on 2021/11/07.
@@ -7,13 +7,14 @@
 
 import UIKit
 
-final class SignUpOTPViewController: UIViewController {
+final class SignUpPasswordViewController: UIViewController {
     
-    static let identifier = "SignUpOTPViewController"
+    static let identifier = "SignUpPasswordViewController"
     
     let titleView = NavigationTitleView()
-    let signUpOTPView = SignUpOTPView()
+    let signUpPasswordView = SignUpPasswordView()
     
+    var email = ""
     
     
     override func viewDidLoad() {
@@ -21,12 +22,14 @@ final class SignUpOTPViewController: UIViewController {
         self.addContentView()
         self.setAutoLayout()
         self.setNavigationTitleView()
-        signUpOTPView.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
+        
+        signUpPasswordView.setEmailLabel(email)
+        signUpPasswordView.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
     }
     
     private func addContentView() {
         view.addSubview(titleView)
-        view.addSubview(signUpOTPView)
+        view.addSubview(signUpPasswordView)
     }
     
     private func setAutoLayout() {
@@ -36,7 +39,7 @@ final class SignUpOTPViewController: UIViewController {
         titleView.snp.makeConstraints {
             $0.top.left.right.equalTo(safeArea)
         }
-        signUpOTPView.snp.makeConstraints {
+        signUpPasswordView.snp.makeConstraints {
             $0.top.equalTo(titleView.snp.bottom)
             $0.left.right.bottom.equalToSuperview()//(safeArea) // 일단 일케
         }
@@ -44,10 +47,10 @@ final class SignUpOTPViewController: UIViewController {
     
     private func setNavigationTitleView() {
         titleView.setTitle("회원가입")
-        titleView.setBackgroundColor(.black)
+//        titleView.setBackgroundColor(.black)
     }
     
     @objc private func nextButtonDidTap() {
-        self.navigationController?.pushViewController(SignUpPasswordViewController(), animated: false)
+        self.navigationController?.pushViewController(SignUpFinishedViewController(), animated: false)
     }
 }

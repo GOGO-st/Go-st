@@ -29,18 +29,21 @@ final class SignUpEmailView: SignInUpView {
     // 이메일 적으면 이미지 갈아끼우기
 //    let backgroundImage
     
-    let emailTextField = UITextField().then {
+    private let emailTextField = UITextField().then {
         $0.placeholder = "학교 이메일을 적어주세요"
         $0.backgroundColor = .white
+        $0.keyboardType = .emailAddress
     }
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = .black
-        
         self.addContentView()
         self.setAutoLayout()
+        
+        self.emailTextField.delegate = self
+        self.emailTextField.addTarget(self, action: #selector(checkValidity), for: .editingChanged)
     }
     
     required init?(coder: NSCoder) {
@@ -69,5 +72,33 @@ final class SignUpEmailView: SignInUpView {
             $0.top.equalTo(descriptionLabel.snp.bottom).offset(20)
             $0.centerX.equalToSuperview()
         }
+    }
+    
+    // 한글자라도 입력하면 버튼 활성화
+    @objc
+    private func checkValidity(_ textField: UITextField) {
+        if textField.text?.count ?? 0 > 0 {
+            super.canIUseNextButton(true)
+        } else {
+            super.canIUseNextButton(false)
+        }
+    }
+    
+    // 이메일 얻기
+    func getEmail() -> String {
+        return self.emailTextField.text ?? ""
+    }
+}
+
+extension SignUpEmailView: UITextFieldDelegate {
+    // 아무데나 누르면 키보드 내려가기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        super.touchesBegan(touches, with: event)
+        self.endEditing(true)
+    }
+    // return 누르면 키보드 내려가기
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

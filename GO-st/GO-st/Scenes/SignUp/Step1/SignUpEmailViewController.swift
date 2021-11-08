@@ -1,19 +1,20 @@
 //
-//  SignUpPasswordViewController.swift
+//  SignUpEmailViewController.swift
 //  GO-st
 //
 //  Created by ✨EUGENE✨ on 2021/11/07.
 //
 
 import UIKit
+import Then
+import SnapKit
 
-final class SignUpPasswordViewController: UIViewController {
-    
-    static let identifier = "SignUpPasswordViewController"
+class SignUpEmailViewController: UIViewController {
+
+    static let identifier = "SignUpEmailViewController"
     
     let titleView = NavigationTitleView()
-    let signUpPasswordView = SignUpPasswordView()
-    
+    let emailView = SignUpEmailView()
     
     
     override func viewDidLoad() {
@@ -21,12 +22,12 @@ final class SignUpPasswordViewController: UIViewController {
         self.addContentView()
         self.setAutoLayout()
         self.setNavigationTitleView()
-        signUpPasswordView.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
+        emailView.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
     }
     
     private func addContentView() {
         view.addSubview(titleView)
-        view.addSubview(signUpPasswordView)
+        view.addSubview(emailView)
     }
     
     private func setAutoLayout() {
@@ -36,7 +37,7 @@ final class SignUpPasswordViewController: UIViewController {
         titleView.snp.makeConstraints {
             $0.top.left.right.equalTo(safeArea)
         }
-        signUpPasswordView.snp.makeConstraints {
+        emailView.snp.makeConstraints {
             $0.top.equalTo(titleView.snp.bottom)
             $0.left.right.bottom.equalToSuperview()//(safeArea) // 일단 일케
         }
@@ -44,10 +45,13 @@ final class SignUpPasswordViewController: UIViewController {
     
     private func setNavigationTitleView() {
         titleView.setTitle("회원가입")
-        titleView.setBackgroundColor(.black)
+//        titleView.setBackgroundColor(.black)
     }
     
     @objc private func nextButtonDidTap() {
-        self.navigationController?.pushViewController(SignUpFinishedViewController(), animated: false)
+        
+        let nextVC = SignUpOTPViewController()
+        nextVC.email = self.emailView.getEmail()
+        self.navigationController?.pushViewController(nextVC, animated: false)
     }
 }
