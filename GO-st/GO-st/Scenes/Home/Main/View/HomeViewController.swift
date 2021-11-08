@@ -17,20 +17,16 @@ final class HomeViewController: UIViewController, CLLocationManagerDelegate {
     let viewModel = HomeViewModel()
     let homeView = HomeView()
     
-    
+    // 성신여대
+    let schoolCenter = CLLocation(latitude: 37.591433, longitude: 127.021217)
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 초기 위치
-        if let initialLocation = viewModel.currentLocationCoordinate() {
-            homeView.mapView.centerToLocation(initialLocation)
-        }
-        
-        
-        
-        self.setNaverMap()
+        self.setMap()
+        self.setInitialLocation()
+        self.setZoom()
         
         homeView.goButton.addTarget(self, action: #selector(goButtonDidTap), for: .touchUpInside)
         
@@ -40,6 +36,7 @@ final class HomeViewController: UIViewController, CLLocationManagerDelegate {
             $0.left.right.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
+    
     
     // 카테고리 뷰 버튼
     @objc func goButtonDidTap(_ sender: UIButton) {

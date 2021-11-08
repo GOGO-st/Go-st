@@ -132,8 +132,8 @@ final class HomeView: UIView {
     
     
     // 가게 재검색 뷰 숨기기
-    func retrieveButtonIsHidden(_ value: Bool) {
-        retrieveButton.isHidden = value
+    func retrieveButtonIsHidden() {
+        retrieveButton.isHidden.toggle()
     }
     
     @objc func retrieveButtonDidTap(_ sender: UIButton) {
