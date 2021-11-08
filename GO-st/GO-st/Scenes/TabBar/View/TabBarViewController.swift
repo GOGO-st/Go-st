@@ -15,17 +15,13 @@ final class TabBarViewController: UITabBarController {
     }
     
     func setTabBar() {
-        self.tabBar.tintColor = UIColor.black
+        self.tabBar.backgroundColor = .black
+        self.tabBar.tintColor = .white
         
         // Home
         let firstTab = HomeViewController()
         
         // Report
-//        let report = UIStoryboard.init(name: "Report", bundle:nil)
-//        guard let secondTab = report.instantiateViewController(identifier: ReportNavigationViewController.identifier) as? ReportNavigationViewController else {
-//            return
-//        }
-        
         let secondTab = ReportNavigationViewController()
         // MyPage
         let myPage = UIStoryboard.init(name: "MyPage", bundle: nil)
