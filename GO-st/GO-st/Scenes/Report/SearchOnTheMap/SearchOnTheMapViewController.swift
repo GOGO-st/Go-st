@@ -10,7 +10,7 @@ import Then
 import SnapKit
 import MapKit
 
-final class SearchOnTheMapViewController: UIViewController {
+final class SearchOnTheMapViewController: UIViewController, CLLocationManagerDelegate {
 
     static let identifier = "ReportStartViewController"
     
@@ -19,6 +19,11 @@ final class SearchOnTheMapViewController: UIViewController {
     }
     private let searchMapView = SearchOnTheMapView()
     
+    let viewModel = HomeViewModel()
+    
+    // 성신여대
+    let schoolCenter = CLLocation(latitude: 37.591433, longitude: 127.021217)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,12 +31,12 @@ final class SearchOnTheMapViewController: UIViewController {
         
         self.addContentView()
         self.setAutoLayout()
+        self.setInitialLocation()
+        self.setMap()
+        self.setZoom()
         
-        searchMapView.mapView.delegate = self
         
         titleView.leftButton.addTarget(self, action: #selector(leftButtonDidTap), for: .touchUpInside)
-        
-//        searchMapView.mapView.addCameraDelegate(delegate: self)
     }
     
     private func addContentView() {
@@ -69,5 +74,36 @@ extension SearchOnTheMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         locationUpdate()
         // 서버 연결
+    }
+}
+extension SearchOnTheMapViewController {
+    // MARK: - 초기 위치 설정
+    func setInitialLocation() {
+        // 현위치
+//        if let initialLocation = viewModel.currentLocationCoordinate() {
+//            searchMapView.mapView.centerToLocation(initialLocation)
+//        }
+        
+        // 성신여대
+        searchMapView.mapView.centerToLocation(self.schoolCenter)
+    }
+    
+    // MARK: - 지도 설정
+    func setMap() {
+        viewModel.locationManager.delegate = self
+        searchMapView.mapView.delegate = self
+        viewModel.setCurrentLocation()
+    }
+    
+    // MARK: - 줌 아웃 제한
+    // 이정도면 수도권까지 줌아웃 가능
+    func setZoom() {
+        let region = MKCoordinateRegion(center: self.schoolCenter.coordinate,
+                                        latitudinalMeters: 50000,
+                                        longitudinalMeters: 60000)
+        searchMapView.mapView.setCameraBoundary(MKMapView.CameraBoundary(coordinateRegion: region),
+                                           animated: true)
+        let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 200000)
+        searchMapView.mapView.setCameraZoomRange(zoomRange, animated: true)
     }
 }

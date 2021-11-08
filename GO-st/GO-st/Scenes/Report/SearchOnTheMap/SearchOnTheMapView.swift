@@ -8,7 +8,6 @@
 import UIKit
 import Then
 import SnapKit
-//import NMapsMap
 import MapKit
 
 final class SearchOnTheMapView: UIView {
