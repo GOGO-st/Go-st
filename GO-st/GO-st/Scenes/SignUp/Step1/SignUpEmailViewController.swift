@@ -45,13 +45,13 @@ class SignUpEmailViewController: UIViewController {
     
     private func setNavigationTitleView() {
         titleView.setTitle("회원가입")
-        titleView.setBackgroundColor(.black)
+//        titleView.setBackgroundColor(.black)
     }
     
     @objc private func nextButtonDidTap() {
         
         let nextVC = SignUpOTPViewController()
-        nextVC.signUpOTPView.setEmailLabel(self.emailView.getEmail())
+        nextVC.email = self.emailView.getEmail()
         self.navigationController?.pushViewController(nextVC, animated: false)
     }
 }

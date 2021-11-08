@@ -39,8 +39,6 @@ final class SignUpEmailView: SignInUpView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = .black
-        
         self.addContentView()
         self.setAutoLayout()
         

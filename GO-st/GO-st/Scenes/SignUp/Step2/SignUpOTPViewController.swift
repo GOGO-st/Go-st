@@ -14,13 +14,15 @@ final class SignUpOTPViewController: UIViewController {
     let titleView = NavigationTitleView()
     let signUpOTPView = SignUpOTPView()
     
-    
+    var email = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addContentView()
         self.setAutoLayout()
         self.setNavigationTitleView()
+        
+        signUpOTPView.setEmailLabel(email)
         signUpOTPView.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
     }
     
@@ -44,10 +46,12 @@ final class SignUpOTPViewController: UIViewController {
     
     private func setNavigationTitleView() {
         titleView.setTitle("회원가입")
-        titleView.setBackgroundColor(.black)
+//        titleView.setBackgroundColor(.black)
     }
     
     @objc private func nextButtonDidTap() {
-        self.navigationController?.pushViewController(SignUpPasswordViewController(), animated: false)
+        let nextVC = SignUpPasswordViewController()
+        nextVC.email = self.email
+        self.navigationController?.pushViewController(nextVC, animated: false)
     }
 }

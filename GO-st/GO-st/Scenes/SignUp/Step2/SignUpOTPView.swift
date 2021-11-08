@@ -27,7 +27,6 @@ final class SignUpOTPView: SignInUpView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = .black
         self.otpTextField.delegate = self
         
         self.addContentView()

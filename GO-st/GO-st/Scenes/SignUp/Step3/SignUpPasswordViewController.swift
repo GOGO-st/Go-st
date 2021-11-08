@@ -14,6 +14,7 @@ final class SignUpPasswordViewController: UIViewController {
     let titleView = NavigationTitleView()
     let signUpPasswordView = SignUpPasswordView()
     
+    var email = ""
     
     
     override func viewDidLoad() {
@@ -21,6 +22,8 @@ final class SignUpPasswordViewController: UIViewController {
         self.addContentView()
         self.setAutoLayout()
         self.setNavigationTitleView()
+        
+        signUpPasswordView.setEmailLabel(email)
         signUpPasswordView.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
     }
     
@@ -44,7 +47,7 @@ final class SignUpPasswordViewController: UIViewController {
     
     private func setNavigationTitleView() {
         titleView.setTitle("회원가입")
-        titleView.setBackgroundColor(.black)
+//        titleView.setBackgroundColor(.black)
     }
     
     @objc private func nextButtonDidTap() {
