@@ -22,7 +22,7 @@ final class SearchOnTheMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = R.color.background()
         
         self.addContentView()
         self.setAutoLayout()

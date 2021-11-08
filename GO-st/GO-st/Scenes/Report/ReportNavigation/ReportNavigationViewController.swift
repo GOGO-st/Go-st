@@ -13,7 +13,8 @@ class ReportNavigationViewController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = R.color.background()
+        self.isNavigationBarHidden = true
         self.pushViewController(ReportStartViewController(), animated: true)
     }
 }
