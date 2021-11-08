@@ -10,7 +10,7 @@ import Then
 import SnapKit
 import NMapsMap
 
-final class HomeView: UIView, CLLocationManagerDelegate {
+final class HomeView: UIView {
 
     // 지도
     let mapView = NMFMapView()
@@ -47,14 +47,11 @@ final class HomeView: UIView, CLLocationManagerDelegate {
         $0.storeInfoView.isHidden = true
     }
     
-    let viewModel = HomeViewModel()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.addContentView()
         self.setAutoLayout()
-        self.setNaverMap()
         
         self.retrieveButton.isHidden = true
         self.retrieveButton.addTarget(self, action: #selector(retrieveButtonDidTap), for: .touchUpInside)
@@ -129,27 +126,7 @@ final class HomeView: UIView, CLLocationManagerDelegate {
         
     }
     
-    // MARK: - 지도 설정
-    func setNaverMap() {
-        viewModel.locationManager.delegate = self
-        mapView.addCameraDelegate(delegate: self)
-        
-        viewModel.setCurrentLocation()
-//        let locationOverlay = mapView.locationOverlay
-//        locationOverlay.icon =
-//        locationOverlay.subIcon =
-//        locationOverlay.circleRadius = 0 // 기본 원그림자 없애기
-        
-        move(at: viewModel.currentLocationCoordinate())
-    }
-    // MARK: - 현위치로 이동
-    private func move(at coor: CLLocationCoordinate2D?) {
-        if let coor = coor {
-            let camera = NMFCameraUpdate(scrollTo: NMGLatLng(lat: coor.latitude, lng: coor.longitude))
-            mapView.moveCamera(camera)
-        }
-        
-    }
+    
     // 가게 재검색 뷰 숨기기
     func retrieveButtonIsHidden(_ value: Bool) {
         retrieveButton.isHidden = value
@@ -164,13 +141,5 @@ final class HomeView: UIView, CLLocationManagerDelegate {
     // 마커 테스트 버튼
     @objc func testButtonDidTap(_ sender: UIButton) {
         self.storeInfoView.storeInfoView.isHidden = false
-    }
-}
-extension HomeView: NMFMapViewCameraDelegate {
-    
-    // 카메라 움직이고 손 떼면 카페 재검색 버튼 뜨기
-    func mapViewCameraIdle(_ mapView: NMFMapView) {
-        retrieveButtonIsHidden(false)
-        print("카페 재검색")
     }
 }

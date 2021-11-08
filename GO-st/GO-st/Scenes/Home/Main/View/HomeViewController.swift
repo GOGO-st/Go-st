@@ -10,15 +10,18 @@ import NMapsMap
 import Then
 import SnapKit
 
-final class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     static let identifier = "HomeViewController"
-//    let viewModel = HomeViewModel()
+    let viewModel = HomeViewModel()
     let homeView = HomeView()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setNaverMap()
+        
         homeView.goButton.addTarget(self, action: #selector(goButtonDidTap), for: .touchUpInside)
         
         view.addSubview(homeView)
