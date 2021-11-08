@@ -7,12 +7,13 @@
 
 import UIKit
 import NMapsMap
+import MapKit
 
 extension HomeViewController {
     // MARK: - 지도 설정
     func setNaverMap() {
         viewModel.locationManager.delegate = self
-        homeView.mapView.addCameraDelegate(delegate: self)
+//        homeView.mapView.addCameraDelegate(delegate: self)
         
         viewModel.setCurrentLocation()
 //        let locationOverlay = mapView.locationOverlay
@@ -25,18 +26,21 @@ extension HomeViewController {
     // MARK: - 현위치로 이동
     private func move(at coor: CLLocationCoordinate2D?) {
         if let coor = coor {
-            let camera = NMFCameraUpdate(scrollTo: NMGLatLng(lat: coor.latitude, lng: coor.longitude))
-            homeView.mapView.moveCamera(camera)
+//            let camera = NMFCameraUpdate(scrollTo: NMGLatLng(lat: coor.latitude, lng: coor.longitude))
+//            homeView.mapView.moveCamera(camera)
         }
         
     }
 }
 
-extension HomeViewController: NMFMapViewCameraDelegate {
-    
-    // 카메라 움직이고 손 떼면 카페 재검색 버튼 뜨기
-    func mapViewCameraIdle(_ mapView: NMFMapView) {
-        homeView.retrieveButtonIsHidden(false)
-        print("카페 재검색")
-    }
-}
+//extension HomeViewController: MKMapViewDelegate {
+//
+//}
+//extension HomeViewController: NMFMapViewCameraDelegate {
+//    
+//    // 카메라 움직이고 손 떼면 카페 재검색 버튼 뜨기
+//    func mapViewCameraIdle(_ mapView: NMFMapView) {
+//        homeView.retrieveButtonIsHidden(false)
+//        print("카페 재검색")
+//    }
+//}

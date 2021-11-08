@@ -8,12 +8,14 @@
 import UIKit
 import Then
 import SnapKit
-import NMapsMap
+import MapKit
+//import NMapsMap
 
 final class HomeView: UIView {
 
     // 지도
-    let mapView = NMFMapView()
+//    let mapView = NMFMapView()
+    let mapView = MKMapView()
     
     // 가보자고
     private let goView = UIView().then {
@@ -52,6 +54,8 @@ final class HomeView: UIView {
         
         self.addContentView()
         self.setAutoLayout()
+        
+        mapView.showsUserLocation = true // 위치 보기 설정
         
         self.retrieveButton.isHidden = true
         self.retrieveButton.addTarget(self, action: #selector(retrieveButtonDidTap), for: .touchUpInside)

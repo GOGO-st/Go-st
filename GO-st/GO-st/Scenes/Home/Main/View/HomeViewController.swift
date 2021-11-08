@@ -6,7 +6,8 @@
 //
 
 import UIKit
-import NMapsMap
+//import NMapsMap
+import MapKit
 import Then
 import SnapKit
 
@@ -26,7 +27,8 @@ final class HomeViewController: UIViewController, CLLocationManagerDelegate {
         
         view.addSubview(homeView)
         homeView.snp.makeConstraints {
-            $0.top.left.right.bottom.equalTo(view.safeAreaLayoutGuide)
+            $0.top.equalToSuperview()
+            $0.left.right.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
