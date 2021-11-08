@@ -8,7 +8,7 @@
 import UIKit
 import Then
 import SnapKit
-import NMapsMap
+import MapKit
 
 final class SearchOnTheMapViewController: UIViewController {
 
@@ -27,9 +27,11 @@ final class SearchOnTheMapViewController: UIViewController {
         self.addContentView()
         self.setAutoLayout()
         
+        searchMapView.mapView.delegate = self
+        
         titleView.leftButton.addTarget(self, action: #selector(leftButtonDidTap), for: .touchUpInside)
         
-        searchMapView.mapView.addCameraDelegate(delegate: self)
+//        searchMapView.mapView.addCameraDelegate(delegate: self)
     }
     
     private func addContentView() {
@@ -52,8 +54,8 @@ final class SearchOnTheMapViewController: UIViewController {
     
     // 해당 좌표 얻기
     private func locationUpdate() {
-        let coord = searchMapView.mapView.projection.latlng(from: searchMapView.marker.center)
-        searchMapView.addressLabel.text = String(format: "지도좌표: (%.5f, %.5f)", coord.lat, coord.lng)
+        let coord = searchMapView.mapView.convert(searchMapView.marker.center, toCoordinateFrom: searchMapView)
+        searchMapView.addressLabel.text = String(format: "지도좌표: (%.5f, %.5f)", coord.latitude, coord.longitude)
     }
     
     // 이전뷰로 돌아가기
@@ -62,9 +64,9 @@ final class SearchOnTheMapViewController: UIViewController {
     }
 }
 
-extension SearchOnTheMapViewController: NMFMapViewCameraDelegate {
-    // 손 떼면 해당 좌표
-    func mapViewCameraIdle(_ mapView: NMFMapView) {
+extension SearchOnTheMapViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         locationUpdate()
         // 서버 연결
     }
