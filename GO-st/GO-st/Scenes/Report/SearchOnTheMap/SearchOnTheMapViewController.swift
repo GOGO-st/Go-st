@@ -60,7 +60,8 @@ final class SearchOnTheMapViewController: UIViewController, CLLocationManagerDel
     // 해당 좌표 얻기
     private func locationUpdate() {
         let coord = searchMapView.mapView.convert(searchMapView.marker.center, toCoordinateFrom: searchMapView)
-        searchMapView.addressLabel.text = String(format: "지도좌표: (%.5f, %.5f)", coord.latitude, coord.longitude)
+        getAddressFromLatLon(coord)
+//        searchMapView.addressLabel.text = getAddressFromLatLon(coord)
     }
     
     // 이전뷰로 돌아가기
@@ -105,5 +106,33 @@ extension SearchOnTheMapViewController {
                                            animated: true)
         let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 200000)
         searchMapView.mapView.setCameraZoomRange(zoomRange, animated: true)
+    }
+    
+    func getAddressFromLatLon(_ coor: CLLocationCoordinate2D) {
+        
+        let location: CLLocation = CLLocation(latitude: coor.latitude, longitude: coor.longitude)
+        var address : String = ""
+        
+        CLGeocoder().reverseGeocodeLocation(location, completionHandler: {(placemarks, error) in
+            
+            if error != nil {
+                print("주소 얻기 실패: \(error!.localizedDescription)")
+                return
+            }
+            let placemark = placemarks! as [CLPlacemark]
+
+            if placemark.count > 0 {
+                let placemark = placemarks![0]
+
+                if let text = placemark.administrativeArea { address += "\(text) " }
+                if let text = placemark.locality { address += "\(text) " }
+                if let text = placemark.thoroughfare { address += "\(text) " }
+                if let text = placemark.subThoroughfare { address += "\(text)" }
+                
+                DispatchQueue.main.async {
+                    self.searchMapView.addressLabel.text = address
+                }
+            }
+        })
     }
 }
