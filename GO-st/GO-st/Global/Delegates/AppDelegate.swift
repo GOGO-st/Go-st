@@ -17,21 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow()
         self.window?.backgroundColor = .white
         self.window?.makeKeyAndVisible()
-//        self.window?.rootViewController = TabBarViewController()
-        self.window?.rootViewController = LoginNavigationViewController()
+        self.window?.rootViewController = TabBarViewController()
+//        self.window?.rootViewController = LoginNavigationViewController()
         
         return true
     }
-
-    // MARK: UISceneSession Lifecycle
-//
-//    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-//        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-//    }
-//
-//    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-//    }
-
-
 }
 

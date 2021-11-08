@@ -6,7 +6,8 @@
 //
 
 import UIKit
-import NMapsMap
+//import NMapsMap
+import MapKit
 import Then
 import SnapKit
 
@@ -14,133 +15,28 @@ final class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     static let identifier = "HomeViewController"
     let viewModel = HomeViewModel()
+    let homeView = HomeView()
     
-    // 지도
-    let mapView = NMFMapView()
-    
-    // 가보자고
-    private let goView = UIView().then {
-        $0.backgroundColor = .systemIndigo
-    }
-    
-    private let goLabel = UILabel().then {
-        $0.text = "어디 한 번 가보자고"
-    }
-    
-    private let goButton = UIButton().then {
-        $0.backgroundColor = .clear
-    }
-    
-    // 가게 재검색
-    private let retrieveButton = UIButton().then {
-        $0.backgroundColor = .darkGray
-        $0.setTitle("현재 지도에서 가게 재검색", for: .normal)
-        $0.setTitleColor(.white, for: .normal)
-        $0.isHidden = true
-    }
-    
-    // 마커 테스트 버튼
-    private let testButton = UIButton().then {
-        $0.backgroundColor = .red
-        $0.setTitle("마커임", for: .normal)
-    }
-    
-    // 가게 정보 뷰
-    private let storeInfoView = StoreInfoCardViewController().then {
-        $0.storeInfoView.isHidden = true
-    }
+    // 성신여대
+    let schoolCenter = CLLocation(latitude: 37.591433, longitude: 127.021217)
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addContentView()
-        setAutoLayout()
-        setNaverMap()
         
-        goButton.addTarget(self, action: #selector(goButtonDidTap), for: .touchUpInside)
-        retrieveButton.isHidden = true
-        retrieveButton.addTarget(self, action: #selector(retrieveButtonDidTap), for: .touchUpInside)
-        testButton.addTarget(self, action: #selector(testButtonDidTap), for: .touchUpInside)
-    }
-    
-    
-
-}
-
-// MARK: - UI 설정
-extension HomeViewController {
-    private func addContentView() {
-        // 지도
-        view.addSubview(mapView)
+        self.setMap()
+        self.setInitialLocation()
+        self.setZoom()
         
-        // 가보자고
-        view.addSubview(goView)
-        goView.addSubview(goLabel)
-        goView.addSubview(goButton)
+        homeView.goButton.addTarget(self, action: #selector(goButtonDidTap), for: .touchUpInside)
         
-        // 가게 재검색
-        view.addSubview(retrieveButton)
-        
-        // 마커 테스트 버튼
-        view.addSubview(testButton)
-        
-        // 가게 정보
-        view.addSubview(storeInfoView.storeInfoView)
-    }
-    
-    private func setAutoLayout() {
-        let safeArea = view.safeAreaLayoutGuide
-        
-        // 지도
-        mapView.snp.makeConstraints {
+        view.addSubview(homeView)
+        homeView.snp.makeConstraints {
             $0.top.equalToSuperview()
-            $0.left.right.bottom.equalTo(safeArea)
+            $0.left.right.bottom.equalTo(view.safeAreaLayoutGuide)
         }
-        
-        // 가보자고
-        goView.snp.makeConstraints {
-            $0.top.equalTo(safeArea).offset(50)
-            $0.left.equalTo(safeArea).offset(20)
-            $0.right.equalTo(safeArea).offset(-20)
-            $0.height.equalTo(50)
-        }
-        goLabel.snp.makeConstraints {
-            $0.center.equalTo(goView)
-        }
-        goButton.snp.makeConstraints {
-            $0.top.left.right.bottom.equalTo(goView)
-        }
-        
-        // 가게 재검색
-        retrieveButton.snp.makeConstraints {
-            $0.top.equalTo(goView.snp.bottom).offset(10)
-            $0.centerX.equalTo(safeArea)
-            $0.width.equalTo(100)
-        }
-        
-        // 마커 테스트 버튼
-        testButton.snp.makeConstraints {
-            $0.right.bottom.equalTo(safeArea).offset(-140)
-            $0.width.equalTo(50)
-        }
-        
-        // 가게 정보 뷰
-        storeInfoView.storeInfoView.snp.makeConstraints {
-            $0.bottom.equalTo(safeArea).offset(-10)
-            $0.centerX.equalTo(safeArea)
-            $0.width.equalTo(300) // 그냥 해놓은겨
-        }
-        
     }
     
-    
-    // 가게 재검색 뷰 숨기기
-    func retrieveButtonIsHidden(_ value: Bool) {
-        retrieveButton.isHidden = value
-    }
-    
-    @objc func retrieveButtonDidTap(_ sender: UIButton) {
-        retrieveButton.isHidden = true
-    }
     
     // 카테고리 뷰 버튼
     @objc func goButtonDidTap(_ sender: UIButton) {
@@ -149,9 +45,6 @@ extension HomeViewController {
         categoryVC.modalTransitionStyle = .crossDissolve
         present(categoryVC, animated: true, completion: nil)
     }
-    
-    // 마커 테스트 버튼
-    @objc func testButtonDidTap(_ sender: UIButton) {
-        self.storeInfoView.storeInfoView.isHidden = false
-    }
+
 }
+

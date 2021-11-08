@@ -29,7 +29,7 @@
 		6B3ECC5C27350BB200177F9F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC5B27350BB200177F9F /* HomeViewController.swift */; };
 		6B3ECC602735120500177F9F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC5F2735120500177F9F /* HomeViewModel.swift */; };
 		6B3ECC642735188700177F9F /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC632735188700177F9F /* HomeModel.swift */; };
-		6B3ECC662735436500177F9F /* HomeViewController+NaverMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC652735436400177F9F /* HomeViewController+NaverMap.swift */; };
+		6B3ECC662735436500177F9F /* HomeViewController+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC652735436400177F9F /* HomeViewController+Map.swift */; };
 		6B3ECC6827354CF900177F9F /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC6727354CF900177F9F /* CategoryView.swift */; };
 		6B3ECC6A27354F0000177F9F /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC6927354F0000177F9F /* CategoryViewController.swift */; };
 		6B3ECC6C2735564C00177F9F /* StoreInfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC6B2735564C00177F9F /* StoreInfoCardView.swift */; };
@@ -43,6 +43,8 @@
 		6B3ECC8D2736AF8C00177F9F /* SearchOnTheMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC8C2736AF8C00177F9F /* SearchOnTheMapViewController.swift */; };
 		6B8B79CC2738F6A200DB26F4 /* NSString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B79CB2738F6A200DB26F4 /* NSString+Extension.swift */; };
 		6B8B79D22738F97400DB26F4 /* OTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B79D12738F97400DB26F4 /* OTPTextField.swift */; };
+		6B8B79D427391FEA00DB26F4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B79D327391FEA00DB26F4 /* HomeView.swift */; };
+		6B8B79D627392CB300DB26F4 /* MKMapView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B79D527392CB300DB26F4 /* MKMapView+Extension.swift */; };
 		BC8BECCFB8985C1C46CC67AC /* Pods_GO_st.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22193B3D1D75D0B95E6F059 /* Pods_GO_st.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,7 +75,7 @@
 		6B3ECC5B27350BB200177F9F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6B3ECC5F2735120500177F9F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		6B3ECC632735188700177F9F /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
-		6B3ECC652735436400177F9F /* HomeViewController+NaverMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+NaverMap.swift"; sourceTree = "<group>"; };
+		6B3ECC652735436400177F9F /* HomeViewController+Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+Map.swift"; sourceTree = "<group>"; };
 		6B3ECC6727354CF900177F9F /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		6B3ECC6927354F0000177F9F /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		6B3ECC6B2735564C00177F9F /* StoreInfoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoCardView.swift; sourceTree = "<group>"; };
@@ -87,6 +89,8 @@
 		6B3ECC8C2736AF8C00177F9F /* SearchOnTheMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOnTheMapViewController.swift; sourceTree = "<group>"; };
 		6B8B79CB2738F6A200DB26F4 /* NSString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSString+Extension.swift"; sourceTree = "<group>"; };
 		6B8B79D12738F97400DB26F4 /* OTPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPTextField.swift; sourceTree = "<group>"; };
+		6B8B79D327391FEA00DB26F4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		6B8B79D527392CB300DB26F4 /* MKMapView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Extension.swift"; sourceTree = "<group>"; };
 		D22193B3D1D75D0B95E6F059 /* Pods_GO_st.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GO_st.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -105,6 +109,7 @@
 		6B2F392E2737A98F002F8D19 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				6B8B79CE2738F91D00DB26F4 /* SignIn */,
 				6B8B79CD2738F8EB00DB26F4 /* Step1 */,
 				6B8B79CF2738F92700DB26F4 /* Step2 */,
 				6B8B79D02738F93300DB26F4 /* Step3 */,
@@ -158,7 +163,6 @@
 			children = (
 				6B2F39352737AB0C002F8D19 /* LoginNavigationViewController.swift */,
 				6B2F39812737FC90002F8D19 /* SignInUpView.swift */,
-				6B8B79CE2738F91D00DB26F4 /* SignIn */,
 				6B2F392E2737A98F002F8D19 /* SignUp */,
 				6B3ECC3E2734E67F00177F9F /* TabBar */,
 				6B3ECC3F2734E69200177F9F /* Home */,
@@ -223,8 +227,9 @@
 		6B3ECC412734E6E400177F9F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6B8B79D327391FEA00DB26F4 /* HomeView.swift */,
 				6B3ECC5B27350BB200177F9F /* HomeViewController.swift */,
-				6B3ECC652735436400177F9F /* HomeViewController+NaverMap.swift */,
+				6B3ECC652735436400177F9F /* HomeViewController+Map.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -413,6 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				6B8B79CB2738F6A200DB26F4 /* NSString+Extension.swift */,
+				6B8B79D527392CB300DB26F4 /* MKMapView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -609,6 +615,7 @@
 				6B2F39302737AA0D002F8D19 /* SignUpEmailView.swift in Sources */,
 				6B3ECC262734E18200177F9F /* AppDelegate.swift in Sources */,
 				6B2F39802737F91B002F8D19 /* SignUpPasswordViewController.swift in Sources */,
+				6B8B79D427391FEA00DB26F4 /* HomeView.swift in Sources */,
 				6B3ECC6E2736486500177F9F /* StoreInfoCardViewController.swift in Sources */,
 				6B2F39322737AA9B002F8D19 /* SignUpOTPView.swift in Sources */,
 				6B3ECC88273695D800177F9F /* SearchOnTheMapView.swift in Sources */,
@@ -616,6 +623,7 @@
 				6B2F3984273803C2002F8D19 /* SignUpFinishedViewController.swift in Sources */,
 				6B3ECC642735188700177F9F /* HomeModel.swift in Sources */,
 				6B3ECC8B2736964A00177F9F /* ToTheMapView.swift in Sources */,
+				6B8B79D627392CB300DB26F4 /* MKMapView+Extension.swift in Sources */,
 				6B2F39362737AB0C002F8D19 /* LoginNavigationViewController.swift in Sources */,
 				6B3ECC5C27350BB200177F9F /* HomeViewController.swift in Sources */,
 				6B3ECC7F273675CE00177F9F /* ReportStartView.swift in Sources */,
@@ -628,7 +636,7 @@
 				6B3ECC7D27366DEC00177F9F /* ReportNavigationViewController.swift in Sources */,
 				6B2F39342737AAB2002F8D19 /* SignUpPasswordView.swift in Sources */,
 				6B3ECC6827354CF900177F9F /* CategoryView.swift in Sources */,
-				6B3ECC662735436500177F9F /* HomeViewController+NaverMap.swift in Sources */,
+				6B3ECC662735436500177F9F /* HomeViewController+Map.swift in Sources */,
 				6B3ECC282734E18200177F9F /* SceneDelegate.swift in Sources */,
 				6B3ECC502735084100177F9F /* TabBarViewController.swift in Sources */,
 				6B2F393A2737B200002F8D19 /* SignUpOTPViewController.swift in Sources */,
@@ -778,6 +786,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QPUG3J4E4B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "GO-st/Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 기반으로 정보를 제공하고 있습니다.";
@@ -806,6 +815,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QPUG3J4E4B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "GO-st/Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 기반으로 정보를 제공하고 있습니다.";

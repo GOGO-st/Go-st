@@ -13,6 +13,7 @@ class LoginNavigationViewController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = R.color.background()
         self.isNavigationBarHidden = true
         self.pushViewController(SignUpEmailViewController(), animated: false)
     }
