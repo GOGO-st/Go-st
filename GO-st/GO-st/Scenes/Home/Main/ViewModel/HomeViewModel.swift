@@ -20,8 +20,7 @@ class HomeViewModel {
         locationManager.startUpdatingLocation() // 위치 정보 지속적으로 받겠다!
     }
     
-    func currentLocationCoordinate() -> CLLocationCoordinate2D? {
-        return locationManager.location?.coordinate
+    func currentLocationCoordinate() -> CLLocation? {
+        return locationManager.location
     }
-    
 }

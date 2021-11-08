@@ -18,8 +18,17 @@ final class HomeViewController: UIViewController, CLLocationManagerDelegate {
     let homeView = HomeView()
     
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 초기 위치
+        if let initialLocation = viewModel.currentLocationCoordinate() {
+            homeView.mapView.centerToLocation(initialLocation)
+        }
+        
+        
         
         self.setNaverMap()
         
@@ -41,3 +50,4 @@ final class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
 
 }
+

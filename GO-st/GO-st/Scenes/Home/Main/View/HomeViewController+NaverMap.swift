@@ -21,7 +21,7 @@ extension HomeViewController {
 //        locationOverlay.subIcon =
 //        locationOverlay.circleRadius = 0 // 기본 원그림자 없애기
         
-        move(at: viewModel.currentLocationCoordinate())
+//        move(at: viewModel.currentLocationCoordinate())
     }
     // MARK: - 현위치로 이동
     private func move(at coor: CLLocationCoordinate2D?) {
