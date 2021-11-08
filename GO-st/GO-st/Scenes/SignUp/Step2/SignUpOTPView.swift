@@ -28,9 +28,18 @@ final class SignUpOTPView: SignInUpView {
         super.init(frame: frame)
         
         self.backgroundColor = .black
+        self.otpTextField.delegate = self
         
         self.addContentView()
         self.setAutoLayout()
+        
+        otpTextField.addTarget(self, action: #selector(checkValidity), for: .editingChanged)
+        
+        otpTextField.didEnterLastDigit = {
+            self.endEditing(true)
+            print($0)
+            super.canIUseNextButton(true)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -64,5 +73,26 @@ final class SignUpOTPView: SignInUpView {
             .normal("\n발송된 번호를 입력해주세요", fontSize: 18)
         
         self.descriptionLabel.attributedText = attributString
+    }
+    
+    @objc
+    private func checkValidity(_ textField: UITextField) {
+        if textField.text?.count ?? 0 == 6 {
+            super.canIUseNextButton(true)
+        } else {
+            super.canIUseNextButton(false)
+        }
+    }
+}
+extension SignUpOTPView: UITextFieldDelegate {
+    // 아무데나 누르면 키보드 내려가기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        super.touchesBegan(touches, with: event)
+        self.endEditing(true)
+    }
+    // return 누르면 키보드 내려가기
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
