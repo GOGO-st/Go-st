@@ -49,7 +49,7 @@ final class SignUpOTPView: SignInUpView {
     
     func setEmailLabel(_ email: String) {
         let attributString = NSMutableAttributedString()
-            .bold("\(email)로", fontSize: 18)
+            .bold("\(email)에서", fontSize: 18)
             .normal("\n발송된 번호를 입력해주세요", fontSize: 18)
         
         self.descriptionLabel.attributedText = attributString

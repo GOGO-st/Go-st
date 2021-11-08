@@ -29,7 +29,7 @@ final class SignUpEmailView: SignInUpView {
     // 이메일 적으면 이미지 갈아끼우기
 //    let backgroundImage
     
-    let emailTextField = UITextField().then {
+    private let emailTextField = UITextField().then {
         $0.placeholder = "학교 이메일을 적어주세요"
         $0.backgroundColor = .white
         $0.keyboardType = .emailAddress
@@ -85,7 +85,13 @@ final class SignUpEmailView: SignInUpView {
             super.canIUseNextButton(false)
         }
     }
+    
+    // 이메일 얻기
+    func getEmail() -> String {
+        return self.emailTextField.text ?? ""
+    }
 }
+
 extension SignUpEmailView: UITextFieldDelegate {
     // 아무데나 누르면 키보드 내려가기
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -96,11 +102,5 @@ extension SignUpEmailView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }
-    func checkMaxLength(_ textfield: UITextField, maxLength: Int){
-        if(textfield.text?.count ?? 0 > maxLength){
-            textfield.deleteBackward()
-            textfield.resignFirstResponder()
-        }
     }
 }

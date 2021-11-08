@@ -17,7 +17,6 @@ class SignUpEmailViewController: UIViewController {
     let emailView = SignUpEmailView()
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addContentView()
@@ -50,6 +49,9 @@ class SignUpEmailViewController: UIViewController {
     }
     
     @objc private func nextButtonDidTap() {
-        self.navigationController?.pushViewController(SignUpOTPViewController(), animated: false)
+        
+        let nextVC = SignUpOTPViewController()
+        nextVC.signUpOTPView.setEmailLabel(self.emailView.getEmail())
+        self.navigationController?.pushViewController(nextVC, animated: false)
     }
 }
