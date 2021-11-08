@@ -13,10 +13,10 @@ final class SignUpOTPView: SignInUpView {
     
     // 나중에 NSAttribute로 이메일만 굵기 변경
     private let descriptionLabel = UILabel().then {
-        $0.text = "(이메일)로\n발송된 번호를 입력해주세요"
+        $0.text = ""
         $0.textAlignment = .center
         $0.textColor = .white
-        $0.font = .systemFont(ofSize: 12)
+        $0.font = .systemFont(ofSize: 18)
         $0.numberOfLines = 2
     }
     
@@ -45,5 +45,13 @@ final class SignUpOTPView: SignInUpView {
             $0.top.equalTo(self).offset(100)
             $0.centerX.equalToSuperview()
         }
+    }
+    
+    func setEmailLabel(_ email: String) {
+        let attributString = NSMutableAttributedString()
+            .bold("\(email)로", fontSize: 18)
+            .normal("\n발송된 번호를 입력해주세요", fontSize: 18)
+        
+        self.descriptionLabel.attributedText = attributString
     }
 }
