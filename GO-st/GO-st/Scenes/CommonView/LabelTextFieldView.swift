@@ -13,24 +13,26 @@ import SnapKit
 final class LabelTextFieldView: UIView {
     
     // 제목
-    private let titleLabel = UILabel().then {
+    let titleLabel = UILabel().then {
         $0.text = ""
+        $0.font = .boldSystemFont(ofSize: 17)
         $0.textColor = .white
     }
 
-    private let backgroundView = UIView().then {
+    let backgroundView = UIView().then {
         $0.backgroundColor = .black
     }
     // 내용
     let contentTextField = UITextField().then {
         $0.textColor = .white
         $0.placeholder = ""
+        $0.font = .systemFont(ofSize: 16)
         $0.keyboardType = .emailAddress
     }
     
     private let WIDTH: CGFloat = UIScreen.main.bounds.width
-    private let HEIGHT: CGFloat = 92
-    private let sideSpacing: CGFloat = 26
+    private let HEIGHT: CGFloat = 89
+    private let sideSpacing: CGFloat = 33
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -64,7 +66,7 @@ final class LabelTextFieldView: UIView {
             $0.left.equalTo(self).offset(self.sideSpacing)
             $0.right.equalTo(self).offset(-self.sideSpacing)
             $0.bottom.equalTo(self)
-            $0.height.equalTo(59)
+            $0.height.equalTo(46)
         }
         // 내용
         contentTextField.snp.makeConstraints {
@@ -73,9 +75,9 @@ final class LabelTextFieldView: UIView {
         }
     }
     
-    func setTitle(_ title: String) {
-        self.titleLabel.text = title
-    }
+//    func setTitle(_ title: String) {
+//        self.titleLabel.text = title
+//    }
     
 //    func setText(_ text: String) {
 //        self.contentLabel.text = text

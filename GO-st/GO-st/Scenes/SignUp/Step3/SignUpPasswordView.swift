@@ -11,51 +11,20 @@ import SnapKit
 
 final class SignUpPasswordView: SignInUpView {
     
-    // MARK: - 이메일 (고정)
-    private let emailDefaultLabel = UILabel().then {
-        $0.text = "이메일"
-        $0.textColor = .white
+    // 이메일 (고정)
+    private let emailView = LabelLabelView().then {
+        $0.titleLabel.text = "이메일"
     }
+    // 비번
+    private let passwordView = LabelTextFieldView().then {
+        $0.titleLabel.text = "비밀번호"
+        $0.contentTextField.placeholder = "비밀번호 입력"
+    }
+    // 비번 확인
     
-    private let emailBackground = UIView().then {
-        $0.backgroundColor = .black
-    }
-    // 이메일@gmail.com
-    private let emailLabel = UILabel().then {
-        $0.text = ""
-        $0.textColor = .white
-    }
-    
-    // MARK: - 비번
-    private let passwordDefaultLabel = UILabel().then {
-        $0.text = "비밀번호"
-        $0.textColor = .white
-    }
-    
-    private let passwordBackground = UIView().then {
-        $0.backgroundColor = .black
-    }
-    
-    private let passwordTextField = UITextField().then {
-        $0.textColor = .white
-        $0.placeholder = "비밀번호 입력"
-        $0.keyboardType = .emailAddress
-    }
-    
-    // MARK: - 비번 확인
-    private let passwordConfirmDefaultLabel = UILabel().then {
-        $0.text = "비밀번호 확인"
-        $0.textColor = .white
-    }
-    
-    private let passwordConfirmBackground = UIView().then {
-        $0.backgroundColor = .black
-    }
-    
-    private let passwordConfirmTextField = UITextField().then {
-        $0.textColor = .white
-        $0.placeholder = "비밀번호 확인"
-        $0.keyboardType = .emailAddress
+    private let passwordConfirmView = LabelTextFieldView().then {
+        $0.titleLabel.text = "비밀번호 확인"
+        $0.contentTextField.placeholder = "비밀번호 다시 입력"
     }
     
     private let sideSpacing: CGFloat = 33
@@ -68,10 +37,10 @@ final class SignUpPasswordView: SignInUpView {
         self.addContentView()
         self.setAutoLayout()
         
-        self.passwordTextField.delegate = self
-        self.passwordConfirmTextField.delegate = self
+        self.passwordView.contentTextField.delegate = self
+        self.passwordConfirmView.contentTextField.delegate = self
         
-        passwordConfirmTextField.addTarget(self, action: #selector(checkValidity), for: .editingChanged)
+        self.passwordConfirmView.contentTextField.addTarget(self, action: #selector(checkValidity), for: .editingChanged)
     }
     
     required init?(coder: NSCoder) {
@@ -79,17 +48,9 @@ final class SignUpPasswordView: SignInUpView {
     }
     
     private func addContentView() {
-        self.addSubview(emailDefaultLabel)
-        self.addSubview(emailBackground)
-        emailBackground.addSubview(emailLabel)
-        
-        self.addSubview(passwordDefaultLabel)
-        self.addSubview(passwordBackground)
-        passwordBackground.addSubview(passwordTextField)
-        
-        self.addSubview(passwordConfirmDefaultLabel)
-        self.addSubview(passwordConfirmBackground)
-        passwordConfirmBackground.addSubview(passwordConfirmTextField)
+        self.addSubview(emailView)
+        self.addSubview(passwordView)
+        self.addSubview(passwordConfirmView)
     }
     
     private func setAutoLayout() {
@@ -98,70 +59,31 @@ final class SignUpPasswordView: SignInUpView {
         }
         
         // 이메일
-        emailDefaultLabel.snp.makeConstraints {
+        emailView.snp.makeConstraints {
             $0.top.equalTo(self).offset(100)
-            $0.left.equalTo(self).offset(self.sideSpacing)
+            $0.left.right.equalTo(self)
         }
-        
-        emailBackground.snp.makeConstraints {
-            $0.top.equalTo(emailDefaultLabel.snp.bottom).offset(self.topSpacing)
-            $0.left.equalTo(self).offset(self.sideSpacing)
-            $0.right.equalTo(self).offset(-self.sideSpacing)
-            $0.height.equalTo(self.height)
-        }
-        
-        emailLabel.snp.makeConstraints {
-            $0.centerY.equalTo(emailBackground)
-            $0.left.equalTo(emailBackground).offset(self.sideSpacing)
-        }
-        
         // 비번
-        passwordDefaultLabel.snp.makeConstraints {
-            $0.top.equalTo(emailBackground.snp.bottom).offset(self.topSpacing)
-            $0.left.equalTo(self).offset(self.sideSpacing)
+        passwordView.snp.makeConstraints {
+            $0.top.equalTo(emailView.snp.bottom).offset(self.topSpacing)
+            $0.left.right.equalTo(self)
         }
-        
-        passwordBackground.snp.makeConstraints {
-            $0.top.equalTo(passwordDefaultLabel.snp.bottom).offset(self.topSpacing)
-            $0.left.equalTo(self).offset(self.sideSpacing)
-            $0.right.equalTo(self).offset(-self.sideSpacing)
-            $0.height.equalTo(self.height)
-        }
-        
-        passwordTextField.snp.makeConstraints {
-            $0.centerY.equalTo(passwordBackground)
-            $0.left.equalTo(passwordBackground).offset(self.sideSpacing)
-        }
-        
         // 비번 확인
-        passwordConfirmDefaultLabel.snp.makeConstraints {
-            $0.top.equalTo(passwordBackground.snp.bottom).offset(self.topSpacing)
-            $0.left.equalTo(self).offset(self.sideSpacing)
-        }
-        
-        passwordConfirmBackground.snp.makeConstraints {
-            $0.top.equalTo(passwordConfirmDefaultLabel.snp.bottom).offset(self.topSpacing)
-            $0.left.equalTo(self).offset(self.sideSpacing)
-            $0.right.equalTo(self).offset(-self.sideSpacing)
-            $0.height.equalTo(self.height)
-        }
-        
-        passwordConfirmTextField.snp.makeConstraints {
-            $0.centerY.equalTo(passwordConfirmBackground)
-            $0.left.equalTo(passwordConfirmBackground).offset(self.sideSpacing)
+        passwordConfirmView.snp.makeConstraints {
+            $0.top.equalTo(passwordView.snp.bottom).offset(self.topSpacing)
+            $0.left.right.equalTo(self)
         }
     }
     
     func setEmailLabel(_ email: String) {
-        self.emailLabel.text = email
+        self.emailView.contentLabel.text = email
     }
     
     @objc
     private func checkValidity(_ textField: UITextField) {
         // 일단 2 이상으로
-        
         let confirmText = textField.text
-        if confirmText?.count ?? 0 > 1 && passwordTextField.text == confirmText {
+        if confirmText?.count ?? 0 > 1 && passwordView.contentTextField.text == confirmText {
             super.canIUseNextButton(true)
         } else {
             super.canIUseNextButton(false)

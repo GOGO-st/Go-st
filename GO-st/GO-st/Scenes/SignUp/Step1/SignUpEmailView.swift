@@ -31,7 +31,7 @@ final class SignUpEmailView: SignInUpView {
     
     private let emailTextField = UITextField().then {
         $0.placeholder = "학교 이메일을 적어주세요"
-        $0.backgroundColor = .white
+        $0.backgroundColor = .black
         $0.keyboardType = .emailAddress
     }
     
