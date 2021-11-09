@@ -47,6 +47,7 @@
 		6B8B79D627392CB300DB26F4 /* MKMapView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B79D527392CB300DB26F4 /* MKMapView+Extension.swift */; };
 		6B8B79D9273A31FC00DB26F4 /* LabelLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B79D8273A31FC00DB26F4 /* LabelLabelView.swift */; };
 		6B8B79DB273A320B00DB26F4 /* LabelTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B79DA273A320B00DB26F4 /* LabelTextFieldView.swift */; };
+		6B8B79DE273A940300DB26F4 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B79DD273A940300DB26F4 /* APIConstants.swift */; };
 		BC8BECCFB8985C1C46CC67AC /* Pods_GO_st.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22193B3D1D75D0B95E6F059 /* Pods_GO_st.framework */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +96,7 @@
 		6B8B79D527392CB300DB26F4 /* MKMapView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Extension.swift"; sourceTree = "<group>"; };
 		6B8B79D8273A31FC00DB26F4 /* LabelLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelLabelView.swift; sourceTree = "<group>"; };
 		6B8B79DA273A320B00DB26F4 /* LabelTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextFieldView.swift; sourceTree = "<group>"; };
+		6B8B79DD273A940300DB26F4 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		D22193B3D1D75D0B95E6F059 /* Pods_GO_st.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GO_st.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -155,6 +157,7 @@
 		6B3ECC392734E60F00177F9F /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				6B8B79DC273A93EC00DB26F4 /* Services */,
 				6B8B79CA2738F66600DB26F4 /* Extensions */,
 				6B3ECC3D2734E66A00177F9F /* Delegates */,
 				6B3ECC3C2734E64C00177F9F /* Resources */,
@@ -472,6 +475,14 @@
 			path = CommonView;
 			sourceTree = "<group>";
 		};
+		6B8B79DC273A93EC00DB26F4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6B8B79DD273A940300DB26F4 /* APIConstants.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		6E904F09D2EC5D3F30B3CF9B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -648,6 +659,7 @@
 				6B3ECC6C2735564C00177F9F /* StoreInfoCardView.swift in Sources */,
 				6B8B79CC2738F6A200DB26F4 /* NSString+Extension.swift in Sources */,
 				6B2F39822737FC90002F8D19 /* SignInUpView.swift in Sources */,
+				6B8B79DE273A940300DB26F4 /* APIConstants.swift in Sources */,
 				6B3ECC7D27366DEC00177F9F /* ReportNavigationViewController.swift in Sources */,
 				6B2F39342737AAB2002F8D19 /* SignUpPasswordView.swift in Sources */,
 				6B3ECC6827354CF900177F9F /* CategoryView.swift in Sources */,
