@@ -21,7 +21,6 @@ final class SignUpPasswordView: SignInUpView {
         $0.contentTextField.placeholder = "비밀번호 입력"
     }
     // 비번 확인
-    
     private let passwordConfirmView = LabelTextFieldView().then {
         $0.titleLabel.text = "비밀번호 확인"
         $0.contentTextField.placeholder = "비밀번호 다시 입력"
