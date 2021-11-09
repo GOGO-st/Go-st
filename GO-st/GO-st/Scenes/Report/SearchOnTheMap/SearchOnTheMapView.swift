@@ -8,7 +8,7 @@
 import UIKit
 import Then
 import SnapKit
-import NMapsMap
+import MapKit
 
 final class SearchOnTheMapView: UIView {
 
@@ -29,7 +29,7 @@ final class SearchOnTheMapView: UIView {
         $0.setTitle("이 위치로 주소 설정", for: .normal)
         $0.backgroundColor = .darkGray
     }
-    let mapView = NMFMapView()
+    let mapView = MKMapView()
     
     let marker = UIImageView().then {
         $0.image = R.image.map.marker() // 임시임

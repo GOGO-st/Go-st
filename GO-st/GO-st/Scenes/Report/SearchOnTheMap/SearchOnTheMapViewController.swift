@@ -8,9 +8,9 @@
 import UIKit
 import Then
 import SnapKit
-import NMapsMap
+import MapKit
 
-final class SearchOnTheMapViewController: UIViewController {
+final class SearchOnTheMapViewController: UIViewController, CLLocationManagerDelegate {
 
     static let identifier = "ReportStartViewController"
     
@@ -19,17 +19,24 @@ final class SearchOnTheMapViewController: UIViewController {
     }
     private let searchMapView = SearchOnTheMapView()
     
+    let viewModel = HomeViewModel()
+    
+    // 성신여대
+    let schoolCenter = CLLocation(latitude: 37.591433, longitude: 127.021217)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = R.color.background()
         
         self.addContentView()
         self.setAutoLayout()
+        self.setInitialLocation()
+        self.setMap()
+        self.setZoom()
+        
         
         titleView.leftButton.addTarget(self, action: #selector(leftButtonDidTap), for: .touchUpInside)
-        
-        searchMapView.mapView.addCameraDelegate(delegate: self)
     }
     
     private func addContentView() {
@@ -52,8 +59,9 @@ final class SearchOnTheMapViewController: UIViewController {
     
     // 해당 좌표 얻기
     private func locationUpdate() {
-        let coord = searchMapView.mapView.projection.latlng(from: searchMapView.marker.center)
-        searchMapView.addressLabel.text = String(format: "지도좌표: (%.5f, %.5f)", coord.lat, coord.lng)
+        let coord = searchMapView.mapView.convert(searchMapView.marker.center, toCoordinateFrom: searchMapView)
+        getAddressFromLatLon(coord)
+//        searchMapView.addressLabel.text = getAddressFromLatLon(coord)
     }
     
     // 이전뷰로 돌아가기
@@ -62,10 +70,69 @@ final class SearchOnTheMapViewController: UIViewController {
     }
 }
 
-extension SearchOnTheMapViewController: NMFMapViewCameraDelegate {
-    // 손 떼면 해당 좌표
-    func mapViewCameraIdle(_ mapView: NMFMapView) {
+extension SearchOnTheMapViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         locationUpdate()
         // 서버 연결
+    }
+}
+extension SearchOnTheMapViewController {
+    // MARK: - 초기 위치 설정
+    func setInitialLocation() {
+        // 현위치
+//        if let initialLocation = viewModel.currentLocationCoordinate() {
+//            searchMapView.mapView.centerToLocation(initialLocation)
+//        }
+        
+        // 성신여대
+        searchMapView.mapView.centerToLocation(self.schoolCenter)
+    }
+    
+    // MARK: - 지도 설정
+    func setMap() {
+        viewModel.locationManager.delegate = self
+        searchMapView.mapView.delegate = self
+        viewModel.setCurrentLocation()
+    }
+    
+    // MARK: - 줌 아웃 제한
+    // 이정도면 수도권까지 줌아웃 가능
+    func setZoom() {
+        let region = MKCoordinateRegion(center: self.schoolCenter.coordinate,
+                                        latitudinalMeters: 50000,
+                                        longitudinalMeters: 60000)
+        searchMapView.mapView.setCameraBoundary(MKMapView.CameraBoundary(coordinateRegion: region),
+                                           animated: true)
+        let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 200000)
+        searchMapView.mapView.setCameraZoomRange(zoomRange, animated: true)
+    }
+    
+    func getAddressFromLatLon(_ coor: CLLocationCoordinate2D) {
+        
+        let location: CLLocation = CLLocation(latitude: coor.latitude, longitude: coor.longitude)
+        var address : String = ""
+        
+        CLGeocoder().reverseGeocodeLocation(location, completionHandler: {(placemarks, error) in
+            
+            if error != nil {
+                print("주소 얻기 실패: \(error!.localizedDescription)")
+                return
+            }
+            let placemark = placemarks! as [CLPlacemark]
+
+            if placemark.count > 0 {
+                let placemark = placemarks![0]
+
+                if let text = placemark.administrativeArea { address += "\(text) " }
+                if let text = placemark.locality { address += "\(text) " }
+                if let text = placemark.thoroughfare { address += "\(text) " }
+                if let text = placemark.subThoroughfare { address += "\(text)" }
+                
+                DispatchQueue.main.async {
+                    self.searchMapView.addressLabel.text = address
+                }
+            }
+        })
     }
 }
