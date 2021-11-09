@@ -37,6 +37,7 @@ final class SearchOnTheMapViewController: UIViewController, CLLocationManagerDel
         
         
         titleView.leftButton.addTarget(self, action: #selector(leftButtonDidTap), for: .touchUpInside)
+        searchMapView.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
     }
     
     private func addContentView() {
@@ -60,13 +61,21 @@ final class SearchOnTheMapViewController: UIViewController, CLLocationManagerDel
     // 해당 좌표 얻기
     private func locationUpdate() {
         let coord = searchMapView.mapView.convert(searchMapView.marker.center, toCoordinateFrom: searchMapView)
-        getAddressFromLatLon(coord)
+        getAddressFromCoordinate(coord)
 //        searchMapView.addressLabel.text = getAddressFromLatLon(coord)
     }
     
     // 이전뷰로 돌아가기
     @objc private func leftButtonDidTap() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    private func nextButtonDidTap() {
+        
+        let nextVC = ReportResultViewController()
+        
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
 
@@ -108,7 +117,8 @@ extension SearchOnTheMapViewController {
         searchMapView.mapView.setCameraZoomRange(zoomRange, animated: true)
     }
     
-    func getAddressFromLatLon(_ coor: CLLocationCoordinate2D) {
+    // MARK: - 주소 얻기
+    private func getAddressFromCoordinate(_ coor: CLLocationCoordinate2D) {
         
         let location: CLLocation = CLLocation(latitude: coor.latitude, longitude: coor.longitude)
         var address : String = ""
