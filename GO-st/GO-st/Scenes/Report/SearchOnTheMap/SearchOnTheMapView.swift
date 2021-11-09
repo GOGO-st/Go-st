@@ -25,7 +25,7 @@ final class SearchOnTheMapView: UIView {
         $0.textColor = .darkGray
     }
     
-    let finishedButton = UIButton().then {
+    let nextButton = UIButton().then {
         $0.setTitle("이 위치로 주소 설정", for: .normal)
         $0.backgroundColor = .darkGray
     }
@@ -54,7 +54,7 @@ final class SearchOnTheMapView: UIView {
         self.addSubview(marker)
         self.addSubview(backgroundView)
         backgroundView.addSubview(addressLabel)
-        self.addSubview(finishedButton)
+        self.addSubview(nextButton)
     }
     
     private func setAutoLayout() {
@@ -89,7 +89,7 @@ final class SearchOnTheMapView: UIView {
             $0.centerY.equalTo(backgroundView)
         }
         // 완료
-        finishedButton.snp.makeConstraints {
+        nextButton.snp.makeConstraints {
             $0.centerX.equalTo(self)
             $0.top.equalTo(backgroundView.snp.bottom).offset(20)
             $0.bottom.equalTo(self).offset(-20)
