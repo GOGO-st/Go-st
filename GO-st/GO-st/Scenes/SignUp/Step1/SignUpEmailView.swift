@@ -29,7 +29,7 @@ final class SignUpEmailView: SignInUpView {
     // 이메일 적으면 이미지 갈아끼우기
 //    let backgroundImage
     
-    private let emailTextField = UITextField().then {
+    let emailTextField = UITextField().then {
         $0.placeholder = "학교 이메일을 적어주세요"
         $0.backgroundColor = .black
         $0.keyboardType = .emailAddress
@@ -43,7 +43,6 @@ final class SignUpEmailView: SignInUpView {
         self.setAutoLayout()
         
         self.emailTextField.delegate = self
-        self.emailTextField.addTarget(self, action: #selector(checkValidity), for: .editingChanged)
     }
     
     required init?(coder: NSCoder) {
@@ -74,15 +73,7 @@ final class SignUpEmailView: SignInUpView {
         }
     }
     
-    // 한글자라도 입력하면 버튼 활성화
-    @objc
-    private func checkValidity(_ textField: UITextField) {
-        if textField.text?.count ?? 0 > 0 {
-            super.canIUseNextButton(true)
-        } else {
-            super.canIUseNextButton(false)
-        }
-    }
+    
     
     // 이메일 얻기
     func getEmail() -> String {

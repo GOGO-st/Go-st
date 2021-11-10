@@ -54,6 +54,17 @@ struct UserService {
                                 completion(.pathErr)
                             }
                             // 다른번호는 나중에
+                            
+                        case 400:
+                            print("헤이 여기 400")
+                            do {
+                                let decoder = JSONDecoder()
+                                let result = try decoder.decode(ResponseTempResult.self, from: value)
+                                completion(.requestErr(result.message))
+                            } catch {
+                                completion(.pathErr)
+                            }
+                            
                         default:
                             break
                         }
