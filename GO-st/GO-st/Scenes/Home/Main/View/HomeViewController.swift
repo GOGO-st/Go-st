@@ -20,6 +20,10 @@ final class HomeViewController: UIViewController, CLLocationManagerDelegate {
     // 성신여대
     let schoolCenter = CLLocation(latitude: 37.591433, longitude: 127.021217)
 
+    let store = StoreData (
+        storeName: "핑크페퍼",
+        longitude: 37.59130619619549, latitude: 127.02003442515684,
+        emoji: "evil")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +39,14 @@ final class HomeViewController: UIViewController, CLLocationManagerDelegate {
             $0.top.equalToSuperview()
             $0.left.right.bottom.equalTo(view.safeAreaLayoutGuide)
         }
+        
+        
+        let marker = Marker(
+            title: store.storeName,
+            subtitle: store.emoji,
+            coordinate: CLLocationCoordinate2D(latitude: 37.59102042163005, longitude: 127.01930156305679))
+        
+        homeView.mapView.addAnnotation(marker)
     }
     
     
