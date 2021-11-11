@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import NMapsMap
 import MapKit
 
 extension HomeViewController {

@@ -7,7 +7,6 @@
 
 import Foundation
 import CoreLocation
-import NMapsMap
 
 class HomeViewModel {
     

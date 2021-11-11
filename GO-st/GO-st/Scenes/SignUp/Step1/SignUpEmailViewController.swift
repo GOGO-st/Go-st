@@ -15,7 +15,7 @@ class SignUpEmailViewController: UIViewController {
     
     let titleView = NavigationTitleView()
     let emailView = SignUpEmailView()
-    
+    let viewModel = SignUpViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +23,7 @@ class SignUpEmailViewController: UIViewController {
         self.setAutoLayout()
         self.setNavigationTitleView()
         emailView.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
+        emailView.emailTextField.addTarget(self, action: #selector(checkValidity), for: .editingChanged)
     }
     
     private func addContentView() {
@@ -50,8 +51,38 @@ class SignUpEmailViewController: UIViewController {
     
     @objc private func nextButtonDidTap() {
         
-        let nextVC = SignUpOTPViewController()
-        nextVC.email = self.emailView.getEmail()
-        self.navigationController?.pushViewController(nextVC, animated: false)
+//        let nextVC = SignUpOTPViewController()
+//        nextVC.email = self.emailView.getEmail()
+//        self.navigationController?.pushViewController(nextVC, animated: false)
+        
+        UserService.shared.authenticateEmail(emailView.getEmail()) { [self] (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(let data):
+                print("여긴 석세스")
+                print(data)
+//                if let code = data as? {
+//
+//                }
+            case .requestErr(_):
+                print("requestErr")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+            
+        }
+    }
+    
+    // 한글자라도 입력하면 버튼 활성화
+    @objc
+    private func checkValidity(_ textField: UITextField) {
+        if viewModel.validateEmail(textField.text ?? "") {
+            emailView.canIUseNextButton(true)
+        } else {
+            emailView.canIUseNextButton(false)
+        }
     }
 }
