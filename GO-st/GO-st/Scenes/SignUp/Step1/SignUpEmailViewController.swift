@@ -51,29 +51,28 @@ class SignUpEmailViewController: UIViewController {
     
     @objc private func nextButtonDidTap() {
         
-//        let nextVC = SignUpOTPViewController()
-//        nextVC.email = self.emailView.getEmail()
-//        self.navigationController?.pushViewController(nextVC, animated: false)
+        let nextVC = SignUpOTPViewController()
+        nextVC.email = self.emailView.getEmail()
+        self.navigationController?.pushViewController(nextVC, animated: false)
         
-        UserService.shared.authenticateEmail(emailView.getEmail()) { [self] (networkResult) -> (Void) in
-            switch networkResult {
-            case .success(let data):
-                print("여긴 석세스")
-                print(data)
-//                if let code = data as? {
+//        UserService.shared.authenticateEmail(emailView.getEmail()) { [self] (networkResult) -> (Void) in
+//            switch networkResult {
+//            case .success(let data):
+//                print(data)
+////                if let code = data as? {
+////
+////                }
+//            case .requestErr(_):
+//                print("requestErr")
+//            case .pathErr:
+//                print("pathErr")
+//            case .serverErr:
+//                print("serverErr")
+//            case .networkFail:
+//                print("networkFail")
+//            }
 //
-//                }
-            case .requestErr(_):
-                print("requestErr")
-            case .pathErr:
-                print("pathErr")
-            case .serverErr:
-                print("serverErr")
-            case .networkFail:
-                print("networkFail")
-            }
-            
-        }
+//        }
     }
     
     // 한글자라도 입력하면 버튼 활성화
