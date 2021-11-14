@@ -12,4 +12,5 @@ target 'GO-st' do
   pod 'Then'
   pod 'SnapKit'
   pod 'R.swift'
+  pod 'lottie-ios'
 end

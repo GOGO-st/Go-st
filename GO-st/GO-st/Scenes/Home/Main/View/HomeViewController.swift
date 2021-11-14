@@ -21,8 +21,8 @@ final class HomeViewController: UIViewController, CLLocationManagerDelegate {
     let schoolCenter = CLLocation(latitude: 37.591433, longitude: 127.021217)
 
     let store = StoreData (
-        storeName: "핑크페퍼",
-        longitude: 37.59130619619549, latitude: 127.02003442515684,
+        storeName: "문화식당",
+        longitude: 37.59493307673563, latitude: 127.02069482411251,
         emoji: "evil")
     
     override func viewDidLoad() {
@@ -40,11 +40,12 @@ final class HomeViewController: UIViewController, CLLocationManagerDelegate {
             $0.left.right.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         
-        
         let marker = Marker(
             title: store.storeName,
             subtitle: store.emoji,
-            coordinate: CLLocationCoordinate2D(latitude: 37.59102042163005, longitude: 127.01930156305679))
+            emoji: store.emoji,
+//            coordinate: CLLocationCoordinate2D(latitude: 37.59102042163005, longitude: 127.01930156305679))
+            coordinate: CLLocationCoordinate2D(latitude: 37.59493307673563, longitude: 127.02069482411251))
         
         homeView.mapView.addAnnotation(marker)
     }
@@ -59,4 +60,3 @@ final class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
 
 }
-

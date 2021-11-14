@@ -46,4 +46,26 @@ extension HomeViewController: MKMapViewDelegate {
         homeView.retrieveButtonIsHidden()
         print("카페 재검색")
     }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        var annotationView: MKAnnotationView?
+        
+        //원하는 위치에 넣을 이미지뷰
+        let annotationimageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+        let image = R.image.map.selected.evil()
+        annotationimageView.image = image
+        
+//        //원하는 위치에 넣을 레이블
+//        let annotationLabel = UILabel(frame: CGRect(x: 0, y: -35, width: 45, height: 15))
+//        annotationLabel.backgroundColor = .systemOrange
+//        annotationLabel.textColor = .white
+//        annotationLabel.numberOfLines = 3
+//        annotationLabel.textAlignment = .center
+//        annotationLabel.font = UIFont.boldSystemFont(ofSize: 10)
+//        annotationLabel.text = annotation.title!
+        
+        annotationView?.addSubview(annotationimageView)
+        
+        return annotationView
+    }
 }

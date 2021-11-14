@@ -17,6 +17,7 @@
 		6B2F39802737F91B002F8D19 /* SignUpPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2F397F2737F91B002F8D19 /* SignUpPasswordViewController.swift */; };
 		6B2F39822737FC90002F8D19 /* SignInUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2F39812737FC90002F8D19 /* SignInUpView.swift */; };
 		6B2F3984273803C2002F8D19 /* SignUpFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2F3983273803C2002F8D19 /* SignUpFinishedViewController.swift */; };
+		6B34B9FB273D4FBD00E23947 /* MarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B34B9FA273D4FBD00E23947 /* MarkerView.swift */; };
 		6B3ECC262734E18200177F9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC252734E18200177F9F /* AppDelegate.swift */; };
 		6B3ECC282734E18200177F9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC272734E18200177F9F /* SceneDelegate.swift */; };
 		6B3ECC2F2734E18900177F9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B3ECC2E2734E18900177F9F /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 		6B3ECC88273695D800177F9F /* SearchOnTheMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC87273695D800177F9F /* SearchOnTheMapView.swift */; };
 		6B3ECC8B2736964A00177F9F /* ToTheMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC8A2736964A00177F9F /* ToTheMapView.swift */; };
 		6B3ECC8D2736AF8C00177F9F /* SearchOnTheMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC8C2736AF8C00177F9F /* SearchOnTheMapViewController.swift */; };
+		6B4940C12740D7A1001B311A /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4940C02740D7A1001B311A /* Marker.swift */; };
 		6B8B79CC2738F6A200DB26F4 /* NSString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B79CB2738F6A200DB26F4 /* NSString+Extension.swift */; };
 		6B8B79D22738F97400DB26F4 /* OTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B79D12738F97400DB26F4 /* OTPTextField.swift */; };
 		6B8B79D427391FEA00DB26F4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B79D327391FEA00DB26F4 /* HomeView.swift */; };
@@ -69,6 +71,7 @@
 		6B2F397F2737F91B002F8D19 /* SignUpPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPasswordViewController.swift; sourceTree = "<group>"; };
 		6B2F39812737FC90002F8D19 /* SignInUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUpView.swift; sourceTree = "<group>"; };
 		6B2F3983273803C2002F8D19 /* SignUpFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFinishedViewController.swift; sourceTree = "<group>"; };
+		6B34B9FA273D4FBD00E23947 /* MarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerView.swift; sourceTree = "<group>"; };
 		6B3ECC222734E18200177F9F /* GO-st.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GO-st.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B3ECC252734E18200177F9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B3ECC272734E18200177F9F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +98,7 @@
 		6B3ECC87273695D800177F9F /* SearchOnTheMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOnTheMapView.swift; sourceTree = "<group>"; };
 		6B3ECC8A2736964A00177F9F /* ToTheMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToTheMapView.swift; sourceTree = "<group>"; };
 		6B3ECC8C2736AF8C00177F9F /* SearchOnTheMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOnTheMapViewController.swift; sourceTree = "<group>"; };
+		6B4940C02740D7A1001B311A /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
 		6B8B79CB2738F6A200DB26F4 /* NSString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSString+Extension.swift"; sourceTree = "<group>"; };
 		6B8B79D12738F97400DB26F4 /* OTPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPTextField.swift; sourceTree = "<group>"; };
 		6B8B79D327391FEA00DB26F4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -247,6 +251,8 @@
 				6B8B79D327391FEA00DB26F4 /* HomeView.swift */,
 				6B3ECC5B27350BB200177F9F /* HomeViewController.swift */,
 				6B3ECC652735436400177F9F /* HomeViewController+Map.swift */,
+				6B34B9FA273D4FBD00E23947 /* MarkerView.swift */,
+				6B4940C02740D7A1001B311A /* Marker.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -678,6 +684,7 @@
 				6B3ECC6C2735564C00177F9F /* StoreInfoCardView.swift in Sources */,
 				6B8B79CC2738F6A200DB26F4 /* NSString+Extension.swift in Sources */,
 				6B2F39822737FC90002F8D19 /* SignInUpView.swift in Sources */,
+				6B34B9FB273D4FBD00E23947 /* MarkerView.swift in Sources */,
 				6B8B79DE273A940300DB26F4 /* APIConstants.swift in Sources */,
 				6B3ECC7D27366DEC00177F9F /* ReportNavigationViewController.swift in Sources */,
 				6B2F39342737AAB2002F8D19 /* SignUpPasswordView.swift in Sources */,
@@ -693,6 +700,7 @@
 				6B3ECC472734E8D400177F9F /* R.generated.swift in Sources */,
 				6B8B79E4273A975300DB26F4 /* UserService.swift in Sources */,
 				6B3ECC5A27350BA000177F9F /* ReportStartViewController.swift in Sources */,
+				6B4940C12740D7A1001B311A /* Marker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
