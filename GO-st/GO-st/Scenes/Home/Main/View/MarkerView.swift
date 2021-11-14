@@ -8,44 +8,36 @@
 import Foundation
 import MapKit
 
-class HomeDataMarkerView: MKMarkerAnnotationView {
-  override var annotation: MKAnnotation? {
-    willSet {
-      // 1
-      guard let homeData = newValue as? Marker else {
-        return
-      }
-      canShowCallout = true
-      calloutOffset = CGPoint(x: -5, y: 5)
-      rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+class MarkerView: MKMarkerAnnotationView {
+    
+    let imageView = MarkerImageView(frame: CGRect(x: 0, y: 0, width: 56, height: 56))
 
-      // 2
-//      markerTintColor = homeData.markerTintColor
-      glyphImage = homeData.image
+    override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
+        super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
+        self.addSubview(imageView)
+        imageView.snp.makeConstraints {
+            $0.top.left.right.bottom.equalTo(self)
+        }
     }
-  }
-}
-
-class HomeDataView: MKAnnotationView {
-  override var annotation: MKAnnotation? {
-    willSet {
-      guard let homeData = newValue as? Marker else {
-        return
-      }
-
-      canShowCallout = true
-      calloutOffset = CGPoint(x: -5, y: 5)
-      let mapsButton = UIButton(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 48, height: 48)))
-      mapsButton.setBackgroundImage(#imageLiteral(resourceName: "Map"), for: .normal)
-      rightCalloutAccessoryView = mapsButton
-
-      image = homeData.image
-      
-      let detailLabel = UILabel()
-      detailLabel.numberOfLines = 0
-      detailLabel.font = detailLabel.font.withSize(12)
-      detailLabel.text = homeData.subtitle
-      detailCalloutAccessoryView = detailLabel
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
-  }
+    override var annotation: MKAnnotation? {
+        willSet {
+            guard let store = newValue as? Marker else {
+                return
+            }
+//            animatesWhenAdded = true
+//            canShowCallout = true
+//            calloutOffset = CGPoint(x: -5, y: 5)
+//            rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+
+            glyphImage = R.image.map.marker.empty()
+            markerTintColor = store.markerTintColor
+            
+            if let letter = store.discipline?.first {
+                imageView.label.text = String(letter)
+            }
+        }
+    }
 }
