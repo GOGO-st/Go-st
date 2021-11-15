@@ -162,15 +162,54 @@ struct R: Rswift.Validatable {
   struct image {
     /// This `R.image.map` struct is generated, and contains static references to 1 images.
     struct map {
-      /// Image `marker`.
-      static let marker = Rswift.ImageResource(bundle: R.hostingBundle, name: "map/marker")
+      /// Image `defaultMarker`.
+      static let defaultMarker = Rswift.ImageResource(bundle: R.hostingBundle, name: "map/defaultMarker")
 
       #if os(iOS) || os(tvOS)
-      /// `UIImage(named: "marker", bundle: ..., traitCollection: ...)`
-      static func marker(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-        return UIKit.UIImage(resource: R.image.map.marker, compatibleWith: traitCollection)
+      /// `UIImage(named: "defaultMarker", bundle: ..., traitCollection: ...)`
+      static func defaultMarker(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.map.defaultMarker, compatibleWith: traitCollection)
       }
       #endif
+
+      /// This `R.image.map.marker` struct is generated, and contains static references to 2 images.
+      struct marker {
+        /// Image `defaultGhost`.
+        static let defaultGhost = Rswift.ImageResource(bundle: R.hostingBundle, name: "map/marker/defaultGhost")
+        /// Image `empty`.
+        static let empty = Rswift.ImageResource(bundle: R.hostingBundle, name: "map/marker/empty")
+
+        #if os(iOS) || os(tvOS)
+        /// `UIImage(named: "defaultGhost", bundle: ..., traitCollection: ...)`
+        static func defaultGhost(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+          return UIKit.UIImage(resource: R.image.map.marker.defaultGhost, compatibleWith: traitCollection)
+        }
+        #endif
+
+        #if os(iOS) || os(tvOS)
+        /// `UIImage(named: "empty", bundle: ..., traitCollection: ...)`
+        static func empty(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+          return UIKit.UIImage(resource: R.image.map.marker.empty, compatibleWith: traitCollection)
+        }
+        #endif
+
+        fileprivate init() {}
+      }
+
+      /// This `R.image.map.selected` struct is generated, and contains static references to 1 images.
+      struct selected {
+        /// Image `evil`.
+        static let evil = Rswift.ImageResource(bundle: R.hostingBundle, name: "map/selected/evil")
+
+        #if os(iOS) || os(tvOS)
+        /// `UIImage(named: "evil", bundle: ..., traitCollection: ...)`
+        static func evil(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+          return UIKit.UIImage(resource: R.image.map.selected.evil, compatibleWith: traitCollection)
+        }
+        #endif
+
+        fileprivate init() {}
+      }
 
       fileprivate init() {}
     }

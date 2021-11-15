@@ -32,7 +32,7 @@ final class SearchOnTheMapView: UIView {
     let mapView = MKMapView()
     
     let marker = UIImageView().then {
-        $0.image = R.image.map.marker() // 임시임
+        $0.image = R.image.map.defaultMarker() // 임시임
     }
     
     private let WIDTH: CGFloat = UIScreen.main.bounds.width

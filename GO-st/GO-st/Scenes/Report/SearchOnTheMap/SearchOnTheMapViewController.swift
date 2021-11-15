@@ -61,6 +61,7 @@ final class SearchOnTheMapViewController: UIViewController, CLLocationManagerDel
     // 해당 좌표 얻기
     private func locationUpdate() {
         let coord = searchMapView.mapView.convert(searchMapView.marker.center, toCoordinateFrom: searchMapView)
+        print("좌표 \(coord)")
         getAddressFromCoordinate(coord)
 //        searchMapView.addressLabel.text = getAddressFromLatLon(coord)
     }
