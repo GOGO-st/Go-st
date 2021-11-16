@@ -57,6 +57,7 @@
 		6B8B79E6273B896D00DB26F4 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B79E5273B896D00DB26F4 /* Token.swift */; };
 		6B8B79E8273B8C0700DB26F4 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B79E7273B8C0700DB26F4 /* SignUpViewModel.swift */; };
 		6BDD620C274380A400E52EB2 /* ReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD620B274380A400E52EB2 /* ReportModel.swift */; };
+		6BDD620E2743966400E52EB2 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD620D2743966400E52EB2 /* ReportView.swift */; };
 		BC8BECCFB8985C1C46CC67AC /* Pods_GO_st.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22193B3D1D75D0B95E6F059 /* Pods_GO_st.framework */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +116,7 @@
 		6B8B79E5273B896D00DB26F4 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		6B8B79E7273B8C0700DB26F4 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		6BDD620B274380A400E52EB2 /* ReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportModel.swift; sourceTree = "<group>"; };
+		6BDD620D2743966400E52EB2 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		D22193B3D1D75D0B95E6F059 /* Pods_GO_st.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GO_st.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -421,6 +423,7 @@
 				6B3ECC802736778700177F9F /* ReportResultViewController.swift */,
 				6B2F392C27378BA2002F8D19 /* ReportResultView.swift */,
 				6BDD620B274380A400E52EB2 /* ReportModel.swift */,
+				6BDD620D2743966400E52EB2 /* ReportView.swift */,
 			);
 			path = ReportResult;
 			sourceTree = "<group>";
@@ -664,6 +667,7 @@
 			files = (
 				6B3ECC5827350B9500177F9F /* MyPageViewController.swift in Sources */,
 				6B2F392D27378BA3002F8D19 /* ReportResultView.swift in Sources */,
+				6BDD620E2743966400E52EB2 /* ReportView.swift in Sources */,
 				6B8B79D9273A31FC00DB26F4 /* LabelLabelView.swift in Sources */,
 				6B2F39302737AA0D002F8D19 /* SignUpEmailView.swift in Sources */,
 				6B3ECC262734E18200177F9F /* AppDelegate.swift in Sources */,
