@@ -16,14 +16,19 @@ class ReportView: UIView {
     private let contentsView = UIView()
     
     // 항상 고정
-    private let location = LabelLabelView().then {
+    let location = LabelLabelView().then {
         $0.titleLabel.text = "장소 위치"
     }
     
+    // 장소 이름
     
     // 제목
     private let title = LabelTextFieldView().then {
         $0.titleLabel.text = "제목"
+    }
+    
+    let finishedButton = UIButton().then {
+        $0.setTitle("작성 완료", for: .normal)
     }
     
     private let WIDTH: CGFloat = UIScreen.main.bounds.width
