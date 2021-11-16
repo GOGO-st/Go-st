@@ -27,6 +27,7 @@ final class ReportResultViewController: UIViewController {
         setAutoLayout()
         
         titleView.leftButton.addTarget(self, action: #selector(leftButtonDidTap), for: .touchUpInside)
+        
     }
     
     private func addContentView() {

@@ -59,6 +59,7 @@
 		6BDD620C274380A400E52EB2 /* ReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD620B274380A400E52EB2 /* ReportModel.swift */; };
 		6BDD620E2743966400E52EB2 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD620D2743966400E52EB2 /* ReportView.swift */; };
 		6BDD62102743CFD500E52EB2 /* finishedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD620F2743CFD500E52EB2 /* finishedButton.swift */; };
+		6BDD62122743DCAA00E52EB2 /* CommonValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD62112743DCAA00E52EB2 /* CommonValue.swift */; };
 		BC8BECCFB8985C1C46CC67AC /* Pods_GO_st.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22193B3D1D75D0B95E6F059 /* Pods_GO_st.framework */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +120,7 @@
 		6BDD620B274380A400E52EB2 /* ReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportModel.swift; sourceTree = "<group>"; };
 		6BDD620D2743966400E52EB2 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		6BDD620F2743CFD500E52EB2 /* finishedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = finishedButton.swift; sourceTree = "<group>"; };
+		6BDD62112743DCAA00E52EB2 /* CommonValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonValue.swift; sourceTree = "<group>"; };
 		D22193B3D1D75D0B95E6F059 /* Pods_GO_st.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GO_st.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -500,6 +502,7 @@
 				6B2F39812737FC90002F8D19 /* SignInUpView.swift */,
 				6B8B79D8273A31FC00DB26F4 /* LabelLabelView.swift */,
 				6B8B79DA273A320B00DB26F4 /* LabelTextFieldView.swift */,
+				6BDD62112743DCAA00E52EB2 /* CommonValue.swift */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -712,6 +715,7 @@
 				6B2F393A2737B200002F8D19 /* SignUpOTPViewController.swift in Sources */,
 				6B3ECC8627368C0000177F9F /* NavigationTitleView.swift in Sources */,
 				6B8B79D22738F97400DB26F4 /* OTPTextField.swift in Sources */,
+				6BDD62122743DCAA00E52EB2 /* CommonValue.swift in Sources */,
 				6B2F39382737AB2C002F8D19 /* SignUpEmailViewController.swift in Sources */,
 				6B3ECC472734E8D400177F9F /* R.generated.swift in Sources */,
 				6B8B79E4273A975300DB26F4 /* UserService.swift in Sources */,

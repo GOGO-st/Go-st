@@ -27,12 +27,11 @@ class ReportView: UIView {
         $0.titleLabel.text = "제목"
     }
     
-    let finishedButton = UIButton().then {
-        $0.setTitle("작성 완료", for: .normal)
-    }
+    let finishedButton = FinishedButton(title: "작성 완료")
     
-    private let WIDTH: CGFloat = UIScreen.main.bounds.width
-    private let HEIGHT: CGFloat = UIScreen.main.bounds.height
+    
+//    private let WIDTH: CGFloat = UIScreen.main.bounds.width
+//    private let HEIGHT: CGFloat = UIScreen.main.bounds.height
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,6 +49,8 @@ class ReportView: UIView {
         scrollView.addSubview(contentsView)
         contentsView.addSubview(location)
         contentsView.addSubview(title)
+        
+        addSubview(finishedButton)
     }
     
     private func setAutoLayout() {
@@ -76,5 +77,14 @@ class ReportView: UIView {
             $0.top.equalTo(location.snp.bottom).offset(109)
             $0.left.right.equalTo(self)
         }
+        
+        print("y 어디로 할까 \(CommonValue.shared.HEIGHT) \(CommonValue.shared.HEIGHT - 100)")
+        finishedButton.frame = CGRect(x: 32, y: 600, width: CommonValue.shared.WIDTH-65, height: 52)
+//        finishedButton.snp.makeConstraints {
+//            $0.left.equalTo(self).offset(32)
+//            $0.right.equalTo(self).offset(-33)
+//            $0.bottom.equalTo(self).offset(-100)
+//            $0.height.equalTo(finishedButton.snp.width).multipliedBy(52/310)
+//        }
     }
 }
