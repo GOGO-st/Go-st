@@ -17,6 +17,8 @@ final class ReportResultViewController: UIViewController {
         $0.leftButton.isHidden = false
     }
     
+    private let ReportView = ReportResultView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,7 +31,7 @@ final class ReportResultViewController: UIViewController {
     
     private func addContentView() {
         view.addSubview(titleView)
-        
+        view.addSubview(ReportView)
     }
     
     private func setAutoLayout() {
@@ -37,6 +39,11 @@ final class ReportResultViewController: UIViewController {
         // 네비게이션 타이틀
         titleView.snp.makeConstraints {
             $0.top.left.right.equalTo(safeArea)
+        }
+        
+        ReportView.snp.makeConstraints {
+            $0.top.equalTo(titleView.snp.bottom)
+            $0.left.right.bottom.equalTo(safeArea)
         }
     }
     
