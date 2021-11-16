@@ -54,7 +54,7 @@ final class SignUpPasswordView: SignInUpView {
     
     private func setAutoLayout() {
         super.stepBar.snp.makeConstraints {
-            $0.width.equalTo(super.WIDTH)
+            $0.width.equalTo(CommonValue.shared.WIDTH)
         }
         
         // 이메일

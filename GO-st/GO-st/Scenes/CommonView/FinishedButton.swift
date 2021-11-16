@@ -1,11 +1,12 @@
 //
-//  finishedButton.swift
+//  FinishedButton.swift
 //  GO-st
 //
 //  Created by ✨EUGENE✨ on 2021/11/16.
 //
 
 import UIKit
+
 
 class FinishedButton: UIButton {
     
@@ -18,7 +19,7 @@ class FinishedButton: UIButton {
     }
     
     init(title: String) {
-        
+
         super.init(frame: CommonValue.shared.getButtonFrame())
         // 비활성화 상태로 초기화
         self.backgroundColor = R.color.disabled()
@@ -31,5 +32,10 @@ class FinishedButton: UIButton {
     func activate() {
         self.backgroundColor = R.color.point()
         self.isEnabled = true
+    }
+    
+    func deactivate() {
+        self.backgroundColor = R.color.disabled()
+        self.isEnabled = false
     }
 }

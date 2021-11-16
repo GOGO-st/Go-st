@@ -22,6 +22,7 @@ class SignUpEmailViewController: UIViewController {
         self.addContentView()
         self.setAutoLayout()
         self.setNavigationTitleView()
+        titleView.leftButton.addTarget(self, action: #selector(leftButtonDidTap), for: .touchUpInside)
         emailView.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
         emailView.emailTextField.addTarget(self, action: #selector(checkValidity), for: .editingChanged)
     }
@@ -75,6 +76,11 @@ class SignUpEmailViewController: UIViewController {
 //        }
     }
     
+    // 이전뷰로 돌아가기
+    @objc
+    private func leftButtonDidTap() {
+        self.navigationController?.popViewController(animated: true)
+    }
     // 한글자라도 입력하면 버튼 활성화
     @objc
     private func checkValidity(_ textField: UITextField) {

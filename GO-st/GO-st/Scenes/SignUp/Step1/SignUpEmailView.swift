@@ -57,7 +57,7 @@ final class SignUpEmailView: SignInUpView {
     
     private func setAutoLayout() {
         super.stepBar.snp.makeConstraints {
-            $0.width.equalTo(super.WIDTH / 3)
+            $0.width.equalTo(CommonValue.shared.WIDTH / 3)
         }
         helloLabel.snp.makeConstraints {
             $0.top.equalTo(self).offset(70)
