@@ -72,7 +72,8 @@ final class SearchOnTheMapView: UIView {
         }
         // 지도 마커
         marker.snp.makeConstraints {
-            $0.top.left.equalTo(mapView).offset(200)
+//            $0.top.left.equalTo(mapView).offset(200)
+            $0.center.equalTo(self)
             $0.width.equalTo(61)
             $0.height.equalTo(66)
         }

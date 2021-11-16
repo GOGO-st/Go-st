@@ -18,6 +18,10 @@ final class TabBarViewController: UITabBarController {
         self.tabBar.backgroundColor = .black
         self.tabBar.tintColor = .white
         
+        CommonValue.shared.tabBarHeight = self.tabBar.frame.height
+        
+        
+        
         // Home
         let firstTab = HomeViewController()
         
