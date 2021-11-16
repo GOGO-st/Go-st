@@ -13,7 +13,7 @@ class ReportView: UIView {
     
     private let scrollView = UIScrollView()
     
-    private let contentsView = UIView()
+    private let containerView = UIView()
     
     // 항상 고정
     let location = LabelLabelView().then {
@@ -46,9 +46,9 @@ class ReportView: UIView {
     
     private func addContentView() {
         addSubview(scrollView)
-        scrollView.addSubview(contentsView)
-        contentsView.addSubview(location)
-        contentsView.addSubview(title)
+        scrollView.addSubview(containerView)
+        containerView.addSubview(location)
+        containerView.addSubview(title)
         
         addSubview(finishedButton)
     }
@@ -63,10 +63,10 @@ class ReportView: UIView {
             $0.edges.equalTo(0)
         }
         
-        contentsView.snp.makeConstraints {
+        containerView.snp.makeConstraints {
             $0.edges.equalTo(0)
             $0.width.equalTo(frame.width)
-            $0.height.equalTo(800)
+            $0.height.equalTo(CommonValue.shared.HEIGHT + 200)
         }
         location.snp.makeConstraints {
             $0.top.equalTo(self).offset(30)
@@ -78,8 +78,7 @@ class ReportView: UIView {
             $0.left.right.equalTo(self)
         }
         
-        print("y 어디로 할까 \(CommonValue.shared.HEIGHT) \(CommonValue.shared.HEIGHT - 100)")
-        finishedButton.frame = CGRect(x: 32, y: 600, width: CommonValue.shared.WIDTH-65, height: 52)
+//        finishedButton.frame = CommonValue.shared.getButtonFrame()
 //        finishedButton.snp.makeConstraints {
 //            $0.left.equalTo(self).offset(32)
 //            $0.right.equalTo(self).offset(-33)

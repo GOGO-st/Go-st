@@ -19,11 +19,10 @@ class FinishedButton: UIButton {
     
     init(title: String) {
         
-        super.init(frame: CGRect.zero)
-        
+        super.init(frame: CommonValue.shared.getButtonFrame())
         // 비활성화 상태로 초기화
         self.backgroundColor = R.color.disabled()
-        self.layer.cornerRadius = self.frame.width / 2
+        self.layer.cornerRadius = self.frame.height / 2
         self.setTitle(title, for: .normal)
         self.setTitleColor(.black, for: .normal)
         self.isEnabled = false
