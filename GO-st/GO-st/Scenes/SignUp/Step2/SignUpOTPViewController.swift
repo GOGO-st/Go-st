@@ -50,11 +50,13 @@ final class SignUpOTPViewController: UIViewController {
         titleView.setTitle("회원가입")
 //        titleView.setBackgroundColor(.black)
     }
+    
     // 이전뷰로 돌아가기
     @objc
     private func leftButtonDidTap() {
         self.navigationController?.popViewController(animated: true)
     }
+    
     @objc
     private func nextButtonDidTap() {
         let nextVC = SignUpPasswordViewController()

@@ -30,7 +30,6 @@ final class LabelTextFieldView: UIView {
         $0.keyboardType = .emailAddress
     }
     
-    private let WIDTH: CGFloat = UIScreen.main.bounds.width
     private let HEIGHT: CGFloat = 89
     private let sideSpacing: CGFloat = 33
     
@@ -53,7 +52,7 @@ final class LabelTextFieldView: UIView {
     private func setAutoLayout() {
         
         self.snp.makeConstraints {
-            $0.width.equalTo(WIDTH)
+            $0.width.equalTo(CommonValue.shared.WIDTH)
             $0.height.equalTo(HEIGHT)
         }
         // 제목

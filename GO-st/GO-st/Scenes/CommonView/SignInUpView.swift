@@ -19,7 +19,7 @@ class SignInUpView: UIView {
     
     // 단계 바
     let stepBar = UIView().then {
-        $0.backgroundColor = .orange
+        $0.backgroundColor = R.color.point()
     }
     
     // 다음 버튼

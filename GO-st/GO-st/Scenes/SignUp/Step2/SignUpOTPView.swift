@@ -24,6 +24,16 @@ final class SignUpOTPView: SignInUpView {
         $0.configure()
     }
     
+    private let againLabel = UILabel().then {
+        $0.text = "인증번호가 오지 않았다면?"
+        $0.textColor = .white
+    }
+    
+    let againButton = UIButton().then {
+        $0.setTitle("다시보내기", for: .normal)
+        $0.setTitleColor(.white, for: .normal)
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -48,6 +58,8 @@ final class SignUpOTPView: SignInUpView {
     private func addContentView() {
         self.addSubview(descriptionLabel)
         self.addSubview(otpTextField)
+        self.addSubview(againLabel)
+        self.addSubview(againButton)
     }
     
     private func setAutoLayout() {
@@ -63,6 +75,14 @@ final class SignUpOTPView: SignInUpView {
             $0.left.equalTo(self).offset(20)
             $0.right.equalTo(self).offset(-20)
             $0.height.equalTo(61)
+        }
+        againLabel.snp.makeConstraints {
+            $0.top.equalTo(otpTextField.snp.bottom).offset(20)
+            $0.left.equalTo(self).offset(20)
+        }
+        againButton.snp.makeConstraints {
+            $0.centerY.equalTo(againLabel.snp.centerY)
+            $0.right.equalTo(self).offset(-20)
         }
     }
     

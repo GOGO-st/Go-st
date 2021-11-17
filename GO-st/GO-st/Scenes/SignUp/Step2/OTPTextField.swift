@@ -64,7 +64,7 @@ class OTPTextField: UITextField {
             let label = UILabel().then {
                 $0.textAlignment = .center
                 $0.font = .systemFont(ofSize: 40)
-                $0.textColor = .orange
+                $0.textColor = R.color.point()
                 $0.isUserInteractionEnabled = true
                 $0.text = defaultCharacter
             }
