@@ -19,10 +19,8 @@ final class SignUpFinishedViewController: UIViewController {
         $0.font = .boldSystemFont(ofSize: 20)
     }
     
-    private let nextButton = UIButton().then {
-        $0.backgroundColor = .orange
-        $0.setTitle("만나러가기", for: .normal)
-        $0.tintColor = .black
+    private let nextButton = FinishedButton(title: "만나러 가기").then {
+        $0.activate()
     }
     
     override func viewDidLoad() {
@@ -32,6 +30,7 @@ final class SignUpFinishedViewController: UIViewController {
         
         self.addContentView()
         self.setAutoLayout()
+        
         self.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
     }
     
@@ -47,14 +46,10 @@ final class SignUpFinishedViewController: UIViewController {
         descriptionLabel.snp.makeConstraints {
             $0.center.equalTo(safeArea)
         }
-        nextButton.snp.makeConstraints {
-            $0.left.equalTo(safeArea).offset(20)
-            $0.right.equalTo(safeArea).offset(-20)
-            $0.bottom.equalTo(safeArea).offset(-50)
-        }
     }
     
-    @objc private func nextButtonDidTap() {
+    @objc
+    private func nextButtonDidTap() {
         self.navigationController?.pushViewController(TabBarViewController(), animated: false)
     }
 }

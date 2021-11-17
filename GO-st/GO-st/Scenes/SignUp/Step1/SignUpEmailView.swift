@@ -35,6 +35,7 @@ final class SignUpEmailView: SignInUpView {
         $0.keyboardType = .emailAddress
     }
     
+    private let sideSpacing: CGFloat = 33
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,6 +48,7 @@ final class SignUpEmailView: SignInUpView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        
     }
     
     private func addContentView() {
@@ -57,7 +59,7 @@ final class SignUpEmailView: SignInUpView {
     
     private func setAutoLayout() {
         super.stepBar.snp.makeConstraints {
-            $0.width.equalTo(super.WIDTH / 3)
+            $0.width.equalTo(CommonValue.shared.WIDTH / 3)
         }
         helloLabel.snp.makeConstraints {
             $0.top.equalTo(self).offset(70)
@@ -69,7 +71,9 @@ final class SignUpEmailView: SignInUpView {
         }
         emailTextField.snp.makeConstraints {
             $0.top.equalTo(descriptionLabel.snp.bottom).offset(20)
-            $0.centerX.equalToSuperview()
+            $0.left.equalTo(self).offset(sideSpacing)
+            $0.right.equalTo(self).offset(-sideSpacing)
+            $0.height.equalTo(48)
         }
     }
     

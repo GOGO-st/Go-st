@@ -63,10 +63,15 @@ class OTPTextField: UITextField {
         for _ in 1...count {
             let label = UILabel().then {
                 $0.textAlignment = .center
-                $0.font = .systemFont(ofSize: 40)
-                $0.textColor = .orange
+                $0.font = .systemFont(ofSize: 25)
+                $0.textColor = .gray
                 $0.isUserInteractionEnabled = true
                 $0.text = defaultCharacter
+                
+                $0.backgroundColor = R.color.semiBlack()
+                $0.layer.borderColor = R.color.semiBlack()?.cgColor
+                $0.layer.borderWidth = 1
+                $0.layer.cornerRadius = 4
             }
             stackView.addArrangedSubview(label)
             digitLabels.append(label)
@@ -84,8 +89,12 @@ class OTPTextField: UITextField {
             if i < text.count {
                 let index = text.index(text.startIndex, offsetBy: i)
                 currentLabel.text = String(text[index])
+                currentLabel.textColor = R.color.point()
+                currentLabel.layer.borderColor = R.color.point()?.cgColor
             } else {
                 currentLabel.text = defaultCharacter
+                currentLabel.textColor = .gray
+                currentLabel.layer.borderColor = R.color.semiBlack()?.cgColor
             }
         }
         
@@ -93,6 +102,8 @@ class OTPTextField: UITextField {
             didEnterLastDigit?(text)
         }
     }
+    
+    
 }
 
 extension OTPTextField: UITextFieldDelegate {
@@ -102,4 +113,5 @@ extension OTPTextField: UITextFieldDelegate {
         guard let characterCount = textField.text?.count else { return false }
         return characterCount < digitLabels.count || string == ""
     }
+    
 }

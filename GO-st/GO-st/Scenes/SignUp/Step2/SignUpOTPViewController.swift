@@ -22,6 +22,8 @@ final class SignUpOTPViewController: UIViewController {
         self.setAutoLayout()
         self.setNavigationTitleView()
         
+        titleView.leftButton.addTarget(self, action: #selector(leftButtonDidTap), for: .touchUpInside)
+        
         signUpOTPView.setEmailLabel(email)
         signUpOTPView.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
     }
@@ -49,7 +51,14 @@ final class SignUpOTPViewController: UIViewController {
 //        titleView.setBackgroundColor(.black)
     }
     
-    @objc private func nextButtonDidTap() {
+    // 이전뷰로 돌아가기
+    @objc
+    private func leftButtonDidTap() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    private func nextButtonDidTap() {
         let nextVC = SignUpPasswordViewController()
         nextVC.email = self.email
         self.navigationController?.pushViewController(nextVC, animated: false)
