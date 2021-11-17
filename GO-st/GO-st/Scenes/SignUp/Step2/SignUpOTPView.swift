@@ -42,6 +42,7 @@ final class SignUpOTPView: SignInUpView {
         self.addContentView()
         self.setAutoLayout()
         
+        super.nextButton.setTitle("인증 완료", for: .normal)
         otpTextField.addTarget(self, action: #selector(checkValidity), for: .editingChanged)
         
         otpTextField.didEnterLastDigit = {
@@ -72,8 +73,8 @@ final class SignUpOTPView: SignInUpView {
         }
         otpTextField.snp.makeConstraints {
             $0.top.equalTo(descriptionLabel.snp.bottom).offset(50)
-            $0.left.equalTo(self).offset(20)
-            $0.right.equalTo(self).offset(-20)
+            $0.left.equalTo(self).offset(43)
+            $0.right.equalTo(self).offset(-42)
             $0.height.equalTo(61)
         }
         againLabel.snp.makeConstraints {

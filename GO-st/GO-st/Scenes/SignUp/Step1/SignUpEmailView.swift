@@ -48,6 +48,7 @@ final class SignUpEmailView: SignInUpView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        
     }
     
     private func addContentView() {

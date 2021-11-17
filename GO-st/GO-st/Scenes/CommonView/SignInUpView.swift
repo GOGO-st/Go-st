@@ -23,7 +23,7 @@ class SignInUpView: UIView {
     }
     
     // 다음 버튼
-    let nextButton = FinishedButton(title: "다음")
+    let nextButton = FinishedButton(title: "인증하기")
     
 //    let WIDTH: CGFloat = UIScreen.main.bounds.width
 //    private let HEIGHT: CGFloat = UIScreen.main.bounds.height
