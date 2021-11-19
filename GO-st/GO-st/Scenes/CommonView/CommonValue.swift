@@ -14,7 +14,10 @@ class CommonValue {
     let WIDTH: CGFloat = UIScreen.main.bounds.width
     let HEIGHT: CGFloat = UIScreen.main.bounds.height
     
-    var tabBarHeight: CGFloat = 0
+    // 확인버튼
+    var buttonOriginY: CGFloat = 0
+    
+    var tabBarHeight: CGFloat = 49
     
     lazy var bottomFrame: CGFloat = {
         self.WIDTH - self.tabBarHeight
@@ -24,7 +27,11 @@ class CommonValue {
         // 65는 왼쪽 32 오른쪽 33 합친거임
         let width = self.WIDTH - 65
         let height = width * 52 / 310
-        
-        return CGRect(x: 32, y: self.HEIGHT - self.tabBarHeight - 200, width: width, height: height)
+        buttonOriginY = self.HEIGHT - self.tabBarHeight - height - 91
+        return CGRect(x: 32, y: buttonOriginY, width: width, height: height)
+    }
+    
+    func setTabBarHeight(height: CGFloat) {
+        self.tabBarHeight = height
     }
 }

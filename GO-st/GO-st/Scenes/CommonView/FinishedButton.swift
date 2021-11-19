@@ -38,4 +38,12 @@ class FinishedButton: UIButton {
         self.backgroundColor = R.color.disabled()
         self.isEnabled = false
     }
+    
+    func buttonUp(_ y: CGFloat) {
+        self.frame.origin.y = CommonValue.shared.buttonOriginY - y
+    }
+    
+    func buttonDown() {
+        self.frame.origin.y = CommonValue.shared.buttonOriginY
+    }
 }
