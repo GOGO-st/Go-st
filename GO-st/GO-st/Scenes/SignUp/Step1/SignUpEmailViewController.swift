@@ -98,12 +98,9 @@ class SignUpEmailViewController: UIViewController {
     // keyboard 올라오면 nextbutton y 위치 바꾸기
     @objc
     func keyboardWillShow(_ sender: Notification) {
-        
-        
         // 키보드 높이 구하기
         if let keyboardFrame: NSValue = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            // 버튼 올리기
-            // 키보드에서 20 띄우기
+            // 버튼 올리기 키보드에서 20 띄우기
             self.emailView.nextButton.buttonUp(keyboardFrame.cgRectValue.height - self.emailView.nextButton.frame.height + 20)
         }
     }
