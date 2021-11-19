@@ -27,10 +27,12 @@ class MarkerView: MKMarkerAnnotationView {
             guard let store = newValue as? Marker else {
                 return
             }
+            
+            
 //            animatesWhenAdded = true
 //            canShowCallout = true
 //            calloutOffset = CGPoint(x: -5, y: 5)
-//            rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+//            rightCalloutAccessoryView = StoreInfoCardView(marker: store)//UIButton(type: .detailDisclosure)
 
             glyphImage = R.image.map.marker.empty()
             markerTintColor = store.markerTintColor

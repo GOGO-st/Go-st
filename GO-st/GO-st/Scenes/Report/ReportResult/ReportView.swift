@@ -23,11 +23,12 @@ class ReportView: UIView {
     // 장소 이름
     
     // 제목
-    private let title = LabelTextFieldView().then {
+    let title = LabelTextFieldView().then {
         $0.titleLabel.text = "제목"
+//        $0.contentTextField.placeholder = "제목 작성"
     }
     
-    let finishedButton = FinishedButton(title: "작성 완료")
+    let finishedButton = FinishedButton(title: "작성 완료", type: .report)
     
     
 //    private let WIDTH: CGFloat = UIScreen.main.bounds.width
@@ -74,7 +75,7 @@ class ReportView: UIView {
         }
         
         title.snp.makeConstraints {
-            $0.top.equalTo(location.snp.bottom).offset(109)
+            $0.top.equalTo(location.snp.bottom).offset(148)
             $0.left.right.equalTo(self)
         }
         

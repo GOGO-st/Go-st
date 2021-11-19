@@ -19,8 +19,11 @@ final class LabelLabelView: UIView {
         $0.textColor = .white
     }
 
-    let backgroundView = UIView().then {
-        $0.backgroundColor = .black
+    private let backgroundView = UIView().then {
+        $0.backgroundColor = R.color.semiBlack()
+        $0.layer.borderColor = R.color.semiBlack()?.cgColor
+        $0.layer.borderWidth = 1
+        $0.layer.cornerRadius = 4
     }
     // 내용
     let contentLabel = UILabel().then {
@@ -74,6 +77,13 @@ final class LabelLabelView: UIView {
         }
     }
     
+    func activate() {
+        self.layer.borderColor = R.color.point()?.cgColor
+    }
+    
+    func deactivate() {
+        self.layer.borderColor = R.color.semiBlack()?.cgColor
+    }
 //    func setTitle(_ title: String) {
 //        self.titleLabel.text = title
 //    }

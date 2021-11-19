@@ -19,7 +19,7 @@ final class TabBarViewController: UITabBarController {
         self.tabBar.tintColor = .white
         
         CommonValue.shared.tabBarHeight = self.tabBar.frame.height
-        
+        print("tabbar 높이 설정 \(CommonValue.shared.tabBarHeight)")
         
         
         // Home
