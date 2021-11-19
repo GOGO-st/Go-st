@@ -18,12 +18,12 @@ final class SignUpPasswordView: SignInUpView {
     // 비번
     private let passwordView = LabelTextFieldView().then {
         $0.titleLabel.text = "비밀번호"
-        $0.contentTextField.placeholder = "비밀번호 입력"
+        $0.contentTextField.placeholder = "알파벳 대소문자 숫자 특수기호 12자 이내"
     }
     // 비번 확인
     private let passwordConfirmView = LabelTextFieldView().then {
         $0.titleLabel.text = "비밀번호 확인"
-        $0.contentTextField.placeholder = "비밀번호 다시 입력"
+        $0.contentTextField.placeholder = "알파벳 대소문자 숫자 특수기호 12자 이내"
     }
     
     private let sideSpacing: CGFloat = 33

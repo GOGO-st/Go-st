@@ -35,6 +35,7 @@ class SignInUpView: UIView {
         
         self.addContentView()
         self.setAutoLayout()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -44,6 +45,7 @@ class SignInUpView: UIView {
         
         self.addContentView()
         self.setAutoLayout()
+        
     }
     
     private func addContentView() {
@@ -75,4 +77,5 @@ class SignInUpView: UIView {
             self.nextButton.deactivate()
         }
     }
+    
 }

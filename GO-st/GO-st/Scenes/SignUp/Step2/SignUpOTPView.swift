@@ -11,7 +11,7 @@ import SnapKit
 
 final class SignUpOTPView: SignInUpView {
     
-    // 나중에 NSAttribute로 이메일만 굵기 변경
+    // NSAttribute로 이메일만 굵기 변경
     private let descriptionLabel = UILabel().then {
         $0.text = ""
         $0.textAlignment = .center

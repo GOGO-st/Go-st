@@ -25,6 +25,10 @@ final class SignUpPasswordViewController: UIViewController {
         
         signUpPasswordView.setEmailLabel(email)
         signUpPasswordView.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
     }
     
     private func addContentView() {
@@ -50,7 +54,23 @@ final class SignUpPasswordViewController: UIViewController {
 //        titleView.setBackgroundColor(.black)
     }
     
-    @objc private func nextButtonDidTap() {
+    @objc
+    private func nextButtonDidTap() {
         self.navigationController?.pushViewController(SignUpFinishedViewController(), animated: false)
+    }
+    
+    // keyboard 올라오면 nextbutton y 위치 바꾸기
+    @objc
+    func keyboardWillShow(_ sender: Notification) {
+        // 키보드 높이 구하기
+        if let keyboardFrame: NSValue = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            // 버튼 올리기 키보드에서 20 띄우기
+            self.signUpPasswordView.nextButton.buttonUp(keyboardFrame.cgRectValue.height - self.signUpPasswordView.nextButton.frame.height + 20)
+        }
+    }
+    
+    // keyboard 사라지면 nextbutton y 위치 바꾸기
+    @objc func keyboardWillHide(_ sender: Notification) {
+        self.signUpPasswordView.nextButton.buttonDown()
     }
 }
