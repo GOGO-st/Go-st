@@ -8,6 +8,7 @@
 import UIKit
 import Then
 import SnapKit
+import MapKit
 
 class StoreInfoCardViewController: UIViewController {
     
@@ -15,6 +16,21 @@ class StoreInfoCardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(storeInfoView)
+        storeInfoView.snp.makeConstraints {
+            $0.top.left.right.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
     }
     
+    func bind(_ data: MKAnnotation) {
+        storeInfoView.setData(data)
+    }
+    
+    func activate() {
+        storeInfoView.isHidden = false
+    }
+    
+    func deactivate() {
+        storeInfoView.isHidden = true
+    }
 }

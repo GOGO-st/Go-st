@@ -9,7 +9,7 @@ import UIKit
 import Then
 import SnapKit
 
-final class ReportResultViewController: UIViewController {
+final class ReportResultViewController: UIViewController, UITextFieldDelegate {
 
     static let identifier = "ReportResultViewController"
     
@@ -17,7 +17,7 @@ final class ReportResultViewController: UIViewController {
         $0.leftButton.isHidden = false
     }
     
-    private let ReportView = ReportResultView()
+    private let reportView = ReportResultView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +28,14 @@ final class ReportResultViewController: UIViewController {
         
         titleView.leftButton.addTarget(self, action: #selector(leftButtonDidTap), for: .touchUpInside)
         
+        reportView.title.contentTextField.delegate = self
+        reportView.title.contentTextField.addTarget(self, action: #selector(activate), for: .editingChanged)
+        reportView.title.contentTextField.addTarget(self, action: #selector(deactivate), for: .editingDidEnd)
     }
     
     private func addContentView() {
         view.addSubview(titleView)
-        view.addSubview(ReportView)
+        view.addSubview(reportView)
     }
     
     private func setAutoLayout() {
@@ -42,14 +45,26 @@ final class ReportResultViewController: UIViewController {
             $0.top.left.right.equalTo(safeArea)
         }
         
-        ReportView.snp.makeConstraints {
+        reportView.snp.makeConstraints {
             $0.top.equalTo(titleView.snp.bottom)
             $0.left.right.bottom.equalTo(safeArea)
         }
     }
     
     // 이전뷰로 돌아가기
-    @objc private func leftButtonDidTap() {
+    @objc
+    private func leftButtonDidTap() {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @objc // textField 테두리 색
+    private func activate() {
+        self.reportView.title.activate()
+    }
+    
+    @objc // textField 테두리 색
+    private func deactivate() {
+        self.reportView.title.deactivate()
+    }
+    
 }

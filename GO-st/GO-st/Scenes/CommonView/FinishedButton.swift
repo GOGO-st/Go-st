@@ -18,9 +18,11 @@ class FinishedButton: UIButton {
         super.init(coder: coder)
     }
     
-    init(title: String) {
+    init(title: String, type: CustomButtonType) {
 
-        super.init(frame: CommonValue.shared.getButtonFrame())
+        super.init(frame: CommonValue.shared.getButtonFrame(type))
+        
+        print("완료 버튼 프레임 \(self.frame) \(CommonValue.shared.tabBarHeight)")
         // 비활성화 상태로 초기화
         self.backgroundColor = R.color.disabled()
         self.layer.cornerRadius = self.frame.height / 2

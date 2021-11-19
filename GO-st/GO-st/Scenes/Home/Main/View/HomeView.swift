@@ -45,7 +45,7 @@ final class HomeView: UIView {
     }
     
     // 가게 정보 뷰
-    private let storeInfoView = StoreInfoCardViewController().then {
+    let storeInfoView = StoreInfoCardViewController().then {
         $0.storeInfoView.isHidden = true
     }
     
@@ -124,8 +124,8 @@ final class HomeView: UIView {
         // 가게 정보 뷰
         storeInfoView.storeInfoView.snp.makeConstraints {
             $0.bottom.equalTo(safeArea).offset(-10)
-            $0.centerX.equalTo(safeArea)
-            $0.width.equalTo(300) // 그냥 해놓은겨
+            $0.left.equalTo(safeArea).offset(15)
+            $0.right.equalTo(safeArea).offset(-14)
         }
         
     }

@@ -46,4 +46,15 @@ extension HomeViewController: MKMapViewDelegate {
         homeView.retrieveButtonIsHidden()
         print("카페 재검색")
     }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        print("마커 선택~! \(view)")
+        self.homeView.storeInfoView.bind(mapView.selectedAnnotations[0])
+        self.homeView.storeInfoView.activate()
+    }
+    
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        print("마커 선택 취소~! \(view)")
+        self.homeView.storeInfoView.deactivate()
+    }
 }

@@ -26,7 +26,7 @@ final class SignUpFinishedViewController: UIViewController {
         $0.numberOfLines = 3
     }
     
-    private let nextButton = FinishedButton(title: "만나러 가기").then {
+    private let nextButton = FinishedButton(title: "만나러 가기", type: .login).then {
         $0.activate()
     }
     
