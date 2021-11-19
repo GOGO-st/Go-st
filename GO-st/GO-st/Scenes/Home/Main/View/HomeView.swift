@@ -38,15 +38,9 @@ final class HomeView: UIView {
         $0.isHidden = true
     }
     
-    // 마커 테스트 버튼
-    private let testButton = UIButton().then {
-        $0.backgroundColor = .red
-        $0.setTitle("마커임", for: .normal)
-    }
-    
     // 가게 정보 뷰
-    let storeInfoView = StoreInfoCardViewController().then {
-        $0.storeInfoView.isHidden = true
+    let storeInfoView = StoreInfoCardView().then {
+        $0.isHidden = true
     }
     
     override init(frame: CGRect) {
@@ -59,7 +53,6 @@ final class HomeView: UIView {
         
         self.retrieveButton.isHidden = true
         self.retrieveButton.addTarget(self, action: #selector(retrieveButtonDidTap), for: .touchUpInside)
-        self.testButton.addTarget(self, action: #selector(testButtonDidTap), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -78,11 +71,8 @@ final class HomeView: UIView {
         // 가게 재검색
         self.addSubview(retrieveButton)
         
-        // 마커 테스트 버튼
-        self.addSubview(testButton)
-        
         // 가게 정보
-        self.addSubview(storeInfoView.storeInfoView)
+        self.addSubview(storeInfoView)
     }
     
     private func setAutoLayout() {
@@ -115,14 +105,8 @@ final class HomeView: UIView {
             $0.width.equalTo(100)
         }
         
-        // 마커 테스트 버튼
-        testButton.snp.makeConstraints {
-            $0.right.bottom.equalTo(safeArea).offset(-140)
-            $0.width.equalTo(50)
-        }
-        
         // 가게 정보 뷰
-        storeInfoView.storeInfoView.snp.makeConstraints {
+        storeInfoView.snp.makeConstraints {
             $0.bottom.equalTo(safeArea).offset(-10)
             $0.left.equalTo(safeArea).offset(15)
             $0.right.equalTo(safeArea).offset(-14)
@@ -138,12 +122,5 @@ final class HomeView: UIView {
     
     @objc func retrieveButtonDidTap(_ sender: UIButton) {
         retrieveButton.isHidden = true
-    }
-    
-    
-    
-    // 마커 테스트 버튼
-    @objc func testButtonDidTap(_ sender: UIButton) {
-        self.storeInfoView.storeInfoView.isHidden = false
     }
 }

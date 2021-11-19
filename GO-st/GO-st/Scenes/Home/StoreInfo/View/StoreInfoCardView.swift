@@ -83,10 +83,18 @@ final class StoreInfoCardView: UIView {
         }
     }
     
-    func setData(_ marker: MKAnnotation) {
+    func bind(_ marker: MKAnnotation) {
         
         self.storeLabel.text = marker.title as? String
         self.addressLabel.text = marker.subtitle as? String
         // count
+    }
+    
+    func activate() {
+        self.isHidden = false
+    }
+    
+    func deactivate() {
+        self.isHidden = true
     }
 }
