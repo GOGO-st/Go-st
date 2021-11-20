@@ -21,6 +21,7 @@ struct ResponseSimpleResult<T: Codable>: Codable {
     var data: T?
 }
 
+// 지금 서버에 메세지밖에 없는데 status 달라고 하기
 struct ResponseTempResult: Codable {
 //    var status: Int?
     var message: String?
