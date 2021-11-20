@@ -60,24 +60,8 @@ class SignUpEmailViewController: UIViewController {
         nextVC.email = self.emailView.getEmail()
         self.navigationController?.pushViewController(nextVC, animated: false)
         
-//        UserService.shared.authenticateEmail(emailView.getEmail()) { [self] (networkResult) -> (Void) in
-//            switch networkResult {
-//            case .success(let data):
-//                print(data)
-////                if let code = data as? {
-////
-////                }
-//            case .requestErr(_):
-//                print("requestErr")
-//            case .pathErr:
-//                print("pathErr")
-//            case .serverErr:
-//                print("serverErr")
-//            case .networkFail:
-//                print("networkFail")
-//            }
-//
-//        }
+        // 서버 연결
+        // 이메일 보내기
     }
     
     // 이전뷰로 돌아가기

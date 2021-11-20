@@ -9,6 +9,7 @@ import Foundation
 
 struct APIConstants {
     
+    // 아직 서버 안됨
     static let baseURL = ""
     
     // POST 이메일 인증
