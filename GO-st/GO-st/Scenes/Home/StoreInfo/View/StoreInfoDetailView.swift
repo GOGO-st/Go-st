@@ -13,6 +13,16 @@ import MapKit
 
 class StoreInfoDetailView: UIView {
     
+    let scrollView = UIScrollView()
+    
+    let containerView = UIView()
+    
+    let mapView = MKMapView()
+    
+    let listView = UIView().then {
+        $0.backgroundColor = R.color.background()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
