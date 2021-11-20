@@ -47,6 +47,7 @@ final class HomeViewController: UIViewController, CLLocationManagerDelegate {
         self.setZoom()
         
         homeView.goButton.addTarget(self, action: #selector(goButtonDidTap), for: .touchUpInside)
+        homeView.storeInfoView.fullButton.addTarget(self, action: #selector(InfoViewDidTap), for: .touchUpInside)
         
         view.addSubview(homeView)
         homeView.snp.makeConstraints {
@@ -60,11 +61,21 @@ final class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     
     // 카테고리 뷰 버튼
-    @objc func goButtonDidTap(_ sender: UIButton) {
+    @objc
+    func goButtonDidTap(_ sender: UIButton) {
         let categoryVC = CategoryViewController()
         categoryVC.modalPresentationStyle = .overFullScreen
         categoryVC.modalTransitionStyle = .crossDissolve
         present(categoryVC, animated: true, completion: nil)
+    }
+    
+    
+    @objc
+    func InfoViewDidTap() {
+        print("가게 디테일 뷰로 가기")
+        // 서버 연결
+        let nextVC = StoreInfoDetailViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 
 }
