@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B18F740274F47BB00FF87C2 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B18F73F274F47BB00FF87C2 /* StartView.swift */; };
+		6B18F742274F47D600FF87C2 /* StartNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B18F741274F47D600FF87C2 /* StartNavigationViewController.swift */; };
+		6B18F744274F47E600FF87C2 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B18F743274F47E600FF87C2 /* StartViewController.swift */; };
+		6B18F74A274F4AC700FF87C2 /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6B18F748274F4AC600FF87C2 /* NotoSansKR-Bold.otf */; };
+		6B18F74B274F4AC700FF87C2 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6B18F749274F4AC600FF87C2 /* NotoSansKR-Regular.otf */; };
+		6B18F74D274F4F3E00FF87C2 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6B18F74C274F4F3E00FF87C2 /* NotoSansKR-Medium.otf */; };
 		6B1B77E72747CFA300BD9773 /* StoreInfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B77E62747CFA300BD9773 /* StoreInfoDetailView.swift */; };
 		6B1B77E92747CFE500BD9773 /* StoreInfoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B77E82747CFE500BD9773 /* StoreInfoDetailViewController.swift */; };
 		6B1B77EB2747D79A00BD9773 /* HomeNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B77EA2747D79A00BD9773 /* HomeNavigationViewController.swift */; };
@@ -69,6 +75,12 @@
 /* Begin PBXFileReference section */
 		3B063F9DBE4F71D4E4848ABE /* Pods-GO-st.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GO-st.debug.xcconfig"; path = "Target Support Files/Pods-GO-st/Pods-GO-st.debug.xcconfig"; sourceTree = "<group>"; };
 		5ACCFD20F63FE7B2CAF57F44 /* Pods-GO-st.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GO-st.release.xcconfig"; path = "Target Support Files/Pods-GO-st/Pods-GO-st.release.xcconfig"; sourceTree = "<group>"; };
+		6B18F73F274F47BB00FF87C2 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		6B18F741274F47D600FF87C2 /* StartNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartNavigationViewController.swift; sourceTree = "<group>"; };
+		6B18F743274F47E600FF87C2 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		6B18F748274F4AC600FF87C2 /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
+		6B18F749274F4AC600FF87C2 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
+		6B18F74C274F4F3E00FF87C2 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		6B1B77E62747CFA300BD9773 /* StoreInfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoDetailView.swift; sourceTree = "<group>"; };
 		6B1B77E82747CFE500BD9773 /* StoreInfoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoDetailViewController.swift; sourceTree = "<group>"; };
 		6B1B77EA2747D79A00BD9773 /* HomeNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationViewController.swift; sourceTree = "<group>"; };
@@ -142,11 +154,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B18F73D274F476300FF87C2 /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				6B18F73E274F47AD00FF87C2 /* Start */,
+				6B8B79CE2738F91D00DB26F4 /* SignIn */,
+				6B2F392E2737A98F002F8D19 /* SignUp */,
+			);
+			path = Start;
+			sourceTree = "<group>";
+		};
+		6B18F73E274F47AD00FF87C2 /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				6B18F741274F47D600FF87C2 /* StartNavigationViewController.swift */,
+				6B18F73F274F47BB00FF87C2 /* StartView.swift */,
+				6B18F743274F47E600FF87C2 /* StartViewController.swift */,
+			);
+			path = Start;
+			sourceTree = "<group>";
+		};
+		6B18F745274F4A9B00FF87C2 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				6B18F748274F4AC600FF87C2 /* NotoSansKR-Bold.otf */,
+				6B18F74C274F4F3E00FF87C2 /* NotoSansKR-Medium.otf */,
+				6B18F749274F4AC600FF87C2 /* NotoSansKR-Regular.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		6B2F392E2737A98F002F8D19 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
 				6B2F39352737AB0C002F8D19 /* LoginNavigationViewController.swift */,
-				6B8B79CE2738F91D00DB26F4 /* SignIn */,
 				6B8B79CD2738F8EB00DB26F4 /* Step1 */,
 				6B8B79CF2738F92700DB26F4 /* Step2 */,
 				6B8B79D02738F93300DB26F4 /* Step3 */,
@@ -200,7 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				6B8B79D7273A31AD00DB26F4 /* CommonView */,
-				6B2F392E2737A98F002F8D19 /* SignUp */,
+				6B18F73D274F476300FF87C2 /* Start */,
 				6B3ECC3E2734E67F00177F9F /* TabBar */,
 				6B3ECC3F2734E69200177F9F /* Home */,
 				6B3ECC5127350B4200177F9F /* Report */,
@@ -219,6 +260,7 @@
 		6B3ECC3C2734E64C00177F9F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6B18F745274F4A9B00FF87C2 /* Font */,
 				6B3ECC2E2734E18900177F9F /* Assets.xcassets */,
 				6B3ECC302734E18900177F9F /* LaunchScreen.storyboard */,
 			);
@@ -607,6 +649,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B3ECC322734E18900177F9F /* LaunchScreen.storyboard in Resources */,
+				6B18F74A274F4AC700FF87C2 /* NotoSansKR-Bold.otf in Resources */,
+				6B18F74D274F4F3E00FF87C2 /* NotoSansKR-Medium.otf in Resources */,
+				6B18F74B274F4AC700FF87C2 /* NotoSansKR-Regular.otf in Resources */,
 				6B3ECC2F2734E18900177F9F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -680,6 +725,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B3ECC5827350B9500177F9F /* MyPageViewController.swift in Sources */,
+				6B18F740274F47BB00FF87C2 /* StartView.swift in Sources */,
 				6B2F392D27378BA3002F8D19 /* ReportResultView.swift in Sources */,
 				6BDD620E2743966400E52EB2 /* ReportView.swift in Sources */,
 				6B8B79D9273A31FC00DB26F4 /* LabelLabelView.swift in Sources */,
@@ -692,6 +738,7 @@
 				6B8B79E8273B8C0700DB26F4 /* SignUpViewModel.swift in Sources */,
 				6B2F39322737AA9B002F8D19 /* SignUpOTPView.swift in Sources */,
 				6B3ECC88273695D800177F9F /* SearchOnTheMapView.swift in Sources */,
+				6B18F744274F47E600FF87C2 /* StartViewController.swift in Sources */,
 				6B3ECC812736778700177F9F /* ReportResultViewController.swift in Sources */,
 				6B2F3984273803C2002F8D19 /* SignUpFinishedViewController.swift in Sources */,
 				6BDD62102743CFD500E52EB2 /* FinishedButton.swift in Sources */,
@@ -721,6 +768,7 @@
 				6B3ECC6827354CF900177F9F /* CategoryView.swift in Sources */,
 				6B1B77ED274936E900BD9773 /* MyPageView.swift in Sources */,
 				6B3ECC662735436500177F9F /* HomeViewController+Map.swift in Sources */,
+				6B18F742274F47D600FF87C2 /* StartNavigationViewController.swift in Sources */,
 				6B8B79DB273A320B00DB26F4 /* LabelTextFieldView.swift in Sources */,
 				6B3ECC282734E18200177F9F /* SceneDelegate.swift in Sources */,
 				6B3ECC502735084100177F9F /* TabBarViewController.swift in Sources */,

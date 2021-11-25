@@ -85,6 +85,7 @@ struct R: Rswift.Validatable {
   }
 
   static func validate() throws {
+    try font.validate()
     try intern.validate()
   }
 
@@ -206,8 +207,86 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+  /// This `R.file` struct is generated, and contains static references to 3 files.
+  struct file {
+    /// Resource file `NotoSansKR-Bold.otf`.
+    static let notoSansKRBoldOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "NotoSansKR-Bold", pathExtension: "otf")
+    /// Resource file `NotoSansKR-Medium.otf`.
+    static let notoSansKRMediumOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "NotoSansKR-Medium", pathExtension: "otf")
+    /// Resource file `NotoSansKR-Regular.otf`.
+    static let notoSansKRRegularOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "NotoSansKR-Regular", pathExtension: "otf")
+
+    /// `bundle.url(forResource: "NotoSansKR-Bold", withExtension: "otf")`
+    static func notoSansKRBoldOtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.notoSansKRBoldOtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "NotoSansKR-Medium", withExtension: "otf")`
+    static func notoSansKRMediumOtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.notoSansKRMediumOtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "NotoSansKR-Regular", withExtension: "otf")`
+    static func notoSansKRRegularOtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.notoSansKRRegularOtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    fileprivate init() {}
+  }
+
+  /// This `R.font` struct is generated, and contains static references to 3 fonts.
+  struct font: Rswift.Validatable {
+    /// Font `NotoSansKR-Bold`.
+    static let notoSansKRBold = Rswift.FontResource(fontName: "NotoSansKR-Bold")
+    /// Font `NotoSansKR-Medium`.
+    static let notoSansKRMedium = Rswift.FontResource(fontName: "NotoSansKR-Medium")
+    /// Font `NotoSansKR-Regular`.
+    static let notoSansKRRegular = Rswift.FontResource(fontName: "NotoSansKR-Regular")
+
+    /// `UIFont(name: "NotoSansKR-Bold", size: ...)`
+    static func notoSansKRBold(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: notoSansKRBold, size: size)
+    }
+
+    /// `UIFont(name: "NotoSansKR-Medium", size: ...)`
+    static func notoSansKRMedium(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: notoSansKRMedium, size: size)
+    }
+
+    /// `UIFont(name: "NotoSansKR-Regular", size: ...)`
+    static func notoSansKRRegular(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: notoSansKRRegular, size: size)
+    }
+
+    static func validate() throws {
+      if R.font.notoSansKRBold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'NotoSansKR-Bold' could not be loaded, is 'NotoSansKR-Bold.otf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.notoSansKRMedium(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'NotoSansKR-Medium' could not be loaded, is 'NotoSansKR-Medium.otf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.notoSansKRRegular(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'NotoSansKR-Regular' could not be loaded, is 'NotoSansKR-Regular.otf' added to the UIAppFonts array in this targets Info.plist?") }
+    }
+
+    fileprivate init() {}
+  }
+
   /// This `R.image` struct is generated, and contains static references to 0 images.
   struct image {
+    /// This `R.image.logo` struct is generated, and contains static references to 1 images.
+    struct logo {
+      /// Image `imgLogo`.
+      static let imgLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo/imgLogo")
+
+      #if os(iOS) || os(tvOS)
+      /// `UIImage(named: "imgLogo", bundle: ..., traitCollection: ...)`
+      static func imgLogo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.logo.imgLogo, compatibleWith: traitCollection)
+      }
+      #endif
+
+      fileprivate init() {}
+    }
+
     /// This `R.image.map` struct is generated, and contains static references to 1 images.
     struct map {
       /// Image `defaultMarker`.

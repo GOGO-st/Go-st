@@ -25,9 +25,10 @@ class FinishedButton: UIButton {
         print("완료 버튼 프레임 \(self.frame) \(CommonValue.shared.tabBarHeight)")
         // 비활성화 상태로 초기화
         self.backgroundColor = R.color.disabled()
-        self.layer.cornerRadius = self.frame.height / 2
+        self.layer.cornerRadius = self.frame.height * 0.214
         self.setTitle(title, for: .normal)
         self.setTitleColor(.black, for: .normal)
+        self.titleLabel?.font = R.font.notoSansKRMedium(size: 16)
         self.isEnabled = false
     }
     
