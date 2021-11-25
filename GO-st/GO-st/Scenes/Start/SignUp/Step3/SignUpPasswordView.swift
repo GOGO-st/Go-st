@@ -119,7 +119,14 @@ extension SignUpPasswordView: UITextFieldDelegate {
     }
     // return 누르면 키보드 내려가기
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        switch textField {
+            case passwordView.contentTextField:
+                passwordConfirmView.contentTextField.becomeFirstResponder()
+            case passwordConfirmView.contentTextField:
+                passwordConfirmView.contentTextField.resignFirstResponder()
+            default:
+                textField.resignFirstResponder()
+        }
         return true
     }
 }
