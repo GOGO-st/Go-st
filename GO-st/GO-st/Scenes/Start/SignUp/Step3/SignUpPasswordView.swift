@@ -26,8 +26,12 @@ final class SignUpPasswordView: SignInUpView {
         $0.setPlaceholder("알파벳 대소문자 숫자 특수기호 12자 이내")
     }
     
+    // caution 에셋 요청하기
     let confirm = UILabel().then {
-        $0.text = "
+        $0.text = "일치하지 않습니다!"
+        $0.textColor = R.color.point()
+        $0.font = R.font.notoSansKRRegular(size: 12)
+        $0.isHidden = true
     }
     
     private let sideSpacing: CGFloat = 33
@@ -55,6 +59,7 @@ final class SignUpPasswordView: SignInUpView {
         self.addSubview(emailView)
         self.addSubview(passwordView)
         self.addSubview(passwordConfirmView)
+        self.addSubview(confirm)
     }
     
     private func setAutoLayout() {
@@ -77,6 +82,10 @@ final class SignUpPasswordView: SignInUpView {
             $0.top.equalTo(passwordView.snp.bottom).offset(self.topSpacing)
             $0.left.right.equalTo(self)
         }
+        confirm.snp.makeConstraints {
+            $0.top.equalTo(passwordConfirmView.snp.bottom).offset(6)
+            $0.left.equalTo(self).offset(32)
+        }
     }
     
     func setEmailLabel(_ email: String) {
@@ -88,8 +97,10 @@ final class SignUpPasswordView: SignInUpView {
         // 일단 2 이상으로
         let confirmText = textField.text
         if confirmText?.count ?? 0 > 1 && passwordView.contentTextField.text == confirmText {
+            self.confirm.isHidden = true
             super.canIUseNextButton(true)
         } else {
+            self.confirm.isHidden = false
             super.canIUseNextButton(false)
         }
     }
