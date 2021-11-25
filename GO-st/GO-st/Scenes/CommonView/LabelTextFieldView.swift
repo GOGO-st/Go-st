@@ -58,8 +58,7 @@ final class LabelTextFieldView: UIView {
         }
         // 제목
         titleLabel.snp.makeConstraints {
-            $0.top.equalTo(self)
-            $0.left.equalTo(self).offset(self.sideSpacing)
+            $0.top.left.equalTo(self)
         }
         
 //        backgroundView.snp.makeConstraints {
@@ -75,8 +74,8 @@ final class LabelTextFieldView: UIView {
 //        }
         
         contentTextField.snp.makeConstraints {
-            $0.left.equalTo(self).offset(self.sideSpacing)
-            $0.right.equalTo(self).offset(-self.sideSpacing)
+            $0.left.right.equalTo(self)
+            $0.right.equalTo(self)
             $0.bottom.equalTo(self)
             $0.height.equalTo(44)
         }

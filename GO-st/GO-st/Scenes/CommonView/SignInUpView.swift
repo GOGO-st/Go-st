@@ -14,7 +14,7 @@ class SignInUpView: UIView {
 
     // 회색 바
     private let baseBar = UIView().then {
-        $0.backgroundColor = .darkGray
+        $0.backgroundColor = UIColor(white: 1, alpha: 0.08)
     }
     
     // 단계 바
@@ -38,11 +38,6 @@ class SignInUpView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
-        self.backgroundColor = .black
-        
-        self.addContentView()
-        self.setAutoLayout()
-        
     }
     
     private func addContentView() {
@@ -59,7 +54,7 @@ class SignInUpView: UIView {
         }
         baseBar.snp.makeConstraints {
             $0.top.left.right.equalTo(self)
-            $0.height.equalTo(2)
+            $0.height.equalTo(1)
         }
         stepBar.snp.makeConstraints {
             $0.top.left.bottom.equalTo(baseBar)

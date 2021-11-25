@@ -42,7 +42,7 @@ final class LabelLabelView: UIView {
     
 //    private let WIDTH: CGFloat = UIScreen.main.bounds.width - 65
     private let HEIGHT: CGFloat = 78
-    private let sideSpacing: CGFloat = 33
+    private let sideSpacing: CGFloat = 20
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -69,25 +69,22 @@ final class LabelLabelView: UIView {
         }
         // 제목
         titleLabel.snp.makeConstraints {
-            $0.top.equalTo(self)
-            $0.left.equalTo(self).offset(self.sideSpacing)
+            $0.top.left.equalTo(self)
         }
         
         backgroundView.snp.makeConstraints {
-            $0.left.equalTo(self).offset(self.sideSpacing)
-            $0.right.equalTo(self).offset(-self.sideSpacing)
-            $0.bottom.equalTo(self)
+            $0.left.right.bottom.equalTo(self)
             $0.height.equalTo(44)
         }
         // 내용
         contentLabel.snp.makeConstraints {
             $0.centerY.equalTo(backgroundView)
-            $0.left.equalTo(backgroundView).offset(20)
+            $0.left.equalTo(backgroundView).offset(sideSpacing)
         }
         // 인증완료
         completeLabel.snp.makeConstraints {
             $0.centerY.equalTo(backgroundView)
-            $0.right.equalTo(backgroundView).offset(-20)
+            $0.right.equalTo(backgroundView).offset(-sideSpacing)
         }
     }
     

@@ -36,7 +36,8 @@ final class SignUpPasswordView: SignInUpView {
         $0.isHidden = true
     }
     
-    private let sideSpacing: CGFloat = 33
+    private let leftSpacing: CGFloat = 32
+    private let rightSpacing: CGFloat = -33
     private let topSpacing: CGFloat = 25
     private let height: CGFloat = 46
     
@@ -71,22 +72,25 @@ final class SignUpPasswordView: SignInUpView {
         
         // 이메일
         emailView.snp.makeConstraints {
-            $0.top.equalTo(self).offset(100)
-            $0.left.right.equalTo(self)
+            $0.top.equalTo(self).offset(40)
+            $0.left.equalTo(self).offset(leftSpacing)
+            $0.right.equalTo(self).offset(rightSpacing)
         }
         // 비번
         passwordView.snp.makeConstraints {
             $0.top.equalTo(emailView.snp.bottom).offset(self.topSpacing)
-            $0.left.right.equalTo(self)
+            $0.left.equalTo(self).offset(leftSpacing)
+            $0.right.equalTo(self).offset(rightSpacing)
         }
         // 비번 확인
         passwordConfirmView.snp.makeConstraints {
             $0.top.equalTo(passwordView.snp.bottom).offset(self.topSpacing)
-            $0.left.right.equalTo(self)
+            $0.left.equalTo(self).offset(leftSpacing)
+            $0.right.equalTo(self).offset(rightSpacing)
         }
         confirm.snp.makeConstraints {
             $0.top.equalTo(passwordConfirmView.snp.bottom).offset(6)
-            $0.left.equalTo(self).offset(32)
+            $0.left.equalTo(self).offset(33)
         }
     }
     
@@ -100,9 +104,10 @@ final class SignUpPasswordView: SignInUpView {
     
     @objc
     private func checkValidity(_ textField: UITextField) {
-        // 일단 2 이상으로
         let confirmText = textField.text
-        if confirmText?.count ?? 0 > 1 && passwordView.contentTextField.text == confirmText {
+        if confirmText?.count ?? 0 > 6 &&
+            confirmText?.count ?? 0 <= 12 &&
+            passwordView.contentTextField.text == confirmText {
             confirmIsHidden(true)
             super.canIUseNextButton(true)
         } else {
