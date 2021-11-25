@@ -18,25 +18,22 @@ final class StoreInfoCardView: UIView {
     }
     
     let storeLabel = UILabel().then {
-        $0.font = .boldSystemFont(ofSize: 16)
+        $0.font = R.font.notoSansKRBold(size: 16)
         $0.textColor = .white
     }
     
     let addressLabel = UILabel().then {
-        $0.font = .systemFont(ofSize: 12)
-        $0.textColor = .white
+        $0.font = R.font.notoSansKRRegular(size: 12)
+        $0.textColor = UIColor(white: 1, alpha: 0.78)
     }
     
-    // 나중에 UIView로 바꾸기
-    let countLabel = UILabel().then {
-        $0.text = "+ 11"
-    }
+    let countView = EmojiCountView()
     
     let fullButton = UIButton().then {
         $0.backgroundColor = .clear
     }
     
-    private let HEIGHT: CGFloat = 100
+    private let HEIGHT: CGFloat = 125
     
     required init?(coder: NSCoder) { super.init(coder: coder) }
     
@@ -50,7 +47,7 @@ final class StoreInfoCardView: UIView {
         self.addSubview(backgroundView)
         self.addSubview(storeLabel)
         self.addSubview(addressLabel)
-        self.addSubview(countLabel)
+        self.addSubview(countView)
         self.addSubview(fullButton)
     }
     
@@ -74,7 +71,7 @@ final class StoreInfoCardView: UIView {
             $0.left.equalTo(self).offset(17)
         }
         
-        countLabel.snp.makeConstraints {
+        countView.snp.makeConstraints {
             $0.right.bottom.equalTo(self).offset(-16)
         }
         
