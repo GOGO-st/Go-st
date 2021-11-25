@@ -19,15 +19,17 @@ final class SignUpPasswordView: SignInUpView {
     private let passwordView = LabelTextFieldView().then {
         $0.titleLabel.text = "비밀번호"
         $0.setPlaceholder("알파벳 대소문자 숫자 특수기호 12자 이내")
+        $0.contentTextField.isSecureTextEntry = true
     }
     // 비번 확인
     private let passwordConfirmView = LabelTextFieldView().then {
         $0.titleLabel.text = "비밀번호 확인"
         $0.setPlaceholder("알파벳 대소문자 숫자 특수기호 12자 이내")
+        $0.contentTextField.isSecureTextEntry = true
     }
     
     // caution 에셋 요청하기
-    let confirm = UILabel().then {
+    private let confirm = UILabel().then {
         $0.text = "일치하지 않습니다!"
         $0.textColor = R.color.point()
         $0.font = R.font.notoSansKRRegular(size: 12)
@@ -92,15 +94,19 @@ final class SignUpPasswordView: SignInUpView {
         self.emailView.contentLabel.text = email
     }
     
+    private func confirmIsHidden(_ val: Bool) {
+        self.confirm.isHidden = val
+    }
+    
     @objc
     private func checkValidity(_ textField: UITextField) {
         // 일단 2 이상으로
         let confirmText = textField.text
         if confirmText?.count ?? 0 > 1 && passwordView.contentTextField.text == confirmText {
-            self.confirm.isHidden = true
+            confirmIsHidden(true)
             super.canIUseNextButton(true)
         } else {
-            self.confirm.isHidden = false
+            confirmIsHidden(false)
             super.canIUseNextButton(false)
         }
     }
