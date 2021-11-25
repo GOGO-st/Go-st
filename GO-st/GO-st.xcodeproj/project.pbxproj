@@ -10,6 +10,8 @@
 		6B1B77E72747CFA300BD9773 /* StoreInfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B77E62747CFA300BD9773 /* StoreInfoDetailView.swift */; };
 		6B1B77E92747CFE500BD9773 /* StoreInfoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B77E82747CFE500BD9773 /* StoreInfoDetailViewController.swift */; };
 		6B1B77EB2747D79A00BD9773 /* HomeNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B77EA2747D79A00BD9773 /* HomeNavigationViewController.swift */; };
+		6B1B77ED274936E900BD9773 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B77EC274936E900BD9773 /* MyPageView.swift */; };
+		6B1B77EF2749371C00BD9773 /* MyPageNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B77EE2749371C00BD9773 /* MyPageNavigationViewController.swift */; };
 		6B2F392D27378BA3002F8D19 /* ReportResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2F392C27378BA2002F8D19 /* ReportResultView.swift */; };
 		6B2F39302737AA0D002F8D19 /* SignUpEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2F392F2737AA0D002F8D19 /* SignUpEmailView.swift */; };
 		6B2F39322737AA9B002F8D19 /* SignUpOTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2F39312737AA9A002F8D19 /* SignUpOTPView.swift */; };
@@ -27,7 +29,6 @@
 		6B3ECC322734E18900177F9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B3ECC302734E18900177F9F /* LaunchScreen.storyboard */; };
 		6B3ECC472734E8D400177F9F /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC462734E8D400177F9F /* R.generated.swift */; };
 		6B3ECC502735084100177F9F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC4F2735084100177F9F /* TabBarViewController.swift */; };
-		6B3ECC5627350B8200177F9F /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B3ECC5527350B8200177F9F /* MyPage.storyboard */; };
 		6B3ECC5827350B9500177F9F /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC5727350B9500177F9F /* MyPageViewController.swift */; };
 		6B3ECC5A27350BA000177F9F /* ReportStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC5927350BA000177F9F /* ReportStartViewController.swift */; };
 		6B3ECC5C27350BB200177F9F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3ECC5B27350BB200177F9F /* HomeViewController.swift */; };
@@ -71,6 +72,8 @@
 		6B1B77E62747CFA300BD9773 /* StoreInfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoDetailView.swift; sourceTree = "<group>"; };
 		6B1B77E82747CFE500BD9773 /* StoreInfoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoDetailViewController.swift; sourceTree = "<group>"; };
 		6B1B77EA2747D79A00BD9773 /* HomeNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationViewController.swift; sourceTree = "<group>"; };
+		6B1B77EC274936E900BD9773 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
+		6B1B77EE2749371C00BD9773 /* MyPageNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageNavigationViewController.swift; sourceTree = "<group>"; };
 		6B2F392C27378BA2002F8D19 /* ReportResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportResultView.swift; sourceTree = "<group>"; };
 		6B2F392F2737AA0D002F8D19 /* SignUpEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEmailView.swift; sourceTree = "<group>"; };
 		6B2F39312737AA9A002F8D19 /* SignUpOTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpOTPView.swift; sourceTree = "<group>"; };
@@ -90,7 +93,6 @@
 		6B3ECC462734E8D400177F9F /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		6B3ECC4A2734EA5C00177F9F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B3ECC4F2735084100177F9F /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		6B3ECC5527350B8200177F9F /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		6B3ECC5727350B9500177F9F /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		6B3ECC5927350BA000177F9F /* ReportStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportStartViewController.swift; sourceTree = "<group>"; };
 		6B3ECC5B27350BB200177F9F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -303,7 +305,8 @@
 		6B3ECC5227350B4F00177F9F /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				6B3ECC5527350B8200177F9F /* MyPage.storyboard */,
+				6B1B77EE2749371C00BD9773 /* MyPageNavigationViewController.swift */,
+				6B1B77EC274936E900BD9773 /* MyPageView.swift */,
 				6B3ECC5727350B9500177F9F /* MyPageViewController.swift */,
 			);
 			path = MyPage;
@@ -603,7 +606,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B3ECC5627350B8200177F9F /* MyPage.storyboard in Resources */,
 				6B3ECC322734E18900177F9F /* LaunchScreen.storyboard in Resources */,
 				6B3ECC2F2734E18900177F9F /* Assets.xcassets in Resources */,
 			);
@@ -701,6 +703,7 @@
 				6B1B77E92747CFE500BD9773 /* StoreInfoDetailViewController.swift in Sources */,
 				6B1B77E72747CFA300BD9773 /* StoreInfoDetailView.swift in Sources */,
 				6B8B79D627392CB300DB26F4 /* MKMapView+Extension.swift in Sources */,
+				6B1B77EF2749371C00BD9773 /* MyPageNavigationViewController.swift in Sources */,
 				6B2F39362737AB0C002F8D19 /* LoginNavigationViewController.swift in Sources */,
 				6B3ECC5C27350BB200177F9F /* HomeViewController.swift in Sources */,
 				6B3ECC7F273675CE00177F9F /* ReportStartView.swift in Sources */,
@@ -716,6 +719,7 @@
 				6B3ECC7D27366DEC00177F9F /* ReportNavigationViewController.swift in Sources */,
 				6B2F39342737AAB2002F8D19 /* SignUpPasswordView.swift in Sources */,
 				6B3ECC6827354CF900177F9F /* CategoryView.swift in Sources */,
+				6B1B77ED274936E900BD9773 /* MyPageView.swift in Sources */,
 				6B3ECC662735436500177F9F /* HomeViewController+Map.swift in Sources */,
 				6B8B79DB273A320B00DB26F4 /* LabelTextFieldView.swift in Sources */,
 				6B3ECC282734E18200177F9F /* SceneDelegate.swift in Sources */,

@@ -26,10 +26,7 @@ final class TabBarViewController: UITabBarController {
         // Report
         let secondTab = ReportNavigationViewController()
         // MyPage
-        let myPage = UIStoryboard.init(name: "MyPage", bundle: nil)
-        guard let thirdTab = myPage.instantiateViewController(identifier: MyPageViewController.identifier) as? MyPageViewController else {
-            return
-        }
+        let myPage = MyPageNavigationViewController()
         
         
         firstTab.tabBarItem = UITabBarItem(title: "홈", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
