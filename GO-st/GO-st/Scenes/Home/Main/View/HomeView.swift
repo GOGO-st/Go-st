@@ -33,11 +33,15 @@ final class HomeView: UIView {
         $0.backgroundColor = .clear
     }
     
-    // 가게 재검색
+    // 흔적 재검색
     private let retrieveButton = UIButton().then {
-        $0.backgroundColor = .darkGray
-        $0.setTitle("현재 지도에서 가게 재검색", for: .normal)
-        $0.setTitleColor(.white, for: .normal)
+//        $0.setImage(R.image.home.retrieveButtonImage(), for: .normal)
+//        $0.contentMode = .scaleAspectFill
+        $0.backgroundColor = R.color.point()
+        $0.layer.cornerRadius = 22
+        $0.setTitle("현재 지도에서 흔적 다시 찾기", for: .normal)
+        $0.setTitleColor(R.color.darkGreen(), for: .normal)
+        $0.titleLabel?.font = R.font.notoSansKRMedium(size: 14)
         $0.isHidden = true
     }
     
@@ -74,7 +78,7 @@ final class HomeView: UIView {
         goView.addSubview(goLabel)
         goView.addSubview(goButton)
         
-        // 가게 재검색
+        // 흔적 재검색
         self.addSubview(retrieveButton)
         
         // 가게 정보
@@ -105,11 +109,12 @@ final class HomeView: UIView {
             $0.top.left.right.bottom.equalTo(goView)
         }
         
-        // 가게 재검색
+        // 흔적 재검색
         retrieveButton.snp.makeConstraints {
-            $0.top.equalTo(goView.snp.bottom).offset(10)
+            $0.top.equalTo(goView.snp.bottom).offset(8)
             $0.centerX.equalTo(self)
-            $0.width.equalTo(100)
+            $0.width.equalTo(211)
+            $0.height.equalTo(44)
         }
         
         // 가게 정보 뷰

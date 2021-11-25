@@ -106,12 +106,14 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 6 colors.
+  /// This `R.color` struct is generated, and contains static references to 7 colors.
   struct color {
     /// Color `AccentColor`.
     static let accentColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "AccentColor")
     /// Color `background`.
     static let background = Rswift.ColorResource(bundle: R.hostingBundle, name: "background")
+    /// Color `darkGreen`.
+    static let darkGreen = Rswift.ColorResource(bundle: R.hostingBundle, name: "darkGreen")
     /// Color `disabled`.
     static let disabled = Rswift.ColorResource(bundle: R.hostingBundle, name: "disabled")
     /// Color `placeholder`.
@@ -136,6 +138,15 @@ struct R: Rswift.Validatable {
     @available(iOS 11.0, *)
     static func background(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.background, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "darkGreen", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func darkGreen(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.darkGreen, compatibleWith: traitCollection)
     }
     #endif
 
@@ -188,6 +199,14 @@ struct R: Rswift.Validatable {
     @available(watchOSApplicationExtension 4.0, *)
     static func background(_: Void = ()) -> UIKit.UIColor? {
       return UIKit.UIColor(named: R.color.background.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "darkGreen", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func darkGreen(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.darkGreen.name)
     }
     #endif
 
@@ -291,6 +310,30 @@ struct R: Rswift.Validatable {
 
   /// This `R.image` struct is generated, and contains static references to 0 images.
   struct image {
+    /// This `R.image.home` struct is generated, and contains static references to 2 images.
+    struct home {
+      /// Image `retrieveBackground`.
+      static let retrieveBackground = Rswift.ImageResource(bundle: R.hostingBundle, name: "home/retrieveBackground")
+      /// Image `retrieveButtonImage`.
+      static let retrieveButtonImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "home/retrieveButtonImage")
+
+      #if os(iOS) || os(tvOS)
+      /// `UIImage(named: "retrieveBackground", bundle: ..., traitCollection: ...)`
+      static func retrieveBackground(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.home.retrieveBackground, compatibleWith: traitCollection)
+      }
+      #endif
+
+      #if os(iOS) || os(tvOS)
+      /// `UIImage(named: "retrieveButtonImage", bundle: ..., traitCollection: ...)`
+      static func retrieveButtonImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.home.retrieveButtonImage, compatibleWith: traitCollection)
+      }
+      #endif
+
+      fileprivate init() {}
+    }
+
     /// This `R.image.logo` struct is generated, and contains static references to 1 images.
     struct logo {
       /// Image `imgLogo`.
