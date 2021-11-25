@@ -106,7 +106,7 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 7 colors.
+  /// This `R.color` struct is generated, and contains static references to 8 colors.
   struct color {
     /// Color `AccentColor`.
     static let accentColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "AccentColor")
@@ -114,6 +114,8 @@ struct R: Rswift.Validatable {
     static let background = Rswift.ColorResource(bundle: R.hostingBundle, name: "background")
     /// Color `darkGreen`.
     static let darkGreen = Rswift.ColorResource(bundle: R.hostingBundle, name: "darkGreen")
+    /// Color `darkGrey`.
+    static let darkGrey = Rswift.ColorResource(bundle: R.hostingBundle, name: "darkGrey")
     /// Color `disabled`.
     static let disabled = Rswift.ColorResource(bundle: R.hostingBundle, name: "disabled")
     /// Color `placeholder`.
@@ -147,6 +149,15 @@ struct R: Rswift.Validatable {
     @available(iOS 11.0, *)
     static func darkGreen(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.darkGreen, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "darkGrey", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func darkGrey(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.darkGrey, compatibleWith: traitCollection)
     }
     #endif
 
@@ -207,6 +218,14 @@ struct R: Rswift.Validatable {
     @available(watchOSApplicationExtension 4.0, *)
     static func darkGreen(_: Void = ()) -> UIKit.UIColor? {
       return UIKit.UIColor(named: R.color.darkGreen.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "darkGrey", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func darkGrey(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.darkGrey.name)
     }
     #endif
 

@@ -131,7 +131,7 @@ final class HomeView: UIView {
         }
         // 가게 정보 뷰
         storeInfoView.snp.makeConstraints {
-            $0.bottom.equalTo(self).offset(-10)
+            $0.bottom.equalTo(self).offset(-20)
             $0.left.equalTo(self).offset(15)
             $0.right.equalTo(self).offset(-14)
         }
