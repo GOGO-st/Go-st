@@ -1,8 +1,8 @@
 //
-//  StoreInfoCardView.swift
+//  StoreInfoHomeCardView.swift
 //  GO-st
 //
-//  Created by ✨EUGENE✨ on 2021/11/05.
+//  Created by ✨EUGENE✨ on 2021/11/26.
 //
 
 import UIKit
@@ -10,7 +10,7 @@ import Then
 import SnapKit
 import MapKit
 
-class StoreInfoCardView: UIView {
+final class StoreInfoHomeCardView: UIView {
     
     let backgroundView = UIView().then {
         $0.backgroundColor = R.color.semiBlack()

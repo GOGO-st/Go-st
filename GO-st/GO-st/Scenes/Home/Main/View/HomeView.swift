@@ -148,4 +148,14 @@ final class HomeView: UIView {
     func retrieveButtonDidTap(_ sender: UIButton) {
         retrieveButtonIsHidden()
     }
+    
+    func changeGoLabel(_ str: String) {
+        goLabel.attributedText = NSMutableAttributedString()
+                                    .bold(str, fontSize: 20)
+                                    .regular(", 찾아보자고!", fontSize: 20)
+    }
+    
+    func resetGoLabel() {
+        goLabel.text = "흔적 찾아 떠나보자고!"
+    }
 }
