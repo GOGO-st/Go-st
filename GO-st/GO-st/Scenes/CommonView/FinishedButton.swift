@@ -27,18 +27,20 @@ class FinishedButton: UIButton {
         self.backgroundColor = R.color.disabled()
         self.layer.cornerRadius = self.frame.height * 0.214
         self.setTitle(title, for: .normal)
-        self.setTitleColor(.black, for: .normal)
+        self.setTitleColor(.white, for: .normal)
         self.titleLabel?.font = R.font.notoSansKRMedium(size: 16)
         self.isEnabled = false
     }
     
     func activate() {
         self.backgroundColor = R.color.point()
+        self.setTitleColor(.black, for: .normal)
         self.isEnabled = true
     }
     
     func deactivate() {
         self.backgroundColor = R.color.disabled()
+        self.setTitleColor(.white, for: .normal)
         self.isEnabled = false
     }
     

@@ -106,7 +106,7 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 5 colors.
+  /// This `R.color` struct is generated, and contains static references to 6 colors.
   struct color {
     /// Color `AccentColor`.
     static let accentColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "AccentColor")
@@ -114,6 +114,8 @@ struct R: Rswift.Validatable {
     static let background = Rswift.ColorResource(bundle: R.hostingBundle, name: "background")
     /// Color `disabled`.
     static let disabled = Rswift.ColorResource(bundle: R.hostingBundle, name: "disabled")
+    /// Color `placeholder`.
+    static let placeholder = Rswift.ColorResource(bundle: R.hostingBundle, name: "placeholder")
     /// Color `point`.
     static let point = Rswift.ColorResource(bundle: R.hostingBundle, name: "point")
     /// Color `semiBlack`.
@@ -143,6 +145,15 @@ struct R: Rswift.Validatable {
     @available(iOS 11.0, *)
     static func disabled(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.disabled, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "placeholder", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func placeholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.placeholder, compatibleWith: traitCollection)
     }
     #endif
 
@@ -185,6 +196,14 @@ struct R: Rswift.Validatable {
     @available(watchOSApplicationExtension 4.0, *)
     static func disabled(_: Void = ()) -> UIKit.UIColor? {
       return UIKit.UIColor(named: R.color.disabled.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "placeholder", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func placeholder(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.placeholder.name)
     }
     #endif
 

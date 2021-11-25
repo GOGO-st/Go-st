@@ -12,30 +12,29 @@ import SnapKit
 final class SignUpEmailView: SignInUpView {
 
     private let helloLabel = UILabel().then {
-        $0.text = "👀\n\n환영합니다"
+        $0.text = "학교 이메일을 입력하세요"
         $0.textAlignment = .center
         $0.textColor = .white
-        $0.font = .boldSystemFont(ofSize: 16)
+        $0.font = R.font.notoSansKRBold(size: 16)
         $0.numberOfLines = 3
     }
     
     private let descriptionLabel = UILabel().then {
         $0.text = "입력한 이메일은 인증 과정에서만 사용해요"
         $0.textAlignment = .center
-        $0.textColor = .white
-        $0.font = .systemFont(ofSize: 12)
+        $0.textColor = UIColor(white: 1, alpha: 0.58)
+        $0.font = R.font.notoSansKRRegular(size: 12)
     }
     
     // 이메일 적으면 이미지 갈아끼우기
 //    let backgroundImage
     
-    let emailTextField = UITextField().then {
-        $0.placeholder = "학교 이메일을 적어주세요"
-        $0.backgroundColor = .black
+    let emailTextField = CustomTextField().then {
+        $0.setPlaceholderWithColor("학교 이메일을 적어주세요")
         $0.keyboardType = .emailAddress
     }
     
-    private let sideSpacing: CGFloat = 33
+    private let sideSpacing: CGFloat = 24
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -62,7 +61,7 @@ final class SignUpEmailView: SignInUpView {
             $0.width.equalTo(CommonValue.shared.WIDTH / 3)
         }
         helloLabel.snp.makeConstraints {
-            $0.top.equalTo(self).offset(70)
+            $0.top.equalTo(self).offset(146)
             $0.centerX.equalToSuperview()
         }
         descriptionLabel.snp.makeConstraints {
@@ -70,10 +69,10 @@ final class SignUpEmailView: SignInUpView {
             $0.centerX.equalToSuperview()
         }
         emailTextField.snp.makeConstraints {
-            $0.top.equalTo(descriptionLabel.snp.bottom).offset(20)
+            $0.top.equalTo(descriptionLabel.snp.bottom).offset(40)
             $0.left.equalTo(self).offset(sideSpacing)
             $0.right.equalTo(self).offset(-sideSpacing)
-            $0.height.equalTo(48)
+            $0.height.equalTo(44)
         }
     }
     

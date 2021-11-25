@@ -9,6 +9,7 @@ import UIKit
 
 public enum CustomButtonType {
     case login
+    case signUp
     case report
 }
 class CommonValue {
@@ -37,6 +38,8 @@ class CommonValue {
         switch type {
             case .login:
                 buttonOriginY = self.HEIGHT - height - 85 // - self.tabBarHeight
+            case .signUp:
+                buttonOriginY = self.HEIGHT - self.tabBarHeight - height - 85
             case .report:
                 buttonOriginY = self.HEIGHT - self.tabBarHeight - 200
         }

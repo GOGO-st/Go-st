@@ -1,5 +1,5 @@
 //
-//  LoginNavigationViewController.swift
+//  SignUpNavigationViewController.swift
 //  GO-st
 //
 //  Created by ✨EUGENE✨ on 2021/11/07.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class LoginNavigationViewController: UINavigationController {
+class SignUpNavigationViewController: UINavigationController {
 
-    static let identifier = "LoginNavigationViewController"
+    static let identifier = "SignUpNavigationViewController"
     
     override func viewDidLoad() {
         super.viewDidLoad()

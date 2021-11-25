@@ -49,6 +49,7 @@ final class StartView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = R.color.background()
         self.addContentView()
         self.setAutoLayout()
     }
@@ -67,8 +68,6 @@ final class StartView: UIView {
     }
     
     private func setAutoLayout() {
-        let safeArea = self.safeAreaLayoutGuide
-        
         self.snp.makeConstraints {
             $0.width.equalTo(CommonValue.shared.WIDTH)
             $0.height.equalTo(CommonValue.shared.HEIGHT)
@@ -94,8 +93,5 @@ final class StartView: UIView {
         signUpButton.snp.makeConstraints {
             $0.top.left.right.bottom.equalTo(signUpLabel)
         }
-//        loginButton.snp.makeConstraints {
-//            $0.bottom.equalTo(signUpLabel.snp.top).offset(-20)
-//        }
     }
 }

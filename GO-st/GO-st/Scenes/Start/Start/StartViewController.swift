@@ -15,5 +15,23 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
         
         view.addSubview(startView)
+        
+        startView.loginButton.addTarget(self, action: #selector(signInButtonDidTap), for: .touchUpInside)
+        startView.signUpButton.addTarget(self, action: #selector(signUpButtonDidTap), for: .touchUpInside)
+    }
+    
+    
+    @objc
+    func signInButtonDidTap() {
+        let nextVC = SignInNavigationViewController()
+        nextVC.modalPresentationStyle = .fullScreen
+        self.present(nextVC, animated: false, completion: nil)
+    }
+    
+    @objc
+    func signUpButtonDidTap() {
+        let nextVC = SignUpNavigationViewController()
+        nextVC.modalPresentationStyle = .fullScreen
+        self.present(nextVC, animated: false, completion: nil)
     }
 }
