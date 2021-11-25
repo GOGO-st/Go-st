@@ -45,7 +45,8 @@ class FinishedButton: UIButton {
     }
     
     func buttonUp(_ y: CGFloat) {
-        self.frame.origin.y = CommonValue.shared.buttonOriginY - y
+        // 나중에 오토 조정
+        self.frame.origin.y = CommonValue.shared.buttonOriginY - y + self.frame.height
     }
     
     func buttonDown() {

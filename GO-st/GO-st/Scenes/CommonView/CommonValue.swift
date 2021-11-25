@@ -19,6 +19,8 @@ class CommonValue {
     let WIDTH: CGFloat = UIScreen.main.bounds.width
     let HEIGHT: CGFloat = UIScreen.main.bounds.height
     
+    let naviTitleHeight: CGFloat = 40
+    
     // 확인버튼
     var buttonOriginY: CGFloat = 0
     
@@ -36,10 +38,10 @@ class CommonValue {
         
         print(HEIGHT, width, height)
         switch type {
-            case .login:
+            case .login: // navi 없는 거
                 buttonOriginY = self.HEIGHT - height - 85 // - self.tabBarHeight
-            case .signUp:
-                buttonOriginY = self.HEIGHT - self.tabBarHeight - height - 85
+            case .signUp: // navi 있는 거
+                buttonOriginY = self.HEIGHT - self.tabBarHeight - height - 85 - naviTitleHeight
             case .report:
                 buttonOriginY = self.HEIGHT - self.tabBarHeight - 200
         }

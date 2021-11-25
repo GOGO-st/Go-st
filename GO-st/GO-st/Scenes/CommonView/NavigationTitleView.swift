@@ -22,9 +22,6 @@ final class NavigationTitleView: UIView {
 //        $0.isHidden = true
     }
     
-    private let WIDTH: CGFloat = UIScreen.main.bounds.width
-    private let HEIGHT: CGFloat = 40
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = R.color.background()
@@ -43,8 +40,8 @@ final class NavigationTitleView: UIView {
     
     private func setAutoLayout() {
         self.snp.makeConstraints {
-            $0.width.equalTo(self.WIDTH)
-            $0.height.equalTo(self.HEIGHT)
+            $0.width.equalTo(CommonValue.shared.WIDTH)
+            $0.height.equalTo(CommonValue.shared.naviTitleHeight)
         }
         titleLabel.snp.makeConstraints {
             $0.center.equalTo(self)

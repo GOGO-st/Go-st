@@ -18,8 +18,8 @@ class CustomTextField: UITextField {
         super.init(frame: .zero)
         
         addGestureRecognizer(tapRecognizer)
+        
         self.backgroundColor = R.color.semiBlack()
-//        self.borderStyle = .bezel
         self.layer.cornerRadius = 4
         self.layer.borderColor = R.color.semiBlack()?.cgColor
         self.layer.borderWidth = 1
