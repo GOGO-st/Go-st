@@ -67,7 +67,8 @@ final class SearchOnTheMapViewController: UIViewController, CLLocationManagerDel
     }
     
     // 이전뷰로 돌아가기
-    @objc private func leftButtonDidTap() {
+    @objc
+    private func leftButtonDidTap() {
         self.navigationController?.popViewController(animated: true)
     }
     

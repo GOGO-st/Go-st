@@ -534,8 +534,8 @@
 			isa = PBXGroup;
 			children = (
 				6B18F74E274F68B900FF87C2 /* SignInNavigationViewController.swift */,
-				6B18F752274F6BFF00FF87C2 /* SignInViewController.swift */,
 				6B18F750274F6BEE00FF87C2 /* SignInView.swift */,
+				6B18F752274F6BFF00FF87C2 /* SignInViewController.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";

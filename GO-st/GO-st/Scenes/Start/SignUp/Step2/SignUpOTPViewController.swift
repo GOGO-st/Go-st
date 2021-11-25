@@ -57,7 +57,7 @@ final class SignUpOTPViewController: UIViewController {
     // 이전뷰로 돌아가기
     @objc
     private func leftButtonDidTap() {
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: false)
     }
     
     @objc

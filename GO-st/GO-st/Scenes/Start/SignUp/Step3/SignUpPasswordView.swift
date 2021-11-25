@@ -110,6 +110,7 @@ final class SignUpPasswordView: SignInUpView {
             super.canIUseNextButton(false)
         }
     }
+    
 }
 extension SignUpPasswordView: UITextFieldDelegate {
     // 아무데나 누르면 키보드 내려가기

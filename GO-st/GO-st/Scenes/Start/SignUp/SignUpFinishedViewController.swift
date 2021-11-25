@@ -14,9 +14,10 @@ final class SignUpFinishedViewController: UIViewController {
     static let identifier = "SignUpFinishedViewController"
     
     private let finishedLabel = UILabel().then {
-        $0.text = "회원가입 완료!"
+        $0.text = "환영합니다!"
         $0.textColor = .white
-        $0.font = .boldSystemFont(ofSize: 24)
+        $0.font = R.font.notoSansKRBold(size: 24)
+        $0.textAlignment = .center
     }
     
     private let descriptionLabel = UILabel().then {
@@ -33,7 +34,7 @@ final class SignUpFinishedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .black
+        view.backgroundColor = R.color.background()
         
         self.addContentView()
         self.setAutoLayout()
@@ -59,7 +60,7 @@ final class SignUpFinishedViewController: UIViewController {
         
         descriptionLabel.snp.makeConstraints {
             $0.centerX.equalTo(safeArea)
-            $0.top.equalTo(finishedLabel.snp.bottom).offset(22)
+            $0.top.equalTo(finishedLabel.snp.bottom).offset(36)
         }
     }
     

@@ -23,6 +23,8 @@ final class SignUpPasswordViewController: UIViewController {
         self.setAutoLayout()
         self.setNavigationTitleView()
         
+        titleView.leftButton.addTarget(self, action: #selector(leftButtonDidTap), for: .touchUpInside)
+        
         signUpPasswordView.setEmailLabel(email)
         signUpPasswordView.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
         
@@ -52,6 +54,12 @@ final class SignUpPasswordViewController: UIViewController {
     private func setNavigationTitleView() {
         titleView.setTitle("회원가입")
 //        titleView.setBackgroundColor(.black)
+    }
+    
+    // 이전뷰로 돌아가기
+    @objc
+    private func leftButtonDidTap() {
+        self.navigationController?.popViewController(animated: false)
     }
     
     @objc

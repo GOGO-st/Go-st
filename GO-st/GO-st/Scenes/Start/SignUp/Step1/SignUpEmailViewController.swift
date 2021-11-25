@@ -67,7 +67,7 @@ class SignUpEmailViewController: UIViewController {
     // 이전뷰로 돌아가기
     @objc
     private func leftButtonDidTap() {
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     // 한글자라도 입력하면 버튼 활성화
     @objc
