@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B18F740274F47BB00FF87C2 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B18F73F274F47BB00FF87C2 /* StartView.swift */; };
+		6B18F742274F47D600FF87C2 /* StartNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B18F741274F47D600FF87C2 /* StartNavigationViewController.swift */; };
+		6B18F744274F47E600FF87C2 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B18F743274F47E600FF87C2 /* StartViewController.swift */; };
+		6B18F74A274F4AC700FF87C2 /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6B18F748274F4AC600FF87C2 /* NotoSansKR-Bold.otf */; };
+		6B18F74B274F4AC700FF87C2 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6B18F749274F4AC600FF87C2 /* NotoSansKR-Regular.otf */; };
+		6B18F74D274F4F3E00FF87C2 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6B18F74C274F4F3E00FF87C2 /* NotoSansKR-Medium.otf */; };
+		6B18F74F274F68B900FF87C2 /* SignInNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B18F74E274F68B900FF87C2 /* SignInNavigationViewController.swift */; };
+		6B18F751274F6BEE00FF87C2 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B18F750274F6BEE00FF87C2 /* SignInView.swift */; };
+		6B18F753274F6BFF00FF87C2 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B18F752274F6BFF00FF87C2 /* SignInViewController.swift */; };
+		6B18F755274F6EA800FF87C2 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B18F754274F6EA800FF87C2 /* CustomTextField.swift */; };
+		6B18F757274F720100FF87C2 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B18F756274F720100FF87C2 /* UITextField+Extension.swift */; };
 		6B1B77E72747CFA300BD9773 /* StoreInfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B77E62747CFA300BD9773 /* StoreInfoDetailView.swift */; };
 		6B1B77E92747CFE500BD9773 /* StoreInfoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B77E82747CFE500BD9773 /* StoreInfoDetailViewController.swift */; };
 		6B1B77EB2747D79A00BD9773 /* HomeNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B77EA2747D79A00BD9773 /* HomeNavigationViewController.swift */; };
@@ -16,7 +27,7 @@
 		6B2F39302737AA0D002F8D19 /* SignUpEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2F392F2737AA0D002F8D19 /* SignUpEmailView.swift */; };
 		6B2F39322737AA9B002F8D19 /* SignUpOTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2F39312737AA9A002F8D19 /* SignUpOTPView.swift */; };
 		6B2F39342737AAB2002F8D19 /* SignUpPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2F39332737AAB2002F8D19 /* SignUpPasswordView.swift */; };
-		6B2F39362737AB0C002F8D19 /* LoginNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2F39352737AB0C002F8D19 /* LoginNavigationViewController.swift */; };
+		6B2F39362737AB0C002F8D19 /* SignUpNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2F39352737AB0C002F8D19 /* SignUpNavigationViewController.swift */; };
 		6B2F39382737AB2C002F8D19 /* SignUpEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2F39372737AB2C002F8D19 /* SignUpEmailViewController.swift */; };
 		6B2F393A2737B200002F8D19 /* SignUpOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2F39392737B200002F8D19 /* SignUpOTPViewController.swift */; };
 		6B2F39802737F91B002F8D19 /* SignUpPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2F397F2737F91B002F8D19 /* SignUpPasswordViewController.swift */; };
@@ -69,6 +80,17 @@
 /* Begin PBXFileReference section */
 		3B063F9DBE4F71D4E4848ABE /* Pods-GO-st.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GO-st.debug.xcconfig"; path = "Target Support Files/Pods-GO-st/Pods-GO-st.debug.xcconfig"; sourceTree = "<group>"; };
 		5ACCFD20F63FE7B2CAF57F44 /* Pods-GO-st.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GO-st.release.xcconfig"; path = "Target Support Files/Pods-GO-st/Pods-GO-st.release.xcconfig"; sourceTree = "<group>"; };
+		6B18F73F274F47BB00FF87C2 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		6B18F741274F47D600FF87C2 /* StartNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartNavigationViewController.swift; sourceTree = "<group>"; };
+		6B18F743274F47E600FF87C2 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		6B18F748274F4AC600FF87C2 /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
+		6B18F749274F4AC600FF87C2 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
+		6B18F74C274F4F3E00FF87C2 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
+		6B18F74E274F68B900FF87C2 /* SignInNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInNavigationViewController.swift; sourceTree = "<group>"; };
+		6B18F750274F6BEE00FF87C2 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		6B18F752274F6BFF00FF87C2 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		6B18F754274F6EA800FF87C2 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		6B18F756274F720100FF87C2 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		6B1B77E62747CFA300BD9773 /* StoreInfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoDetailView.swift; sourceTree = "<group>"; };
 		6B1B77E82747CFE500BD9773 /* StoreInfoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoDetailViewController.swift; sourceTree = "<group>"; };
 		6B1B77EA2747D79A00BD9773 /* HomeNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationViewController.swift; sourceTree = "<group>"; };
@@ -78,7 +100,7 @@
 		6B2F392F2737AA0D002F8D19 /* SignUpEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEmailView.swift; sourceTree = "<group>"; };
 		6B2F39312737AA9A002F8D19 /* SignUpOTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpOTPView.swift; sourceTree = "<group>"; };
 		6B2F39332737AAB2002F8D19 /* SignUpPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPasswordView.swift; sourceTree = "<group>"; };
-		6B2F39352737AB0C002F8D19 /* LoginNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigationViewController.swift; sourceTree = "<group>"; };
+		6B2F39352737AB0C002F8D19 /* SignUpNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNavigationViewController.swift; sourceTree = "<group>"; };
 		6B2F39372737AB2C002F8D19 /* SignUpEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewController.swift; sourceTree = "<group>"; };
 		6B2F39392737B200002F8D19 /* SignUpOTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpOTPViewController.swift; sourceTree = "<group>"; };
 		6B2F397F2737F91B002F8D19 /* SignUpPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPasswordViewController.swift; sourceTree = "<group>"; };
@@ -142,11 +164,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B18F73D274F476300FF87C2 /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				6B18F73E274F47AD00FF87C2 /* Start */,
+				6B8B79CE2738F91D00DB26F4 /* SignIn */,
+				6B2F392E2737A98F002F8D19 /* SignUp */,
+			);
+			path = Start;
+			sourceTree = "<group>";
+		};
+		6B18F73E274F47AD00FF87C2 /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				6B18F741274F47D600FF87C2 /* StartNavigationViewController.swift */,
+				6B18F73F274F47BB00FF87C2 /* StartView.swift */,
+				6B18F743274F47E600FF87C2 /* StartViewController.swift */,
+			);
+			path = Start;
+			sourceTree = "<group>";
+		};
+		6B18F745274F4A9B00FF87C2 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				6B18F748274F4AC600FF87C2 /* NotoSansKR-Bold.otf */,
+				6B18F74C274F4F3E00FF87C2 /* NotoSansKR-Medium.otf */,
+				6B18F749274F4AC600FF87C2 /* NotoSansKR-Regular.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		6B2F392E2737A98F002F8D19 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				6B2F39352737AB0C002F8D19 /* LoginNavigationViewController.swift */,
-				6B8B79CE2738F91D00DB26F4 /* SignIn */,
+				6B2F39352737AB0C002F8D19 /* SignUpNavigationViewController.swift */,
 				6B8B79CD2738F8EB00DB26F4 /* Step1 */,
 				6B8B79CF2738F92700DB26F4 /* Step2 */,
 				6B8B79D02738F93300DB26F4 /* Step3 */,
@@ -200,7 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				6B8B79D7273A31AD00DB26F4 /* CommonView */,
-				6B2F392E2737A98F002F8D19 /* SignUp */,
+				6B18F73D274F476300FF87C2 /* Start */,
 				6B3ECC3E2734E67F00177F9F /* TabBar */,
 				6B3ECC3F2734E69200177F9F /* Home */,
 				6B3ECC5127350B4200177F9F /* Report */,
@@ -219,6 +270,7 @@
 		6B3ECC3C2734E64C00177F9F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6B18F745274F4A9B00FF87C2 /* Font */,
 				6B3ECC2E2734E18900177F9F /* Assets.xcassets */,
 				6B3ECC302734E18900177F9F /* LaunchScreen.storyboard */,
 			);
@@ -463,6 +515,7 @@
 			children = (
 				6B8B79CB2738F6A200DB26F4 /* NSString+Extension.swift */,
 				6B8B79D527392CB300DB26F4 /* MKMapView+Extension.swift */,
+				6B18F756274F720100FF87C2 /* UITextField+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -480,6 +533,9 @@
 		6B8B79CE2738F91D00DB26F4 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				6B18F74E274F68B900FF87C2 /* SignInNavigationViewController.swift */,
+				6B18F750274F6BEE00FF87C2 /* SignInView.swift */,
+				6B18F752274F6BFF00FF87C2 /* SignInViewController.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -512,6 +568,7 @@
 				6B8B79DA273A320B00DB26F4 /* LabelTextFieldView.swift */,
 				6BDD620F2743CFD500E52EB2 /* FinishedButton.swift */,
 				6BDD62112743DCAA00E52EB2 /* CommonValue.swift */,
+				6B18F754274F6EA800FF87C2 /* CustomTextField.swift */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -607,6 +664,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B3ECC322734E18900177F9F /* LaunchScreen.storyboard in Resources */,
+				6B18F74A274F4AC700FF87C2 /* NotoSansKR-Bold.otf in Resources */,
+				6B18F74D274F4F3E00FF87C2 /* NotoSansKR-Medium.otf in Resources */,
+				6B18F74B274F4AC700FF87C2 /* NotoSansKR-Regular.otf in Resources */,
 				6B3ECC2F2734E18900177F9F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -679,12 +739,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B18F751274F6BEE00FF87C2 /* SignInView.swift in Sources */,
 				6B3ECC5827350B9500177F9F /* MyPageViewController.swift in Sources */,
+				6B18F740274F47BB00FF87C2 /* StartView.swift in Sources */,
 				6B2F392D27378BA3002F8D19 /* ReportResultView.swift in Sources */,
 				6BDD620E2743966400E52EB2 /* ReportView.swift in Sources */,
 				6B8B79D9273A31FC00DB26F4 /* LabelLabelView.swift in Sources */,
 				6B2F39302737AA0D002F8D19 /* SignUpEmailView.swift in Sources */,
 				6B3ECC262734E18200177F9F /* AppDelegate.swift in Sources */,
+				6B18F753274F6BFF00FF87C2 /* SignInViewController.swift in Sources */,
 				6B2F39802737F91B002F8D19 /* SignUpPasswordViewController.swift in Sources */,
 				6B8B79E0273A96CD00DB26F4 /* NetworkResult.swift in Sources */,
 				6B8B79D427391FEA00DB26F4 /* HomeView.swift in Sources */,
@@ -692,6 +755,7 @@
 				6B8B79E8273B8C0700DB26F4 /* SignUpViewModel.swift in Sources */,
 				6B2F39322737AA9B002F8D19 /* SignUpOTPView.swift in Sources */,
 				6B3ECC88273695D800177F9F /* SearchOnTheMapView.swift in Sources */,
+				6B18F744274F47E600FF87C2 /* StartViewController.swift in Sources */,
 				6B3ECC812736778700177F9F /* ReportResultViewController.swift in Sources */,
 				6B2F3984273803C2002F8D19 /* SignUpFinishedViewController.swift in Sources */,
 				6BDD62102743CFD500E52EB2 /* FinishedButton.swift in Sources */,
@@ -704,7 +768,7 @@
 				6B1B77E72747CFA300BD9773 /* StoreInfoDetailView.swift in Sources */,
 				6B8B79D627392CB300DB26F4 /* MKMapView+Extension.swift in Sources */,
 				6B1B77EF2749371C00BD9773 /* MyPageNavigationViewController.swift in Sources */,
-				6B2F39362737AB0C002F8D19 /* LoginNavigationViewController.swift in Sources */,
+				6B2F39362737AB0C002F8D19 /* SignUpNavigationViewController.swift in Sources */,
 				6B3ECC5C27350BB200177F9F /* HomeViewController.swift in Sources */,
 				6B3ECC7F273675CE00177F9F /* ReportStartView.swift in Sources */,
 				6B3ECC6A27354F0000177F9F /* CategoryViewController.swift in Sources */,
@@ -721,6 +785,7 @@
 				6B3ECC6827354CF900177F9F /* CategoryView.swift in Sources */,
 				6B1B77ED274936E900BD9773 /* MyPageView.swift in Sources */,
 				6B3ECC662735436500177F9F /* HomeViewController+Map.swift in Sources */,
+				6B18F742274F47D600FF87C2 /* StartNavigationViewController.swift in Sources */,
 				6B8B79DB273A320B00DB26F4 /* LabelTextFieldView.swift in Sources */,
 				6B3ECC282734E18200177F9F /* SceneDelegate.swift in Sources */,
 				6B3ECC502735084100177F9F /* TabBarViewController.swift in Sources */,
@@ -728,8 +793,11 @@
 				6B3ECC8627368C0000177F9F /* NavigationTitleView.swift in Sources */,
 				6B8B79D22738F97400DB26F4 /* OTPTextField.swift in Sources */,
 				6BDD62122743DCAA00E52EB2 /* CommonValue.swift in Sources */,
+				6B18F74F274F68B900FF87C2 /* SignInNavigationViewController.swift in Sources */,
+				6B18F757274F720100FF87C2 /* UITextField+Extension.swift in Sources */,
 				6B2F39382737AB2C002F8D19 /* SignUpEmailViewController.swift in Sources */,
 				6B3ECC472734E8D400177F9F /* R.generated.swift in Sources */,
+				6B18F755274F6EA800FF87C2 /* CustomTextField.swift in Sources */,
 				6B8B79E4273A975300DB26F4 /* UserService.swift in Sources */,
 				6B3ECC5A27350BA000177F9F /* ReportStartViewController.swift in Sources */,
 				6B4940C12740D7A1001B311A /* Marker.swift in Sources */,

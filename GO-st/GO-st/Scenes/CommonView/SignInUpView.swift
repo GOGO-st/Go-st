@@ -14,7 +14,7 @@ class SignInUpView: UIView {
 
     // 회색 바
     private let baseBar = UIView().then {
-        $0.backgroundColor = .darkGray
+        $0.backgroundColor = UIColor(white: 1, alpha: 0.08)
     }
     
     // 단계 바
@@ -23,11 +23,8 @@ class SignInUpView: UIView {
     }
     
     // 다음 버튼
-    let nextButton = FinishedButton(title: "인증하기", type: .login)
-    
-//    let WIDTH: CGFloat = UIScreen.main.bounds.width
-//    private let HEIGHT: CGFloat = UIScreen.main.bounds.height
-    
+    let nextButton = FinishedButton(title: "인증하기", type: .signUp)
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -40,11 +37,6 @@ class SignInUpView: UIView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
-        self.backgroundColor = .black
-        
-        self.addContentView()
-        self.setAutoLayout()
         
     }
     
@@ -62,7 +54,7 @@ class SignInUpView: UIView {
         }
         baseBar.snp.makeConstraints {
             $0.top.left.right.equalTo(self)
-            $0.height.equalTo(3)
+            $0.height.equalTo(1)
         }
         stepBar.snp.makeConstraints {
             $0.top.left.bottom.equalTo(baseBar)

@@ -15,25 +15,23 @@ final class LabelTextFieldView: UIView {
     // 제목
     let titleLabel = UILabel().then {
         $0.text = ""
-        $0.font = .boldSystemFont(ofSize: 17)
+        $0.font = R.font.notoSansKRBold(size: 16)
         $0.textColor = .white
     }
 
-    private let backgroundView = UIView().then {
-        $0.backgroundColor = R.color.semiBlack()
-        $0.layer.borderColor = R.color.semiBlack()?.cgColor
-        $0.layer.borderWidth = 1
-        $0.layer.cornerRadius = 4
-    }
+//    private let backgroundView = UIView().then {
+//        $0.backgroundColor = R.color.semiBlack()
+//        $0.layer.borderColor = R.color.semiBlack()?.cgColor
+//        $0.layer.borderWidth = 1
+//        $0.layer.cornerRadius = 4
+//    }
     // 내용
-    let contentTextField = UITextField().then {
-        $0.textColor = .white
-        $0.placeholder = ""
-        $0.font = .systemFont(ofSize: 16)
+    let contentTextField = CustomTextField().then {
         $0.keyboardType = .emailAddress
     }
     
-    private let HEIGHT: CGFloat = 89
+//    private let WIDTH: CGFloat = UIScreen.main.bounds.width - 65
+    private let HEIGHT: CGFloat = 78
     private let sideSpacing: CGFloat = 33
     
     override init(frame: CGRect) {
@@ -48,8 +46,8 @@ final class LabelTextFieldView: UIView {
     
     private func addContentView() {
         self.addSubview(titleLabel)
-        self.addSubview(backgroundView)
-        backgroundView.addSubview(contentTextField)
+//        self.addSubview(backgroundView)
+        self.addSubview(contentTextField)
     }
     
     private func setAutoLayout() {
@@ -60,20 +58,26 @@ final class LabelTextFieldView: UIView {
         }
         // 제목
         titleLabel.snp.makeConstraints {
-            $0.top.equalTo(self)
-            $0.left.equalTo(self).offset(self.sideSpacing)
+            $0.top.left.equalTo(self)
         }
         
-        backgroundView.snp.makeConstraints {
-            $0.left.equalTo(self).offset(self.sideSpacing)
-            $0.right.equalTo(self).offset(-self.sideSpacing)
-            $0.bottom.equalTo(self)
-            $0.height.equalTo(46)
-        }
-        // 내용
+//        backgroundView.snp.makeConstraints {
+//            $0.left.equalTo(self).offset(self.sideSpacing)
+//            $0.right.equalTo(self).offset(-self.sideSpacing)
+//            $0.bottom.equalTo(self)
+//            $0.height.equalTo(46)
+//        }
+//        // 내용
+//        contentTextField.snp.makeConstraints {
+//            $0.centerY.equalTo(backgroundView)
+//            $0.left.equalTo(backgroundView).offset(self.sideSpacing)
+//        }
+        
         contentTextField.snp.makeConstraints {
-            $0.centerY.equalTo(backgroundView)
-            $0.left.equalTo(backgroundView).offset(self.sideSpacing)
+            $0.left.right.equalTo(self)
+            $0.right.equalTo(self)
+            $0.bottom.equalTo(self)
+            $0.height.equalTo(44)
         }
     }
     
@@ -83,6 +87,10 @@ final class LabelTextFieldView: UIView {
     
     func deactivate() {
         self.layer.borderColor = R.color.semiBlack()?.cgColor
+    }
+    
+    func setPlaceholder(_ str: String) {
+        contentTextField.setPlaceholderWithColor(str)
     }
 //    func setTitle(_ title: String) {
 //        self.titleLabel.text = title
