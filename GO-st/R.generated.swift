@@ -349,10 +349,19 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.image.map` struct is generated, and contains static references to 1 images.
+    /// This `R.image.map` struct is generated, and contains static references to 2 images.
     struct map {
+      /// Image `currentLocation`.
+      static let currentLocation = Rswift.ImageResource(bundle: R.hostingBundle, name: "map/currentLocation")
       /// Image `defaultMarker`.
       static let defaultMarker = Rswift.ImageResource(bundle: R.hostingBundle, name: "map/defaultMarker")
+
+      #if os(iOS) || os(tvOS)
+      /// `UIImage(named: "currentLocation", bundle: ..., traitCollection: ...)`
+      static func currentLocation(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.map.currentLocation, compatibleWith: traitCollection)
+      }
+      #endif
 
       #if os(iOS) || os(tvOS)
       /// `UIImage(named: "defaultMarker", bundle: ..., traitCollection: ...)`

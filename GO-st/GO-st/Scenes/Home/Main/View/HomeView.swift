@@ -45,6 +45,10 @@ final class HomeView: UIView {
         $0.isHidden = true
     }
     
+    // 현위치 버튼
+    let currentLocationButton = UIButton().then {
+        $0.setImage(R.image.map.currentLocation(), for: .normal)
+    }
     // 가게 정보 뷰
     let storeInfoView = StoreInfoCardView().then {
         $0.isHidden = true
@@ -80,6 +84,9 @@ final class HomeView: UIView {
         
         // 흔적 재검색
         self.addSubview(retrieveButton)
+        
+        // 현위치 버튼
+        self.addSubview(currentLocationButton)
         
         // 가게 정보
         self.addSubview(storeInfoView)
@@ -117,6 +124,11 @@ final class HomeView: UIView {
             $0.height.equalTo(44)
         }
         
+        // 현위치
+        currentLocationButton.snp.makeConstraints {
+            $0.bottom.equalTo(self).offset(-CommonValue.shared.HEIGHT * 0.22)
+            $0.right.equalTo(self).offset(-20)
+        }
         // 가게 정보 뷰
         storeInfoView.snp.makeConstraints {
             $0.bottom.equalTo(self).offset(-10)
