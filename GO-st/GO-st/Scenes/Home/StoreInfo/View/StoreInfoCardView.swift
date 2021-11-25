@@ -8,7 +8,7 @@
 import UIKit
 import Then
 import SnapKit
-import MapKit
+//import MapKit
 
 class StoreInfoCardView: UIView {
     
@@ -27,13 +27,12 @@ class StoreInfoCardView: UIView {
         $0.textColor = UIColor(white: 1, alpha: 0.78)
     }
     
-    let countView = EmojiCountView()
     
     let fullButton = UIButton().then {
         $0.backgroundColor = .clear
     }
     
-    private let HEIGHT: CGFloat = 125
+//    private let HEIGHT: CGFloat = 125
     
     required init?(coder: NSCoder) { super.init(coder: coder) }
     
@@ -47,15 +46,14 @@ class StoreInfoCardView: UIView {
         self.addSubview(backgroundView)
         self.addSubview(storeLabel)
         self.addSubview(addressLabel)
-        self.addSubview(countView)
         self.addSubview(fullButton)
     }
     
     private func setAutoLayout() {
         
-        self.snp.makeConstraints {
-            $0.height.equalTo(HEIGHT)
-        }
+//        self.snp.makeConstraints {
+//            $0.height.equalTo(HEIGHT)
+//        }
         
         backgroundView.snp.makeConstraints {
             $0.top.left.right.bottom.equalTo(self)
@@ -71,27 +69,16 @@ class StoreInfoCardView: UIView {
             $0.left.equalTo(self).offset(17)
         }
         
-        countView.snp.makeConstraints {
-            $0.right.bottom.equalTo(self).offset(-16)
-        }
-        
         fullButton.snp.makeConstraints {
             $0.top.left.right.bottom.equalTo(self)
         }
     }
     
-    func bind(_ marker: MKAnnotation) {
-        
-        self.storeLabel.text = marker.title as? String
-        self.addressLabel.text = marker.subtitle as? String
-        // count
-    }
+//    func bind(_ marker: MKAnnotation) {
+//
+//        self.storeLabel.text = marker.title as? String
+//        self.addressLabel.text = marker.subtitle as? String
+//        // count
+//    }
     
-    func activate() {
-        self.isHidden = false
-    }
-    
-    func deactivate() {
-        self.isHidden = true
-    }
 }

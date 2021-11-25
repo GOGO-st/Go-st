@@ -53,13 +53,11 @@ extension HomeViewController: MKMapViewDelegate {
         // 임시
         self.homeView.storeInfoView.countView.bindEmoji(["👻","😢","😆"])
         self.homeView.storeInfoView.countView.bindCount("11")
-//        self.homeView.storeInfoView.activate()
-        self.homeView.storeInfoView.isHidden.toggle()
+        self.homeView.storeInfoView.activate()
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
         print("마커 선택 취소~! \(view)")
-//        self.homeView.storeInfoView.deactivate()
-        self.homeView.storeInfoView.isHidden.toggle()
+        self.homeView.storeInfoView.deactivate()
     }
 }

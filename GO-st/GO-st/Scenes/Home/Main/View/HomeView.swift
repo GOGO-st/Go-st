@@ -50,7 +50,7 @@ final class HomeView: UIView {
         $0.setImage(R.image.map.currentLocation(), for: .normal)
     }
     // 가게 정보 뷰
-    let storeInfoView = StoreInfoCardView().then {
+    let storeInfoView = StoreInfoHomeCardView().then {
         $0.isHidden = true
     }
     
