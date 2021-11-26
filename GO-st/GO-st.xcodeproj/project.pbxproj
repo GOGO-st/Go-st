@@ -27,6 +27,8 @@
 		6B18F7652750A45100FF87C2 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B18F7642750A45100FF87C2 /* CustomTabBar.swift */; };
 		6B18F7672750A48000FF87C2 /* CustomTabBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B18F7662750A48000FF87C2 /* CustomTabBarCell.swift */; };
 		6B18F7692750A4E200FF87C2 /* ContentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B18F7682750A4E200FF87C2 /* ContentsCollectionViewCell.swift */; };
+		6B18F76C2750B47F00FF87C2 /* HeartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B18F76B2750B47F00FF87C2 /* HeartTableViewCell.swift */; };
+		6B18F76E2750B4E900FF87C2 /* StoreInfoHeartCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B18F76D2750B4E900FF87C2 /* StoreInfoHeartCardView.swift */; };
 		6B1B77E72747CFA300BD9773 /* StoreInfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B77E62747CFA300BD9773 /* StoreInfoDetailView.swift */; };
 		6B1B77E92747CFE500BD9773 /* StoreInfoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B77E82747CFE500BD9773 /* StoreInfoDetailViewController.swift */; };
 		6B1B77EB2747D79A00BD9773 /* HomeNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B77EA2747D79A00BD9773 /* HomeNavigationViewController.swift */; };
@@ -109,6 +111,8 @@
 		6B18F7642750A45100FF87C2 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		6B18F7662750A48000FF87C2 /* CustomTabBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarCell.swift; sourceTree = "<group>"; };
 		6B18F7682750A4E200FF87C2 /* ContentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsCollectionViewCell.swift; sourceTree = "<group>"; };
+		6B18F76B2750B47F00FF87C2 /* HeartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartTableViewCell.swift; sourceTree = "<group>"; };
+		6B18F76D2750B4E900FF87C2 /* StoreInfoHeartCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoHeartCardView.swift; sourceTree = "<group>"; };
 		6B1B77E62747CFA300BD9773 /* StoreInfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoDetailView.swift; sourceTree = "<group>"; };
 		6B1B77E82747CFE500BD9773 /* StoreInfoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoDetailViewController.swift; sourceTree = "<group>"; };
 		6B1B77EA2747D79A00BD9773 /* HomeNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationViewController.swift; sourceTree = "<group>"; };
@@ -210,6 +214,17 @@
 				6B18F749274F4AC600FF87C2 /* NotoSansKR-Regular.otf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		6B18F76A2750B43A00FF87C2 /* ListView */ = {
+			isa = PBXGroup;
+			children = (
+				6B18F75E27508B7F00FF87C2 /* ListView.swift */,
+				6B18F7622750981A00FF87C2 /* ReviewListView.swift */,
+				6B18F7602750918500FF87C2 /* ReviewTableViewCell.swift */,
+				6B18F76B2750B47F00FF87C2 /* HeartTableViewCell.swift */,
+			);
+			path = ListView;
 			sourceTree = "<group>";
 		};
 		6B2F392E2737A98F002F8D19 /* SignUp */ = {
@@ -421,10 +436,10 @@
 			isa = PBXGroup;
 			children = (
 				6B3ECC6B2735564C00177F9F /* StoreInfoCardView.swift */,
+				6B18F76D2750B4E900FF87C2 /* StoreInfoHeartCardView.swift */,
 				6B18F75C274FF2BD00FF87C2 /* StoreInfoHomeCardView.swift */,
 				6B1B77E62747CFA300BD9773 /* StoreInfoDetailView.swift */,
 				6B1B77E82747CFE500BD9773 /* StoreInfoDetailViewController.swift */,
-				6B18F7622750981A00FF87C2 /* ReviewListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -594,8 +609,7 @@
 				6BDD620F2743CFD500E52EB2 /* FinishedButton.swift */,
 				6BDD62112743DCAA00E52EB2 /* CommonValue.swift */,
 				6B18F754274F6EA800FF87C2 /* CustomTextField.swift */,
-				6B18F75E27508B7F00FF87C2 /* ListView.swift */,
-				6B18F7602750918500FF87C2 /* ReviewTableViewCell.swift */,
+				6B18F76A2750B43A00FF87C2 /* ListView */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -784,9 +798,11 @@
 				6B8B79D427391FEA00DB26F4 /* HomeView.swift in Sources */,
 				6B1B77EB2747D79A00BD9773 /* HomeNavigationViewController.swift in Sources */,
 				6B8B79E8273B8C0700DB26F4 /* SignUpViewModel.swift in Sources */,
+				6B18F76C2750B47F00FF87C2 /* HeartTableViewCell.swift in Sources */,
 				6B2F39322737AA9B002F8D19 /* SignUpOTPView.swift in Sources */,
 				6B3ECC88273695D800177F9F /* SearchOnTheMapView.swift in Sources */,
 				6B18F744274F47E600FF87C2 /* StartViewController.swift in Sources */,
+				6B18F76E2750B4E900FF87C2 /* StoreInfoHeartCardView.swift in Sources */,
 				6B3ECC812736778700177F9F /* ReportResultViewController.swift in Sources */,
 				6B2F3984273803C2002F8D19 /* SignUpFinishedViewController.swift in Sources */,
 				6BDD62102743CFD500E52EB2 /* FinishedButton.swift in Sources */,

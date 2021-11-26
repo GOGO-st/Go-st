@@ -10,7 +10,7 @@ import Then
 import SnapKit
 import MapKit
 
-final class StoreInfoHomeCardView: StoreInfoCardView {
+class StoreInfoHomeCardView: StoreInfoCardView {
     
     let countView = EmojiCountView()
     

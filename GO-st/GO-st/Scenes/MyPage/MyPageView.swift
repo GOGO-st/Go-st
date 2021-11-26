@@ -87,7 +87,7 @@ extension MyPageView: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ContentsCollectionViewCell.identifier, for: indexPath) as? ContentsCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.setCell(tabTypes[indexPath.row])
+        cell.setCell(ListType.asArray[indexPath.row])
         return cell
     }
     

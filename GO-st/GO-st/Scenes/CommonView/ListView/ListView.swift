@@ -9,10 +9,14 @@ import UIKit
 import Then
 import SnapKit
 
-public enum ListType: String {
+public enum ListType: String, CaseIterable {
     case myReport = "흔적을 남기셨어요!"
     case myHeart = "장소를 찜했어요!"
     case report = "흔적이 있습니다"
+    
+    static var asArray: [ListType] {
+        return self.allCases
+    }
 }
 
 // 흔적, 찜 상위 클래스
@@ -36,7 +40,7 @@ class ListView: UIView {
         $0.backgroundColor = R.color.background()
     }
 
-    init(listType: ListType) {
+    init() {
         super.init(frame: .zero)
         
         self.backgroundColor = R.color.background()
