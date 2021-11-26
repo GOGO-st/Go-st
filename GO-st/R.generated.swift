@@ -353,6 +353,66 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    /// This `R.image.icon` struct is generated, and contains static references to 6 images.
+    struct icon {
+      /// Image `icGost`.
+      static let icGost = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icGost")
+      /// Image `icNonGost`.
+      static let icNonGost = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icNonGost")
+      /// Image `icNonProfile`.
+      static let icNonProfile = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icNonProfile")
+      /// Image `icNonSearch`.
+      static let icNonSearch = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icNonSearch")
+      /// Image `icProfile`.
+      static let icProfile = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icProfile")
+      /// Image `icSearch`.
+      static let icSearch = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icSearch")
+
+      #if os(iOS) || os(tvOS)
+      /// `UIImage(named: "icGost", bundle: ..., traitCollection: ...)`
+      static func icGost(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.icon.icGost, compatibleWith: traitCollection)
+      }
+      #endif
+
+      #if os(iOS) || os(tvOS)
+      /// `UIImage(named: "icNonGost", bundle: ..., traitCollection: ...)`
+      static func icNonGost(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.icon.icNonGost, compatibleWith: traitCollection)
+      }
+      #endif
+
+      #if os(iOS) || os(tvOS)
+      /// `UIImage(named: "icNonProfile", bundle: ..., traitCollection: ...)`
+      static func icNonProfile(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.icon.icNonProfile, compatibleWith: traitCollection)
+      }
+      #endif
+
+      #if os(iOS) || os(tvOS)
+      /// `UIImage(named: "icNonSearch", bundle: ..., traitCollection: ...)`
+      static func icNonSearch(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.icon.icNonSearch, compatibleWith: traitCollection)
+      }
+      #endif
+
+      #if os(iOS) || os(tvOS)
+      /// `UIImage(named: "icProfile", bundle: ..., traitCollection: ...)`
+      static func icProfile(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.icon.icProfile, compatibleWith: traitCollection)
+      }
+      #endif
+
+      #if os(iOS) || os(tvOS)
+      /// `UIImage(named: "icSearch", bundle: ..., traitCollection: ...)`
+      static func icSearch(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.icon.icSearch, compatibleWith: traitCollection)
+      }
+      #endif
+
+      fileprivate init() {}
+    }
+
     /// This `R.image.logo` struct is generated, and contains static references to 1 images.
     struct logo {
       /// Image `imgLogo`.
