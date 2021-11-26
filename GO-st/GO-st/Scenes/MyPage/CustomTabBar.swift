@@ -36,6 +36,7 @@ class CustomTabBar: UIView {
         setAutoLayout()
         collectionView.delegate = self
         collectionView.dataSource = self
+        self.backgroundColor = R.color.background()
     }
     
     required init?(coder: NSCoder) {
@@ -66,7 +67,6 @@ extension CustomTabBar: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         cell.tabLabel.text = self.tabTypes[indexPath.row]
-        
         return cell
     }
     
@@ -94,15 +94,13 @@ extension CustomTabBar: UICollectionViewDelegate {
         delegate?.scrollToIndex(to: indexPath.row)
         print(indexPath.row)
         if let cell = collectionView.cellForItem(at: indexPath) as? CustomTabBarCell {
-            cell.tabLabel.textColor = .blue
-            cell.underBar.isHidden = false
+            cell.activate()
         }
         
     }
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? CustomTabBarCell {
-            cell.tabLabel.textColor = .gray
-            cell.underBar.isHidden = true
+            cell.deactivate()
         }
     }
 }

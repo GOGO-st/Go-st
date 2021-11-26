@@ -18,16 +18,18 @@ class CustomTabBarCell: UICollectionViewCell {
     
     let tabLabel = UILabel().then {
         $0.text = "내가 쓴 흔적"
-        $0.textColor = .gray
+        $0.font = R.font.notoSansKRBold(size: 16)
+        $0.textColor = UIColor(white: 1, alpha: 0.78)
     }
     let underBar = UIView().then {
-        $0.backgroundColor = .blue
+        $0.backgroundColor = R.color.point()
         $0.isHidden = true
     }
     override init(frame: CGRect) {
         super.init(frame: frame)
         addContentView()
         setAutoLayout()
+        self.backgroundColor = R.color.background()
     }
     
     required init?(coder: NSCoder) {
@@ -54,5 +56,15 @@ class CustomTabBarCell: UICollectionViewCell {
             $0.width.equalTo(tabLabel.snp.width)
             $0.height.equalTo(2)
         }
+    }
+    
+    func activate() {
+        tabLabel.textColor = R.color.point()
+        underBar.isHidden = false
+    }
+    
+    func deactivate() {
+        tabLabel.textColor = UIColor(white: 1, alpha: 0.78)
+        underBar.isHidden = true
     }
 }

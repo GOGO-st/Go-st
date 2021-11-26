@@ -24,7 +24,7 @@ class ContentsCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         addContentView()
         setAutoLayout()
-        self.backgroundColor = .purple
+        self.backgroundColor = R.color.background()
     }
     
     required init?(coder: NSCoder) {
