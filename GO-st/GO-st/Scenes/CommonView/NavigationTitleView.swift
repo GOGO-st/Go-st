@@ -18,9 +18,7 @@ final class NavigationTitleView: UIView {
     }
     
     let leftButton = UIButton().then {
-        $0.setTitle("이전", for: .normal)
-        $0.backgroundColor = .blue
-//        $0.isHidden = true
+        $0.setImage(R.image.icon.icBack(), for: .normal)
     }
     
     override init(frame: CGRect) {

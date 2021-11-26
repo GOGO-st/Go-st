@@ -13,6 +13,7 @@ final class ToTheMapView: UIView {
     
     private let fixLabel = UILabel().then {
         $0.text = "찾는 장소가 안보여요"
+        $0.font = R.font.notoSansKRRegular(size: 14)
         $0.textColor = .white
     }
     
@@ -22,13 +23,13 @@ final class ToTheMapView: UIView {
     }
     
     private let WIDTH: CGFloat = UIScreen.main.bounds.width
-    private let HEIGHT: CGFloat = 40
+    private let HEIGHT: CGFloat = 66
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.addContentView()
         self.setAutoLayout()
-        self.backgroundColor = .darkGray
+        self.backgroundColor = .black
     }
     
     required init?(coder: NSCoder) {
@@ -46,12 +47,12 @@ final class ToTheMapView: UIView {
             $0.height.equalTo(self.HEIGHT)
         }
         fixLabel.snp.makeConstraints {
-            $0.left.equalTo(self).offset(10)
+            $0.left.equalTo(self).offset(20)
             $0.centerY.equalTo(self.snp.centerY)
         }
         goToTheMapButton.snp.makeConstraints {
             $0.centerY.equalTo(self.snp.centerY)
-            $0.right.equalTo(self).offset(-10)
+            $0.right.equalTo(self).offset(-20)
         }
     }
     

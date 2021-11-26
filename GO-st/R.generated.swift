@@ -353,8 +353,10 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.image.icon` struct is generated, and contains static references to 7 images.
+    /// This `R.image.icon` struct is generated, and contains static references to 8 images.
     struct icon {
+      /// Image `icBack`.
+      static let icBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icBack")
       /// Image `icGost`.
       static let icGost = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icGost")
       /// Image `icNonGost`.
@@ -369,6 +371,13 @@ struct R: Rswift.Validatable {
       static let icSearch = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icSearch")
       /// Image `icX`.
       static let icX = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icX")
+
+      #if os(iOS) || os(tvOS)
+      /// `UIImage(named: "icBack", bundle: ..., traitCollection: ...)`
+      static func icBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.icon.icBack, compatibleWith: traitCollection)
+      }
+      #endif
 
       #if os(iOS) || os(tvOS)
       /// `UIImage(named: "icGost", bundle: ..., traitCollection: ...)`
