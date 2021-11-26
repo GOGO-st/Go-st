@@ -22,6 +22,8 @@ class StoreInfoDetailView: UIView {
     let listView = UIView().then {
         $0.backgroundColor = R.color.background()
     }
+    let reviewListView = ReviewListView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.addContentView()
@@ -40,6 +42,7 @@ class StoreInfoDetailView: UIView {
 //        containerView.addSubview(listView)
         addSubview(mapView)
         addSubview(listView)
+        listView.addSubview(reviewListView)
     }
     
     private func setAutoLayout() {
@@ -62,6 +65,10 @@ class StoreInfoDetailView: UIView {
         listView.snp.makeConstraints {
             $0.top.equalTo(mapView.snp.bottom)
             $0.left.right.bottom.equalTo(self)
+        }
+        
+        reviewListView.snp.makeConstraints {
+            $0.top.left.right.bottom.equalTo(listView)
         }
     }
     
