@@ -23,5 +23,7 @@ class MyPageViewController: UIViewController {
         myPage.snp.makeConstraints {
             $0.top.left.right.bottom.equalToSuperview()
         }
+        
+        myPage.setNickName("귀여운 토마토")
     }
 }

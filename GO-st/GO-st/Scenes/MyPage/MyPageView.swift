@@ -39,6 +39,7 @@ class MyPageView: UIView {
         super.init(frame: frame)
         addContentView()
         setAutoLayout()
+        customTabBar.delegate = self
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -69,6 +70,12 @@ class MyPageView: UIView {
             $0.top.equalTo(customTabBar.snp.bottom)
             $0.left.right.bottom.equalTo(self)
         }
+    }
+    
+    func setNickName(_ nick: String) {
+        self.nickNameLabel.attributedText = NSMutableAttributedString().regular("안녕하세요\n", fontSize: 24)
+                                    .bold(nick, fontSize: 24)
+                                    .regular("님", fontSize: 24)
     }
 }
 extension MyPageView: UICollectionViewDataSource {
