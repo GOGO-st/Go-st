@@ -25,18 +25,8 @@ extension HomeViewController {
         viewModel.locationManager.delegate = self
         homeView.mapView.delegate = self
         viewModel.setCurrentLocation()
-    }
-    
-    // MARK: - 줌 아웃 제한
-    // 이정도면 수도권까지 줌아웃 가능
-    func setZoom() {
-        let region = MKCoordinateRegion(center: self.schoolCenter.coordinate,
-                                        latitudinalMeters: 50000,
-                                        longitudinalMeters: 60000)
-        homeView.mapView.setCameraBoundary(MKMapView.CameraBoundary(coordinateRegion: region),
-                                           animated: true)
-        let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 200000)
-        homeView.mapView.setCameraZoomRange(zoomRange, animated: true)
+        // 줌 제한
+        homeView.mapView.setZoom(center: self.schoolCenter)
     }
 }
 
@@ -50,6 +40,9 @@ extension HomeViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         print("마커 선택~! \(view)")
         self.homeView.storeInfoView.bind(mapView.selectedAnnotations[0])
+        // 임시
+        self.homeView.storeInfoView.countView.bindEmoji(["👻","😢","😆"])
+        self.homeView.storeInfoView.countView.bindCount("11")
         self.homeView.storeInfoView.activate()
     }
     

@@ -17,4 +17,16 @@ extension MKMapView {
             longitudinalMeters: regionRadius)
         setRegion(coordinateRegion, animated: true)
     }
+    
+    
+    // MARK: - 줌 아웃 제한
+    // 이정도면 수도권까지 줌아웃 가능
+    func setZoom(center: CLLocation) {
+        let region = MKCoordinateRegion(center: center.coordinate,
+                                        latitudinalMeters: 50000,
+                                        longitudinalMeters: 60000)
+        self.setCameraBoundary(MKMapView.CameraBoundary(coordinateRegion: region), animated: true)
+        let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 200000)
+        self.setCameraZoomRange(zoomRange, animated: true)
+    }
 }

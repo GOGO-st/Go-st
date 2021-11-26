@@ -44,7 +44,6 @@ final class HomeViewController: UIViewController, CLLocationManagerDelegate {
         
         self.setMap()
         self.setInitialLocation()
-        self.setZoom()
         
         homeView.goButton.addTarget(self, action: #selector(goButtonDidTap), for: .touchUpInside)
         homeView.storeInfoView.fullButton.addTarget(self, action: #selector(InfoViewDidTap), for: .touchUpInside)
