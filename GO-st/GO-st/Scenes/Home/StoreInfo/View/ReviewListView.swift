@@ -32,7 +32,6 @@ class ReviewListView: ListView {
     }
     
     private func setAutoLayout() {
-        
     }
     
 }

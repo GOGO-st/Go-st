@@ -33,6 +33,7 @@ class ListView: UIView {
     // 테이블뷰
     let tableView = UITableView().then {
         $0.showsVerticalScrollIndicator = false
+        $0.backgroundColor = R.color.background()
     }
 
     init(listType: ListType) {
