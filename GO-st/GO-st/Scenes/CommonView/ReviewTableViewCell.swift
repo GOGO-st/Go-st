@@ -47,6 +47,8 @@ class ReviewTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.addContentView()
+        self.setAutoLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -66,9 +68,28 @@ class ReviewTableViewCell: UITableViewCell {
     private func setAutoLayout() {
         
         emojiView.snp.makeConstraints {
-            
+            $0.top.equalTo(self).offset(22)
+            $0.left.equalTo(self).offset(20)
             $0.width.height.equalTo(37)
         }
+        storeLabel.snp.makeConstraints {
+            $0.top.equalTo(emojiView.snp.top)
+            $0.left.equalTo(emojiView.snp.right).offset(12)
+        }
+        dateLabel.snp.makeConstraints {
+            $0.bottom.equalTo(emojiView.snp.bottom)
+            $0.left.equalTo(emojiView.snp.right).offset(12)
+        }
+        stackView.snp.makeConstraints {
+            $0.top.equalTo(dateLabel.snp.bottom).offset(16)
+            $0.left.equalTo(self).offset(20)
+            $0.right.equalTo(self).offset(-20)
+            $0.bottom.equalTo(self).offset(-22)
+        }
+    }
+    
+    func bind() {
+        // struct 받아서 bind
     }
 }
 //
