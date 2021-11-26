@@ -38,6 +38,7 @@ final class LabelLabelView: UIView {
         $0.text = "인증완료"
         $0.font = R.font.notoSansKRRegular(size: 12)
         $0.textColor = R.color.point()
+        $0.isHidden = true
     }
     
 //    private let WIDTH: CGFloat = UIScreen.main.bounds.width - 65

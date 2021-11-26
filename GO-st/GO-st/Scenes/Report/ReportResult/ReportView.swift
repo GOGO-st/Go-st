@@ -22,6 +22,17 @@ class ReportView: UIView {
     
     // 장소 이름
     
+    // 카테고리
+    let categoryLabel = UILabel().then {
+        $0.text = "카테고리"
+        $0.font = R.font.notoSansKRBold(size: 16)
+        $0.textColor = .white
+    }
+    
+    let categoryButton = UIButton().then {
+        $0.setImage(R.image.report.btnReviewPlus(), for: .normal)
+    }
+    
     // 제목
     let title = LabelTextFieldView().then {
         $0.titleLabel.text = "제목"
@@ -49,6 +60,8 @@ class ReportView: UIView {
         addSubview(scrollView)
         scrollView.addSubview(containerView)
         containerView.addSubview(location)
+        containerView.addSubview(categoryLabel)
+        containerView.addSubview(categoryButton)
         containerView.addSubview(title)
         
         addSubview(finishedButton)
@@ -63,7 +76,6 @@ class ReportView: UIView {
         scrollView.snp.makeConstraints {
             $0.edges.equalTo(0)
         }
-        
         containerView.snp.makeConstraints {
             $0.edges.equalTo(0)
             $0.width.equalTo(frame.width)
@@ -71,12 +83,24 @@ class ReportView: UIView {
         }
         location.snp.makeConstraints {
             $0.top.equalTo(self).offset(30)
-            $0.left.right.equalTo(self)
+            $0.left.equalTo(self).offset(24)
+            $0.right.equalTo(self).offset(-24)
         }
         
+        categoryLabel.snp.makeConstraints {
+            $0.top.equalTo(location.snp.bottom).offset(128)
+            $0.left.equalTo(self).offset(24)
+        }
+        
+        categoryButton.snp.makeConstraints {
+            $0.top.equalTo(categoryLabel.snp.bottom).offset(12)
+            $0.left.equalTo(self).offset(25)
+            $0.width.height.equalTo(72)
+        }
         title.snp.makeConstraints {
-            $0.top.equalTo(location.snp.bottom).offset(148)
-            $0.left.right.equalTo(self)
+            $0.top.equalTo(categoryButton.snp.bottom).offset(24)
+            $0.left.equalTo(self).offset(24)
+            $0.right.equalTo(self).offset(-24)
         }
         
 //        finishedButton.frame = CommonValue.shared.getButtonFrame()

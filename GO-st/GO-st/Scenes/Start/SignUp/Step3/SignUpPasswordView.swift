@@ -14,6 +14,7 @@ final class SignUpPasswordView: SignInUpView {
     // 이메일 (고정)
     private let emailView = LabelLabelView().then {
         $0.titleLabel.text = "이메일"
+        $0.completeLabel.isHidden = false
     }
     // 비번
     private let passwordView = LabelTextFieldView().then {

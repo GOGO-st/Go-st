@@ -14,7 +14,10 @@ final class ReportStartViewController: UIViewController, UITextFieldDelegate {
     static let identifier = "ReportStartViewController"
     
     private let reportStartView = ReportStartView()
-    private let titleView = NavigationTitleView()
+    private let titleView = NavigationTitleView().then {
+        $0.setTitle("흔적 남기기")
+        $0.leftButton.isHidden.toggle()
+    }
     private let goToMapView = ToTheMapView()
     
     private var keyboardHeight: CGFloat = 0
@@ -26,8 +29,6 @@ final class ReportStartViewController: UIViewController, UITextFieldDelegate {
         self.addContentView()
         self.setAutoLayout()
         
-        self.titleView.setTitle("흔적 남기기")
-        self.titleView.leftButton.isHidden.toggle()
         
         self.reportStartView.searchTextField.delegate = self
         self.reportStartView.testButton.addTarget(self, action: #selector(testButtonDidTap), for: .touchUpInside)

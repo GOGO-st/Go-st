@@ -16,6 +16,8 @@ final class SearchOnTheMapViewController: UIViewController, CLLocationManagerDel
     
     private let titleView = NavigationTitleView().then {
         $0.leftButton.isHidden = false
+        $0.setTitle("흔적 남기기")
+        $0.backgroundColor = R.color.darkGrey()
     }
     private let searchMapView = SearchOnTheMapView()
     
@@ -27,15 +29,13 @@ final class SearchOnTheMapViewController: UIViewController, CLLocationManagerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = R.color.background()
+        view.backgroundColor = R.color.darkGrey()
         
         self.addContentView()
         self.setAutoLayout()
         self.setInitialLocation()
         self.setMap()
-        self.setZoom()
         
-        titleView.setTitle("흔적 남기기")
         titleView.leftButton.addTarget(self, action: #selector(leftButtonDidTap), for: .touchUpInside)
         searchMapView.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
     }
@@ -76,7 +76,7 @@ final class SearchOnTheMapViewController: UIViewController, CLLocationManagerDel
     private func nextButtonDidTap() {
         
         let nextVC = ReportResultViewController()
-        
+        nextVC.bind(self.searchMapView.addressLabel.text ?? "")
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
@@ -104,19 +104,8 @@ extension SearchOnTheMapViewController {
     func setMap() {
         viewModel.locationManager.delegate = self
         searchMapView.mapView.delegate = self
+        searchMapView.mapView.setZoom(center: self.schoolCenter)
         viewModel.setCurrentLocation()
-    }
-    
-    // MARK: - 줌 아웃 제한
-    // 이정도면 수도권까지 줌아웃 가능
-    func setZoom() {
-        let region = MKCoordinateRegion(center: self.schoolCenter.coordinate,
-                                        latitudinalMeters: 50000,
-                                        longitudinalMeters: 60000)
-        searchMapView.mapView.setCameraBoundary(MKMapView.CameraBoundary(coordinateRegion: region),
-                                           animated: true)
-        let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 200000)
-        searchMapView.mapView.setCameraZoomRange(zoomRange, animated: true)
     }
     
     // MARK: - 주소 얻기
