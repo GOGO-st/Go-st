@@ -6,7 +6,9 @@
 //
 
 import UIKit
-
+import Then
+import SnapKit
+import MapKit
 
 class StoreInfoDetailViewController: UIViewController {
     
@@ -15,6 +17,11 @@ class StoreInfoDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("안뇽 여긴 디테일뷰")
-        self.view.backgroundColor = R.color.background()
+        view.backgroundColor = R.color.background()
+        view.addSubview(detailView)
+        
+        detailView.snp.makeConstraints {
+            $0.top.left.right.equalToSuperview()
+        }
     }
 }
