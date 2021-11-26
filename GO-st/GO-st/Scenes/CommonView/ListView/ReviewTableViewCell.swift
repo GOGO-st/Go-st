@@ -113,4 +113,3 @@ class ReviewTableViewCell: UITableViewCell {
         self.descriptionLabel.text = "다들 학잠입고 사진 엄청 찍고 과별로 모여서 단체 사진도 많이 찍었던 걸로 기억해요! 새내기때 본관 나오게 사진 찍고 프사 바꿔본적 한번쯤은 있을듯 진심"
     }
 }
-//
