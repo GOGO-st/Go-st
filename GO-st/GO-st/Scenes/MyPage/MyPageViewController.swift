@@ -6,14 +6,22 @@
 //
 
 import UIKit
+import Then
+import SnapKit
 
 class MyPageViewController: UIViewController {
 
     static let identifier = "MyPageViewController"
     
+    private let myPage = MyPageView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.addSubview(myPage)
+        
+        myPage.snp.makeConstraints {
+            $0.top.left.right.bottom.equalToSuperview()
+        }
     }
 }
