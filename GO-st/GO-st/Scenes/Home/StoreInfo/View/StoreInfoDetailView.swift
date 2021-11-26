@@ -22,7 +22,9 @@ class StoreInfoDetailView: UIView {
     let listView = UIView().then {
         $0.backgroundColor = R.color.background()
     }
-    let reviewListView = ReviewListView()
+    let reviewListView = ReviewListView().then {
+        $0.setType(.report)
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

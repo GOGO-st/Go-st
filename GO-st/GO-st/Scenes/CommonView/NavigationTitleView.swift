@@ -48,6 +48,7 @@ final class NavigationTitleView: UIView {
         leftButton.snp.makeConstraints {
             $0.centerY.equalTo(self.snp.centerY)
             $0.left.equalTo(self).offset(20)
+            $0.width.height.equalTo(32)
         }
     }
     

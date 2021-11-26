@@ -71,7 +71,8 @@ final class ReportStartView: UIView {
         }
         // 내가 갔던
         fixLabel.snp.makeConstraints {
-            $0.top.left.equalTo(self).offset(20)
+            $0.top.equalTo(self).offset(42)
+            $0.left.equalTo(self).offset(20)
         }
         // 검색창
         searchTextField.snp.makeConstraints {

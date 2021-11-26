@@ -18,8 +18,7 @@ final class ToTheMapView: UIView {
     }
     
     let goToTheMapButton = UIButton().then {
-        $0.setTitle("지도로", for: .normal)
-        $0.backgroundColor = .darkGray
+        $0.setImage(R.image.report.btnMap(), for: .normal)
     }
     
     private let WIDTH: CGFloat = UIScreen.main.bounds.width

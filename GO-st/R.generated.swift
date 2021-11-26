@@ -509,6 +509,21 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    /// This `R.image.report` struct is generated, and contains static references to 1 images.
+    struct report {
+      /// Image `btnMap`.
+      static let btnMap = Rswift.ImageResource(bundle: R.hostingBundle, name: "report/btnMap")
+
+      #if os(iOS) || os(tvOS)
+      /// `UIImage(named: "btnMap", bundle: ..., traitCollection: ...)`
+      static func btnMap(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.report.btnMap, compatibleWith: traitCollection)
+      }
+      #endif
+
+      fileprivate init() {}
+    }
+
     fileprivate init() {}
   }
 

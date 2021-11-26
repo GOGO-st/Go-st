@@ -35,7 +35,7 @@ final class SearchOnTheMapViewController: UIViewController, CLLocationManagerDel
         self.setMap()
         self.setZoom()
         
-        
+        titleView.setTitle("흔적 남기기")
         titleView.leftButton.addTarget(self, action: #selector(leftButtonDidTap), for: .touchUpInside)
         searchMapView.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
     }
