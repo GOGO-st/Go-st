@@ -13,11 +13,13 @@ final class ReportStartView: UIView {
     
     private let fixLabel = UILabel().then {
         $0.text = "내가 갔던 장소는 바로 여기!"
+        $0.font = R.font.notoSansKRBold(size: 16)
     }
     
     // 나중에 검색뷰 다른 곳에도 생기면 분리하기
-    let searchTextField = UITextField().then {
+    let searchTextField = CustomTextField().then {
         $0.placeholder = "장소를 입력해주세요"
+        $0.layer.cornerRadius = 8
     }
     
     
@@ -59,9 +61,10 @@ final class ReportStartView: UIView {
         }
         // 검색창
         searchTextField.snp.makeConstraints {
-            $0.top.equalTo(fixLabel.snp.bottom).offset(10)
+            $0.top.equalTo(fixLabel.snp.bottom).offset(24)
             $0.left.equalTo(self).offset(20)
             $0.right.equalTo(self).offset(-20)
+            $0.height.equalTo(44)
         }
         
         

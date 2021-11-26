@@ -12,8 +12,9 @@ import SnapKit
 final class NavigationTitleView: UIView {
     
     private let titleLabel = UILabel().then {
-        $0.text = "경험 제보"
+        $0.text = ""
         $0.textColor = .white
+        $0.font = R.font.notoSansKRRegular(size: 22)
     }
     
     let leftButton = UIButton().then {

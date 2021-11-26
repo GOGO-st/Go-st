@@ -26,6 +26,9 @@ final class ReportStartViewController: UIViewController, UITextFieldDelegate {
         self.addContentView()
         self.setAutoLayout()
         
+        self.titleView.setTitle("흔적 남기기")
+        self.titleView.leftButton.isHidden.toggle()
+        
         self.reportStartView.searchTextField.delegate = self
         self.reportStartView.testButton.addTarget(self, action: #selector(testButtonDidTap), for: .touchUpInside)
         self.goToMapView.goToTheMapButton.addTarget(self, action: #selector(goToTheMapButtonDidTap), for: .touchUpInside)
@@ -34,7 +37,6 @@ final class ReportStartViewController: UIViewController, UITextFieldDelegate {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
         
     }
     
