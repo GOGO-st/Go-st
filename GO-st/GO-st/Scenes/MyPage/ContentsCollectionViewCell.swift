@@ -13,9 +13,7 @@ class ContentsCollectionViewCell: UICollectionViewCell {
 
     static let identifier = "ContentsCollectionViewCell"
     
-    private let label = UILabel().then {
-        $0.text = "hi"
-    }
+    private let reviewList = ReviewListView()
     
     private let WIDTH = UIScreen.main.bounds.width
     private let HEIGHT = UIScreen.main.bounds.height
@@ -32,7 +30,7 @@ class ContentsCollectionViewCell: UICollectionViewCell {
     }
     
     private func addContentView() {
-        self.addSubview(label)
+        self.addSubview(reviewList)
     }
     
     private func setAutoLayout() {
@@ -40,12 +38,12 @@ class ContentsCollectionViewCell: UICollectionViewCell {
             $0.width.equalTo(self.WIDTH)
             $0.height.equalTo(self.HEIGHT)
         }
-        label.snp.makeConstraints {
-            $0.center.equalTo(self)
+        reviewList.snp.makeConstraints {
+            $0.top.left.right.bottom.equalTo(self)
         }
     }
     
     func setCell(_ text: String) {
-        self.label.text = text
+//        self.label.text = text
     }
 }

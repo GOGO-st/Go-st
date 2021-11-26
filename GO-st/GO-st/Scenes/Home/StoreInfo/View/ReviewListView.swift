@@ -9,7 +9,6 @@ import UIKit
 import Then
 import SnapKit
 
-// 흔적, 찜 상위 클래스
 class ReviewListView: ListView {
 
     
