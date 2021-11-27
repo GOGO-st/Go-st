@@ -28,10 +28,9 @@ final class TabBarViewController: UITabBarController {
         // MyPage
         let thirdTab = MyPageNavigationViewController()
         
-        
-        firstTab.tabBarItem = UITabBarItem(title: "홈", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
-        secondTab.tabBarItem = UITabBarItem(title: "제보", image: UIImage(systemName: "safari"), selectedImage: UIImage(systemName: "safari.fill"))
-        thirdTab.tabBarItem = UITabBarItem(title: "마이페이지", image: UIImage(systemName: "sparkles.rectangle.stack"), selectedImage: UIImage(systemName: "sparkles.rectangle.stack.fill"))
+        firstTab.tabBarItem = UITabBarItem(title: nil, image: R.image.icon.icNonSearch(), selectedImage: R.image.icon.icSearch())
+        secondTab.tabBarItem = UITabBarItem(title: nil, image: R.image.icon.icNonGost(), selectedImage: R.image.icon.icGost())
+        thirdTab.tabBarItem = UITabBarItem(title: nil, image: R.image.icon.icNonProfile(), selectedImage: R.image.icon.icProfile())
         
         let tabs =  [firstTab, secondTab, thirdTab]
         

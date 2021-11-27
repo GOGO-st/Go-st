@@ -14,7 +14,10 @@ final class ReportStartViewController: UIViewController, UITextFieldDelegate {
     static let identifier = "ReportStartViewController"
     
     private let reportStartView = ReportStartView()
-    private let titleView = NavigationTitleView()
+    private let titleView = NavigationTitleView().then {
+        $0.setTitle("흔적 남기기")
+        $0.leftButton.isHidden.toggle()
+    }
     private let goToMapView = ToTheMapView()
     
     private var keyboardHeight: CGFloat = 0
@@ -26,6 +29,7 @@ final class ReportStartViewController: UIViewController, UITextFieldDelegate {
         self.addContentView()
         self.setAutoLayout()
         
+        
         self.reportStartView.searchTextField.delegate = self
         self.reportStartView.testButton.addTarget(self, action: #selector(testButtonDidTap), for: .touchUpInside)
         self.goToMapView.goToTheMapButton.addTarget(self, action: #selector(goToTheMapButtonDidTap), for: .touchUpInside)
@@ -34,7 +38,6 @@ final class ReportStartViewController: UIViewController, UITextFieldDelegate {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
         
     }
     

@@ -14,21 +14,23 @@ final class SearchOnTheMapView: UIView {
 
     private let fixLabel = UILabel().then {
         $0.text = "내가 갔던 장소는 바로 여기!"
+        $0.font = R.font.notoSansKRBold(size: 16)
     }
     
     let backgroundView = UIView().then {
-        $0.backgroundColor = .lightGray
+        $0.backgroundColor = R.color.semiBlack()
+        $0.layer.cornerRadius = 8
     }
     
     let addressLabel = UILabel().then {
-        $0.text = "하이염"
-        $0.textColor = .darkGray
+        $0.font = R.font.notoSansKRRegular(size: 14)
+        $0.textColor = .white
     }
     
-    let nextButton = UIButton().then {
-        $0.setTitle("이 위치로 주소 설정", for: .normal)
-        $0.backgroundColor = .darkGray
+    let nextButton = FinishedButton(title: "이 위치에 흔적 남기기", type: .report).then {
+        $0.activate()
     }
+    
     let mapView = MKMapView()
     
     let marker = UIImageView().then {
@@ -42,6 +44,7 @@ final class SearchOnTheMapView: UIView {
         super.init(frame: frame)
         self.addContentView()
         self.setAutoLayout()
+        self.backgroundColor = R.color.background()
     }
     
     required init?(coder: NSCoder) {
@@ -64,11 +67,13 @@ final class SearchOnTheMapView: UIView {
         }
         // 내가 갔던
         fixLabel.snp.makeConstraints {
-            $0.top.left.equalTo(self).offset(20)
+            $0.top.equalTo(self).offset(42)
+            $0.left.equalTo(self).offset(20)
         }
         mapView.snp.makeConstraints {
-            $0.top.equalTo(fixLabel.snp.bottom).offset(20)
+            $0.top.equalTo(fixLabel.snp.bottom).offset(24)
             $0.left.right.equalTo(self)
+            $0.width.height.equalTo(CommonValue.shared.WIDTH)
         }
         // 지도 마커
         marker.snp.makeConstraints {
@@ -79,21 +84,21 @@ final class SearchOnTheMapView: UIView {
         }
         // 주소 배경
         backgroundView.snp.makeConstraints {
-            $0.top.equalTo(mapView.snp.bottom).offset(10)
+            $0.top.equalTo(mapView.snp.bottom).offset(24)
             $0.left.equalTo(self).offset(20)
             $0.right.equalTo(self).offset(-20)
-            $0.height.equalTo(40)
+            $0.height.equalTo(44)
         }
         // 주소
         addressLabel.snp.makeConstraints {
-            $0.left.equalTo(backgroundView).offset(10)
+            $0.left.equalTo(backgroundView).offset(20)
             $0.centerY.equalTo(backgroundView)
         }
         // 완료
-        nextButton.snp.makeConstraints {
-            $0.centerX.equalTo(self)
-            $0.top.equalTo(backgroundView.snp.bottom).offset(20)
-            $0.bottom.equalTo(self).offset(-20)
-        }
+//        nextButton.snp.makeConstraints {
+//            $0.centerX.equalTo(self)
+//            $0.top.equalTo(backgroundView.snp.bottom).offset(20)
+//            $0.bottom.equalTo(self).offset(-20)
+//        }
     }
 }

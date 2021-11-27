@@ -19,7 +19,7 @@ class CommonValue {
     let WIDTH: CGFloat = UIScreen.main.bounds.width
     let HEIGHT: CGFloat = UIScreen.main.bounds.height
     
-    let naviTitleHeight: CGFloat = 40
+    let naviTitleHeight: CGFloat = 51
     
     // 확인버튼
     var buttonOriginY: CGFloat = 0

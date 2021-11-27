@@ -54,7 +54,7 @@ class SignInUpView: UIView {
         }
         baseBar.snp.makeConstraints {
             $0.top.left.right.equalTo(self)
-            $0.height.equalTo(1)
+            $0.height.equalTo(2)
         }
         stepBar.snp.makeConstraints {
             $0.top.left.bottom.equalTo(baseBar)

@@ -15,6 +15,7 @@ final class ReportResultViewController: UIViewController, UITextFieldDelegate {
     
     private let titleView = NavigationTitleView().then {
         $0.leftButton.isHidden = false
+        $0.setTitle("흔적 남기기")
     }
     
     private let reportView = ReportResultView()
@@ -22,7 +23,7 @@ final class ReportResultViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = R.color.background()
         addContentView()
         setAutoLayout()
         
@@ -51,6 +52,9 @@ final class ReportResultViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func bind(_ address: String) {
+        reportView.setAddress(address)
+    }
     // 이전뷰로 돌아가기
     @objc
     private func leftButtonDidTap() {

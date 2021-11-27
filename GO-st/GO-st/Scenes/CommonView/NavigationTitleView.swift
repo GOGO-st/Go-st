@@ -12,14 +12,13 @@ import SnapKit
 final class NavigationTitleView: UIView {
     
     private let titleLabel = UILabel().then {
-        $0.text = "경험 제보"
+        $0.text = ""
         $0.textColor = .white
+        $0.font = R.font.notoSansKRRegular(size: 22)
     }
     
     let leftButton = UIButton().then {
-        $0.setTitle("이전", for: .normal)
-        $0.backgroundColor = .blue
-//        $0.isHidden = true
+        $0.setImage(R.image.icon.icBack(), for: .normal)
     }
     
     override init(frame: CGRect) {
@@ -49,6 +48,7 @@ final class NavigationTitleView: UIView {
         leftButton.snp.makeConstraints {
             $0.centerY.equalTo(self.snp.centerY)
             $0.left.equalTo(self).offset(20)
+            $0.width.height.equalTo(32)
         }
     }
     
