@@ -36,6 +36,8 @@ final class ReviewCategoryView: UIView {
         $0.register(ReviewCategoryCollectionViewCell.self, forCellWithReuseIdentifier: ReviewCategoryCollectionViewCell.identifier)
     }
     
+    private var selectionCount = 0
+    
     private let WIDTH: CGFloat = UIScreen.main.bounds.width
     private let HEIGHT: CGFloat = UIScreen.main.bounds.height
     
@@ -50,6 +52,7 @@ final class ReviewCategoryView: UIView {
         self.layer.cornerRadius = 10
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+        
     }
     
     private func addContentView() {
@@ -119,6 +122,9 @@ extension ReviewCategoryView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? ReviewCategoryCollectionViewCell {
             cell.selected()
+            selectionCount += 1
+            finishedButton.changeTitle(to: "총 \(selectionCount)개 선택하기")
+            finishedButton.activate()
         }
     }
     
