@@ -9,7 +9,7 @@ import UIKit
 import Then
 import SnapKit
 
-final class ReportResultViewController: UIViewController, UITextFieldDelegate {
+final class ReportResultViewController: UIViewController {
 
     static let identifier = "ReportResultViewController"
     
@@ -20,7 +20,9 @@ final class ReportResultViewController: UIViewController, UITextFieldDelegate {
     }
     
 //    private let reportView = ReportResultView()
-    private let reportView = ReportView()
+    private let reportView = ReportView().then {
+        $0.setType(type: .mapReport)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,7 +32,12 @@ final class ReportResultViewController: UIViewController, UITextFieldDelegate {
         
         titleView.leftButton.addTarget(self, action: #selector(leftButtonDidTap), for: .touchUpInside)
         
+        reportView.placeName.contentTextField.delegate = self
         reportView.title.contentTextField.delegate = self
+        reportView.emojiTextField.delegate = self
+        
+        
+        
         reportView.title.contentTextField.addTarget(self, action: #selector(activate), for: .editingChanged)
         reportView.title.contentTextField.addTarget(self, action: #selector(deactivate), for: .editingDidEnd)
         reportView.categoryButton.addTarget(self, action: #selector(categoryButtonDidTap), for: .touchUpInside)
@@ -80,5 +87,29 @@ final class ReportResultViewController: UIViewController, UITextFieldDelegate {
         nextVC.modalPresentationStyle = .overFullScreen
 //        nextVC.modalPresentationStyle = .overCurrentContext
         self.present(nextVC, animated: true, completion: nil)
+    }
+}
+extension ReportResultViewController: UITextFieldDelegate {
+    
+    // 아무데나 누르면 키보드 내려가기
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+//        super.touchesBegan(touches, with: event)
+//        self.endEditing(true)
+//    }
+    // return 누르면 키보드 내려가기
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+            case reportView.placeName.contentTextField:
+                reportView.title.contentTextField.becomeFirstResponder()
+            case reportView.title.contentTextField:
+                textField.resignFirstResponder()
+//                reportView.emojiTextField.resignFirstResponder()
+//                super.descriptionTextView.becomeFirstResponder()
+//            case super.descriptionTextView:
+//                super.emojiTextField.resignFirstResponder()
+            default:
+                textField.resignFirstResponder()
+        }
+        return true
     }
 }

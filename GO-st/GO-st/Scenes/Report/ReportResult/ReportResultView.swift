@@ -23,9 +23,9 @@ final class ReportResultView: ReportView {
         
         
 //        placeNameLabel.contentTextField.delegate = self
-        super.title.contentTextField.delegate = self
+//        super.title.contentTextField.delegate = self
 //        super.descriptionTextView.delegate = self
-        super.emojiTextField.delegate = self
+//        super.emojiTextField.delegate = self
     }
     
     required init?(coder: NSCoder) {

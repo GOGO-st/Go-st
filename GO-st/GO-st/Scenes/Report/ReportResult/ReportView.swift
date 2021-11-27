@@ -9,6 +9,11 @@ import UIKit
 import Then
 import SnapKit
 
+public enum ReportType {
+    case report
+    case mapReport
+    case reviewReport
+}
 class ReportView: UIView {
     
     let scrollView = UIScrollView().then {
@@ -83,22 +88,20 @@ class ReportView: UIView {
         self.addContentView()
         self.setAutoLayout()
         
-        
-        self.placeName.contentTextField.delegate = self
-        self.title.contentTextField.delegate = self
-        self.emojiTextField.delegate = self
+//        
+//        self.placeName.contentTextField.delegate = self
+//        self.title.contentTextField.delegate = self
+//        self.emojiTextField.delegate = self
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
-    // 아무데나 누르면 키보드 내려가기
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         super.touchesBegan(touches, with: event)
         self.endEditing(true)
     }
-    
     private func addContentView() {
         addSubview(scrollView)
         scrollView.addSubview(containerView)
@@ -187,22 +190,16 @@ class ReportView: UIView {
     func setAddress(_ address: String) {
         location.contentLabel.text = address
     }
-}
-extension ReportView: UITextFieldDelegate {
     
-    // return 누르면 키보드 내려가기
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        switch textField {
-            case placeName.contentTextField:
-                title.contentTextField.becomeFirstResponder()
-            case title.contentTextField:
-                emojiTextField.resignFirstResponder()
-//                super.descriptionTextView.becomeFirstResponder()
-//            case super.descriptionTextView:
-//                super.emojiTextField.resignFirstResponder()
-            default:
-                textField.resignFirstResponder()
+    func setType(type: ReportType) {
+        switch type {
+        case .report:
+            self.placeName.contentTextField.isEnabled = false
+        case .mapReport:
+            self.placeName.contentTextField.isEnabled = true
+        case .reviewReport:
+            self.placeName.contentTextField.isEnabled = false
         }
-        return true
     }
+    
 }
