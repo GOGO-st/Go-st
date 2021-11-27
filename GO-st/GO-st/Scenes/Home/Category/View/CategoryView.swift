@@ -63,7 +63,6 @@ final class CategoryView: UIView {
         }
         
         backButton.snp.makeConstraints {
-//            $0.top.equalTo(self.snp.top).offset(80)
             $0.centerY.equalTo(goLabel)
             $0.right.equalToSuperview().offset(-26)
         }
