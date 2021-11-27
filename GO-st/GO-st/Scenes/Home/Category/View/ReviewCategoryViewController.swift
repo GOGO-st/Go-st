@@ -11,18 +11,33 @@ import SnapKit
 
 final class ReviewCategoryViewController: UIViewController {
     
-    let categoryView = ReviewCategoryView()
+    let reviewCategoryView = ReviewCategoryView().then {
+        $0.clipsToBounds = true
+    }
+    var visualEffectView: UIVisualEffectView!
+    
+    var animationProgressWhenInterrupted:CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(categoryView)
+        view.addSubview(reviewCategoryView)
         
-        categoryView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+        reviewCategoryView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(120)
+            $0.left.right.bottom.equalToSuperview()
         }
         
-        self.categoryView.finishedButton.addTarget(self, action: #selector(backButtonDidTap), for: .touchUpInside)
+        self.visualEffectView.effect = UIBlurEffect(style: .dark)
+        self.reviewCategoryView.finishedButton.addTarget(self, action: #selector(backButtonDidTap), for: .touchUpInside)
+    }
+    
+    // 다른 부분 터치하면 보라색 카드 사라지고 바텀시트 보이기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        super.touchesBegan(touches, with: event)
+        if let touch = touches.first , touch.view == self.view { // 터치를 했고 그 터치의 뷰가 이 뷰컨트롤러의 뷰라면
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     @objc private func backButtonDidTap(_ sender: UIButton) {

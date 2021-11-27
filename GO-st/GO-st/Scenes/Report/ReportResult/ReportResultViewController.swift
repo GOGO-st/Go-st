@@ -72,4 +72,8 @@ final class ReportResultViewController: UIViewController, UITextFieldDelegate {
         self.reportView.title.deactivate()
     }
     
+    @objc
+    private func categoryButtonDidTap() {
+//        ReviewCategoryViewController
+    }
 }
