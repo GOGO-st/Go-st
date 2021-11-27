@@ -29,9 +29,6 @@ class StoreInfoDetailViewController: UIViewController {
 //            $0.top.left.right.bottom.equalTo(view.safeAreaLayoutGuide)
             $0.top.left.right.bottom.equalToSuperview()
         }
-        
-        
-        
         detailView.backButton.addTarget(self, action: #selector(backButtonDidTap), for: .touchUpInside)
     }
     
@@ -48,10 +45,11 @@ class StoreInfoDetailViewController: UIViewController {
                             locationName: data.address,
                             discipline: data.emoji,
                             coordinate: data.coordinate))
+        detailView.reviewListView.setCount(data.count)
     }
     
     private func setInitialLocation(center: CLLocationCoordinate2D?) {
-        detailView.mapView.centerToLocation(center!)
+        detailView.mapView.centerToLocation(center!, regionRadius: 150)
     }
     
     private func setMarker(marker: Marker) {

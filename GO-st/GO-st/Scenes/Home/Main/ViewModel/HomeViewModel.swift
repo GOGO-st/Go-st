@@ -14,6 +14,7 @@ struct DetailStoreData {
     var address: String
     var coordinate: CLLocationCoordinate2D
     var emoji: String
+    var count: Int
 }
 
 class HomeViewModel {
@@ -27,7 +28,7 @@ class HomeViewModel {
                                  coordinate: CLLocationCoordinate2D(latitude: 37.60542127763483, longitude: 127.04471641117769)),
                             Marker(title: "밥은화",
                                        locationName: "서울 성북구 장월로1길 70 1층 밥은화 동덕여대점",
-                                       discipline: "🥰",
+                                       discipline: "😇",
                                        coordinate: CLLocationCoordinate2D(latitude: 37.605741677645064, longitude: 127.04443682652204)),
                             Marker(title: "조가연마라탕",
                                   locationName: "서울 성북구 화랑로 90",
@@ -39,7 +40,7 @@ class HomeViewModel {
                                   coordinate: CLLocationCoordinate2D(latitude: 37.60374667947277, longitude: 127.04197114001548)),
                             Marker(title: "DA피자",
                                   locationName: "서울 성북구 화랑로13길 46",
-                                  discipline: "😇",
+                                  discipline: "🥰",
                                   coordinate: CLLocationCoordinate2D(latitude: 37.60602879126259, longitude: 127.04163574558333)),
                             Marker(title: "제나키친",
                                   locationName: "서울 성북구 화랑로11길 23",

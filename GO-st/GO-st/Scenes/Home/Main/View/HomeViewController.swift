@@ -59,7 +59,8 @@ final class HomeViewController: UIViewController, CLLocationManagerDelegate {
         viewModel.detailStoreData = DetailStoreData(storeName: storeName,
                                                     address: address,
                                                     coordinate: coordinate,
-                                                    emoji: "🥰")
+                                                    emoji: "🥰",
+                                                    count: 11)
         nextVC.bind(self.viewModel.detailStoreData!)
         self.navigationController?.pushViewController(nextVC, animated: true)
     }

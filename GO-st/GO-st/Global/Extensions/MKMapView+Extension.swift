@@ -10,7 +10,7 @@ import MapKit
 extension MKMapView {
     
     // CLLocationDistance 값이 작을수록 줌인
-    func centerToLocation(_ location: CLLocationCoordinate2D, regionRadius: CLLocationDistance = 300) { //200
+    func centerToLocation(_ location: CLLocationCoordinate2D, regionRadius: CLLocationDistance = 320) { //200
         let coordinateRegion = MKCoordinateRegion(
             center: location,
             latitudinalMeters: regionRadius,
