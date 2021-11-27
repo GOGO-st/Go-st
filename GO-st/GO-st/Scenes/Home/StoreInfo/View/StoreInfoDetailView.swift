@@ -19,6 +19,8 @@ class StoreInfoDetailView: UIView {
     
     let mapView = MKMapView()
     
+    let infoCard = StoreInfoReviewCardView()
+    
     let listView = UIView().then {
         $0.backgroundColor = R.color.background()
     }
@@ -45,6 +47,8 @@ class StoreInfoDetailView: UIView {
         addSubview(mapView)
         addSubview(listView)
         listView.addSubview(reviewListView)
+        
+        addSubview(infoCard)
     }
     
     private func setAutoLayout() {
@@ -64,13 +68,20 @@ class StoreInfoDetailView: UIView {
             $0.height.equalTo(CommonValue.shared.HEIGHT * 0.5) //0.51
         }
         
+        infoCard.snp.makeConstraints {
+            $0.centerY.equalTo(self)
+            $0.left.equalTo(self).offset(14)
+            $0.right.equalTo(self).offset(-15)
+            $0.height.equalTo(135)
+        }
         listView.snp.makeConstraints {
             $0.top.equalTo(mapView.snp.bottom)
             $0.left.right.bottom.equalTo(self)
         }
         
         reviewListView.snp.makeConstraints {
-            $0.top.left.right.bottom.equalTo(listView)
+            $0.top.equalTo(listView).offset(60)
+            $0.left.right.bottom.equalTo(listView)
         }
     }
     
