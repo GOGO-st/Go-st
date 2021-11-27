@@ -18,7 +18,7 @@ final class CategoryViewController: UIViewController {
         view.addSubview(categoryView)
         
         categoryView.snp.makeConstraints {
-            $0.top.left.right.bottom.equalToSuperview()
+            $0.edges.equalToSuperview()
         }
         
         self.categoryView.backButton.addTarget(self, action: #selector(backButtonDidTap), for: .touchUpInside)

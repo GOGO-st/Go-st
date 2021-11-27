@@ -30,6 +30,9 @@
 		6B18F76C2750B47F00FF87C2 /* HeartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B18F76B2750B47F00FF87C2 /* HeartTableViewCell.swift */; };
 		6B18F76E2750B4E900FF87C2 /* StoreInfoHeartCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B18F76D2750B4E900FF87C2 /* StoreInfoHeartCardView.swift */; };
 		6B18F770275206A600FF87C2 /* StoreInfoReviewCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B18F76F275206A600FF87C2 /* StoreInfoReviewCardView.swift */; };
+		6B18F7722752917700FF87C2 /* HomeCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B18F7712752917700FF87C2 /* HomeCategoryCollectionViewCell.swift */; };
+		6B18F7742752929A00FF87C2 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B18F7732752929A00FF87C2 /* CategoryModel.swift */; };
+		6B18F776275292C800FF87C2 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B18F775275292C800FF87C2 /* CategoryViewModel.swift */; };
 		6B1B77E72747CFA300BD9773 /* StoreInfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B77E62747CFA300BD9773 /* StoreInfoDetailView.swift */; };
 		6B1B77E92747CFE500BD9773 /* StoreInfoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B77E82747CFE500BD9773 /* StoreInfoDetailViewController.swift */; };
 		6B1B77EB2747D79A00BD9773 /* HomeNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B77EA2747D79A00BD9773 /* HomeNavigationViewController.swift */; };
@@ -115,6 +118,9 @@
 		6B18F76B2750B47F00FF87C2 /* HeartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartTableViewCell.swift; sourceTree = "<group>"; };
 		6B18F76D2750B4E900FF87C2 /* StoreInfoHeartCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoHeartCardView.swift; sourceTree = "<group>"; };
 		6B18F76F275206A600FF87C2 /* StoreInfoReviewCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoReviewCardView.swift; sourceTree = "<group>"; };
+		6B18F7712752917700FF87C2 /* HomeCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		6B18F7732752929A00FF87C2 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		6B18F775275292C800FF87C2 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		6B1B77E62747CFA300BD9773 /* StoreInfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoDetailView.swift; sourceTree = "<group>"; };
 		6B1B77E82747CFE500BD9773 /* StoreInfoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoDetailViewController.swift; sourceTree = "<group>"; };
 		6B1B77EA2747D79A00BD9773 /* HomeNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationViewController.swift; sourceTree = "<group>"; };
@@ -497,6 +503,7 @@
 			children = (
 				6B3ECC6727354CF900177F9F /* CategoryView.swift */,
 				6B3ECC6927354F0000177F9F /* CategoryViewController.swift */,
+				6B18F7712752917700FF87C2 /* HomeCategoryCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -504,6 +511,7 @@
 		6B3ECC7A2736506C00177F9F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				6B18F775275292C800FF87C2 /* CategoryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -511,6 +519,7 @@
 		6B3ECC7B2736507400177F9F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6B18F7732752929A00FF87C2 /* CategoryModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -797,8 +806,10 @@
 				6B3ECC262734E18200177F9F /* AppDelegate.swift in Sources */,
 				6B18F753274F6BFF00FF87C2 /* SignInViewController.swift in Sources */,
 				6B2F39802737F91B002F8D19 /* SignUpPasswordViewController.swift in Sources */,
+				6B18F776275292C800FF87C2 /* CategoryViewModel.swift in Sources */,
 				6B8B79E0273A96CD00DB26F4 /* NetworkResult.swift in Sources */,
 				6B8B79D427391FEA00DB26F4 /* HomeView.swift in Sources */,
+				6B18F7722752917700FF87C2 /* HomeCategoryCollectionViewCell.swift in Sources */,
 				6B1B77EB2747D79A00BD9773 /* HomeNavigationViewController.swift in Sources */,
 				6B8B79E8273B8C0700DB26F4 /* SignUpViewModel.swift in Sources */,
 				6B18F76C2750B47F00FF87C2 /* HeartTableViewCell.swift in Sources */,
@@ -855,6 +866,7 @@
 				6B3ECC472734E8D400177F9F /* R.generated.swift in Sources */,
 				6B18F755274F6EA800FF87C2 /* CustomTextField.swift in Sources */,
 				6B8B79E4273A975300DB26F4 /* UserService.swift in Sources */,
+				6B18F7742752929A00FF87C2 /* CategoryModel.swift in Sources */,
 				6B3ECC5A27350BA000177F9F /* ReportStartViewController.swift in Sources */,
 				6B4940C12740D7A1001B311A /* Marker.swift in Sources */,
 			);
