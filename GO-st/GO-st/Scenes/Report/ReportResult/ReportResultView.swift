@@ -34,7 +34,6 @@ final class ReportResultView: ReportView {
 //            $0.width.equalTo(self.WIDTH)
 //            $0.height.equalTo(self.HEIGHT)
 //        }
-        
         placeNameLabel.snp.makeConstraints {
             $0.top.equalTo(super.location.snp.bottom).offset(20)
             $0.left.equalTo(self).offset(24)

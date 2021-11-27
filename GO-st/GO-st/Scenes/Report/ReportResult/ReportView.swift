@@ -11,9 +11,11 @@ import SnapKit
 
 class ReportView: UIView {
     
-    private let scrollView = UIScrollView()
+    let scrollView = UIScrollView().then {
+        $0.showsHorizontalScrollIndicator = false
+    }
     
-    private let containerView = UIView()
+    let containerView = UIView()
     
     // 항상 고정
     let location = LabelLabelView().then {
@@ -51,6 +53,18 @@ class ReportView: UIView {
         $0.layer.cornerRadius = 8
         $0.backgroundColor = R.color.semiBlack()
     }
+    
+    let emojiLabel = UILabel().then {
+        $0.text = "설명"
+        $0.font = R.font.notoSansKRBold(size: 16)
+        $0.textColor = .white
+    }
+    
+    let emojiTextField = CustomTextField().then {
+        $0.layer.cornerRadius = 32
+        $0.backgroundColor = R.color.semiBlack()
+    }
+    
     let finishedButton = FinishedButton(title: "작성 완료", type: .report)
     
     
@@ -77,22 +91,24 @@ class ReportView: UIView {
         containerView.addSubview(title)
         containerView.addSubview(descriptionLabel)
         containerView.addSubview(descriptionTextView)
+        containerView.addSubview(emojiLabel)
+        containerView.addSubview(emojiTextField)
         addSubview(finishedButton)
     }
     
     private func setAutoLayout() {
 //        self.snp.makeConstraints {
-//            $0.width.equalTo(self.WIDTH)
-//            $0.height.equalTo(self.HEIGHT)
+//            $0.width.equalTo(CommonValue.shared.WIDTH)
+//            $0.height.equalTo(CommonValue.shared.HEIGHT)
 //        }
         
         scrollView.snp.makeConstraints {
-            $0.edges.equalTo(0)
+            $0.edges.equalTo(self)
         }
         containerView.snp.makeConstraints {
-            $0.edges.equalTo(0)
-            $0.width.equalTo(frame.width)
-            $0.height.equalTo(CommonValue.shared.HEIGHT + 200)
+            $0.edges.equalTo(scrollView.contentLayoutGuide)
+            $0.width.equalTo(scrollView.frameLayoutGuide)
+            $0.height.equalTo(1200)
         }
         location.snp.makeConstraints {
             $0.top.equalTo(self).offset(30)
@@ -126,6 +142,17 @@ class ReportView: UIView {
             $0.left.equalTo(self).offset(24)
             $0.right.equalTo(self).offset(-24)
             $0.height.equalTo(130)
+        }
+        
+        emojiLabel.snp.makeConstraints {
+            $0.top.equalTo(descriptionTextView.snp.bottom).offset(24)
+            $0.left.equalTo(self).offset(24)
+        }
+        
+        emojiTextField.snp.makeConstraints {
+            $0.top.equalTo(descriptionLabel.snp.bottom).offset(12)
+            $0.left.equalTo(self).offset(24)
+            $0.width.height.equalTo(64)
         }
 //        finishedButton.frame = CommonValue.shared.getButtonFrame()
 //        finishedButton.snp.makeConstraints {
