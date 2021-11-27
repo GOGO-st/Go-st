@@ -20,6 +20,12 @@ final class ReportResultView: ReportView {
 //        self.backgroundColor = R.color.background()
         self.addContentView()
         self.setAutoLayout()
+        
+        
+        placeNameLabel.contentTextField.delegate = self
+        super.title.contentTextField.delegate = self
+//        super.descriptionTextView.delegate = self
+        super.emojiTextField.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -44,5 +50,27 @@ final class ReportResultView: ReportView {
     
     func setAddress(_ address: String) {
         super.location.contentLabel.text = address
+    }
+}
+extension ReportResultView: UITextFieldDelegate {
+    // 아무데나 누르면 키보드 내려가기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        super.touchesBegan(touches, with: event)
+        self.endEditing(true)
+    }
+    // return 누르면 키보드 내려가기
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+            case placeNameLabel.contentTextField:
+                super.title.contentTextField.becomeFirstResponder()
+            case super.title.contentTextField:
+                super.emojiTextField.resignFirstResponder()
+//                super.descriptionTextView.becomeFirstResponder()
+//            case super.descriptionTextView:
+//                super.emojiTextField.resignFirstResponder()
+            default:
+                textField.resignFirstResponder()
+        }
+        return true
     }
 }
