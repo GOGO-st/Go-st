@@ -30,6 +30,7 @@ class StoreInfoDetailViewController: UIViewController {
             $0.top.left.right.bottom.equalToSuperview()
         }
         detailView.backButton.addTarget(self, action: #selector(backButtonDidTap), for: .touchUpInside)
+        detailView.infoCard.heartButton.addTarget(self, action: #selector(heartButtonDidTap), for: .touchUpInside)
     }
     
     @objc
@@ -37,6 +38,10 @@ class StoreInfoDetailViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @objc
+    func heartButtonDidTap(_ sender: UIButton) {
+        sender.isSelected.toggle()
+    }
     func bind(_ data: DetailStoreData) {
         detailView.infoCard.storeLabel.text = data.storeName
         detailView.infoCard.addressLabel.text = data.address
