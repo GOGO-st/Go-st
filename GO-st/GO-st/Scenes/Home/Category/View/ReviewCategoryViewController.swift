@@ -17,7 +17,6 @@ final class ReviewCategoryViewController: UIViewController {
 //    var visualEffectView = UIVisualEffectView().then {
 //        $0.effect = UIBlurEffect(style: .regular)
 //    }
-    
     var animationProgressWhenInterrupted:CGFloat = 0
     
     override func viewDidLoad() {
@@ -33,6 +32,16 @@ final class ReviewCategoryViewController: UIViewController {
         }
         self.view.backgroundColor = .clear
         self.reviewCategoryView.finishedButton.addTarget(self, action: #selector(backButtonDidTap), for: .touchUpInside)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.view.backgroundColor = UIColor(white: 0.5, alpha: 0.5)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.view.backgroundColor = .clear
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){

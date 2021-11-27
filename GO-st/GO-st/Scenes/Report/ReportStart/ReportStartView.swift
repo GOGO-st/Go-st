@@ -60,7 +60,7 @@ final class ReportStartView: UIView {
         self.addSubview(searchTextField)
         self.addSubview(rightButton)
         self.addSubview(searchTableView)
-        self.addSubview(testButton)
+//        self.addSubview(testButton)
     }
     
     private func setAutoLayout() {
@@ -91,10 +91,10 @@ final class ReportStartView: UIView {
             $0.top.equalTo(rightButton.snp.bottom).offset(32)
             $0.left.right.bottom.equalTo(self)
         }
-        testButton.snp.makeConstraints {
-            $0.top.equalTo(fixLabel.snp.bottom).offset(90)
-            $0.centerX.equalToSuperview()
-        }
+//        testButton.snp.makeConstraints {
+//            $0.top.equalTo(fixLabel.snp.bottom).offset(90)
+//            $0.centerX.equalToSuperview()
+//        }
     }
     func delete(){
         searchTextField.text = ""
