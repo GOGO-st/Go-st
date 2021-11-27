@@ -19,8 +19,7 @@ final class CategoryView: UIView {
     }
     
     let backButton = UIButton().then {
-        $0.setTitle("엑스", for: .normal)
-        $0.setTitleColor(.black, for: .normal)
+        $0.setImage(R.image.icon.icX(), for: .normal)
     }
     
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
@@ -64,8 +63,9 @@ final class CategoryView: UIView {
         }
         
         backButton.snp.makeConstraints {
-            $0.top.equalTo(self.snp.top).offset(80)
-            $0.left.equalToSuperview().offset(20)
+//            $0.top.equalTo(self.snp.top).offset(80)
+            $0.centerY.equalTo(goLabel)
+            $0.right.equalToSuperview().offset(-26)
         }
         collectionView.snp.makeConstraints {
             $0.top.equalTo(goLabel.snp.bottom).offset(46)

@@ -362,7 +362,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.image.icon` struct is generated, and contains static references to 10 images.
+    /// This `R.image.icon` struct is generated, and contains static references to 13 images.
     struct icon {
       /// Image `icBack`.
       static let icBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icBack")
@@ -370,6 +370,10 @@ struct R: Rswift.Validatable {
       static let icGost = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icGost")
       /// Image `icHeart`.
       static let icHeart = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icHeart")
+      /// Image `icMoreF`.
+      static let icMoreF = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icMoreF")
+      /// Image `icMore`.
+      static let icMore = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icMore")
       /// Image `icNonGost`.
       static let icNonGost = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icNonGost")
       /// Image `icNonHeart`.
@@ -378,6 +382,8 @@ struct R: Rswift.Validatable {
       static let icNonProfile = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icNonProfile")
       /// Image `icNonSearch`.
       static let icNonSearch = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icNonSearch")
+      /// Image `icPlus`.
+      static let icPlus = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icPlus")
       /// Image `icProfile`.
       static let icProfile = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icProfile")
       /// Image `icSearch`.
@@ -407,6 +413,20 @@ struct R: Rswift.Validatable {
       #endif
 
       #if os(iOS) || os(tvOS)
+      /// `UIImage(named: "icMore", bundle: ..., traitCollection: ...)`
+      static func icMore(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.icon.icMore, compatibleWith: traitCollection)
+      }
+      #endif
+
+      #if os(iOS) || os(tvOS)
+      /// `UIImage(named: "icMoreF", bundle: ..., traitCollection: ...)`
+      static func icMoreF(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.icon.icMoreF, compatibleWith: traitCollection)
+      }
+      #endif
+
+      #if os(iOS) || os(tvOS)
       /// `UIImage(named: "icNonGost", bundle: ..., traitCollection: ...)`
       static func icNonGost(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
         return UIKit.UIImage(resource: R.image.icon.icNonGost, compatibleWith: traitCollection)
@@ -431,6 +451,13 @@ struct R: Rswift.Validatable {
       /// `UIImage(named: "icNonSearch", bundle: ..., traitCollection: ...)`
       static func icNonSearch(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
         return UIKit.UIImage(resource: R.image.icon.icNonSearch, compatibleWith: traitCollection)
+      }
+      #endif
+
+      #if os(iOS) || os(tvOS)
+      /// `UIImage(named: "icPlus", bundle: ..., traitCollection: ...)`
+      static func icPlus(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.icon.icPlus, compatibleWith: traitCollection)
       }
       #endif
 
