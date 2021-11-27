@@ -12,8 +12,8 @@ import SnapKit
 class StoreInfoHeartCardView: StoreInfoHomeCardView {
     
     let heartButton = UIButton().then {
-        $0.setImage(R.image.icon.icNonHeart(), for: .normal)
-        $0.setImage(R.image.icon.icHeart(), for: .selected)
+        $0.setImage(R.image.icon.icHeart(), for: .normal)
+        $0.setImage(R.image.icon.icNonHeart(), for: .selected)
     }
     
     private let HEIGHT: CGFloat = 119

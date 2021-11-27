@@ -27,6 +27,7 @@ class EmojiCountView: UIView {
     private let countLabel = UILabel().then {
         $0.font = R.font.notoSansKRBold(size: 12)
         $0.textColor = R.color.point()
+        $0.text = "+32"
     }
     
     private let WIDTH: CGFloat = 118

@@ -65,7 +65,7 @@ extension ReviewListView: UITableViewDataSource {
                 return UITableViewCell()
             }
             
-            cell.bind()
+            cell.bind(type: self.listType)
             return cell
         case .myHeart:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: HeartTableViewCell.identifier, for: indexPath) as? HeartTableViewCell else {
