@@ -75,4 +75,7 @@ class HomeCategoryCollectionViewCell: UICollectionViewCell {
         self.emojiLabel.text = data.emoji
         self.categoryLabel.text = data.category
     }
+    func selected() {
+        background.backgroundColor = R.color.selected()
+    }
 }
