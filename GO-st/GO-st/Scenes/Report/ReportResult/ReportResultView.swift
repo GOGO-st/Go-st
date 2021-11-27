@@ -11,7 +11,7 @@ import SnapKit
 
 final class ReportResultView: ReportView {
     
-    private let placeNameLabel = LabelLabelView().then {
+    private let placeNameLabel = LabelTextFieldView().then {
         $0.titleLabel.text = "장소 이름"
     }
     override init(frame: CGRect) {
