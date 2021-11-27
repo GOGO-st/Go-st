@@ -34,7 +34,7 @@ final class SearchOnTheMapView: UIView {
     let mapView = MKMapView()
     
     let marker = UIImageView().then {
-        $0.image = R.image.map.defaultMarker() // 임시임
+        $0.image = R.image.map.marker.imgSpotGostMark() // 임시임
     }
     
     private let WIDTH: CGFloat = UIScreen.main.bounds.width
@@ -44,7 +44,7 @@ final class SearchOnTheMapView: UIView {
         super.init(frame: frame)
         self.addContentView()
         self.setAutoLayout()
-        self.backgroundColor = R.color.background()
+        self.backgroundColor = R.color.darkGrey()
     }
     
     required init?(coder: NSCoder) {
@@ -79,8 +79,8 @@ final class SearchOnTheMapView: UIView {
         marker.snp.makeConstraints {
 //            $0.top.left.equalTo(mapView).offset(200)
             $0.center.equalTo(self)
-            $0.width.equalTo(61)
-            $0.height.equalTo(66)
+            $0.width.equalTo(48)
+            $0.height.equalTo(52)
         }
         // 주소 배경
         backgroundView.snp.makeConstraints {

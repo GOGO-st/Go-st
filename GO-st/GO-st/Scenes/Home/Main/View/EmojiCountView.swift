@@ -18,9 +18,9 @@ class EmojiCountView: UIView {
     
     // 새로 뷰를 팔지 고민
     private lazy var countView = UIView().then {
-        $0.backgroundColor = R.color.background()
+        $0.backgroundColor = R.color.darkGrey()
         $0.layer.borderWidth = 1
-        $0.layer.borderColor = R.color.darkGrey()?.cgColor
+        $0.layer.borderColor = R.color.background()?.cgColor
         $0.layer.cornerRadius = HEIGHT / 2
     }
     

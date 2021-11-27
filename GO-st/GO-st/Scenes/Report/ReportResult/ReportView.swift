@@ -21,6 +21,7 @@ class ReportView: UIView {
     let location = LabelLabelView().then {
         $0.titleLabel.text = "장소 위치"
         $0.contentLabel.textColor = .white
+        $0.setBackgroundColor()
     }
     
     // 장소 이름
@@ -40,7 +41,7 @@ class ReportView: UIView {
     let title = LabelTextFieldView().then {
         $0.titleLabel.text = "제목"
         $0.contentTextField.keyboardType = .default
-//        $0.contentTextField.placeholder = "제목 작성"
+        $0.contentTextField.backgroundColor = R.color.background()
     }
     
     let descriptionLabel = UILabel().then {
@@ -51,7 +52,7 @@ class ReportView: UIView {
     
     let descriptionTextView = UITextView().then {
         $0.layer.cornerRadius = 8
-        $0.backgroundColor = R.color.semiBlack()
+        $0.backgroundColor = R.color.background()
     }
     
     let emojiLabel = UILabel().then {
@@ -62,7 +63,7 @@ class ReportView: UIView {
     
     let emojiTextField = CustomTextField().then {
         $0.layer.cornerRadius = 32
-        $0.backgroundColor = R.color.semiBlack()
+        $0.backgroundColor = R.color.background()
     }
     
     let finishedButton = FinishedButton(title: "작성 완료", type: .report)
@@ -73,7 +74,7 @@ class ReportView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = R.color.background()
+        self.backgroundColor = R.color.darkGrey()
         self.addContentView()
         self.setAutoLayout()
     }
@@ -150,7 +151,7 @@ class ReportView: UIView {
         }
         
         emojiTextField.snp.makeConstraints {
-            $0.top.equalTo(descriptionLabel.snp.bottom).offset(12)
+            $0.top.equalTo(emojiLabel.snp.bottom).offset(12)
             $0.left.equalTo(self).offset(24)
             $0.width.height.equalTo(64)
         }

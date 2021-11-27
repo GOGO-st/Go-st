@@ -16,6 +16,7 @@ final class ReportResultViewController: UIViewController, UITextFieldDelegate {
     private let titleView = NavigationTitleView().then {
         $0.leftButton.isHidden = false
         $0.setTitle("흔적 남기기")
+        $0.backgroundColor = R.color.darkGrey()
     }
     
     private let reportView = ReportResultView()
@@ -23,7 +24,7 @@ final class ReportResultViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = R.color.background()
+//        view.backgroundColor = R.color.background()
         addContentView()
         setAutoLayout()
         

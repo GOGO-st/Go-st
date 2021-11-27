@@ -494,24 +494,42 @@ struct R: Rswift.Validatable {
       }
       #endif
 
-      /// This `R.image.map.marker` struct is generated, and contains static references to 2 images.
+      /// This `R.image.map.marker` struct is generated, and contains static references to 4 images.
       struct marker {
-        /// Image `defaultGhost`.
-        static let defaultGhost = Rswift.ImageResource(bundle: R.hostingBundle, name: "map/marker/defaultGhost")
         /// Image `empty`.
         static let empty = Rswift.ImageResource(bundle: R.hostingBundle, name: "map/marker/empty")
-
-        #if os(iOS) || os(tvOS)
-        /// `UIImage(named: "defaultGhost", bundle: ..., traitCollection: ...)`
-        static func defaultGhost(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-          return UIKit.UIImage(resource: R.image.map.marker.defaultGhost, compatibleWith: traitCollection)
-        }
-        #endif
+        /// Image `imgGostMark`.
+        static let imgGostMark = Rswift.ImageResource(bundle: R.hostingBundle, name: "map/marker/imgGostMark")
+        /// Image `imgSelecGostMark`.
+        static let imgSelecGostMark = Rswift.ImageResource(bundle: R.hostingBundle, name: "map/marker/imgSelecGostMark")
+        /// Image `imgSpotGostMark`.
+        static let imgSpotGostMark = Rswift.ImageResource(bundle: R.hostingBundle, name: "map/marker/imgSpotGostMark")
 
         #if os(iOS) || os(tvOS)
         /// `UIImage(named: "empty", bundle: ..., traitCollection: ...)`
         static func empty(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
           return UIKit.UIImage(resource: R.image.map.marker.empty, compatibleWith: traitCollection)
+        }
+        #endif
+
+        #if os(iOS) || os(tvOS)
+        /// `UIImage(named: "imgGostMark", bundle: ..., traitCollection: ...)`
+        static func imgGostMark(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+          return UIKit.UIImage(resource: R.image.map.marker.imgGostMark, compatibleWith: traitCollection)
+        }
+        #endif
+
+        #if os(iOS) || os(tvOS)
+        /// `UIImage(named: "imgSelecGostMark", bundle: ..., traitCollection: ...)`
+        static func imgSelecGostMark(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+          return UIKit.UIImage(resource: R.image.map.marker.imgSelecGostMark, compatibleWith: traitCollection)
+        }
+        #endif
+
+        #if os(iOS) || os(tvOS)
+        /// `UIImage(named: "imgSpotGostMark", bundle: ..., traitCollection: ...)`
+        static func imgSpotGostMark(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+          return UIKit.UIImage(resource: R.image.map.marker.imgSpotGostMark, compatibleWith: traitCollection)
         }
         #endif
 

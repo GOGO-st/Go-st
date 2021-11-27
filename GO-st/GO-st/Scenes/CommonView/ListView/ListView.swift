@@ -34,7 +34,12 @@ class ListView: UIView {
         $0.font = R.font.notoSansKRBold(size: 14)
     }
     
-    
+    // 이ㅁh지 카운트 뷰
+    let emojiCountView = EmojiCountView().then {
+        $0.isHidden = true
+        $0.bindEmoji(["👀","🥰","😅"])
+        $0.bindCount("11")
+    }
     
     // 테이블뷰
     let tableView = UITableView().then {
@@ -60,6 +65,7 @@ class ListView: UIView {
     private func addContentView() {
         self.addSubview(countLabel)
         self.addSubview(secondLabel)
+        self.addSubview(emojiCountView)
         self.addSubview(tableView)
     }
     
@@ -76,6 +82,10 @@ class ListView: UIView {
         secondLabel.snp.makeConstraints {
             $0.top.equalTo(countLabel.snp.top)
             $0.left.equalTo(countLabel.snp.right)
+        }
+        emojiCountView.snp.makeConstraints {
+            $0.centerY.equalTo(secondLabel)
+            $0.right.equalTo(-31)
         }
         tableView.snp.makeConstraints {
             $0.top.equalTo(countLabel.snp.bottom).offset(24)

@@ -13,6 +13,7 @@ final class ReportResultView: ReportView {
     
     private let placeNameLabel = LabelTextFieldView().then {
         $0.titleLabel.text = "장소 이름"
+        $0.contentTextField.backgroundColor = R.color.background()
     }
     override init(frame: CGRect) {
         super.init(frame: frame)

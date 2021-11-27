@@ -12,6 +12,7 @@ import SnapKit
 class MarkerImageView: UIImageView {
     let label = UILabel().then {
         $0.text = "👀"
+        $0.font = .systemFont(ofSize: 20)
     }
     
     override init(frame: CGRect) {
@@ -25,9 +26,10 @@ class MarkerImageView: UIImageView {
     
     private func setLayout() {
         self.addSubview(label)
-        self.image = R.image.map.marker.defaultGhost()
+        self.image = R.image.map.marker.imgGostMark()
         self.snp.makeConstraints {
-            $0.width.height.equalTo(56)
+            $0.width.equalTo(48)
+            $0.height.equalTo(52)
         }
         
         label.snp.makeConstraints {

@@ -28,7 +28,7 @@ final class ReportStartView: UIView {
     }
     
     let searchTableView = UITableView().then {
-        $0.backgroundColor = R.color.background()
+        $0.backgroundColor = R.color.darkGrey()
     }
     
     let testButton = UIButton().then {
