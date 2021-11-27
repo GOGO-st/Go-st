@@ -14,7 +14,7 @@ class StoreInfoDetailViewController: UIViewController {
     
     let detailView = StoreInfoDetailView()
     
-    let center = CLLocation(latitude: 37.66906773682083, longitude: 126.78460869875774)
+//    let center = CLLocationCoordinate2D(latitude: 37.66906773682083, longitude: 126.78460869875774)
     
     
     override func viewDidLoad() {
@@ -31,6 +31,31 @@ class StoreInfoDetailViewController: UIViewController {
         }
         
         
-        detailView.mapView.centerToLocation(self.center)
+        
+        detailView.backButton.addTarget(self, action: #selector(backButtonDidTap), for: .touchUpInside)
+    }
+    
+    @objc
+    func backButtonDidTap() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func bind(_ data: DetailStoreData) {
+        detailView.infoCard.storeLabel.text = data.storeName
+        detailView.infoCard.addressLabel.text = data.address
+        setInitialLocation(center: data.coordinate)
+        setMarker(marker: Marker(title: data.storeName,
+                            locationName: data.address,
+                            discipline: data.emoji,
+                            coordinate: data.coordinate))
+    }
+    
+    private func setInitialLocation(center: CLLocationCoordinate2D?) {
+        detailView.mapView.centerToLocation(center!)
+    }
+    
+    private func setMarker(marker: Marker) {
+        detailView.mapView.addAnnotation(marker)
+        detailView.mapView.register(MarkerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
     }
 }

@@ -52,7 +52,8 @@ class StoreInfoReviewCardView: StoreInfoCardView {
         
     }
     
-//    func setCell() {
-//
+//    func bind(_ data: InfoCardData) {
+//        super.storeLabel.text = data.store
+//        super.addressLabel.text = data.address
 //    }
 }

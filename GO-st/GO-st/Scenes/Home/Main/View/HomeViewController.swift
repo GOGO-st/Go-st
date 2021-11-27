@@ -17,6 +17,9 @@ final class HomeViewController: UIViewController, CLLocationManagerDelegate {
     let viewModel = HomeViewModel()
     let homeView = HomeView()
     
+    var storeName  = ""
+    var address = ""
+    var coordinate = CommonValue.shared.schoolCenter
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +56,11 @@ final class HomeViewController: UIViewController, CLLocationManagerDelegate {
         print("가게 디테일 뷰로 가기")
         // 서버 연결
         let nextVC = StoreInfoDetailViewController()
+        viewModel.detailStoreData = DetailStoreData(storeName: storeName,
+                                                    address: address,
+                                                    coordinate: coordinate,
+                                                    emoji: "🥰")
+        nextVC.bind(self.viewModel.detailStoreData!)
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 

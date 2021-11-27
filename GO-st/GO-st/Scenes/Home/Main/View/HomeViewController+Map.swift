@@ -40,10 +40,14 @@ extension HomeViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         print("마커 선택~! \(view)")
         self.homeView.storeInfoView.bind(mapView.selectedAnnotations[0])
-        // 임시
+        // 임시 방법!
         self.homeView.storeInfoView.countView.bindEmoji(["👻","😢","😆"])
         self.homeView.storeInfoView.countView.bindCount("11")
         self.homeView.storeInfoView.activate()
+        
+        self.storeName = mapView.selectedAnnotations[0].title as? String ?? ""
+        self.address = mapView.selectedAnnotations[0].subtitle as? String ?? ""
+        self.coordinate = mapView.selectedAnnotations[0].coordinate
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
@@ -51,3 +55,4 @@ extension HomeViewController: MKMapViewDelegate {
         self.homeView.storeInfoView.deactivate()
     }
 }
+

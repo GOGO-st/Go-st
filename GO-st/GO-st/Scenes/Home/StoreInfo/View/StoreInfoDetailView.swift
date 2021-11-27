@@ -19,6 +19,9 @@ class StoreInfoDetailView: UIView {
     
     let mapView = MKMapView()
     
+    let backButton = UIButton().then {
+        $0.setImage(R.image.icon.icBack(), for: .normal)
+    }
     let infoCard = StoreInfoReviewCardView()
     
     let listView = UIView().then {
@@ -49,6 +52,7 @@ class StoreInfoDetailView: UIView {
         listView.addSubview(reviewListView)
         
         addSubview(infoCard)
+        addSubview(backButton)
     }
     
     private func setAutoLayout() {
@@ -66,6 +70,11 @@ class StoreInfoDetailView: UIView {
         mapView.snp.makeConstraints {
             $0.top.left.right.equalTo(self)
             $0.height.equalTo(CommonValue.shared.HEIGHT * 0.5) //0.51
+        }
+        backButton.snp.makeConstraints {
+            $0.top.equalTo(self).offset(54)
+            $0.left.equalTo(self).offset(24)
+            $0.width.height.equalTo(32)
         }
         
         infoCard.snp.makeConstraints {
