@@ -12,7 +12,9 @@ import SnapKit
 final class CategoryView: UIView {
     
     private let goLabel = UILabel().then {
-        $0.text = "어디 한 번 가보자고"
+        $0.text = "흔적 찾아 떠나보자고!"
+        $0.textColor = .white
+        $0.font = R.font.notoSansKRRegular(size: 20)
     }
     
     let backButton = UIButton().then {
@@ -20,6 +22,9 @@ final class CategoryView: UIView {
         $0.setTitleColor(.black, for: .normal)
     }
     
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
+        
+    }
     private let WIDTH: CGFloat = UIScreen.main.bounds.width
     private let HEIGHT: CGFloat = UIScreen.main.bounds.height
     
@@ -27,7 +32,7 @@ final class CategoryView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .white
+        self.backgroundColor = R.color.semiBlack()
         self.addContentView()
         self.setAutoLayout()
         
@@ -45,7 +50,7 @@ final class CategoryView: UIView {
             $0.height.equalTo(self.HEIGHT)
         }
         goLabel.snp.makeConstraints {
-            $0.top.equalTo(self.snp.top).offset(80)
+            $0.top.equalTo(self).offset(68)
             $0.centerX.equalTo(self)
         }
         
