@@ -23,9 +23,6 @@ final class SearchOnTheMapViewController: UIViewController, CLLocationManagerDel
     
     let viewModel = HomeViewModel()
     
-    // 성신여대
-    let schoolCenter = CLLocation(latitude: 37.591433, longitude: 127.021217)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -97,14 +94,14 @@ extension SearchOnTheMapViewController {
 //        }
         
         // 성신여대
-        searchMapView.mapView.centerToLocation(self.schoolCenter)
+        searchMapView.mapView.centerToLocation(CommonValue.shared.schoolCenter)
     }
     
     // MARK: - 지도 설정
     func setMap() {
         viewModel.locationManager.delegate = self
         searchMapView.mapView.delegate = self
-        searchMapView.mapView.setZoom(center: self.schoolCenter)
+        searchMapView.mapView.setZoom(center: CommonValue.shared.schoolCenter)
         viewModel.setCurrentLocation()
     }
     

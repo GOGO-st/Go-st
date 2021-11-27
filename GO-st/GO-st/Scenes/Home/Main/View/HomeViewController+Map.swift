@@ -17,7 +17,7 @@ extension HomeViewController {
 //        }
         
         // 성신여대
-        homeView.mapView.centerToLocation(self.schoolCenter)
+        homeView.mapView.centerToLocation(CommonValue.shared.schoolCenter)
     }
     
     // MARK: - 지도 설정
@@ -26,7 +26,7 @@ extension HomeViewController {
         homeView.mapView.delegate = self
         viewModel.setCurrentLocation()
         // 줌 제한
-        homeView.mapView.setZoom(center: self.schoolCenter)
+        homeView.mapView.setZoom(center: CommonValue.shared.schoolCenter)
     }
 }
 
