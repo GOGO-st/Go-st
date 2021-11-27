@@ -20,13 +20,16 @@ final class ReportResultViewController: UIViewController {
     }
     
 //    private let reportView = ReportResultView()
-    private let reportView = ReportView().then {
+    let reportView = ReportView().then {
         $0.setType(type: .mapReport)
     }
+    
+    let categoryViewModel = CategoryViewModel()
+    var selectedCategory = [Int]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        view.backgroundColor = R.color.background()
+        print("여기 흔적남기기 디테일 뷰")
         addContentView()
         setAutoLayout()
         
@@ -36,13 +39,14 @@ final class ReportResultViewController: UIViewController {
         reportView.title.contentTextField.delegate = self
         reportView.emojiTextField.delegate = self
         
-        
+        reportView.categoryCollectionView.dataSource = self
+        reportView.categoryCollectionView.delegate = self
         
         reportView.title.contentTextField.addTarget(self, action: #selector(activate), for: .editingChanged)
         reportView.title.contentTextField.addTarget(self, action: #selector(deactivate), for: .editingDidEnd)
         reportView.categoryButton.addTarget(self, action: #selector(categoryButtonDidTap), for: .touchUpInside)
+        
     }
-    
     private func addContentView() {
         view.addSubview(titleView)
         view.addSubview(reportView)
@@ -82,11 +86,17 @@ final class ReportResultViewController: UIViewController {
     
     @objc
     private func categoryButtonDidTap() {
-//        ReviewCategoryViewController
         let nextVC = ReviewCategoryViewController()
         nextVC.modalPresentationStyle = .overFullScreen
-//        nextVC.modalPresentationStyle = .overCurrentContext
+        nextVC.delegate = self
         self.present(nextVC, animated: true, completion: nil)
+    }
+}
+extension ReportResultViewController: SendCategoryList {
+    func sendCategoryList(_ category: [Int]) {
+        print("카테고리 받아왔다 \(category)")
+        self.selectedCategory = category
+        reportView.categoryCollectionView.reloadData()
     }
 }
 extension ReportResultViewController: UITextFieldDelegate {
@@ -111,5 +121,40 @@ extension ReportResultViewController: UITextFieldDelegate {
                 textField.resignFirstResponder()
         }
         return true
+    }
+}
+extension ReportResultViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("여기도 안들어오니 \(selectedCategory.count)")
+        return selectedCategory.count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReportCategoryCollectionViewCell.identifier, for: indexPath) as? ReportCategoryCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        print("여기도 좀 들어와봐라")
+        cell.bind(data: categoryViewModel.categoryList[selectedCategory[indexPath.row]])
+        return cell
+    }
+    
+}
+extension ReportResultViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let width: CGFloat = (collectionView.frame.width - 15 * 2) / 3
+//        let height: CGFloat = (collectionView.frame.height - 24 * 4) / 5
+        print("여기는?")
+        return CGSize(width: 72, height: 72)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 15
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 15
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 }

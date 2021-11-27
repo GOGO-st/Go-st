@@ -9,6 +9,9 @@ import UIKit
 import Then
 import SnapKit
 
+protocol SendCategoryList {
+    func sendCategoryList(_ category: [Int])
+}
 final class ReviewCategoryViewController: UIViewController {
     
     let reviewCategoryView = ReviewCategoryView().then {
@@ -18,6 +21,8 @@ final class ReviewCategoryViewController: UIViewController {
 //        $0.effect = UIBlurEffect(style: .regular)
 //    }
     var animationProgressWhenInterrupted:CGFloat = 0
+    
+    var delegate: SendCategoryList?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +47,8 @@ final class ReviewCategoryViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.view.backgroundColor = .clear
+        
+        delegate?.sendCategoryList(reviewCategoryView.selectedCategory)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){

@@ -45,6 +45,14 @@ class ReportView: UIView {
         $0.setImage(R.image.report.btnReviewPlus(), for: .normal)
     }
     
+    let categoryCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        $0.collectionViewLayout = layout
+        $0.showsHorizontalScrollIndicator = false
+        $0.backgroundColor = .clear
+        $0.register(ReportCategoryCollectionViewCell.self, forCellWithReuseIdentifier: ReportCategoryCollectionViewCell.identifier)
+    }
     // 제목
     let title = LabelTextFieldView().then {
         $0.titleLabel.text = "제목"
@@ -79,8 +87,6 @@ class ReportView: UIView {
     let finishedButton = FinishedButton(title: "작성 완료", type: .report)
     
     
-//    private let WIDTH: CGFloat = UIScreen.main.bounds.width
-//    private let HEIGHT: CGFloat = UIScreen.main.bounds.height
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -88,7 +94,6 @@ class ReportView: UIView {
         self.addContentView()
         self.setAutoLayout()
         
-//        
 //        self.placeName.contentTextField.delegate = self
 //        self.title.contentTextField.delegate = self
 //        self.emojiTextField.delegate = self
@@ -109,6 +114,7 @@ class ReportView: UIView {
         containerView.addSubview(placeName)
         containerView.addSubview(categoryLabel)
         containerView.addSubview(categoryButton)
+        containerView.addSubview(categoryCollectionView)
         containerView.addSubview(title)
         containerView.addSubview(descriptionLabel)
         containerView.addSubview(descriptionTextView)
@@ -150,6 +156,12 @@ class ReportView: UIView {
             $0.top.equalTo(categoryLabel.snp.bottom).offset(12)
             $0.left.equalTo(self).offset(25)
             $0.width.height.equalTo(72)
+        }
+        
+        categoryCollectionView.snp.makeConstraints {
+            $0.top.equalTo(categoryButton)
+            $0.left.equalTo(categoryButton.snp.right).offset(15)
+            $0.right.equalTo(self).offset(-24)
         }
         title.snp.makeConstraints {
             $0.top.equalTo(categoryButton.snp.bottom).offset(24)

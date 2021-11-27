@@ -37,6 +37,8 @@ final class ReviewCategoryView: UIView {
     }
     
     private var selectionCount = 0
+    var selectedCategory = [Int]()
+    
     
     private let WIDTH: CGFloat = UIScreen.main.bounds.width
     private let HEIGHT: CGFloat = UIScreen.main.bounds.height
@@ -93,6 +95,7 @@ extension ReviewCategoryView: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReviewCategoryCollectionViewCell.identifier, for: indexPath) as? ReviewCategoryCollectionViewCell else {
             return UICollectionViewCell()
         }
+        print("cellForItemAt에 들어옴")
         cell.bind(data: viewModel.categoryList[indexPath.row])
         return cell
     }
@@ -103,6 +106,8 @@ extension ReviewCategoryView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width: CGFloat = (collectionView.frame.width - 16 * 4) / 5
         let height: CGFloat = (collectionView.frame.height - 24 * 4) / 5
+        
+        print("sizeForItemAt에 들어옴")
         return CGSize(width: width, height: height)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -122,6 +127,7 @@ extension ReviewCategoryView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? ReviewCategoryCollectionViewCell {
             cell.selected()
+            selectedCategory.append(indexPath.row)
             selectionCount += 1
             finishedButton.changeTitle(to: "총 \(selectionCount)개 선택하기")
             finishedButton.activate()
