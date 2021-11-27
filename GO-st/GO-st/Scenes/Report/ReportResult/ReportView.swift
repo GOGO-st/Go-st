@@ -53,6 +53,7 @@ class ReportView: UIView {
     let descriptionTextView = UITextView().then {
         $0.layer.cornerRadius = 8
         $0.backgroundColor = R.color.background()
+        $0.textContainerInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
     }
     
     let emojiLabel = UILabel().then {
