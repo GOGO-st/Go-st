@@ -25,7 +25,7 @@ final class ReviewCategoryView: UIView {
         $0.font = R.font.notoSansKRRegular(size: 12)
     }
     
-    let finishedButton = FinishedButton(title: "총 0개 선택하기", type: .report)
+    let finishedButton = FinishedButton(title: "총 0개 선택하기", type: .signUp)
     
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
         let layout = UICollectionViewFlowLayout()
@@ -87,7 +87,7 @@ extension ReviewCategoryView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCategoryCollectionViewCell.identifier, for: indexPath) as? HomeCategoryCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReviewCategoryCollectionViewCell.identifier, for: indexPath) as? ReviewCategoryCollectionViewCell else {
             return UICollectionViewCell()
         }
         cell.bind(data: viewModel.categoryList[indexPath.row])
@@ -103,11 +103,11 @@ extension ReviewCategoryView: UICollectionViewDelegateFlowLayout {
         return CGSize(width: width, height: height)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 16
+        return 24
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 24
+        return 16
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

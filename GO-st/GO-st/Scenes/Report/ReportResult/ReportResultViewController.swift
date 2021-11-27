@@ -33,6 +33,7 @@ final class ReportResultViewController: UIViewController, UITextFieldDelegate {
         reportView.title.contentTextField.delegate = self
         reportView.title.contentTextField.addTarget(self, action: #selector(activate), for: .editingChanged)
         reportView.title.contentTextField.addTarget(self, action: #selector(deactivate), for: .editingDidEnd)
+        reportView.categoryButton.addTarget(self, action: #selector(categoryButtonDidTap), for: .touchUpInside)
     }
     
     private func addContentView() {
@@ -56,8 +57,8 @@ final class ReportResultViewController: UIViewController, UITextFieldDelegate {
     func bind(_ address: String) {
         reportView.setAddress(address)
     }
-    // 이전뷰로 돌아가기
-    @objc
+    
+    @objc // 이전뷰로 돌아가기
     private func leftButtonDidTap() {
         self.navigationController?.popViewController(animated: true)
     }
@@ -75,5 +76,9 @@ final class ReportResultViewController: UIViewController, UITextFieldDelegate {
     @objc
     private func categoryButtonDidTap() {
 //        ReviewCategoryViewController
+        let nextVC = ReviewCategoryViewController()
+        nextVC.modalPresentationStyle = .overFullScreen
+//        nextVC.modalPresentationStyle = .overCurrentContext
+        self.present(nextVC, animated: true, completion: nil)
     }
 }

@@ -15,7 +15,7 @@ class ReviewCategoryCollectionViewCell: UICollectionViewCell {
     
     private let background = UIView().then {
         $0.backgroundColor = R.color.background()
-        $0.layer.cornerRadius = $0.frame.height / 2
+        $0.layer.cornerRadius = 26
     }
     
     private let emojiLabel = UILabel().then {
