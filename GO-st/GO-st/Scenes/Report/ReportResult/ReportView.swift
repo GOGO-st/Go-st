@@ -25,7 +25,10 @@ class ReportView: UIView {
     }
     
     // 장소 이름
-    
+    let placeName = LabelTextFieldView().then {
+        $0.titleLabel.text = "장소 이름"
+        $0.contentTextField.backgroundColor = R.color.background()
+    }
     // 카테고리
     let categoryLabel = UILabel().then {
         $0.text = "카테고리"
@@ -44,6 +47,7 @@ class ReportView: UIView {
         $0.contentTextField.backgroundColor = R.color.background()
     }
     
+    // 설명
     let descriptionLabel = UILabel().then {
         $0.text = "설명"
         $0.font = R.font.notoSansKRBold(size: 16)
@@ -78,16 +82,28 @@ class ReportView: UIView {
         self.backgroundColor = R.color.darkGrey()
         self.addContentView()
         self.setAutoLayout()
+        
+        
+        self.placeName.contentTextField.delegate = self
+        self.title.contentTextField.delegate = self
+        self.emojiTextField.delegate = self
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
+    // 아무데나 누르면 키보드 내려가기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        super.touchesBegan(touches, with: event)
+        self.endEditing(true)
+    }
+    
     private func addContentView() {
         addSubview(scrollView)
         scrollView.addSubview(containerView)
         containerView.addSubview(location)
+        containerView.addSubview(placeName)
         containerView.addSubview(categoryLabel)
         containerView.addSubview(categoryButton)
         containerView.addSubview(title)
@@ -117,9 +133,13 @@ class ReportView: UIView {
             $0.left.equalTo(self).offset(24)
             $0.right.equalTo(self).offset(-24)
         }
-        
+        placeName.snp.makeConstraints {
+            $0.top.equalTo(location.snp.bottom).offset(24)
+            $0.left.equalTo(self).offset(24)
+            $0.right.equalTo(self).offset(-24)
+        }
         categoryLabel.snp.makeConstraints {
-            $0.top.equalTo(location.snp.bottom).offset(128)
+            $0.top.equalTo(placeName.snp.bottom).offset(24)
             $0.left.equalTo(self).offset(24)
         }
         
@@ -164,5 +184,25 @@ class ReportView: UIView {
 //            $0.height.equalTo(finishedButton.snp.width).multipliedBy(52/310)
 //        }
     }
+    func setAddress(_ address: String) {
+        location.contentLabel.text = address
+    }
 }
-
+extension ReportView: UITextFieldDelegate {
+    
+    // return 누르면 키보드 내려가기
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+            case placeName.contentTextField:
+                title.contentTextField.becomeFirstResponder()
+            case title.contentTextField:
+                emojiTextField.resignFirstResponder()
+//                super.descriptionTextView.becomeFirstResponder()
+//            case super.descriptionTextView:
+//                super.emojiTextField.resignFirstResponder()
+            default:
+                textField.resignFirstResponder()
+        }
+        return true
+    }
+}

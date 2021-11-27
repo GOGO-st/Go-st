@@ -19,8 +19,8 @@ final class ReportResultViewController: UIViewController, UITextFieldDelegate {
         $0.backgroundColor = R.color.darkGrey()
     }
     
-    private let reportView = ReportResultView()
-    
+//    private let reportView = ReportResultView()
+    private let reportView = ReportView()
     override func viewDidLoad() {
         super.viewDidLoad()
         
