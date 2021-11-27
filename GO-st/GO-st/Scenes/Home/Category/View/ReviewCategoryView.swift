@@ -114,3 +114,17 @@ extension ReviewCategoryView: UICollectionViewDelegateFlowLayout {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 }
+
+extension ReviewCategoryView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? ReviewCategoryCollectionViewCell {
+            cell.selected()
+        }
+    }
+    
+//    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+//        if let cell = collectionView.cellForItem(at: indexPath) as? ReviewCategoryCollectionViewCell {
+//            cell.deselected()
+//        }
+//    }
+}

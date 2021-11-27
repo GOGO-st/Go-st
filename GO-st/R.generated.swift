@@ -106,7 +106,7 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 8 colors.
+  /// This `R.color` struct is generated, and contains static references to 9 colors.
   struct color {
     /// Color `AccentColor`.
     static let accentColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "AccentColor")
@@ -122,6 +122,8 @@ struct R: Rswift.Validatable {
     static let placeholder = Rswift.ColorResource(bundle: R.hostingBundle, name: "placeholder")
     /// Color `point`.
     static let point = Rswift.ColorResource(bundle: R.hostingBundle, name: "point")
+    /// Color `selected`.
+    static let selected = Rswift.ColorResource(bundle: R.hostingBundle, name: "selected")
     /// Color `semiBlack`.
     static let semiBlack = Rswift.ColorResource(bundle: R.hostingBundle, name: "semiBlack")
 
@@ -189,6 +191,15 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "selected", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func selected(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.selected, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIColor(named: "semiBlack", bundle: ..., traitCollection: ...)`
     @available(tvOS 11.0, *)
     @available(iOS 11.0, *)
@@ -250,6 +261,14 @@ struct R: Rswift.Validatable {
     @available(watchOSApplicationExtension 4.0, *)
     static func point(_: Void = ()) -> UIKit.UIColor? {
       return UIKit.UIColor(named: R.color.point.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "selected", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func selected(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.selected.name)
     }
     #endif
 

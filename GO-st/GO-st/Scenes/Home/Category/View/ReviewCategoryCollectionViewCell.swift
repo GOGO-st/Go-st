@@ -68,4 +68,12 @@ class ReviewCategoryCollectionViewCell: UICollectionViewCell {
         self.emojiLabel.text = data.emoji
         self.categoryLabel.text = data.category
     }
+    
+    func selected() {
+        background.backgroundColor = R.color.selected()
+    }
+    
+    func deselected() {
+        background.backgroundColor = R.color.background()
+    }
 }
