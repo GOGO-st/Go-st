@@ -121,6 +121,18 @@ class ReportView: UIView {
         containerView.addSubview(emojiLabel)
         containerView.addSubview(emojiTextField)
         addSubview(finishedButton)
+        
+//        addSubview(location)
+//        addSubview(placeName)
+//        addSubview(categoryLabel)
+//        addSubview(categoryButton)
+//        addSubview(categoryCollectionView)
+//        addSubview(title)
+//        addSubview(descriptionLabel)
+//        addSubview(descriptionTextView)
+//        addSubview(emojiLabel)
+//        addSubview(emojiTextField)
+//        addSubview(finishedButton)
     }
     
     private func setAutoLayout() {
@@ -189,6 +201,7 @@ class ReportView: UIView {
         emojiTextField.snp.makeConstraints {
             $0.top.equalTo(emojiLabel.snp.bottom).offset(12)
             $0.left.equalTo(self).offset(24)
+            $0.bottom.equalTo(containerView.snp.bottom).offset(-136)
             $0.width.height.equalTo(64)
         }
 //        finishedButton.frame = CommonValue.shared.getButtonFrame()

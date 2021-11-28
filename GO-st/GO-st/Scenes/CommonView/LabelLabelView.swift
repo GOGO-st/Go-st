@@ -74,6 +74,7 @@ final class LabelLabelView: UIView {
         }
         
         backgroundView.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(12)
             $0.left.right.bottom.equalTo(self)
             $0.height.equalTo(44)
         }
