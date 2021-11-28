@@ -13,6 +13,9 @@ final class SignUpFinishedViewController: UIViewController {
     
     static let identifier = "SignUpFinishedViewController"
     
+    private let imageView = UIImageView().then {
+        $0.image = R.image.logo.startImage()
+    }
     private let finishedLabel = UILabel().then {
         $0.text = "환영합니다!"
         $0.textColor = .white
@@ -45,6 +48,7 @@ final class SignUpFinishedViewController: UIViewController {
     }
     
     private func addContentView() {
+        view.addSubview(imageView)
         view.addSubview(finishedLabel)
         view.addSubview(descriptionLabel)
         view.addSubview(nextButton)
@@ -54,8 +58,13 @@ final class SignUpFinishedViewController: UIViewController {
         
         let safeArea = view.safeAreaLayoutGuide
         
+        imageView.snp.makeConstraints {
+            $0.top.equalTo(safeArea).offset(165)
+            $0.centerX.equalTo(safeArea)
+        }
         finishedLabel.snp.makeConstraints {
-            $0.center.equalTo(safeArea)
+            $0.top.equalTo(imageView.snp.bottom).offset(24)
+            $0.centerX.equalTo(safeArea)
         }
         
         descriptionLabel.snp.makeConstraints {

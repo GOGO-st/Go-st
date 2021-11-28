@@ -127,7 +127,7 @@ class ReportView: UIView {
         containerView.snp.makeConstraints {
             $0.edges.equalTo(scrollView.contentLayoutGuide)
             $0.width.equalTo(scrollView.frameLayoutGuide)
-            $0.height.equalTo(900)
+            $0.height.equalTo(950)
         }
         location.snp.makeConstraints {
             $0.top.equalTo(containerView).offset(30)
@@ -183,7 +183,7 @@ class ReportView: UIView {
         emojiTextField.snp.makeConstraints {
             $0.top.equalTo(emojiLabel.snp.bottom).offset(12)
             $0.left.equalTo(self).offset(24)
-            $0.bottom.equalTo(containerView.snp.bottom).offset(-136)
+            $0.bottom.equalTo(containerView.snp.bottom).offset(-186)
             $0.width.height.equalTo(64)
         }
     }
