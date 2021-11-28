@@ -46,5 +46,7 @@ class ContentsCollectionViewCell: UICollectionViewCell {
     
     func setCell(_ type: ListType) {
         list.setType(type)
+        list.setLabel(type: type)
+        list.setCount(12)
     }
 }

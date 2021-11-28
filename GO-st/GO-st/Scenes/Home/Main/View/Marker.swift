@@ -51,14 +51,14 @@ class Marker: NSObject, MKAnnotation {
     
     var ghostImage: UIImage {
         guard let name = discipline else {
-            return R.image.map.marker.defaultGhost()!
+            return R.image.map.marker.imgGostMark()!
         }
         
         switch name {
         case "food":
-            return R.image.map.marker.defaultGhost()!
+            return R.image.map.marker.imgGostMark()!
         default:
-            return R.image.map.marker.defaultGhost()!
+            return R.image.map.marker.imgGostMark()!
         }
     }
 }

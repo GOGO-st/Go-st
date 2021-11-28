@@ -17,6 +17,7 @@ final class ReportStartViewController: UIViewController, UITextFieldDelegate {
     private let titleView = NavigationTitleView().then {
         $0.setTitle("흔적 남기기")
         $0.leftButton.isHidden.toggle()
+        $0.backgroundColor = R.color.darkGrey()
     }
     private let goToMapView = ToTheMapView()
     

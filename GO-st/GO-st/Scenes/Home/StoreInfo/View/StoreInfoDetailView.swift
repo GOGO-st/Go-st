@@ -19,6 +19,11 @@ class StoreInfoDetailView: UIView {
     
     let mapView = MKMapView()
     
+    let backButton = UIButton().then {
+        $0.setImage(R.image.icon.icBack(), for: .normal)
+    }
+    let infoCard = StoreInfoReviewCardView()
+    
     let listView = UIView().then {
         $0.backgroundColor = R.color.background()
     }
@@ -31,6 +36,8 @@ class StoreInfoDetailView: UIView {
         self.addContentView()
         self.setAutoLayout()
         self.setMap()
+        reviewListView.emojiCountView.isHidden = false
+        
     }
     
     required init?(coder: NSCoder) {
@@ -45,6 +52,9 @@ class StoreInfoDetailView: UIView {
         addSubview(mapView)
         addSubview(listView)
         listView.addSubview(reviewListView)
+        
+        addSubview(infoCard)
+        addSubview(backButton)
     }
     
     private func setAutoLayout() {
@@ -61,16 +71,28 @@ class StoreInfoDetailView: UIView {
         
         mapView.snp.makeConstraints {
             $0.top.left.right.equalTo(self)
-            $0.height.equalTo(CommonValue.shared.HEIGHT * 0.5) //0.51
+            $0.height.equalTo(CommonValue.shared.HEIGHT * 0.3) //0.51
+        }
+        backButton.snp.makeConstraints {
+            $0.top.equalTo(self).offset(54)
+            $0.left.equalTo(self).offset(24)
+            $0.width.height.equalTo(32)
         }
         
+        infoCard.snp.makeConstraints {
+            $0.centerY.equalTo(mapView.snp.bottom)
+            $0.left.equalTo(self).offset(14)
+            $0.right.equalTo(self).offset(-15)
+            $0.height.equalTo(135)
+        }
         listView.snp.makeConstraints {
             $0.top.equalTo(mapView.snp.bottom)
             $0.left.right.bottom.equalTo(self)
         }
         
         reviewListView.snp.makeConstraints {
-            $0.top.left.right.bottom.equalTo(listView)
+            $0.top.equalTo(listView).offset(50)
+            $0.left.right.bottom.equalTo(listView)
         }
     }
     

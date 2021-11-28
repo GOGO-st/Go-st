@@ -23,9 +23,9 @@ class EmojiView: UIView {
     init() {
         super.init(frame: .zero)
         
-        self.backgroundColor = R.color.background()
+        self.backgroundColor = R.color.darkGrey()
         self.layer.borderWidth = 1
-        self.layer.borderColor = R.color.darkGrey()?.cgColor
+        self.layer.borderColor = R.color.background()?.cgColor
         self.layer.cornerRadius = HEIGHT / 2
         
         self.addSubview(emojiLabel)

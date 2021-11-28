@@ -104,12 +104,19 @@ class ReviewTableViewCell: UITableViewCell {
         self.selectionStyle = .none
         self.backgroundColor = .clear
     }
-    func bind() {
+    func bind(type: ListType) {
         // 나중에 struct 받아서 bind
+        if type == ListType.report {
+            self.storeLabel.text = "희미한고구마 님의 제보"
+            self.dateLabel.text = "2021.11.13"
+            self.titleLabel.text = "\" 벚꽃 피면 여기가 사진 맛집~~ \""
+            self.descriptionLabel.text = "다들 학잠입고 사진 엄청 찍고 과별로 모여서 단체 사진도 많이 찍었던 걸로 기억해요! 새내기때 본관 나오게 사진 찍고 프사 바꿔본적 한번쯤은 있을듯 진심"
+        } else {
+            self.storeLabel.text = "제나 키친"
+            self.dateLabel.text = "2021.11.11"
+            self.titleLabel.text = "\" 갑각류 알러지가 있지만 게장은 포기못해 미친듯이 맛있다!! 알러지는 먹어서 이겨내는것..! \""
+            self.descriptionLabel.text = "여기 진짜 게장정식 끝내줍니다. 전 알러지가 있지만 먹어서 극복하려고 합니다. 여기는 그럴 가치가 있습니다. 최고!!"
+        }
         
-        self.storeLabel.text = "희미한고구마 님의 제보"
-        self.dateLabel.text = "2021.11.13"
-        self.titleLabel.text = "\" 벚꽃 피면 여기가 사진 맛집~~ \""
-        self.descriptionLabel.text = "다들 학잠입고 사진 엄청 찍고 과별로 모여서 단체 사진도 많이 찍었던 걸로 기억해요! 새내기때 본관 나오게 사진 찍고 프사 바꿔본적 한번쯤은 있을듯 진심"
     }
 }

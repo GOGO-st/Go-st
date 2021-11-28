@@ -9,6 +9,11 @@ import UIKit
 import Then
 import SnapKit
 
+public enum ReportType {
+    case report
+    case mapReport
+    case reviewReport
+}
 class ReportView: UIView {
     
     let scrollView = UIScrollView().then {
@@ -21,10 +26,14 @@ class ReportView: UIView {
     let location = LabelLabelView().then {
         $0.titleLabel.text = "장소 위치"
         $0.contentLabel.textColor = .white
+        $0.setBackgroundColor()
     }
     
     // 장소 이름
-    
+    let placeName = LabelTextFieldView().then {
+        $0.titleLabel.text = "장소 이름"
+        $0.contentTextField.backgroundColor = R.color.background()
+    }
     // 카테고리
     let categoryLabel = UILabel().then {
         $0.text = "카테고리"
@@ -36,13 +45,22 @@ class ReportView: UIView {
         $0.setImage(R.image.report.btnReviewPlus(), for: .normal)
     }
     
+    let categoryCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        $0.collectionViewLayout = layout
+        $0.showsHorizontalScrollIndicator = false
+        $0.backgroundColor = .clear
+        $0.register(ReportCategoryCollectionViewCell.self, forCellWithReuseIdentifier: ReportCategoryCollectionViewCell.identifier)
+    }
     // 제목
     let title = LabelTextFieldView().then {
         $0.titleLabel.text = "제목"
         $0.contentTextField.keyboardType = .default
-//        $0.contentTextField.placeholder = "제목 작성"
+        $0.contentTextField.backgroundColor = R.color.background()
     }
     
+    // 설명
     let descriptionLabel = UILabel().then {
         $0.text = "설명"
         $0.font = R.font.notoSansKRBold(size: 16)
@@ -51,7 +69,8 @@ class ReportView: UIView {
     
     let descriptionTextView = UITextView().then {
         $0.layer.cornerRadius = 8
-        $0.backgroundColor = R.color.semiBlack()
+        $0.backgroundColor = R.color.background()
+        $0.textContainerInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
     }
     
     let emojiLabel = UILabel().then {
@@ -62,32 +81,40 @@ class ReportView: UIView {
     
     let emojiTextField = CustomTextField().then {
         $0.layer.cornerRadius = 32
-        $0.backgroundColor = R.color.semiBlack()
+        $0.backgroundColor = R.color.background()
     }
     
     let finishedButton = FinishedButton(title: "작성 완료", type: .report)
     
     
-//    private let WIDTH: CGFloat = UIScreen.main.bounds.width
-//    private let HEIGHT: CGFloat = UIScreen.main.bounds.height
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = R.color.background()
+        self.backgroundColor = R.color.darkGrey()
         self.addContentView()
         self.setAutoLayout()
+        
+//        self.placeName.contentTextField.delegate = self
+//        self.title.contentTextField.delegate = self
+//        self.emojiTextField.delegate = self
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        super.touchesBegan(touches, with: event)
+        self.endEditing(true)
+    }
     private func addContentView() {
         addSubview(scrollView)
         scrollView.addSubview(containerView)
         containerView.addSubview(location)
+        containerView.addSubview(placeName)
         containerView.addSubview(categoryLabel)
         containerView.addSubview(categoryButton)
+        containerView.addSubview(categoryCollectionView)
         containerView.addSubview(title)
         containerView.addSubview(descriptionLabel)
         containerView.addSubview(descriptionTextView)
@@ -115,9 +142,13 @@ class ReportView: UIView {
             $0.left.equalTo(self).offset(24)
             $0.right.equalTo(self).offset(-24)
         }
-        
+        placeName.snp.makeConstraints {
+            $0.top.equalTo(location.snp.bottom).offset(24)
+            $0.left.equalTo(self).offset(24)
+            $0.right.equalTo(self).offset(-24)
+        }
         categoryLabel.snp.makeConstraints {
-            $0.top.equalTo(location.snp.bottom).offset(128)
+            $0.top.equalTo(placeName.snp.bottom).offset(24)
             $0.left.equalTo(self).offset(24)
         }
         
@@ -125,6 +156,12 @@ class ReportView: UIView {
             $0.top.equalTo(categoryLabel.snp.bottom).offset(12)
             $0.left.equalTo(self).offset(25)
             $0.width.height.equalTo(72)
+        }
+        
+        categoryCollectionView.snp.makeConstraints {
+            $0.top.equalTo(categoryButton)
+            $0.left.equalTo(categoryButton.snp.right).offset(15)
+            $0.right.equalTo(self).offset(-24)
         }
         title.snp.makeConstraints {
             $0.top.equalTo(categoryButton.snp.bottom).offset(24)
@@ -150,7 +187,7 @@ class ReportView: UIView {
         }
         
         emojiTextField.snp.makeConstraints {
-            $0.top.equalTo(descriptionLabel.snp.bottom).offset(12)
+            $0.top.equalTo(emojiLabel.snp.bottom).offset(12)
             $0.left.equalTo(self).offset(24)
             $0.width.height.equalTo(64)
         }
@@ -162,4 +199,19 @@ class ReportView: UIView {
 //            $0.height.equalTo(finishedButton.snp.width).multipliedBy(52/310)
 //        }
     }
+    func setAddress(_ address: String) {
+        location.contentLabel.text = address
+    }
+    
+    func setType(type: ReportType) {
+        switch type {
+        case .report:
+            self.placeName.contentTextField.isEnabled = false
+        case .mapReport:
+            self.placeName.contentTextField.isEnabled = true
+        case .reviewReport:
+            self.placeName.contentTextField.isEnabled = false
+        }
+    }
+    
 }

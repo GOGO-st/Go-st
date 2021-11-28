@@ -106,7 +106,7 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 8 colors.
+  /// This `R.color` struct is generated, and contains static references to 9 colors.
   struct color {
     /// Color `AccentColor`.
     static let accentColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "AccentColor")
@@ -122,6 +122,8 @@ struct R: Rswift.Validatable {
     static let placeholder = Rswift.ColorResource(bundle: R.hostingBundle, name: "placeholder")
     /// Color `point`.
     static let point = Rswift.ColorResource(bundle: R.hostingBundle, name: "point")
+    /// Color `selected`.
+    static let selected = Rswift.ColorResource(bundle: R.hostingBundle, name: "selected")
     /// Color `semiBlack`.
     static let semiBlack = Rswift.ColorResource(bundle: R.hostingBundle, name: "semiBlack")
 
@@ -189,6 +191,15 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "selected", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func selected(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.selected, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIColor(named: "semiBlack", bundle: ..., traitCollection: ...)`
     @available(tvOS 11.0, *)
     @available(iOS 11.0, *)
@@ -250,6 +261,14 @@ struct R: Rswift.Validatable {
     @available(watchOSApplicationExtension 4.0, *)
     static func point(_: Void = ()) -> UIKit.UIColor? {
       return UIKit.UIColor(named: R.color.point.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "selected", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func selected(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.selected.name)
     }
     #endif
 
@@ -329,12 +348,21 @@ struct R: Rswift.Validatable {
 
   /// This `R.image` struct is generated, and contains static references to 0 images.
   struct image {
-    /// This `R.image.home` struct is generated, and contains static references to 2 images.
+    /// This `R.image.home` struct is generated, and contains static references to 3 images.
     struct home {
+      /// Image `btnReview`.
+      static let btnReview = Rswift.ImageResource(bundle: R.hostingBundle, name: "home/btnReview")
       /// Image `retrieveBackground`.
       static let retrieveBackground = Rswift.ImageResource(bundle: R.hostingBundle, name: "home/retrieveBackground")
       /// Image `retrieveButtonImage`.
       static let retrieveButtonImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "home/retrieveButtonImage")
+
+      #if os(iOS) || os(tvOS)
+      /// `UIImage(named: "btnReview", bundle: ..., traitCollection: ...)`
+      static func btnReview(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.home.btnReview, compatibleWith: traitCollection)
+      }
+      #endif
 
       #if os(iOS) || os(tvOS)
       /// `UIImage(named: "retrieveBackground", bundle: ..., traitCollection: ...)`
@@ -353,18 +381,28 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.image.icon` struct is generated, and contains static references to 8 images.
+    /// This `R.image.icon` struct is generated, and contains static references to 13 images.
     struct icon {
       /// Image `icBack`.
       static let icBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icBack")
       /// Image `icGost`.
       static let icGost = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icGost")
+      /// Image `icHeart`.
+      static let icHeart = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icHeart")
+      /// Image `icMoreF`.
+      static let icMoreF = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icMoreF")
+      /// Image `icMore`.
+      static let icMore = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icMore")
       /// Image `icNonGost`.
       static let icNonGost = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icNonGost")
+      /// Image `icNonHeart`.
+      static let icNonHeart = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icNonHeart")
       /// Image `icNonProfile`.
       static let icNonProfile = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icNonProfile")
       /// Image `icNonSearch`.
       static let icNonSearch = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icNonSearch")
+      /// Image `icPlus`.
+      static let icPlus = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icPlus")
       /// Image `icProfile`.
       static let icProfile = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon/icProfile")
       /// Image `icSearch`.
@@ -387,9 +425,37 @@ struct R: Rswift.Validatable {
       #endif
 
       #if os(iOS) || os(tvOS)
+      /// `UIImage(named: "icHeart", bundle: ..., traitCollection: ...)`
+      static func icHeart(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.icon.icHeart, compatibleWith: traitCollection)
+      }
+      #endif
+
+      #if os(iOS) || os(tvOS)
+      /// `UIImage(named: "icMore", bundle: ..., traitCollection: ...)`
+      static func icMore(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.icon.icMore, compatibleWith: traitCollection)
+      }
+      #endif
+
+      #if os(iOS) || os(tvOS)
+      /// `UIImage(named: "icMoreF", bundle: ..., traitCollection: ...)`
+      static func icMoreF(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.icon.icMoreF, compatibleWith: traitCollection)
+      }
+      #endif
+
+      #if os(iOS) || os(tvOS)
       /// `UIImage(named: "icNonGost", bundle: ..., traitCollection: ...)`
       static func icNonGost(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
         return UIKit.UIImage(resource: R.image.icon.icNonGost, compatibleWith: traitCollection)
+      }
+      #endif
+
+      #if os(iOS) || os(tvOS)
+      /// `UIImage(named: "icNonHeart", bundle: ..., traitCollection: ...)`
+      static func icNonHeart(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.icon.icNonHeart, compatibleWith: traitCollection)
       }
       #endif
 
@@ -404,6 +470,13 @@ struct R: Rswift.Validatable {
       /// `UIImage(named: "icNonSearch", bundle: ..., traitCollection: ...)`
       static func icNonSearch(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
         return UIKit.UIImage(resource: R.image.icon.icNonSearch, compatibleWith: traitCollection)
+      }
+      #endif
+
+      #if os(iOS) || os(tvOS)
+      /// `UIImage(named: "icPlus", bundle: ..., traitCollection: ...)`
+      static func icPlus(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.icon.icPlus, compatibleWith: traitCollection)
       }
       #endif
 
@@ -467,24 +540,42 @@ struct R: Rswift.Validatable {
       }
       #endif
 
-      /// This `R.image.map.marker` struct is generated, and contains static references to 2 images.
+      /// This `R.image.map.marker` struct is generated, and contains static references to 4 images.
       struct marker {
-        /// Image `defaultGhost`.
-        static let defaultGhost = Rswift.ImageResource(bundle: R.hostingBundle, name: "map/marker/defaultGhost")
         /// Image `empty`.
         static let empty = Rswift.ImageResource(bundle: R.hostingBundle, name: "map/marker/empty")
-
-        #if os(iOS) || os(tvOS)
-        /// `UIImage(named: "defaultGhost", bundle: ..., traitCollection: ...)`
-        static func defaultGhost(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-          return UIKit.UIImage(resource: R.image.map.marker.defaultGhost, compatibleWith: traitCollection)
-        }
-        #endif
+        /// Image `imgGostMark`.
+        static let imgGostMark = Rswift.ImageResource(bundle: R.hostingBundle, name: "map/marker/imgGostMark")
+        /// Image `imgSelecGostMark`.
+        static let imgSelecGostMark = Rswift.ImageResource(bundle: R.hostingBundle, name: "map/marker/imgSelecGostMark")
+        /// Image `imgSpotGostMark`.
+        static let imgSpotGostMark = Rswift.ImageResource(bundle: R.hostingBundle, name: "map/marker/imgSpotGostMark")
 
         #if os(iOS) || os(tvOS)
         /// `UIImage(named: "empty", bundle: ..., traitCollection: ...)`
         static func empty(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
           return UIKit.UIImage(resource: R.image.map.marker.empty, compatibleWith: traitCollection)
+        }
+        #endif
+
+        #if os(iOS) || os(tvOS)
+        /// `UIImage(named: "imgGostMark", bundle: ..., traitCollection: ...)`
+        static func imgGostMark(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+          return UIKit.UIImage(resource: R.image.map.marker.imgGostMark, compatibleWith: traitCollection)
+        }
+        #endif
+
+        #if os(iOS) || os(tvOS)
+        /// `UIImage(named: "imgSelecGostMark", bundle: ..., traitCollection: ...)`
+        static func imgSelecGostMark(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+          return UIKit.UIImage(resource: R.image.map.marker.imgSelecGostMark, compatibleWith: traitCollection)
+        }
+        #endif
+
+        #if os(iOS) || os(tvOS)
+        /// `UIImage(named: "imgSpotGostMark", bundle: ..., traitCollection: ...)`
+        static func imgSpotGostMark(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+          return UIKit.UIImage(resource: R.image.map.marker.imgSpotGostMark, compatibleWith: traitCollection)
         }
         #endif
 

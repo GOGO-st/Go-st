@@ -18,15 +18,16 @@ class EmojiCountView: UIView {
     
     // 새로 뷰를 팔지 고민
     private lazy var countView = UIView().then {
-        $0.backgroundColor = R.color.background()
+        $0.backgroundColor = R.color.darkGrey()
         $0.layer.borderWidth = 1
-        $0.layer.borderColor = R.color.darkGrey()?.cgColor
+        $0.layer.borderColor = R.color.background()?.cgColor
         $0.layer.cornerRadius = HEIGHT / 2
     }
     
     private let countLabel = UILabel().then {
         $0.font = R.font.notoSansKRBold(size: 12)
         $0.textColor = R.color.point()
+        $0.text = "+32"
     }
     
     private let WIDTH: CGFloat = 118

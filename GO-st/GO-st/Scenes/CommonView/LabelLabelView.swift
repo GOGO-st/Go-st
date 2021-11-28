@@ -104,6 +104,10 @@ final class LabelLabelView: UIView {
 //    func setText(_ text: String) {
 //        self.contentLabel.text = text
 //    }
+    
+    func setBackgroundColor() {
+        self.backgroundView.backgroundColor = R.color.background()
+    }
 }
 
 

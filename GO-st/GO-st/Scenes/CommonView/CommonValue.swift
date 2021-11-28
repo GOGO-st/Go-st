@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 public enum CustomButtonType {
     case login
@@ -20,6 +21,8 @@ class CommonValue {
     let HEIGHT: CGFloat = UIScreen.main.bounds.height
     
     let naviTitleHeight: CGFloat = 51
+    
+    var schoolCenter = CLLocationCoordinate2D(latitude: 37.6068417784903, longitude: 127.04239392651976)
     
     // 확인버튼
     var buttonOriginY: CGFloat = 0
@@ -50,5 +53,10 @@ class CommonValue {
     
     func setTabBarHeight(height: CGFloat) {
         self.tabBarHeight = height
+    }
+    
+    // 서버 연결하면
+    func setSchoolLocation(_ location: CLLocationCoordinate2D) {
+        self.schoolCenter = location
     }
 }

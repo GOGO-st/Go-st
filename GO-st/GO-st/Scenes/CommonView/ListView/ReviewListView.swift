@@ -14,11 +14,6 @@ class ReviewListView: ListView {
 
     var listType = ListType.myReport
     
-//    public enum ListType: String {
-//        case myReport = "흔적을 남기셨어요!"
-//        case myHeart = "장소를 찜했어요!"
-//        case report = "흔적이 있습니다"
-//    }
     override init() {
         super.init()
        
@@ -44,11 +39,13 @@ class ReviewListView: ListView {
         self.listType = type
         
         switch listType {
-        case .myReport, .report:
-            super.tableView.register(ReviewTableViewCell.self, forCellReuseIdentifier: ReviewTableViewCell.identifier)
-        case .myHeart:
-            super.tableView.register(HeartTableViewCell.self, forCellReuseIdentifier: HeartTableViewCell.identifier)
+            case .myReport, .report:
+                super.tableView.register(ReviewTableViewCell.self, forCellReuseIdentifier: ReviewTableViewCell.identifier)
+            case .myHeart:
+                super.tableView.register(HeartTableViewCell.self, forCellReuseIdentifier: HeartTableViewCell.identifier)
         }
+        
+        setLabel(type: type)
     }
     
 }
@@ -68,7 +65,7 @@ extension ReviewListView: UITableViewDataSource {
                 return UITableViewCell()
             }
             
-            cell.bind()
+            cell.bind(type: self.listType)
             return cell
         case .myHeart:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: HeartTableViewCell.identifier, for: indexPath) as? HeartTableViewCell else {

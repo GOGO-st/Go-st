@@ -52,4 +52,8 @@ class FinishedButton: UIButton {
     func buttonDown() {
         self.frame.origin.y = CommonValue.shared.buttonOriginY
     }
+    
+    func changeTitle(to title: String) {
+        self.setTitle(title, for: .normal)
+    }
 }
