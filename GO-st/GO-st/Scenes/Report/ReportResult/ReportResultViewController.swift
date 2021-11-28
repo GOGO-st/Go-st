@@ -39,12 +39,14 @@ final class ReportResultViewController: UIViewController {
         reportView.title.contentTextField.delegate = self
         reportView.emojiTextField.delegate = self
         
-        reportView.categoryCollectionView.dataSource = self
-        reportView.categoryCollectionView.delegate = self
+        reportView.collectionView.dataSource = self
+        reportView.collectionView.delegate = self
         
         reportView.title.contentTextField.addTarget(self, action: #selector(activate), for: .editingChanged)
         reportView.title.contentTextField.addTarget(self, action: #selector(deactivate), for: .editingDidEnd)
         reportView.categoryButton.addTarget(self, action: #selector(categoryButtonDidTap), for: .touchUpInside)
+        reportView.emojiTextField.addTarget(self, action: #selector(finishedButtonActivate), for: .editingDidEnd)
+        reportView.finishedButton.addTarget(self, action: #selector(finishedButtonDidTap), for: .touchUpInside)
         
     }
     private func addContentView() {
@@ -91,12 +93,28 @@ final class ReportResultViewController: UIViewController {
         nextVC.delegate = self
         self.present(nextVC, animated: true, completion: nil)
     }
+    
+    @objc
+    private func finishedButtonActivate(_ sender: UITextField) {
+        if sender.text?.count ?? 0 == 1 {
+            reportView.finishedButton.activate()
+        } else {
+            reportView.finishedButton.deactivate()
+        }
+    }
+    
+    @objc
+    private func finishedButtonDidTap() {
+        let nextVC = ReportFinishViewController()
+        nextVC.bind(reportView.emojiTextField.text ?? "🎉")
+        self.navigationController?.pushViewController(nextVC, animated: false)
+    }
 }
 extension ReportResultViewController: SendCategoryList {
     func sendCategoryList(_ category: [Int]) {
         print("카테고리 받아왔다 \(category)")
         self.selectedCategory = category
-        reportView.categoryCollectionView.reloadData()
+        reportView.collectionView.reloadData()
     }
 }
 extension ReportResultViewController: UITextFieldDelegate {
