@@ -50,7 +50,7 @@ class ReportView: UIView {
         layout.scrollDirection = .horizontal
         $0.collectionViewLayout = layout
         $0.showsHorizontalScrollIndicator = false
-        $0.backgroundColor = .white//.clear
+        $0.backgroundColor = .clear
         $0.register(ReportCategoryCollectionViewCell.self, forCellWithReuseIdentifier: ReportCategoryCollectionViewCell.identifier)
     }
     // 제목
@@ -83,7 +83,6 @@ class ReportView: UIView {
         $0.layer.cornerRadius = 32
         $0.backgroundColor = R.color.background()
         $0.font = R.font.notoSansKRBold(size: 32)
-//        $0.textAlignment = .center
     }
     
     let finishedButton = FinishedButton(title: "작성 완료", type: .report)
@@ -95,10 +94,6 @@ class ReportView: UIView {
         self.backgroundColor = R.color.darkGrey()
         self.addContentView()
         self.setAutoLayout()
-        
-//        self.placeName.contentTextField.delegate = self
-//        self.title.contentTextField.delegate = self
-//        self.emojiTextField.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -123,33 +118,16 @@ class ReportView: UIView {
         containerView.addSubview(emojiLabel)
         containerView.addSubview(emojiTextField)
         addSubview(finishedButton)
-        
-//        addSubview(location)
-//        addSubview(placeName)
-//        addSubview(categoryLabel)
-//        addSubview(categoryButton)
-//        addSubview(categoryCollectionView)
-//        addSubview(title)
-//        addSubview(descriptionLabel)
-//        addSubview(descriptionTextView)
-//        addSubview(emojiLabel)
-//        addSubview(emojiTextField)
-//        addSubview(finishedButton)
     }
     
     private func setAutoLayout() {
-//        self.snp.makeConstraints {
-//            $0.width.equalTo(CommonValue.shared.WIDTH)
-//            $0.height.equalTo(CommonValue.shared.HEIGHT)
-//        }
-        
         scrollView.snp.makeConstraints {
             $0.edges.equalTo(self)
         }
         containerView.snp.makeConstraints {
             $0.edges.equalTo(scrollView.contentLayoutGuide)
             $0.width.equalTo(scrollView.frameLayoutGuide)
-            $0.height.equalTo(900)
+            $0.height.equalTo(950)
         }
         location.snp.makeConstraints {
             $0.top.equalTo(containerView).offset(30)
@@ -176,7 +154,9 @@ class ReportView: UIView {
             $0.top.equalTo(categoryButton)
             $0.left.equalTo(categoryButton.snp.right).offset(15)
             $0.right.equalTo(self).offset(-24)
+            $0.height.equalTo(72)
         }
+        
         title.snp.makeConstraints {
             $0.top.equalTo(categoryButton.snp.bottom).offset(24)
             $0.left.equalTo(self).offset(24)
@@ -203,16 +183,9 @@ class ReportView: UIView {
         emojiTextField.snp.makeConstraints {
             $0.top.equalTo(emojiLabel.snp.bottom).offset(12)
             $0.left.equalTo(self).offset(24)
-            $0.bottom.equalTo(containerView.snp.bottom).offset(-136)
+            $0.bottom.equalTo(containerView.snp.bottom).offset(-186)
             $0.width.height.equalTo(64)
         }
-//        finishedButton.frame = CommonValue.shared.getButtonFrame()
-//        finishedButton.snp.makeConstraints {
-//            $0.left.equalTo(self).offset(32)
-//            $0.right.equalTo(self).offset(-33)
-//            $0.bottom.equalTo(self).offset(-100)
-//            $0.height.equalTo(finishedButton.snp.width).multipliedBy(52/310)
-//        }
     }
     func setAddress(_ address: String) {
         location.contentLabel.text = address
