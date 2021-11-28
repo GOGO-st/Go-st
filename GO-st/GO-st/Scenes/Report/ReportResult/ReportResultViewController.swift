@@ -19,8 +19,7 @@ final class ReportResultViewController: UIViewController {
         $0.backgroundColor = R.color.darkGrey()
     }
     
-//    private let reportView = ReportResultView()
-    let reportView = ReportView().then {
+    private let reportView = ReportView().then {
         $0.setType(type: .mapReport)
     }
     
@@ -144,14 +143,12 @@ extension ReportResultViewController: UITextFieldDelegate {
 extension ReportResultViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("여기도 안들어오니 \(selectedCategory.count)")
         return selectedCategory.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReportCategoryCollectionViewCell.identifier, for: indexPath) as? ReportCategoryCollectionViewCell else {
             return UICollectionViewCell()
         }
-        print("여기도 좀 들어와봐라")
         cell.bind(data: categoryViewModel.categoryList[selectedCategory[indexPath.row]])
         return cell
     }
@@ -159,9 +156,6 @@ extension ReportResultViewController: UICollectionViewDataSource {
 }
 extension ReportResultViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let width: CGFloat = (collectionView.frame.width - 15 * 2) / 3
-//        let height: CGFloat = (collectionView.frame.height - 24 * 4) / 5
-        print("여기는?")
         return CGSize(width: 72, height: 72)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
