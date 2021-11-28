@@ -45,12 +45,12 @@ class ReportView: UIView {
         $0.setImage(R.image.report.btnReviewPlus(), for: .normal)
     }
     
-    let categoryCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         $0.collectionViewLayout = layout
         $0.showsHorizontalScrollIndicator = false
-        $0.backgroundColor = .clear
+        $0.backgroundColor = .white//.clear
         $0.register(ReportCategoryCollectionViewCell.self, forCellWithReuseIdentifier: ReportCategoryCollectionViewCell.identifier)
     }
     // 제목
@@ -74,7 +74,7 @@ class ReportView: UIView {
     }
     
     let emojiLabel = UILabel().then {
-        $0.text = "설명"
+        $0.text = "대표 이모지"
         $0.font = R.font.notoSansKRBold(size: 16)
         $0.textColor = .white
     }
@@ -82,6 +82,8 @@ class ReportView: UIView {
     let emojiTextField = CustomTextField().then {
         $0.layer.cornerRadius = 32
         $0.backgroundColor = R.color.background()
+        $0.font = R.font.notoSansKRBold(size: 32)
+//        $0.textAlignment = .center
     }
     
     let finishedButton = FinishedButton(title: "작성 완료", type: .report)
@@ -114,13 +116,25 @@ class ReportView: UIView {
         containerView.addSubview(placeName)
         containerView.addSubview(categoryLabel)
         containerView.addSubview(categoryButton)
-        containerView.addSubview(categoryCollectionView)
+        containerView.addSubview(collectionView)
         containerView.addSubview(title)
         containerView.addSubview(descriptionLabel)
         containerView.addSubview(descriptionTextView)
         containerView.addSubview(emojiLabel)
         containerView.addSubview(emojiTextField)
         addSubview(finishedButton)
+        
+//        addSubview(location)
+//        addSubview(placeName)
+//        addSubview(categoryLabel)
+//        addSubview(categoryButton)
+//        addSubview(categoryCollectionView)
+//        addSubview(title)
+//        addSubview(descriptionLabel)
+//        addSubview(descriptionTextView)
+//        addSubview(emojiLabel)
+//        addSubview(emojiTextField)
+//        addSubview(finishedButton)
     }
     
     private func setAutoLayout() {
@@ -135,10 +149,10 @@ class ReportView: UIView {
         containerView.snp.makeConstraints {
             $0.edges.equalTo(scrollView.contentLayoutGuide)
             $0.width.equalTo(scrollView.frameLayoutGuide)
-            $0.height.equalTo(1200)
+            $0.height.equalTo(900)
         }
         location.snp.makeConstraints {
-            $0.top.equalTo(self).offset(30)
+            $0.top.equalTo(containerView).offset(30)
             $0.left.equalTo(self).offset(24)
             $0.right.equalTo(self).offset(-24)
         }
@@ -158,7 +172,7 @@ class ReportView: UIView {
             $0.width.height.equalTo(72)
         }
         
-        categoryCollectionView.snp.makeConstraints {
+        collectionView.snp.makeConstraints {
             $0.top.equalTo(categoryButton)
             $0.left.equalTo(categoryButton.snp.right).offset(15)
             $0.right.equalTo(self).offset(-24)
@@ -189,6 +203,7 @@ class ReportView: UIView {
         emojiTextField.snp.makeConstraints {
             $0.top.equalTo(emojiLabel.snp.bottom).offset(12)
             $0.left.equalTo(self).offset(24)
+            $0.bottom.equalTo(containerView.snp.bottom).offset(-136)
             $0.width.height.equalTo(64)
         }
 //        finishedButton.frame = CommonValue.shared.getButtonFrame()

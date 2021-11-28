@@ -74,9 +74,8 @@ final class LabelTextFieldView: UIView {
 //        }
         
         contentTextField.snp.makeConstraints {
-            $0.left.right.equalTo(self)
-            $0.right.equalTo(self)
-            $0.bottom.equalTo(self)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(12)
+            $0.left.right.bottom.equalTo(self)
             $0.height.equalTo(44)
         }
     }
